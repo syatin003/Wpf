@@ -1,0 +1,251 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.Admin.Members.Group.AddMembershipGroupView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   mc:Ignorable="d"
+                   d:DesignHeight="700" d:DesignWidth="500"
+                   ResizeMode="NoResize"
+                   WindowStartupLocation="CenterOwner"             
+                   Style="{StaticResource RadWindowStyle}"
+                   Header="Add Category Group"
+                   Width="600"
+                   Height="600">
+    <telerik:RadBusyIndicator IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Margin" Value="5"></Setter>
+                    </Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="3"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <TextBlock Text="Name" Grid.Column="0" Grid.Row="0"/>
+                <TextBox Text="{Binding MembershipGroup.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                    Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3"/>
+
+                <TextBlock Text="Description" Grid.Column="0" Grid.Row="1" />
+                <TextBox Height="40" Text="{Binding MembershipGroup.MembershipGroup.Description, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"                 
+                     Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"/>
+
+                <TextBlock Text="Member On Bank Holidays" Grid.Column="0" Grid.Row="2" />
+                <CheckBox Margin="5" IsChecked="{Binding MembershipGroup.MembershipGroup.MemberOnBankHolidays, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="1" Grid.Row="2"/>
+
+                <TextBlock Text="Member At Christmas Week" Grid.Column="2" Grid.Row="2" />
+                <CheckBox Margin="5" IsChecked="{Binding MembershipGroup.MembershipGroup.MemberAtChristmasWeek, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="3" Grid.Row="2"/>
+
+                <TextBlock Text="Days Available" Grid.Column="0" Grid.Row="3" VerticalAlignment="Top"/>
+
+                <Grid Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Margin="0 5 5 5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MinWidth="40"/>
+                        <ColumnDefinition MinWidth="40"/>
+                        <ColumnDefinition MinWidth="40"/>
+                        <ColumnDefinition MinWidth="40"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <CheckBox Grid.Row="0" Grid.Column="0" IsChecked="{Binding MembershipGroup.MembershipGroup.IsMonAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Mon"/>
+                    <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding MembershipGroup.MembershipGroup.IsTuesAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Tues"/>
+                    <CheckBox Grid.Row="0" Grid.Column="2" IsChecked="{Binding MembershipGroup.MembershipGroup.IsWedAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Wed"/>
+                    <CheckBox Grid.Row="0" Grid.Column="3" IsChecked="{Binding MembershipGroup.MembershipGroup.IsThursAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                      Content="Thurs"/>
+                    <CheckBox  Grid.Row="1" Grid.Column="0" IsChecked="{Binding MembershipGroup.MembershipGroup.IsFriAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Fri"/>
+                    <CheckBox Grid.Row="1" Grid.Column="1" IsChecked="{Binding MembershipGroup.MembershipGroup.IsSatAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Sat"/>
+                    <CheckBox  Grid.Row="1" Grid.Column="2" IsChecked="{Binding MembershipGroup.MembershipGroup.IsSunAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Sun"/>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0 10 0 10">
+                <telerik:RadTabControl>
+
+                    <telerik:RadTabItem Header="EPOS">
+
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type telerik:RadNumericUpDown}">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="Padding" Value="0"/>
+                                    <Setter Property="MaxHeight" Value="25"/>
+                                </Style>
+                                <Style TargetType="{x:Type TextBox}">
+                                    <Setter Property="Margin" Value="5"></Setter>
+                                </Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </Grid.Resources>
+
+                            <TextBlock Text="Allowed Club Card" Grid.Column="0" Grid.Row="0"/>
+                            <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.AllowedClubCard, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <TextBlock Text="Points Based Membership" Grid.Column="2" Grid.Row="0"/>
+                            <CheckBox Grid.Row="0" Grid.Column="3" IsChecked="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.PointsBasedMembership, UpdateSourceTrigger=PropertyChanged}"/>
+
+                            <TextBlock Text="Display Message" Grid.Row="1" Grid.Column="0"/>
+                            <TextBox Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="3" MaxLength="64" TextWrapping="Wrap" MaxLines="2"
+                                     Text="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.DisplayMessage, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+
+                            <TextBlock Text="Overdraft Limit 1" Grid.Column="0" Grid.Row="2" />
+                            <telerik:RadNumericUpDown Grid.Row="2" Grid.Column="1" IsInteger="True" Minimum="0"
+                                      Value="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.OverdraftLimit1, UpdateSourceTrigger=PropertyChanged}" />
+
+                            <TextBlock Text="Overdraft Limit 2" Grid.Column="2" Grid.Row="2"/>
+                            <telerik:RadNumericUpDown Grid.Row="2" Grid.Column="3" IsInteger="True" Minimum="0"
+                                      Value="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.OverdraftLimit2, UpdateSourceTrigger=PropertyChanged}" />
+
+                            <GroupBox Header="Product Discounts" Margin="0 10 0 0"
+                                          Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+                                <Grid Margin="20 20 0 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.Resources>
+                                        <Style TargetType="{x:Type telerik:RadNumericUpDown}">
+                                            <Setter Property="Margin" Value="5"/>
+                                            <Setter Property="Padding" Value="0"/>
+                                            <Setter Property="MaxHeight" Value="25"/>
+                                        </Style>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Margin" Value="5"/>
+                                        </Style>
+                                    </Grid.Resources>
+                                    <TextBlock Text="Discount Rate All"  Grid.Row="0" Grid.Column="0"/>
+                                    <telerik:RadNumericUpDown Grid.Row="0" Grid.Column="1" Minimum="0" Value="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.DiscountRateAll, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                    <TextBlock Text="Discount Rate 1"  Grid.Row="0" Grid.Column="2"/>
+                                    <telerik:RadNumericUpDown Grid.Row="0" Grid.Column="3" Minimum="0" Value="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.DiscountRate1, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                    <TextBlock Text="Discount Rate 2"  Grid.Row="1" Grid.Column="0"/>
+                                    <telerik:RadNumericUpDown Grid.Row="1" Grid.Column="1" Minimum="0" Value="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.DiscountRate2, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                    <TextBlock Text="Discount Rate 3"  Grid.Row="1" Grid.Column="2"/>
+                                    <telerik:RadNumericUpDown Grid.Row="1" Grid.Column="3" Minimum="0" Value="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.DiscountRate3, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                    <TextBlock Text="Discount Rate 4"  Grid.Row="2" Grid.Column="0"/>
+                                    <telerik:RadNumericUpDown Grid.Row="2" Grid.Column="1" Minimum="0" Value="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.DiscountRate4, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                    <TextBlock Text="Discount Rate 5"  Grid.Row="2" Grid.Column="2"/>
+                                    <telerik:RadNumericUpDown Grid.Row="2" Grid.Column="3" Minimum="0" Value="{Binding MembershipGroup.MembershipGroup.MembershipGroupEPOS.DiscountRate5, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Tokens">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Group Token 1" Margin="0 0 10 0" Grid.Row="0" Grid.Column="0"/>
+                            <TextBox Height="40" Grid.Row="0" Grid.Column="1" Text="{Binding MembershipGroup.MembershipGroup.Token1, UpdateSourceTrigger=PropertyChanged}"
+                                     AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+                            <TextBlock  Text="Group Token 2" Margin="0 0 10 0" Grid.Row="1" Grid.Column="0"/>
+                            <TextBox Height="40" Grid.Row="1" Grid.Column="1" Text="{Binding MembershipGroup.MembershipGroup.Token2, UpdateSourceTrigger=PropertyChanged}"
+                                     AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+                            <TextBlock  Text="Group Token 3" Margin="0 0 10 0" Grid.Row="2" Grid.Column="0"/>
+                            <TextBox Height="40" Grid.Row="2" Grid.Column="1" Text="{Binding MembershipGroup.MembershipGroup.Token3, UpdateSourceTrigger=PropertyChanged}"
+                                     AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+                            <TextBlock Text="Group Token 4" Margin="0 0 10 0" Grid.Row="3" Grid.Column="0"/>
+                            <TextBox Height="40" Grid.Row="3" Grid.Column="1" Text="{Binding MembershipGroup.MembershipGroup.Token4, UpdateSourceTrigger=PropertyChanged}"
+                                     AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+                            <TextBlock Text="Group Token 5" Margin="0 0 10 0" Grid.Row="4" Grid.Column="0"/>
+                            <TextBox Height="40" Grid.Row="4" Grid.Column="1" Text="{Binding MembershipGroup.MembershipGroup.Token5, UpdateSourceTrigger=PropertyChanged}"
+                                     AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                </telerik:RadTabControl>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="2"
+                        Grid.Row="2">
+                <telerik:RadButton Content="Ok"
+                                       Width="40"
+                                       Margin="5" Padding="5"
+                                       Command="{Binding SaveCommand}"
+                                       Click="OkButton_OnClick"/>
+                <telerik:RadButton Content="Cancel"
+                                       IsCancel="True"
+                                       Margin="5" Padding="5"/>
+            </StackPanel>
+        </Grid>
+    </telerik:RadBusyIndicator>
+
+</telerik:RadWindow>

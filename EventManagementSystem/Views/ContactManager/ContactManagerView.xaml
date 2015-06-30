@@ -1,0 +1,150 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.ContactManager.ContactManagerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:converters="clr-namespace:EventManagementSystem.Converters"
+             mc:Ignorable="d" 
+             x:Name="ContactsViewUserControl"
+             d:DesignHeight="300" d:DesignWidth="600">
+    <UserControl.Resources>
+        <converters:WidthToHalfConverter x:Key="WidthToHalfConverter"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <telerik:RadRibbonView Grid.Row="0"
+                               HelpButtonVisibility="Collapsed"
+                               TitleBarVisibility="Collapsed"
+                               UseLayoutRounding="True"
+                               ApplicationButtonVisibility="Collapsed">
+            <telerik:RadRibbonTab Header="Home" HeaderVisibility="Collapsed">
+                <telerik:RadRibbonGroup>
+                    <telerik:RadRibbonButton Command="{Binding AddContactCommand}"
+                                         Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}"   >
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageAddUser32}" Width="32" Height="32" />
+                            <TextBlock Text="Add Contact" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+        </telerik:RadRibbonView>
+
+        <telerik:RadBusyIndicator Grid.Row="1" BusyContent="Loading..." IsBusy="{Binding IsBusy, FallbackValue=True}">
+            <Grid x:Name="LayoutRoot"
+              Visibility="{Binding Path=IsBusy, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=True}">
+                <telerik:RadDocking Background="{StaticResource LightGrayBrush}"
+                                HasDocumentHost="True">
+                    
+                    <telerik:RadDocking.DocumentHost>
+                        <telerik:RadSplitContainer  telerik:ProportionalStackPanel.RelativeSize="200, 200"
+                                                    InitialPosition="DockedRight"
+                                                    
+                        Visibility="{Binding SelectedContact, Converter={StaticResource NullToVisibilityConverter}}">
+                            <telerik:RadPaneGroup>
+
+                                <telerik:RadDocumentPane Header="Contact Details"
+                                                         Visibility="{Binding CanViewContactDetails, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                         CanUserClose="False">
+                                    <telerik:RadDocumentPane.Content>
+                                        <ContentPresenter Content="{Binding ContactDetailsContent}"/>                    
+                                    </telerik:RadDocumentPane.Content>
+                                </telerik:RadDocumentPane>
+
+                                <telerik:RadDocumentPane Header="Correspondence"
+                                                          Visibility="{Binding CanViewCorrespondence, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                     CanUserClose="False">
+                                    <telerik:RadDocumentPane.Content>
+                                        <ContentPresenter Content="{Binding CorrespondenceContent}"/>
+                                    </telerik:RadDocumentPane.Content>
+                                </telerik:RadDocumentPane>
+
+                                <telerik:RadDocumentPane Header="Activity"
+                                                          Visibility="{Binding CanViewActivity, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                     CanUserClose="False">
+                                    <telerik:RadDocumentPane.Content>
+                                        <ContentPresenter Content="{Binding ActivityContent}"/>
+                                    </telerik:RadDocumentPane.Content>
+                                </telerik:RadDocumentPane>
+
+                                <telerik:RadDocumentPane Header="Accounts"
+                                                          Visibility="{Binding CanViewAccounts, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                                     CanUserClose="False">
+                                    <telerik:RadDocumentPane.Content>
+                                        <ContentPresenter Content="{Binding AccountsContent}"/>
+                                    </telerik:RadDocumentPane.Content>
+                                </telerik:RadDocumentPane>
+
+                            </telerik:RadPaneGroup>
+                        </telerik:RadSplitContainer>
+                    </telerik:RadDocking.DocumentHost>
+              
+                    <telerik:RadSplitContainer MinWidth="500"    
+                                               Width="{Binding Path=ActualWidth, ElementName=LayoutGrid, Converter={StaticResource WidthToHalfConverter}}"
+                                           telerik:ProportionalStackPanel.RelativeSize="200, 200"
+                                           telerik:DockingPanel.InitialSize="210,150"
+                                           InitialPosition="DockedLeft">
+                        <telerik:RadPaneGroup>
+                            <telerik:RadPane Header="Contact List"                                         
+                                         CanUserClose="False">
+                                <telerik:RadGridView   
+                                    x:Name="ContactsRadGridView"
+                                 CanUserDeleteRows="False"
+                                 CanUserFreezeColumns="False"
+                                 CanUserInsertRows="False"
+                                 CanUserReorderColumns="False"
+                                 CanUserResizeColumns="True"
+                                 CanUserResizeRows="False"
+                                 CanUserSortColumns="True"                               
+                                 IsReadOnly="True"
+                                 RowIndicatorVisibility="Collapsed"
+                                 ItemsSource="{Binding Contacts}"
+                                 SelectedItem="{Binding SelectedContact}"
+                                 AutoGenerateColumns="False"
+                                 ShowGroupPanel="True"
+                                 ColumnWidth="Auto"
+                                 FrozenColumnCount="2">
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn Header="Last Name"
+                                                DataMemberBinding="{Binding LastName}"
+                                                                    Width="Auto"/>
+
+                                        <telerik:GridViewDataColumn Header="First Name"
+                                                DataMemberBinding="{Binding FirstName}"
+                                                                    Width="Auto"/>
+
+                                        <telerik:GridViewDataColumn Header="Gender"
+                                                DataMemberBinding="{Binding Gender}"
+                                                                    Width="Auto"/>
+                                        
+                                        <telerik:GridViewDataColumn Header="Phone"
+                                                DataMemberBinding="{Binding Contact.Phone1}"
+                                                                    Width="Auto"/>
+
+                                        <telerik:GridViewDataColumn Header="Email"
+                                                DataMemberBinding="{Binding Contact.Email}"
+                                                                    Width="Auto"/>
+
+                                        <telerik:GridViewDataColumn Header="Company"
+                                                DataMemberBinding="{Binding Contact.CompanyName}"
+                                                                    Width="Auto"/>
+
+                                        <telerik:GridViewDataColumn Header="Address 1"
+                                                DataMemberBinding="{Binding Contact.Address1}"
+                                                                    Width="Auto"/>                               
+                                       
+                                    </telerik:RadGridView.Columns>
+                                </telerik:RadGridView>
+                            </telerik:RadPane>
+                        </telerik:RadPaneGroup>
+                    </telerik:RadSplitContainer>
+                </telerik:RadDocking>
+            </Grid>
+        </telerik:RadBusyIndicator>
+    </Grid>
+
+</UserControl>

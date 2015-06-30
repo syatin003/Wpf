@@ -1,0 +1,9 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.Membership.SendEmailPreView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"                  
+        Header="Main Preview" Width="700">
+    <Grid>
+        <WebBrowser HorizontalAlignment="Left" Name="webBrowserEmailPreView" VerticalAlignment="Top" Width="700" />
+    </Grid>
+</telerik:RadWindow>

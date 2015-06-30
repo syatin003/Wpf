@@ -1,0 +1,60 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.Membership.MembershipUpdatesHistoryView"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   Header="Notes History"                   
+                   Style="{StaticResource RadWindowStyle}"
+                   WindowStartupLocation="CenterOwner"
+                   Height="400" Width="500">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <telerik:RadGridView Grid.Row="0"
+                                 GroupRenderMode="Flat"
+                                 CanUserFreezeColumns="False"
+                                 ScrollMode="RealTime"
+                                 GridLinesVisibility="None"
+                                 AutoGenerateColumns="False"
+                                 RowIndicatorVisibility="Collapsed"
+                                 IsReadOnly="True"
+                                 ShowGroupPanel="False"
+                                 SelectionUnit="FullRow"                             
+                                 ItemsSource="{Binding MembershipUpdatesHistory}">
+
+            <telerik:RadGridView.RowStyle>
+                <Style TargetType="telerik:GridViewRow">
+                    <Setter Property="Margin" Value="0,2" />
+                    <Setter Property="FontSize" Value="12" />
+                    <Setter Property="FontFamily" Value="PT-Sans" />
+                </Style>
+            </telerik:RadGridView.RowStyle>
+
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="Date"
+                                                DataFormatString="{}{0:dd/MM/yy HH:mm:ss}"
+                                                DataMemberBinding="{Binding MembershipUpdate.Date}" />
+
+                <telerik:GridViewDataColumn Width="*"
+                                                Header="Message"
+                                                DataMemberBinding="{Binding HistoryMessage}" 
+                                                TextWrapping="Wrap"/>
+
+                <telerik:GridViewDataColumn  Header="User"
+                                                MinWidth="60"
+                                                DataMemberBinding="{Binding MembershipUpdate.User.InternalOrFirstName}" />
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+        <StackPanel Grid.Row="1"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+
+            <telerik:RadButton Content="OK"
+                                   IsDefault="True"
+                                   Width="80"
+                                   Margin="5" 
+                                   Click="OkButtonClick"/>
+        </StackPanel>
+    </Grid>
+</telerik:RadWindow>

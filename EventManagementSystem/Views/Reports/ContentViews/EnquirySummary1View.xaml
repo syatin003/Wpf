@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Reports.ContentViews.EnquirySummary1View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:pivot="http://schemas.telerik.com/2008/xaml/presentation/pivot"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="10,5" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Margin" Value="10,5" />
+        </Style>
+        <Style TargetType="{x:Type telerik:RadRadioButton}">
+            <Setter Property="Margin" Value="10,5" />
+        </Style>
+        <Style TargetType="{x:Type telerik:RadDateTimePicker}">
+            <Setter Property="Margin" Value="10,5" />
+        </Style>
+        <Style x:Key="MyGroupRowStyle"  TargetType="telerik:GroupHeaderRow">
+            <Setter Property="ShowHeaderAggregates" Value="False"/>
+        </Style>
+
+        <pivot:LocalDataSourceProvider x:Key="EnquirySummaryDataProvider" ItemsSource="{Binding Enquiries}">
+            <pivot:LocalDataSourceProvider.RowGroupDescriptions>
+                <pivot:PropertyGroupDescription PropertyName="EventTypeName" />
+            </pivot:LocalDataSourceProvider.RowGroupDescriptions>
+            <pivot:LocalDataSourceProvider.ColumnGroupDescriptions>
+                <pivot:DateTimeGroupDescription PropertyName="CreationDate" Step="Month" />
+               
+                <!--<pivot:DoubleGroupDescription PropertyName=""/>-->
+                <!--<pivot:PropertyGroupDescription PropertyName="EventStatus" ShowGroupsWithNoData="False" />-->
+            </pivot:LocalDataSourceProvider.ColumnGroupDescriptions>
+            <pivot:LocalDataSourceProvider.AggregateDescriptions>
+                <pivot:PropertyAggregateDescription CustomName="Num" PropertyName="EnquiryDetailValue" AggregateFunction="Count" />
+                <pivot:PropertyAggregateDescription CustomName="Estimated" PropertyName="EnquiryDetailValue" StringFormat="C" AggregateFunction="Sum" />
+                <pivot:PropertyAggregateDescription CustomName="Booked" PropertyName="EnquiryBookedValue" StringFormat="C" AggregateFunction="Sum" />
+            </pivot:LocalDataSourceProvider.AggregateDescriptions>
+        </pivot:LocalDataSourceProvider>
+    </UserControl.Resources>
+
+    <telerik:RadBusyIndicator BusyContent="Loading..." IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid Visibility="{Binding Path=IsBusy, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=True}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Start Date" Grid.Column="0" Grid.Row="0" />
+                <TextBlock Text="End Date" Grid.Column="0" Grid.Row="1" />
+
+                <telerik:RadDateTimePicker Grid.Column="1" Grid.Row="0" SelectedValue="{Binding StartDate, Mode=TwoWay}" />
+                <telerik:RadDateTimePicker Grid.Column="1" Grid.Row="1" SelectedValue="{Binding EndDate, Mode=TwoWay}" />
+
+                <pivot:RadPivotGrid x:Name="EnquirySummaryRadPivotGrid"
+                                         Grid.Row="2"
+                                         Grid.Column="0"
+                                         Grid.ColumnSpan="4"
+                                         DataProvider="{StaticResource EnquirySummaryDataProvider}">
+
+                </pivot:RadPivotGrid>
+
+                <telerik:RadButton Grid.Row="3" Grid.Column="2" Margin="5" Height="25" Width="100" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Print" Click="Print_OnClick" />
+                <telerik:RadButton Grid.Row="3" Grid.Column="3" Margin="5" Height="25" Width="100" VerticalAlignment="Bottom" HorizontalAlignment="Right" Content="Export" Click="Export_OnClick" />
+
+            </Grid>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

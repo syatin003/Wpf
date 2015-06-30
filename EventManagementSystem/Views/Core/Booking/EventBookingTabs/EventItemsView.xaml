@@ -1,0 +1,259 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Core.Booking.EventBookingTabs.EventItemsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d"
+             d:DesignHeight="500"
+             d:DesignWidth="500">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <UniformGrid Grid.Row="0"
+                     Columns="5"
+                     HorizontalAlignment="Stretch">
+            <UniformGrid.Resources>
+                <Style TargetType="{x:Type telerik:RadButton}">
+                    <Setter Property="Margin"
+                            Value="5,10,5,0" />
+                </Style>
+            </UniformGrid.Resources>
+
+            <telerik:RadButton Command="{Binding AddCateringCommand}"
+                               IsEnabled="{Binding Event.EventType, Converter={StaticResource NullToBooleanConverter}}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource ImageRestaurant26}"
+                           Margin="3"
+                           Width="16"
+                           Height="16" />
+                    <TextBlock Text="Add Catering"
+                               Margin="3"
+                               VerticalAlignment="Center" />
+                </StackPanel>
+            </telerik:RadButton>
+
+            <telerik:RadButton Command="{Binding AddGolfCommand}"
+                               IsEnabled="{Binding Event.EventType, Converter={StaticResource NullToBooleanConverter}}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource ImageGolfBall26}"
+                           Margin="3"
+                           Width="16"
+                           Height="16" />
+                    <TextBlock Text="Add Golf"
+                               Margin="3"
+                               VerticalAlignment="Center" />
+                </StackPanel>
+            </telerik:RadButton>
+
+            <telerik:RadButton Command="{Binding AddRoomCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource ImageSofa26}"
+                           Margin="3"
+                           Width="16"
+                           Height="16" />
+                    <TextBlock Text="Add Room"
+                               Margin="3"
+                               VerticalAlignment="Center" />
+                </StackPanel>
+            </telerik:RadButton>
+
+            <telerik:RadButton Command="{Binding AddInvoiceCommand}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource ImageDiploma26}"
+                           Margin="3"
+                           Width="16"
+                           Height="16" />
+                    <TextBlock Text="Add Invoice"
+                               Margin="3"
+                               VerticalAlignment="Center" />
+                </StackPanel>
+            </telerik:RadButton>
+
+            <telerik:RadButton Command="{Binding FromTemplateCommand}"
+                               IsEnabled="{Binding Event.EventType, Converter={StaticResource NullToBooleanConverter}}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{StaticResource ImageUser26}"
+                           Margin="3"
+                           Width="16"
+                           Height="16" />
+                    <TextBlock Text="From Template"
+                               Margin="3"
+                               VerticalAlignment="Center" />
+                </StackPanel>
+            </telerik:RadButton>
+        </UniformGrid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <telerik:RadGridView x:Name="EventItemsGridView"
+                                 Margin="10"
+                                 BorderThickness="0"
+                                 GroupRenderMode="Flat"
+                                 CanUserFreezeColumns="False"
+                                 ScrollMode="RealTime"
+                                 GridLinesVisibility="None"
+                                 AutoGenerateColumns="False"
+                                 ShowColumnHeaders="False"
+                                 RowIndicatorVisibility="Collapsed"
+                                 IsReadOnly="True"
+                                 ShowGroupPanel="False"
+                                 CanUserSelect="False"
+                                 SelectionUnit="FullRow"
+                                 ItemsSource="{Binding Event.EventItems, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+
+                <telerik:RadGridView.RowStyle>
+                    <Style TargetType="telerik:GridViewRow">
+                        <Setter Property="Margin"
+                                Value="0,2" />
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter Property="Background"
+                                        Value="White" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </telerik:RadGridView.RowStyle>
+
+                <telerik:RadGridView.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin"
+                                Value="0" />
+                        <Setter Property="FontSize"
+                                Value="10" />
+                    </Style>
+
+                    <Style TargetType="telerik:GridViewCell">
+                        <Setter Property="VerticalAlignment"
+                                Value="Top" />
+                    </Style>
+                </telerik:RadGridView.Resources>
+
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Time, StringFormat={}{0:HH:mm}}"
+                                                Width="SizeToCells" />
+
+                    <telerik:GridViewDataColumn Width="SizeToCells">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Title}" />
+                                    </StackPanel>
+
+                                    <ItemsControl ItemsSource="{Binding Products, Mode=TwoWay}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Quantity, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                    <TextBlock Text=" * " />
+                                                    <TextBlock Text="{Binding Product.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                                    <TextBlock Text=" @ " />
+                                                    <TextBlock Text="{Binding Price, Mode=TwoWay, StringFormat={}{0:C2}, ConverterCulture=en-GB, UpdateSourceTrigger=PropertyChanged}" />
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Width="SizeToCells">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding TotalPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                               Visibility="{Binding ShowInInvoice, Converter={StaticResource TotalPriceAndShowInInvoiceConverter},ConverterParameter=True}">
+                                    </TextBlock>
+                                    <TextBlock Text="I"
+                                               FontSize="16"
+                                               Visibility="{Binding ShowInInvoice, Converter={StaticResource TotalPriceAndShowInInvoiceConverter},ConverterParameter=False}">
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Room, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                Width="SizeToCells" />
+
+                    <telerik:GridViewDataColumn DataMemberBinding="{Binding Note}"
+                                                TextWrapping="Wrap"
+                                                Width="*" />
+
+                    <telerik:GridViewDataColumn Width="SizeToCells">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton BorderThickness="0"
+                                                   Margin="0"
+                                                   Style="{DynamicResource NoChromeButton}"
+                                                   Command="{Binding DataContext.EditItemCommand,
+                                                                         RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                   CommandParameter="{Binding}">
+                                    <telerik:RadButton.Content>
+                                        <Image Source="{StaticResource ImageEdit26}"
+                                               Width="12"
+                                               Height="12" />
+                                    </telerik:RadButton.Content>
+                                </telerik:RadButton>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDataColumn Width="SizeToCells">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton BorderThickness="0"
+                                                   Margin="0"
+                                                   Style="{DynamicResource NoChromeButton}"
+                                                   Command="{Binding DataContext.DeleteItemCommand,
+                                                                         RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                   CommandParameter="{Binding}">
+                                    <telerik:RadButton.Content>
+                                        <Image Source="{StaticResource ImageDelete26}"
+                                               Width="12"
+                                               Height="12" />
+                                    </telerik:RadButton.Content>
+                                </telerik:RadButton>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+
+            <Separator Grid.Row="1"
+                       Margin="10,0" />
+
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="2"
+                        VerticalAlignment="Bottom"
+                        Margin="5,0">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Foreground"
+                                Value="Black" />
+                        <Setter Property="Margin"
+                                Value="5,5,15,5" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <TextBlock Text="{Binding Event.EventPrice, StringFormat=Total: {0:C2}, ConverterCulture=en-GB}" />
+                <TextBlock Text="{Binding Event.Deposit, StringFormat=Deposit: {0:C2}, ConverterCulture=en-GB}" />
+                <TextBlock Text="{Binding Event.Adjustments, StringFormat=Adjustments: {0:C2}, ConverterCulture=en-GB}" />
+                <TextBlock Text="{Binding Event.Payments, StringFormat=Payments: {0:C2}, ConverterCulture=en-GB}" />
+                <TextBlock Text="{Binding Event.Outstanding, StringFormat=Outstanding: {0:C2}, ConverterCulture=en-GB}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

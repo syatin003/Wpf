@@ -1,0 +1,2106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E905AF7B-BA26-4388-AE22-8B8BB7CA0B51}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EventManagementSystem</RootNamespace>
+    <AssemblyName>EventManagementSystem</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\..\Imagination\EventmanagementSystem\AllReleases\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>AppIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C45355582A389AF3151F3B917FF0C169E5F1600E</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>EventManagementSystem_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NuGet Packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\lib\NuGet Packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NuGet Packages\Unity.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Telerik.Pivot.Core, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Pivot.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Docking, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.GridView, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.GridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ImageEditor, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.ImageEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Input, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Navigation, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.Pivot, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.Pivot.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.PivotFieldList, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.PivotFieldList.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RibbonView, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.RibbonView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.RichTextBoxUI, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.RichTextBoxUI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Controls.ScheduleView, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Controls.ScheduleView.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Data, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Documents.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Documents.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Documents.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Html, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Documents.FormatProviders.Html.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.FormatProviders.Pdf, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Documents.FormatProviders.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip, Version=2014.2.617.45, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Telerik\Telerik.Windows.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Telerik.Reporting, Version=9.0.15.324, Culture=neutral, PublicKeyToken=a9d7983dfcc261be">
+      <Private>True</Private>
+      <HintPath>C:\Program Files (x86)\Telerik\Reporting Q1 2015\bin\Telerik.Reporting.dll</HintPath>
+      <SpecificVersion>True</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CommonObjects\Appointments\ColorfulAppointment.cs" />
+    <Compile Include="CommonObjects\Appointments\CalendarNoteAppointment.cs" />
+    <Compile Include="CommonObjects\Comparers\MemberNoteComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EnquiryActivityComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EnquiryFollowUpComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EnquiryNoteComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EventBookedProductComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EventCateringComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EventChargeComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EventContactComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EventGolfComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EventInvoiceComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EventNoteComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EventPaymentComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EventReminderComparer.cs" />
+    <Compile Include="CommonObjects\Comparers\EventRoomComparer.cs" />
+    <Compile Include="CommonObjects\Appointments\EventAppointment.cs" />
+    <Compile Include="CommonObjects\Comparers\GolfFollowResourcesComparer.cs" />
+    <Compile Include="Controls\PopupControl.xaml.cs">
+      <DependentUpon>PopupControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\BooleanToYesNoConverter.cs" />
+    <Compile Include="Converters\BoolInverterConverter.cs" />
+    <Compile Include="Converters\CountToVisibilityConverter.cs" />
+    <Compile Include="Converters\TotalPriceAndShowInInvoiceConverter.cs" />
+    <Compile Include="Converters\InvalidDateToEmptyStringConverter.cs" />
+    <Compile Include="Converters\EditPermissionToBoolConverter.cs" />
+    <Compile Include="Converters\EditPermissionToVisibilityConverter.cs" />
+    <Compile Include="Converters\DateDueToColorConverter.cs" />
+    <Compile Include="Converters\DiscountConverter.cs" />
+    <Compile Include="Converters\InvertedBooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\MetersToFeetConverter.cs" />
+    <Compile Include="Converters\NullToBooleanConverter.cs" />
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
+    <Compile Include="Converters\PriceConverter.cs" />
+    <Compile Include="Converters\TransactionProductToDiscountConverter.cs" />
+    <Compile Include="Converters\ValueToSignedValueConverter.cs" />
+    <Compile Include="Converters\WidthToHalfConverter.cs" />
+    <Compile Include="Enums\Admin\CategoryType.cs" />
+    <Compile Include="Enums\Admin\Gender.cs" />
+    <Compile Include="Enums\Admin\RelatedDateType.cs" />
+    <Compile Include="Enums\Admin\GroupDepartmentEnum.cs" />
+    <Compile Include="Enums\Admin\StartDate.cs" />
+    <Compile Include="Enums\Admin\StartDay.cs" />
+    <Compile Include="Enums\Events\ReminderStatus.cs" />
+    <Compile Include="Enums\Membership\Gender.cs" />
+    <Compile Include="Enums\Membership\Status.cs" />
+    <Compile Include="Enums\Reports\RoundAgeReportFilter.cs" />
+    <Compile Include="Enums\Admin\StatusType.cs" />
+    <Compile Include="Helpers\CheckedListItem.cs" />
+    <Compile Include="Helpers\DisabledScheduleViewDragDropBehavior.cs" />
+    <Compile Include="Helpers\ForwardBookGridViewHelper.cs" />
+    <Compile Include="Models\EmailHeaderModel.cs" />
+    <Compile Include="Models\JoinerLeaverModel.cs" />
+    <Compile Include="Models\JoinerActivityModel.cs" />
+    <Compile Include="Models\LeaverModel.cs" />
+    <Compile Include="Models\MemberModel.cs" />
+    <Compile Include="Models\MemberNoteModel.cs" />
+    <Compile Include="Models\MembershipFullPaymentCostModel.cs" />
+    <Compile Include="Models\ActivityModel.cs" />
+    <Compile Include="Models\CalendarNoteModel.cs" />
+    <Compile Include="Models\CampaignModel.cs" />
+    <Compile Include="Models\MembershipCategoryGroupDefaultModel.cs" />
+    <Compile Include="Models\MembershipCategoryModel.cs" />
+    <Compile Include="Models\MembershipGroupModel.cs" />
+    <Compile Include="Models\EventReminderModel.cs" />
+    <Compile Include="Models\EventTypeToDoModel.cs" />
+    <Compile Include="Models\EventUpdateModel.cs" />
+    <Compile Include="Models\MembershipGroupAgeModel.cs" />
+    <Compile Include="Models\MembershipGroupStyleModel.cs" />
+    <Compile Include="Models\MembershipLinkTypeModel.cs" />
+    <Compile Include="Models\MembershipMonthlyPaymentOngoingCostModel.cs" />
+    <Compile Include="Models\MembershipMonthlyPaymentUpFrontCostModel.cs" />
+    <Compile Include="Models\MembershipUpdateModel.cs" />
+    <Compile Include="Models\Custom\MembershipUpdatesHistoryModel.cs" />
+    <Compile Include="Models\ProductDepartmentModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\EmailServerSettingsModel.cs" />
+    <Compile Include="Models\EnquiryModel.cs" />
+    <Compile Include="Models\EnquiryNoteModel.cs" />
+    <Compile Include="Models\EventEnquiryModel.cs" />
+    <Compile Include="Models\EventsGroup.cs" />
+    <Compile Include="Models\EventPaymentInvoiceModel.cs" />
+    <Compile Include="Models\FollowUpModel.cs" />
+    <Compile Include="Models\ForwardBookModel.cs" />
+    <Compile Include="Models\ForwardBookPropertiesModel.cs" />
+    <Compile Include="Models\MailTemplateCategoryModel.cs" />
+    <Compile Include="Models\ProductGroupModel.cs" />
+    <Compile Include="Models\TillDivisionModel.cs" />
+    <Compile Include="Models\TillDivisionGroupDepartmentModel.cs" />
+    <Compile Include="Models\TillDomainObjects\ProductDepartmentModel.cs" />
+    <Compile Include="Models\TillDomainObjects\ProductGroupModel.cs" />
+    <Compile Include="Models\TillDomainObjects\TillProductModel.cs" />
+    <Compile Include="Models\TillModel.cs" />
+    <Compile Include="Models\Custom\UpdatesHistoryModel.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ApplicationSettings.cs" />
+    <Compile Include="Services\ExportToCSVService.cs" />
+    <Compile Include="Services\LoggingService.cs" />
+    <Compile Include="Helpers\PasswordBoxHelper.cs" />
+    <Compile Include="CommonObjects\Tile.cs" />
+    <Compile Include="Helpers\SumClerksFunction.cs" />
+    <Compile Include="Models\ContactModel.cs" />
+    <Compile Include="Models\EventBookedProductModel.cs" />
+    <Compile Include="Models\EventCateringModel.cs" />
+    <Compile Include="Models\EventChargeModel.cs" />
+    <Compile Include="Models\EventGolfModel.cs" />
+    <Compile Include="Models\EventInvoiceModel.cs" />
+    <Compile Include="Models\EventItemModel.cs" />
+    <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\EventNoteModel.cs" />
+    <Compile Include="Models\EventOptionModel.cs" />
+    <Compile Include="Models\EventPaymentModel.cs" />
+    <Compile Include="Models\EventRoomModel.cs" />
+    <Compile Include="Models\EventStatusModel.cs" />
+    <Compile Include="Models\EventTypeModel.cs" />
+    <Compile Include="Models\FacilityModel.cs" />
+    <Compile Include="Models\GolfModel.cs" />
+    <Compile Include="Models\CorrespondenceModel.cs" />
+    <Compile Include="Models\InvoiceModel.cs" />
+    <Compile Include="Models\MailTemplateModel.cs" />
+    <Compile Include="Models\PermissionGroupModel.cs" />
+    <Compile Include="Models\PermissionModel.cs" />
+    <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="Models\ReportModel.cs" />
+    <Compile Include="Models\RoomModel.cs" />
+    <Compile Include="Models\SafeUserModel.cs" />
+    <Compile Include="Models\UserGroupModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\AccessService.cs" />
+    <Compile Include="Services\BookingsService.cs" />
+    <Compile Include="Services\EmailService.cs" />
+    <Compile Include="Services\PopupService.cs" />
+    <Compile Include="Services\PrintService.cs" />
+    <Compile Include="Services\ReportingService.cs" />
+    <Compile Include="Services\TillsCommunicationService.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="ViewModels\Admin\CRM\ActivitySettingsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CRM\EmailSettingsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CRM\CRMViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CRM\DefaultWebEnquiryStatusViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CRM\DocumentsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CRM\EmailNotificationsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CRM\NumberOfDaysViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CRM\ReceivedMethodViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CRM\EnquiryStatusViewModel.cs" />
+    <Compile Include="ViewModels\Admin\CRM\StatusOfFollowUpViewModel.cs" />
+    <Compile Include="ViewModels\Admin\EPOS\ProductDepartments\AddProductDepartmentViewModel.cs" />
+    <Compile Include="ViewModels\Admin\EPOS\ProductDepartments\ProductDepartmentViewModel.cs" />
+    <Compile Include="ViewModels\Admin\EPOS\ProductGroups\AddProductGroupViewModel.cs" />
+    <Compile Include="ViewModels\Admin\EPOS\ProductGroups\ProductGroupViewModel.cs" />
+    <Compile Include="ViewModels\Admin\EPOS\Tills\AddTillViewModel.cs" />
+    <Compile Include="ViewModels\Admin\EPOS\EPOSViewModel.cs" />
+    <Compile Include="ViewModels\Admin\EPOS\Tills\TillViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Events\AddDefaultEventTypeTODOViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\Age\AddMembershipGroupAgeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\Age\MembershipGroupAgesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\Category\AddMembershipCategoryViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\Category\MembershipCategoriesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\Group\AddMembershipGroupViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\Group\MembershipGroupsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\LinkTypes\AddMembershipLinkTypeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\LinkTypes\MembershipLinkTypesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\MembersViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\OptionBoxes\MembershipOptionBoxReasonsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\Style\AddMembershipGroupStyleViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\Style\MembershipGroupStylesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Members\Tokens\MembershipTokensViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Resources\AddGolfViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Resources\AddRoomViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Resources\GolfViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Resources\GolfFollowResourceViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Resources\RoomViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Settings\AddEmailHeaderViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Settings\EmailHeadersViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Settings\EmailSettingsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Settings\ClubInformationViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Settings\MailFieldsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Settings\MailTemplateViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Settings\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Settings\SystemSettingsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Settings\TemplatesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Settings\UnlockEventsViewModel.cs" />
+    <Compile Include="ViewModels\ContactManager\ContactManagerViewModel.cs" />
+    <Compile Include="ViewModels\ContactManager\ContactManagerTabs\AccountsViewModel.cs" />
+    <Compile Include="ViewModels\ContactManager\ContactManagerTabs\ActivityViewModel.cs" />
+    <Compile Include="ViewModels\ContactManager\ContactManagerTabs\ContactDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ContactManager\ContactManagerTabs\CorrespondenceViewModel.cs" />
+    <Compile Include="ViewModels\ContactManager\ContactManagerTabs\EmailViewModel.cs" />
+    <Compile Include="ViewModels\ContactManager\ContactManagerTabs\EventDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\BookingViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\Common\ProposePrimaryContactViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\CompetitionBookingViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\EventRemindersViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Items\FromTemplateViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Reminders\AddEventReminderViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Reminders\ReminderPopUpViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Reminders\SnoozeViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Reminders\UpdatedRemindersViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventItemsAlreadyBookedViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Correspondence\SendEventMailViewModel.cs" />
+    <Compile Include="ViewModels\Core\Contacts\AddContactViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\AlternativeContacts\AddAlternativeContactViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Charges\AddEventChargeViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Charges\AddInvoiceViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\EventAlternativeContactsViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\EventChargesViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\EventCorrespondenceViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\EventNotesViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\EventOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\EventPaymentsViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\EventReportsViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\EventUpdatesViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Items\AddCateringItemViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\EventItemsViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Items\AddEventGolfItemViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Items\AddEventInvoiceItemViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Items\AddRoomItemViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Notes\AddNoteViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingTabs\Payments\AddEventPaymentViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\EventBookingViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\GroupBookingViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\MatchBookingViewModel.cs" />
+    <Compile Include="ViewModels\Core\Booking\TeeBookingViewModel.cs" />
+    <Compile Include="ViewModels\Core\Contacts\ContactsListViewModel.cs" />
+    <Compile Include="ViewModels\Core\Contacts\ReleventContactsViewModel.cs" />
+    <Compile Include="ViewModels\CRM\AddCampaignViewModel.cs" />
+    <Compile Include="ViewModels\CRM\CRMViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\Activity\AddActivityViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\Correspondence\SendEnquiryMailViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\EnquiryActivityViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\EnquiryCorrespondenceViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\EnquiryFollowUpViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\FollowUp\AddFollowUpViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\FollowUp\FollowUpPopUpViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\FollowUp\SnoozeViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\Notes\AddEnquiryNoteViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\EnquiryNotesViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryTabs\EnquiryUpdatesViewModel.cs" />
+    <Compile Include="ViewModels\CRM\NewEnquiryViewModel.cs" />
+    <Compile Include="ViewModels\Events\AddCalendarNoteViewModel.cs" />
+    <Compile Include="ViewModels\Events\Common\EventStyle.cs" />
+    <Compile Include="ViewModels\Events\DuplicateViewModel.cs" />
+    <Compile Include="ViewModels\Events\EventsBookedViewModel.cs" />
+    <Compile Include="ViewModels\Events\EventsViewModel.cs" />
+    <Compile Include="ViewModels\Events\UpdatesHistoryViewModel.cs" />
+    <Compile Include="ViewModels\Membership\AddMemberViewModel.cs" />
+    <Compile Include="ViewModels\Membership\MembershipTabs\AddMemberNoteViewModel.cs" />
+    <Compile Include="ViewModels\Membership\MembershipTabs\MemberDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Membership\MembershipTabs\MemberNotesViewModel.cs" />
+    <Compile Include="ViewModels\Membership\MembershipTabs\MemberUpdateDetailsViewModel.cs" />
+    <Compile Include="ViewModels\Membership\MembershipUpdatesHistoryViewModel.cs" />
+    <Compile Include="ViewModels\Membership\MembershipUpdatesViewModel.cs" />
+    <Compile Include="ViewModels\Membership\MembershipViewModel.cs" />
+    <Compile Include="ViewModels\Membership\SendEmailPreViewModel.cs" />
+    <Compile Include="ViewModels\Membership\SendEmailViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\JoinersActivityDescriptionViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\JoinersActivityOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\JoinersLeaversDescriptionViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\JoinersLeaversOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\LeaversDescriptionViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\LeaversOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\MembersCatCountDescViewModel.cs" />
+    <Compile Include="Views\Admin\Members\LinkTypes\AddMembershipLinkTypeView.xaml.cs">
+      <DependentUpon>AddMembershipLinkTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\Age\AddMembershipGroupAgeView.xaml.cs">
+      <DependentUpon>AddMembershipGroupAgeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\Age\MembershipGroupAgesView.xaml.cs">
+      <DependentUpon>MembershipGroupAgesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\Category\AddMembershipCategoryView.xaml.cs">
+      <DependentUpon>AddMembershipCategoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\Category\MembershipCategoriesView.xaml.cs">
+      <DependentUpon>MembershipCategoriesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\Group\AddMembershipGroupView.xaml.cs">
+      <DependentUpon>AddMembershipGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\Group\MembershipGroupsView.xaml.cs">
+      <DependentUpon>MembershipGroupsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\LinkTypes\MembershipLinkTypesView.xaml.cs">
+      <DependentUpon>MembershipLinkTypesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\OptionBoxes\MembershipOptionBoxReasonsView.xaml.cs">
+      <DependentUpon>MembershipOptionBoxReasonsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\Style\AddMembershipGroupStyleView.xaml.cs">
+      <DependentUpon>AddMembershipGroupStyleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\MembersView.xaml.cs">
+      <DependentUpon>MembersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\Style\MembershipGroupStylesView.xaml.cs">
+      <DependentUpon>MembershipGroupStylesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Members\Tokens\MembershipTokensView.xaml.cs">
+      <DependentUpon>MembershipTokensView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings\AddEmailHeaderView.xaml.cs">
+      <DependentUpon>AddEmailHeaderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings\EmailHeadersView.xaml.cs">
+      <DependentUpon>EmailHeadersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\UpdatesHistoryView.xaml.cs">
+      <DependentUpon>UpdatesHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Events\RemindersViewModel.cs" />
+    <Compile Include="ViewModels\Events\ResourcesViewModel.cs" />
+    <Compile Include="ViewModels\Events\UpdatesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Events\EventsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\MainViewModel.cs" />
+    <Compile Include="ViewModels\Admin\EPOS\Products\AddProductViewModel.cs" />
+    <Compile Include="ViewModels\Admin\EPOS\Products\ProductsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Resources\FacilitiesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Resources\ResourcesViewModel.cs" />
+    <Compile Include="ViewModels\Admin\UserGroups\UserGroupsViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Users\AddUserViewModel.cs" />
+    <Compile Include="ViewModels\Admin\Users\UsersViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\ActivityViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\AgedBalanceViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\CalendarDescriptionViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\CalendarOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\CustomersViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\DepositsReceivedOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\DepositsReceivedViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\EnquiryStatusViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\EnquirySummaryViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\ForwardBookViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\ForwardSynopsisDescriptionViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\PaymentReceivedOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\ProductsViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\RoundageAnalysisDescriptionViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\RoundAgeAnalysisOptionsViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\TransactionsViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ContentViewModels\PaymentReceivedViewModel.cs" />
+    <Compile Include="ViewModels\Reports\ReportsViewModel.cs" />
+    <Compile Include="ViewModels\Core\WelcomeViewModel.cs" />
+    <Compile Include="ViewModels\Core\WorkspaceViewModel.cs" />
+    <Compile Include="Views\Admin\CRM\ActivitySettingsView.xaml.cs">
+      <DependentUpon>ActivitySettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CRM\EmailSettings.xaml.cs">
+      <DependentUpon>EmailSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CRM\CRMView.xaml.cs">
+      <DependentUpon>CRMView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CRM\DefaultWebEnquiryStatus.xaml.cs">
+      <DependentUpon>DefaultWebEnquiryStatus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CRM\DocumentsView.xaml.cs">
+      <DependentUpon>DocumentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CRM\EmailNotificationsView.xaml.cs">
+      <DependentUpon>EmailNotificationsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CRM\EnquiryStatusOptionsView.xaml.cs">
+      <DependentUpon>EnquiryStatusOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CRM\EnquiryStatusView.xaml.cs">
+      <DependentUpon>EnquiryStatusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CRM\NumberOfDaysView.xaml.cs">
+      <DependentUpon>NumberOfDaysView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CRM\ReceivedMethodView.xaml.cs">
+      <DependentUpon>ReceivedMethodView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\CRM\StatusOfFollowUpView.xaml.cs">
+      <DependentUpon>StatusOfFollowUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\EPOS\ProductDepartments\AddProductDepartmentView.xaml.cs">
+      <DependentUpon>AddProductDepartmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\EPOS\ProductDepartments\ProductDepartmentView.xaml.cs">
+      <DependentUpon>ProductDepartmentView.Xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\EPOS\EPOSView.xaml.cs">
+      <DependentUpon>EPOSView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\EPOS\ProductGroups\AddProductGroupView.xaml.cs">
+      <DependentUpon>AddProductGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\EPOS\ProductGroups\ProductGroupView.xaml.cs">
+      <DependentUpon>ProductGroupView.Xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\EPOS\Tills\AddTillView.xaml.cs">
+      <DependentUpon>AddTillView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\EPOS\Tills\TillView.xaml.cs">
+      <DependentUpon>TillView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Events\AddDefaultEventTypeTODOView.xaml.cs">
+      <DependentUpon>AddDefaultEventTypeTODOView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Resources\AddGolfView.xaml.cs">
+      <DependentUpon>AddGolfView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Resources\AddRoomView.xaml.cs">
+      <DependentUpon>AddRoomView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Resources\GolfFollowResource.xaml.cs">
+      <DependentUpon>GolfFollowResource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Resources\GolfView.xaml.cs">
+      <DependentUpon>GolfView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Resources\RoomView.xaml.cs">
+      <DependentUpon>RoomView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings\TemplatesView.xaml.cs">
+      <DependentUpon>TemplatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings\EmailSettingsView.xaml.cs">
+      <DependentUpon>EmailSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings\ClubInformationView.xaml.cs">
+      <DependentUpon>ClubInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings\MailFieldsView.xaml.cs">
+      <DependentUpon>MailFieldsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings\MailTemplateView.xaml.cs">
+      <DependentUpon>MailTemplateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings\SystemSettingsView.xaml.cs">
+      <DependentUpon>SystemSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Settings\UnlockEventsView.xaml.cs">
+      <DependentUpon>UnlockEventsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactManager\ContactManagerView.xaml.cs">
+      <DependentUpon>ContactManagerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactManager\ContactManagerTabs\AccountsView.xaml.cs">
+      <DependentUpon>AccountsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactManager\ContactManagerTabs\ActivityView.xaml.cs">
+      <DependentUpon>ActivityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactManager\ContactManagerTabs\ContactDetailsView.xaml.cs">
+      <DependentUpon>ContactDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactManager\ContactManagerTabs\CorrespondenceView.xaml.cs">
+      <DependentUpon>CorrespondenceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactManager\ContactManagerTabs\EmailView.xaml.cs">
+      <DependentUpon>EmailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactManager\ContactManagerTabs\EventDetailsView.xaml.cs">
+      <DependentUpon>EventDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\BookingView.xaml.cs">
+      <DependentUpon>BookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\EventRemindersView.xaml.cs">
+      <DependentUpon>EventRemindersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Items\FromTemplateView.xaml.cs">
+      <DependentUpon>FromTemplateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Reminders\AddEventReminderView.xaml.cs">
+      <DependentUpon>AddEventReminderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Reminders\ReminderPopUpView.xaml.cs">
+      <DependentUpon>ReminderPopUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Reminders\SnoozeView.xaml.cs">
+      <DependentUpon>SnoozeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Reminders\UpdatedRemindersView.xaml.cs">
+      <DependentUpon>UpdatedRemindersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventItemsAlreadyBooked.xaml.cs">
+      <DependentUpon>EventItemsAlreadyBooked.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\Common\ProposePrimaryContactView.xaml.cs">
+      <DependentUpon>ProposePrimaryContactView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\CompetitionBookingView.xaml.cs">
+      <DependentUpon>CompetitionBookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Correspondence\SendEventMailView.xaml.cs">
+      <DependentUpon>SendEventMailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Contacts\AddContactView.xaml.cs">
+      <DependentUpon>AddContactView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\AlternativeContacts\AddAlternativeContactView.xaml.cs">
+      <DependentUpon>AddAlternativeContactView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Charges\AddEventChargeView.xaml.cs">
+      <DependentUpon>AddEventChargeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Charges\AddInvoiceView.xaml.cs">
+      <DependentUpon>AddInvoiceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\EventAlternativeContactsView.xaml.cs">
+      <DependentUpon>EventAlternativeContactsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\EventChargesView.xaml.cs">
+      <DependentUpon>EventChargesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\EventCorrespondenceView.xaml.cs">
+      <DependentUpon>EventCorrespondenceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\EventNotesView.xaml.cs">
+      <DependentUpon>EventNotesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\EventOptionsView.xaml.cs">
+      <DependentUpon>EventOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\EventPaymentsView.xaml.cs">
+      <DependentUpon>EventPaymentsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\EventReportsView.xaml.cs">
+      <DependentUpon>EventReportsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\EventUpdatesView.xaml.cs">
+      <DependentUpon>EventUpdatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Items\AddCateringItemView.xaml.cs">
+      <DependentUpon>AddCateringItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Items\AddEventGolfItemView.xaml.cs">
+      <DependentUpon>AddEventGolfItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Items\AddEventInvoiceItemView.xaml.cs">
+      <DependentUpon>AddEventInvoiceItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Items\AddRoomItemView.xaml.cs">
+      <DependentUpon>AddRoomItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Notes\AddNoteView.xaml.cs">
+      <DependentUpon>AddNoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\Payments\AddEventPaymentView.xaml.cs">
+      <DependentUpon>AddEventPaymentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingView.xaml.cs">
+      <DependentUpon>EventBookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\EventBookingTabs\EventItemsView.xaml.cs">
+      <DependentUpon>EventItemsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\GroupBookingView.xaml.cs">
+      <DependentUpon>GroupBookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\MatchBookingView.xaml.cs">
+      <DependentUpon>MatchBookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Booking\TeeBookingView.xaml.cs">
+      <DependentUpon>TeeBookingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Contacts\ContactsListView.xaml.cs">
+      <DependentUpon>ContactsListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\Contacts\ReleventContactsView.xaml.cs">
+      <DependentUpon>ReleventContactsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\AddCampaignView.xaml.cs">
+      <DependentUpon>AddCampaignView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\CRMView.xaml.cs">
+      <DependentUpon>CRMView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\Activity\AddActivityView.xaml.cs">
+      <DependentUpon>AddActivityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\Correspondence\SendEnquiryMailView.xaml.cs">
+      <DependentUpon>SendEnquiryMailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\EnquiryActivityView.xaml.cs">
+      <DependentUpon>EnquiryActivityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\EnquiryCorrespondenceView.xaml.cs">
+      <DependentUpon>EnquiryCorrespondenceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\EnquiryDetailsView.xaml.cs">
+      <DependentUpon>EnquiryDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\EnquiryFollowUpView.xaml.cs">
+      <DependentUpon>EnquiryFollowUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\EnquiryNotesView.xaml.cs">
+      <DependentUpon>EnquiryNotesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\EnquiryUpdatesView.xaml.cs">
+      <DependentUpon>EnquiryUpdatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\FollowUp\AddFollowUpView.xaml.cs">
+      <DependentUpon>AddFollowUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\FollowUp\FollowUpPopUpView.xaml.cs">
+      <DependentUpon>FollowUpPopUpView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\FollowUp\SnoozeView.xaml.cs">
+      <DependentUpon>SnoozeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryTabs\Notes\AddNoteView.xaml.cs">
+      <DependentUpon>AddNoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CRM\NewEnquiryView.xaml.cs">
+      <DependentUpon>NewEnquiryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\AddCalendarNoteView.xaml.cs">
+      <DependentUpon>AddCalendarNoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\DuplicateView.xaml.cs">
+      <DependentUpon>DuplicateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\EventsBookedView.xaml.cs">
+      <DependentUpon>EventsBookedView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\EventsView.xaml.cs">
+      <DependentUpon>EventsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\RemindersView.xaml.cs">
+      <DependentUpon>RemindersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\ResourcesView.xaml.cs">
+      <DependentUpon>ResourcesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Events\UpdatesView.xaml.cs">
+      <DependentUpon>UpdatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Events\EventsView.xaml.cs">
+      <DependentUpon>EventsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\EPOS\Products\AddProductView.xaml.cs">
+      <DependentUpon>AddProductView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\EPOS\Products\ProductsView.xaml.cs">
+      <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Resources\FacilitiesView.xaml.cs">
+      <DependentUpon>FacilitiesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Resources\ResourcesView.xaml.cs">
+      <DependentUpon>ResourcesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\UserGroups\UserGroupsView.xaml.cs">
+      <DependentUpon>UserGroupsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Users\AddUserView.xaml.cs">
+      <DependentUpon>AddUserView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\Users\UsersView.xaml.cs">
+      <DependentUpon>UsersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Membership\AddMemberView.xaml.cs">
+      <DependentUpon>AddMemberView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Membership\SendEmailPreView.xaml.cs">
+      <DependentUpon>SendEmailPreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Membership\SendEmailView.xaml.cs">
+      <DependentUpon>SendEmailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Membership\MembershipTabs\AddMemberNoteView.xaml.cs">
+      <DependentUpon>AddMemberNoteView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Membership\MembershipTabs\MemberDetailsView.xaml.cs">
+      <DependentUpon>MemberDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Membership\MembershipTabs\MemberNotesView.xaml.cs">
+      <DependentUpon>MemberNotesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Membership\MembershipTabs\MemberUpdateDetailsView.xaml.cs">
+      <DependentUpon>MemberUpdateDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Membership\MembershipView.xaml.cs">
+      <DependentUpon>MembershipView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Membership\MembershipUpdatesView.xaml.cs">
+      <DependentUpon>MembershipUpdatesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Membership\MembershipUpdatesHistoryView.xaml.cs">
+      <DependentUpon>MembershipUpdatesHistoryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\ActivityView.xaml.cs">
+      <DependentUpon>ActivityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\AgedBalanceDescriptionView.xaml.cs">
+      <DependentUpon>AgedBalanceDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\CalendarDescriptionView.xaml.cs">
+      <DependentUpon>CalendarDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\CalendarOptionsView.xaml.cs">
+      <DependentUpon>CalendarOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\LeaversDescriptionView.xaml.cs">
+      <DependentUpon>LeaversDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\LeaversOptionsView.xaml.cs">
+      <DependentUpon>LeaversOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\JoinersActivityDescriptionView.xaml.cs">
+      <DependentUpon>JoinersActivityDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\JoinersActivityOptionsView.xaml.cs">
+      <DependentUpon>JoinersActivityOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\JoinersLeaversOptionsView.xaml.cs">
+      <DependentUpon>JoinersLeaversOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\CustomersDescriptionView.xaml.cs">
+      <DependentUpon>CustomersDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\CustomersOptionsView.xaml.cs">
+      <DependentUpon>CustomersOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\DepositsReceivedDescriptionView.xaml.cs">
+      <DependentUpon>DepositsReceivedDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\DepositsReceivedOptionsView.xaml.cs">
+      <DependentUpon>DepositsReceivedOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\EnquiryStatusView.xaml.cs">
+      <DependentUpon>EnquiryStatusView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\EnquirySummary1View.xaml.cs">
+      <DependentUpon>EnquirySummary1View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\EnquirySummary2View.xaml.cs">
+      <DependentUpon>EnquirySummary2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\ForwardBookDescriptionView.xaml.cs">
+      <DependentUpon>ForwardBookDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\ForwardBookOptionsView.xaml.cs">
+      <DependentUpon>ForwardBookOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\ForwardSynopsisDescriptionView.xaml.cs">
+      <DependentUpon>ForwardSynopsisDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\ForwardSynopsisOptionsView.xaml.cs">
+      <DependentUpon>ForwardSynopsisOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\JoinersLeaversDescriptionView.xaml.cs">
+      <DependentUpon>JoinersLeaversDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\MembersCatCountDescView.xaml.cs">
+      <DependentUpon>MembersCatCountDescView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\PaymentReceivedDescriptionView.xaml.cs">
+      <DependentUpon>PaymentReceivedDescriptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\PaymentReceivedOptionsView.xaml.cs">
+      <DependentUpon>PaymentReceivedOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\ProductsView.xaml.cs">
+      <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\RoundAgeAnalysisDescription.xaml.cs">
+      <DependentUpon>RoundAgeAnalysisDescription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\RoundAgeAnalysisOptionsView.xaml.cs">
+      <DependentUpon>RoundAgeAnalysisOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ReportsView.xaml.cs">
+      <DependentUpon>ReportsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\WelcomeView.xaml.cs">
+      <DependentUpon>WelcomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Core\WorkspaceView.xaml.cs">
+      <DependentUpon>WorkspaceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\ContentViews\TransactionsView.xaml.cs">
+      <DependentUpon>TransactionsView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\PopupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\ColorBrushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\CommonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Images.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\RadRibbonWindowStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\RadWindowStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\Members\LinkTypes\AddMembershipLinkTypeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\Age\AddMembershipGroupAgeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\Age\MembershipGroupAgesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\Members\Category\AddMembershipCategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\Category\MembershipCategoriesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\Group\AddMembershipGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\Group\MembershipGroupsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\LinkTypes\MembershipLinkTypesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\OptionBoxes\MembershipOptionBoxReasonsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\Style\AddMembershipGroupStyleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\MembersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\Style\MembershipGroupStylesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Members\Tokens\MembershipTokensView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Settings\AddEmailHeaderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Settings\EmailHeadersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\UpdatesHistoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CRM\ActivitySettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CRM\EmailSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\CRM\CRMView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CRM\DefaultWebEnquiryStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CRM\DocumentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CRM\EmailNotificationsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CRM\EnquiryStatusOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CRM\EnquiryStatusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CRM\NumberOfDaysView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CRM\ReceivedMethodView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\CRM\StatusOfFollowUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\EPOS\ProductDepartments\AddProductDepartmentView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\EPOS\ProductDepartments\ProductDepartmentView.Xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\EPOS\EPOSView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\EPOS\ProductGroups\AddProductGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\EPOS\ProductGroups\ProductGroupView.Xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\EPOS\Tills\AddTillView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\EPOS\Tills\TillView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Events\AddDefaultEventTypeTODOView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Resources\AddGolfView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Resources\AddRoomView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Resources\GolfFollowResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Resources\GolfView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Resources\RoomView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Settings\TemplatesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Settings\EmailSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Settings\ClubInformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Settings\MailFieldsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Settings\MailTemplateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Settings\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Settings\SystemSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Admin\Settings\UnlockEventsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactManager\ContactManagerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactManager\ContactManagerTabs\AccountsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactManager\ContactManagerTabs\ActivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactManager\ContactManagerTabs\ContactDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactManager\ContactManagerTabs\CorrespondenceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactManager\ContactManagerTabs\EmailView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactManager\ContactManagerTabs\EventDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\BookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\EventRemindersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Items\FromTemplateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Reminders\AddEventReminderView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Reminders\ReminderPopUpView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Reminders\SnoozeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Reminders\UpdatedRemindersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventItemsAlreadyBooked.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\Booking\Common\ProposePrimaryContactView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\CompetitionBookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Correspondence\SendEventMailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\Contacts\AddContactView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\AlternativeContacts\AddAlternativeContactView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Charges\AddEventChargeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Charges\AddInvoiceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\EventAlternativeContactsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\EventChargesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\EventCorrespondenceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\EventNotesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\EventOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\EventPaymentsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\EventReportsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\EventUpdatesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Items\AddCateringItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Items\AddEventGolfItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Items\AddEventInvoiceItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Items\AddRoomItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Notes\AddNoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\Payments\AddEventPaymentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\EventBookingTabs\EventItemsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\GroupBookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\MatchBookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Booking\TeeBookingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Contacts\ContactsListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\Contacts\ReleventContactsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CRM\AddCampaignView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\CRMView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\Activity\AddActivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\Correspondence\SendEnquiryMailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\EnquiryActivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\EnquiryCorrespondenceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\EnquiryDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\EnquiryFollowUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\EnquiryNotesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\EnquiryUpdatesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\FollowUp\AddFollowUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\FollowUp\FollowUpPopUpView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\FollowUp\SnoozeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryTabs\Notes\AddNoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CRM\NewEnquiryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\AddCalendarNoteView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\DuplicateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\EventsBookedView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Events\EventsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\RemindersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\ResourcesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Events\UpdatesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\Admin\Events\EventsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\EPOS\Products\AddProductView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\EPOS\Products\ProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Resources\FacilitiesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Resources\ResourcesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\UserGroups\UserGroupsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Users\AddUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Admin\Users\UsersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Membership\AddMemberView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Membership\SendEmailPreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Membership\SendEmailView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Membership\MembershipTabs\AddMemberNoteView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Membership\MembershipTabs\MemberDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Membership\MembershipTabs\MemberNotesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Membership\MembershipTabs\MemberUpdateDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Membership\MembershipView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Membership\MembershipUpdatesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Membership\MembershipUpdatesHistoryView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\ActivityView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\AgedBalanceDescriptionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\CalendarDescriptionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\CalendarOptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\LeaversDescriptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\LeaversOptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\JoinersActivityDescriptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\JoinersActivityOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\JoinersLeaversOptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\CustomersDescriptionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\CustomersOptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\DepositsReceivedDescriptionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\DepositsReceivedOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\EnquiryStatusView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\EnquirySummary1View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\EnquirySummary2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\ForwardBookDescriptionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\ForwardBookOptionsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\ForwardSynopsisDescriptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\ForwardSynopsisOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\JoinersLeaversDescriptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\MembersCatCountDescView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\PaymentReceivedDescriptionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\PaymentReceivedOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\ProductsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\RoundAgeAnalysisDescription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\RoundAgeAnalysisOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ReportsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\WelcomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\WorkspaceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Reports\ContentViews\TransactionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="EventManagementSystem_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <AppDesigner Include="Properties\" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Resource Include="Resources\Fonts\OpenSans-Light.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EventManagementSystem.Core\EventManagementSystem.Core.csproj">
+      <Project>{F100C575-B32B-40E7-AA35-65920069EC8B}</Project>
+      <Name>EventManagementSystem.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Data\EventManagementSystem.Data.csproj">
+      <Project>{4848bc2a-42f5-44fd-b44e-b695914a0833}</Project>
+      <Name>EventManagementSystem.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Reporting\EventManagementSystem.Reporting.csproj">
+      <Project>{58fba16c-a838-42f6-a8b0-b41361298d71}</Project>
+      <Name>EventManagementSystem.Reporting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Core\EventManagementSystem.Core.csproj">
+      <Name>EventManagementSystem.Core</Name>
+      <Project>{F100C575-B32B-40E7-AA35-65920069EC8B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Data\EventManagementSystem.Data.csproj">
+      <Name>EventManagementSystem.Data</Name>
+      <Project>{4848bc2a-42f5-44fd-b44e-b695914a0833}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Reporting\EventManagementSystem.Reporting.csproj">
+      <Name>EventManagementSystem.Reporting</Name>
+      <Project>{58fba16c-a838-42f6-a8b0-b41361298d71}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Core\EventManagementSystem.Core.csproj">
+      <Name>EventManagementSystem.Core</Name>
+      <Project>{F100C575-B32B-40E7-AA35-65920069EC8B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Data\EventManagementSystem.Data.csproj">
+      <Name>EventManagementSystem.Data</Name>
+      <Project>{4848bc2a-42f5-44fd-b44e-b695914a0833}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Reporting\EventManagementSystem.Reporting.csproj">
+      <Name>EventManagementSystem.Reporting</Name>
+      <Project>{58fba16c-a838-42f6-a8b0-b41361298d71}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Core\EventManagementSystem.Core.csproj">
+      <Name>EventManagementSystem.Core</Name>
+      <Project>{F100C575-B32B-40E7-AA35-65920069EC8B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Data\EventManagementSystem.Data.csproj">
+      <Name>EventManagementSystem.Data</Name>
+      <Project>{4848bc2a-42f5-44fd-b44e-b695914a0833}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Reporting\EventManagementSystem.Reporting.csproj">
+      <Name>EventManagementSystem.Reporting</Name>
+      <Project>{58fba16c-a838-42f6-a8b0-b41361298d71}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Core\EventManagementSystem.Core.csproj">
+      <Name>EventManagementSystem.Core</Name>
+      <Project>{F100C575-B32B-40E7-AA35-65920069EC8B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Data\EventManagementSystem.Data.csproj">
+      <Name>EventManagementSystem.Data</Name>
+      <Project>{4848bc2a-42f5-44fd-b44e-b695914a0833}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Reporting\EventManagementSystem.Reporting.csproj">
+      <Name>EventManagementSystem.Reporting</Name>
+      <Project>{58fba16c-a838-42f6-a8b0-b41361298d71}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Core\EventManagementSystem.Core.csproj">
+      <Name>EventManagementSystem.Core</Name>
+      <Project>{F100C575-B32B-40E7-AA35-65920069EC8B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Data\EventManagementSystem.Data.csproj">
+      <Name>EventManagementSystem.Data</Name>
+      <Project>{4848bc2a-42f5-44fd-b44e-b695914a0833}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Reporting\EventManagementSystem.Reporting.csproj">
+      <Name>EventManagementSystem.Reporting</Name>
+      <Project>{58fba16c-a838-42f6-a8b0-b41361298d71}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Core\EventManagementSystem.Core.csproj">
+      <Name>EventManagementSystem.Core</Name>
+      <Project>{F100C575-B32B-40E7-AA35-65920069EC8B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Data\EventManagementSystem.Data.csproj">
+      <Name>EventManagementSystem.Data</Name>
+      <Project>{4848bc2a-42f5-44fd-b44e-b695914a0833}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Reporting\EventManagementSystem.Reporting.csproj">
+      <Name>EventManagementSystem.Reporting</Name>
+      <Project>{58fba16c-a838-42f6-a8b0-b41361298d71}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Core\EventManagementSystem.Core.csproj">
+      <Name>EventManagementSystem.Core</Name>
+      <Project>{F100C575-B32B-40E7-AA35-65920069EC8B}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Data\EventManagementSystem.Data.csproj">
+      <Name>EventManagementSystem.Data</Name>
+      <Project>{4848bc2a-42f5-44fd-b44e-b695914a0833}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\EventManagementSystem.Reporting\EventManagementSystem.Reporting.csproj">
+      <Name>EventManagementSystem.Reporting</Name>
+      <Project>{58fba16c-a838-42f6-a8b0-b41361298d71}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\check_book-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\globe-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\conference-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\add_user-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\user-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\sofa-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Golf-Tee-Ball-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\air_force-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\save-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\checkmark-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\group-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\group-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\calendar-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\solutions-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\list-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\box-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\key-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\search-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\checked_user-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\home-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\iphone-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\read_message-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\key-26White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\restaurant-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\diploma1-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\police-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\banknotes-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\bill-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\copy-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\new_post-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\package-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AppIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\add_file-26.png" />
+    <Resource Include="Resources\Icons\add_link-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\message-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\forward-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\message-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\user_white48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\delete_sign-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\edit-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\sinchronize-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\add_property-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\todo_list-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\View_Details-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\living_room-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\S-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\T-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\conference-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\calendar-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\system_task-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\group-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\online_support-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\calendar-32_today.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\calendar-32_week.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\calendar-32_month.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\calendar-32_future.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\groups-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\user-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\overtime-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\shopping_basket-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\administrative_tools-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\plus2_math-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\minus2_math-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\add_user-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\exit-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\plus2_math-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\gas-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\cup-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\edit_file-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\attach-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\lock-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\copy-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\unlock-25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\bill-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\tills-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\tills-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\info-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\info-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\system_task-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\group-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\historical-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\link-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\age-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\groups-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\categorize-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\informatics-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\cat-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\Gray\outline_star-26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\forward-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\add_file-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\add_table-32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

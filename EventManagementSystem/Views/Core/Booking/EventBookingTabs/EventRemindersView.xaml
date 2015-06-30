@@ -1,0 +1,182 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Core.Booking.EventBookingTabs.EventRemindersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:converters="clr-namespace:EventManagementSystem.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="500"
+             d:DesignWidth="500">
+
+    <UserControl.Resources>
+        <converters:DateDueToColorConverter x:Key="DateDueToColorConverter" />
+    </UserControl.Resources>
+    <telerik:RadBusyIndicator  BusyContent="Loading..."
+                               IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <telerik:RadButton Command="{Binding AddEventReminderCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource ImageBill26}"
+                               Margin="3"
+                               Width="16"
+                               Height="16" />
+                        <TextBlock Text="Add Reminder"
+                                   Margin="3"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </telerik:RadButton>
+                <telerik:RadButton Command="{Binding AddDefaultEventReminderCommand}"
+                                   ToolTipService.ShowOnDisabled="True"
+                                   ToolTipService.IsEnabled="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=Self}, Converter={StaticResource BoolInverterConverter}}">
+                    <telerik:RadButton.ToolTip>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="{StaticResource ImageInfo26}"
+                                   Margin="3"
+                                   Width="16"
+                                   Height="16" />
+                            <TextBlock Text="Please select Date and Event type."
+                                       Margin="3"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                    </telerik:RadButton.ToolTip>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource ImageBill26}"
+                               Margin="3"
+                               Width="16"
+                               Height="16" />
+                        <TextBlock Text="Add Default Reminders"
+                                   Margin="3"
+                                   VerticalAlignment="Center" />
+                    </StackPanel>
+                </telerik:RadButton>
+            </StackPanel>
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          Grid.Row="1"
+                          telerik:StyleManager.Theme="Windows8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="2"
+                               Text="Event Reminders"
+                               Foreground="Black"
+                               FontWeight="Bold"
+                               Margin="0,5" />
+                    <telerik:RadGridView x:Name="gridReminders"
+                                         Visibility="{Binding Event.EventReminders.Count,Converter={StaticResource CountToVisibilityConverter}}"
+                                         ItemsSource="{Binding Event.EventReminders}"
+                                         Grid.Row="3"
+                                         BorderThickness="0"
+                                         GroupRenderMode="Flat"
+                                         CanUserFreezeColumns="False"
+                                         ScrollMode="RealTime"
+                                         GridLinesVisibility="None"
+                                         AutoGenerateColumns="False"
+                                         ShowColumnHeaders="False"
+                                         RowIndicatorVisibility="Collapsed"
+                                         IsReadOnly="True"
+                                         ShowGroupPanel="False"
+                                         CanUserSelect="False">
+                        <telerik:RadGridView.Resources>
+                            <Style TargetType="telerik:GridViewCell">
+                                <Setter Property="VerticalAlignment"
+                                        Value="Top" />
+                            </Style>
+                        </telerik:RadGridView.Resources>
+
+                        <telerik:RadGridView.RowStyle>
+                            <Style TargetType="telerik:GridViewRow">
+                                <Setter Property="Margin"
+                                        Value="0,2" />
+                                <Setter Property="Foreground"
+                                        Value="{Binding DateDue,Converter={StaticResource DateDueToColorConverter},ConverterParameter=Event}"/>
+                            </Style>
+                        </telerik:RadGridView.RowStyle>
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Width="SizeToCells"
+                                                        DataMemberBinding="{Binding DateDue, StringFormat={}{0:dd/MM/yy}}" />
+
+                            <telerik:GridViewDataColumn DataMemberBinding="{Binding WhatToDo}"
+                                                        TextWrapping="Wrap"
+                                                        MaxWidth="300"
+                                                        Width="*" />
+                            <telerik:GridViewDataColumn  Width="SizeToCells" DataMemberBinding="{Binding ReminderStatus}"/>
+                            <telerik:GridViewDataColumn Width="SizeToCells"
+                                                        DataMemberBinding="{Binding AssignedToUser.InternalOrFirstName, StringFormat= 'assigned to {0}'}" />
+
+                            <telerik:GridViewDataColumn Width="SizeToCells"
+                                                        DataMemberBinding="{Binding CreatedByUser.InternalOrFirstName, StringFormat= by {0}}" />
+
+                            <telerik:GridViewDataColumn Width="SizeToCells">
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <telerik:RadButton BorderThickness="0"
+                                                           Margin="0"
+                                                           Style="{DynamicResource NoChromeButton}"
+                                                           Command="{Binding DataContext.EditEventReminderCommand,
+                                                                         RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                           CommandParameter="{Binding}">
+                                            <telerik:RadButton.Content>
+                                                <Image Source="{StaticResource ImageEdit26}"
+                                                       Width="12"
+                                                       Height="12" />
+                                            </telerik:RadButton.Content>
+                                            <!--<telerik:RadButton.Visibility>
+                                                <MultiBinding Converter="{StaticResource EditPermissionToVisibilityConverter}">
+                                                    <Binding Path="DataContext.CanEditEveryoneEventReminders"
+                                                             RelativeSource="{RelativeSource AncestorType={x:Type telerik:RadGridView}}" />
+                                                    <Binding Path="DataContext.CanEditOwnEventReminders"
+                                                             RelativeSource="{RelativeSource AncestorType={x:Type telerik:RadGridView}}" />
+                                                    <Binding Path="EventReminder.User.ID" />
+                                                </MultiBinding>
+                                            </telerik:RadButton.Visibility>-->
+                                        </telerik:RadButton>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Width="SizeToCells"
+                                                        IsVisible="{Binding Path=CanDeleteEventReminder}">
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <telerik:RadButton BorderThickness="0"
+                                                           Margin="0"
+                                                           Style="{DynamicResource NoChromeButton}"
+                                                           Command="{Binding DataContext.DeleteEventReminderCommand,
+                                                                         RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                           CommandParameter="{Binding}">
+                                            <telerik:RadButton.Content>
+                                                <Image Source="{StaticResource ImageDelete26}"
+                                                       Width="12"
+                                                       Height="12" />
+                                            </telerik:RadButton.Content>
+                                        </telerik:RadButton>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                    <TextBlock x:Name="NoDataMessage"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Grid.Row="3"
+                               Text="{Binding NoReminderMessage}"
+                               FontStyle="Italic"
+                               FontSize="15"
+                               Visibility="{Binding Event.EventReminders.Count,Converter={StaticResource CountToVisibilityConverter},ConverterParameter=Invert}">
+                    </TextBlock>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

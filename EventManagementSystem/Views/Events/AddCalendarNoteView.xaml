@@ -1,0 +1,61 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.Events.AddCalendarNoteView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   Header="Add Calendar Note"
+                   Style="{StaticResource RadWindowStyle}"
+                   WindowStartupLocation="CenterOwner">
+    
+    <telerik:RadWindow.Resources>
+            <Style x:Key="RadCalendarWithoutWeeks" TargetType="{x:Type telerik:RadCalendar}">
+                <Setter Property="AreWeekNumbersVisible" Value="False" />
+            </Style>
+    </telerik:RadWindow.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="0">
+            <TextBlock Text="Start" />
+            <telerik:RadDateTimePicker x:Name="StarTimePicker"
+                                       EndTime="{Binding ElementName=EndTimePicker, Path=SelectedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                       SelectedValue="{Binding CalendarNote.CalendarNote.StartTime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                       CalendarStyle="{StaticResource RadCalendarWithoutWeeks}"/>
+            
+            <TextBlock Text="End" />
+            <telerik:RadDateTimePicker x:Name="EndTimePicker"
+                                       StartTime="{Binding ElementName=StarTimePicker, Path=SelectedValue, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                       SelectedValue="{Binding CalendarNote.CalendarNote.EndTime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                       CalendarStyle="{StaticResource RadCalendarWithoutWeeks}"/>
+            
+            <TextBlock Text="Color" />
+            <telerik:RadColorPicker Margin="4"
+                                    SelectedColor="{Binding CalendarNote.Color, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+        </StackPanel>
+
+        <TextBox Grid.Row="1" MinHeight="100" Margin="4"
+                 Text="{Binding CalendarNote.Description, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}" />
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Grid.Row="2">
+            <telerik:RadButton Content="Save"
+                               Command="{Binding SaveCommand}"
+                               Click="Save_OnClick"
+                               IsDefault="True"
+                               Width="80"
+                               Margin="4" />
+            <telerik:RadButton Content="Cancel"
+                               IsCancel="True"
+                               Command="{Binding CancelCommand}"
+                               Click="Cancel_OnClick"
+                               Width="80"
+                               Margin="4" />
+        </StackPanel>
+    </Grid>
+</telerik:RadWindow>

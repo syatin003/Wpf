@@ -1,0 +1,132 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.Events.EventsBookedView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   WindowStartupLocation="CenterOwner"
+                   Header="Events"
+                   Style="{StaticResource RadWindowStyle}"
+                   BorderThickness="1"
+                   Width="920"
+                   Height="460">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+
+        <telerik:RadGridView ItemsSource="{Binding Events}"
+                             AutoGenerateColumns="False"
+                             Grid.Row="0"
+                             x:Name="GridView"
+                             Margin="5"
+                             CanUserDeleteRows="False"
+                             IsReadOnly="True"
+                             RowIndicatorVisibility="Collapsed"
+                             ShowGroupPanel="True">
+
+            <telerik:RadGridView.Columns>
+                <telerik:GridViewDataColumn Header="Date"
+                                            DataFormatString="{}{0:ddddd dd/MM/yy}"
+                                            DataMemberBinding="{Binding Date}">
+
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="{x:Type telerik:GridViewCell}">
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Right" />
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn Header="Title"
+                                            MinWidth="200"
+                                            DataMemberBinding="{Binding Event.Name}" />
+
+                <telerik:GridViewDataColumn Header="Type"
+                                            DataMemberBinding="{Binding EventType.Name}" />
+
+                <telerik:GridViewDataColumn Header="Primary Contact"
+                                            DataMemberBinding="{Binding PrimaryContact.ContactName}">
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="{x:Type telerik:GridViewCell}">
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn Header="Telephone"
+                                            DataMemberBinding="{Binding PrimaryContact.Contact.Phone1}" />
+
+                <telerik:GridViewDataColumn Header="Places"
+                                            DataMemberBinding="{Binding Event.Places, Mode=TwoWay}" />
+
+                <telerik:GridViewDataColumn Header="Status"
+                                            DataMemberBinding="{Binding EventStatus.Name}" />
+
+                <telerik:GridViewDataColumn Header="Changes"
+                                            DataMemberBinding="{Binding Changes}">
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="{x:Type telerik:GridViewCell}">
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn Header="Start Time"
+                                            DataMemberBinding="{Binding StartTime, StringFormat={}{0:HH:mm}}">
+
+                    <telerik:GridViewDataColumn.CellStyle>
+                        <Style TargetType="{x:Type telerik:GridViewCell}">
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Center" />
+                        </Style>
+                    </telerik:GridViewDataColumn.CellStyle>
+                </telerik:GridViewDataColumn>
+
+                <telerik:GridViewDataColumn IsResizable="False"
+                                            Width="SizeToCells">
+                    <telerik:GridViewDataColumn.CellTemplate>
+                        <DataTemplate>
+                            <telerik:RadButton Margin="0"
+                                               Command="{Binding DataContext.EditEventCommand,
+                                                                         RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                               CommandParameter="{Binding}"
+                                               Style="{DynamicResource NoChromeButton}"
+                                               BorderThickness="0">
+                                <telerik:RadButton.Content>
+                                    <Image Source="{StaticResource ImageEdit26}"
+                                           Width="16"
+                                           Height="16" />
+                                </telerik:RadButton.Content>
+                            </telerik:RadButton>
+                        </DataTemplate>
+                    </telerik:GridViewDataColumn.CellTemplate>
+                </telerik:GridViewDataColumn>
+
+            </telerik:RadGridView.Columns>
+        </telerik:RadGridView>
+
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Grid.Row="1">
+            <!--<telerik:RadButton Content="OK"
+                               Click="InsertButton_OnClick"
+                               IsDefault="True"
+                               Width="80"
+                               Margin="5" />-->
+            <telerik:RadButton Content="Cancel"
+                               Click="CancelButton_OnClick"
+                               IsCancel="True"
+                               Width="80"
+                               Margin="5" />
+        </StackPanel>
+    </Grid>
+
+</telerik:RadWindow>

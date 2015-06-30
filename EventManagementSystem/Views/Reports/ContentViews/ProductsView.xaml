@@ -1,0 +1,193 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Reports.ContentViews.ProductsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:local="clr-namespace:EventManagementSystem.Helpers"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="800">
+    
+    <telerik:RadBusyIndicator BusyContent="Loading..." IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid>
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Auto"
+                          telerik:StyleManager.Theme="Windows8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Row="0"
+                          Margin="5,10,5,5">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Margin" Value="10,5" />
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="110" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Start Date" VerticalAlignment="Center"
+                                   Grid.Column="0" Grid.Row="0" />
+                        <TextBlock Text="End Date" VerticalAlignment="Center"
+                                   Grid.Column="2" Grid.Row="0" />
+                        <telerik:RadDateTimePicker Grid.Column="1" Grid.Row="0" SelectedValue="{Binding StartDate, Mode=TwoWay}" 
+                                                   IsEnabled="{Binding IsBusy,Mode=OneWay,FallbackValue=True,Converter={StaticResource BoolInverterConverter}}"/>
+                        <telerik:RadDateTimePicker Grid.Column="3" Grid.Row="0" SelectedValue="{Binding EndDate, Mode=TwoWay}"
+                                                   IsEnabled="{Binding IsBusy,Mode=OneWay,FallbackValue=True,Converter={StaticResource BoolInverterConverter}}"/>
+                        <telerik:RadButton Content="GO" Grid.Column="4" Grid.Row="0" Margin="30 5" Padding="5"
+                                           IsDefault="True" FontWeight="Bold"
+                                           Command="{Binding GoButtonCommand}"/>
+                    </Grid>
+
+                    <telerik:RadGridView Margin="0,10,0,0" Grid.Row="1"
+                                         ItemsSource="{Binding GroupedTransactionProducts}"
+                                         AutoGenerateColumns="False"
+                                         CanUserDeleteRows="False"
+                                         CanUserFreezeColumns="False"
+                                         CanUserInsertRows="False"
+                                         CanUserReorderColumns="False"
+                                         CanUserResizeColumns="True"
+                                         CanUserResizeRows="False"
+                                         CanUserSortColumns="True"
+                                         FrozenColumnsSplitterVisibility="Collapsed"
+                                         IsReadOnly="True"
+                                         RowIndicatorVisibility="Collapsed"
+                                         ShowGroupPanel="True"
+                                         GroupRenderMode="Flat"
+                                         ShowColumnFooters="True"
+                                         ShowGroupFooters="False"
+                                         AutoExpandGroups="False">
+                        <telerik:RadGridView.Resources>
+                            <Style TargetType="telerik:GroupHeaderRow">
+                                <Setter Property="ShowGroupHeaderColumnAggregates" Value="True" />
+                                <Setter Property="ShowHeaderAggregates" Value="False" />
+                            </Style>
+                        </telerik:RadGridView.Resources>
+                        <!--<telerik:RadGridView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="0,0" Height="0">
+                                    <TextBlock FontWeight="Bold" Foreground="DarkGray" Text="{Binding Group.Key}" Margin="0,0,0,2" Width="200" />                                
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:RadGridView.GroupHeaderTemplate>-->
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="Quantity"
+                                                        DataMemberBinding="{Binding Quantity}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="Quantity" />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Product"
+                                                        DataMemberBinding="{Binding TillProductName}" />
+
+                            <telerik:GridViewDataColumn Header="Group"
+                                                        ShowColumnWhenGrouped="False"
+                                                        DataMemberBinding="{Binding ProductGroupName}" />
+
+                            <telerik:GridViewDataColumn ShowColumnWhenGrouped="False" Header="Department"
+                                                        DataMemberBinding="{Binding DepartmentName}" />
+
+                            <telerik:GridViewDataColumn Header="Clerk"
+                                                        Footer=""
+                                                        Width="100"
+                                                        ShowColumnWhenGrouped="False"
+                                                        DataMemberBinding="{Binding ClerkName}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <local:SumClerksFunction />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Till"
+                                                        Footer=""
+                                                        DataMemberBinding="{Binding TillID}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <local:SumTillsFunction />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="RRP"
+                                                        DataMemberBinding="{Binding SalePrice, StringFormat='\{0:£#,##0.00}'}" />
+
+                            <telerik:GridViewDataColumn Header="Sale Price"
+                                                        DataMemberBinding="{Binding Value, StringFormat='\{0:£#,##0.00}'}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="Value" ResultFormatString="{}{0:£#,##0.00}" />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Cash"
+                                                        DataMemberBinding="{Binding Cash, StringFormat='\{0:£#,##0.00}'}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="Cash" ResultFormatString="{}{0:£#,##0.00}" />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Cheque"
+                                                        DataMemberBinding="{Binding Cheque, StringFormat='\{0:£#,##0.00}'}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="Cheque" ResultFormatString="{}{0:£#,##0.00}" />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Credit Card"
+                                                        DataMemberBinding="{Binding CreditCard, StringFormat='\{0:£#,##0.00}'}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="CreditCard" ResultFormatString="{}{0:£#,##0.00}" />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Voucher"
+                                                        DataMemberBinding="{Binding Voucher, StringFormat='\{0:£#,##0.00}'}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="Voucher" ResultFormatString="{}{0:£#,##0.00}" />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Club Card"
+                                                        DataMemberBinding="{Binding ClubCard, StringFormat='\{0:£#,##0.00}'}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="ClubCard" ResultFormatString="{}{0:£#,##0.00}" />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Events"
+                                                        DataMemberBinding="{Binding Events, StringFormat='\{0:£#,##0.00}'}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="Events" ResultFormatString="{}{0:£#,##0.00}" />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Other"
+                                                        DataMemberBinding="{Binding Other, StringFormat='\{0:£#,##0.00}'}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="Other" ResultFormatString="{}{0:£#,##0.00}"/>
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Discount"
+                                                        DataMemberBinding="{Binding Discount, StringFormat='\{0:£#,##0.00}' }">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="Discount" ResultFormatString="{}{0:£#,##0.00}" />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                        </telerik:RadGridView.Columns>
+
+                    </telerik:RadGridView>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

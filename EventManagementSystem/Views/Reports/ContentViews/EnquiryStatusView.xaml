@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Reports.ContentViews.EnquiryStatusView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <telerik:RadBusyIndicator BusyContent="Loading..." IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid
+            Visibility="{Binding Path=IsBusy, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=True}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Auto"
+                          telerik:StyleManager.Theme="Windows8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Row="0"
+                          Margin="5,10,5,5">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Margin" Value="10,5" />
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Start Date"
+                                   Grid.Column="0" Grid.Row="0" />
+                        <TextBlock Text="End Date"
+                                   Grid.Column="0" Grid.Row="1" />
+                        <telerik:RadDateTimePicker Grid.Column="1" Grid.Row="0"
+                                                   SelectedValue="{Binding StartDate, Mode=TwoWay}" />
+                        <telerik:RadDateTimePicker Grid.Column="1" Grid.Row="1"
+                                                   SelectedValue="{Binding EndDate, Mode=TwoWay}" />
+                    </Grid>
+                    <telerik:RadGridView Margin="0,10,0,0" Grid.Row="1"
+                                         x:Name="EnquiriesRadGridView"
+                                         ItemsSource="{Binding Enquiries}"
+                                         AutoGenerateColumns="False"
+                                         CanUserDeleteRows="False"
+                                         CanUserFreezeColumns="False"
+                                         CanUserInsertRows="False"
+                                         CanUserReorderColumns="False"
+                                         CanUserResizeColumns="True"
+                                         CanUserResizeRows="False"
+                                         CanUserSortColumns="True"
+                                         FrozenColumnsSplitterVisibility="Collapsed"
+                                         IsReadOnly="True"
+                                         RowIndicatorVisibility="Collapsed"
+                                         ShowGroupPanel="True"
+                                         GroupRenderMode="Flat"
+                                         ShowColumnFooters="True"
+                                         ShowGroupFooters="False"
+                                         AutoExpandGroups="False">
+                        <telerik:RadGridView.Resources>
+                            <Style TargetType="telerik:GroupHeaderRow">
+                                <Setter Property="ShowGroupHeaderColumnAggregates" Value="True" />
+                                <Setter Property="ShowHeaderAggregates" Value="False" />
+                            </Style>
+                        </telerik:RadGridView.Resources>
+                        <!--<telerik:RadGridView.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="0,0" Height="0">
+                                    <TextBlock FontWeight="Bold" Foreground="DarkGray" Text="{Binding Group.Key}" Margin="0,0,0,2" Width="200" />                                
+                                </StackPanel>
+                            </DataTemplate>
+                        </telerik:RadGridView.GroupHeaderTemplate>-->
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="Enquiry Date"
+                                                        DataMemberBinding="{Binding CreationDate, StringFormat='{}{0:dd/MM/yy}'}">
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Event Date"
+                                                        DataMemberBinding="{Binding Date, StringFormat='{}{0:dd/MM/yy}'}">
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Enquiry Type"
+                                                        DataMemberBinding="{Binding EventType.Name}" />
+
+                            <telerik:GridViewDataColumn Header="Captor"                                                 
+                                                        DataMemberBinding="{Binding LoggedUser.InternalName}" />
+
+                            <telerik:GridViewDataColumn  Header="Assignee"
+                                                        DataMemberBinding="{Binding AssignedToUser.InternalName}" />
+
+                            <telerik:GridViewDataColumn Header="Event Name"
+                                                        DataMemberBinding="{Binding Name}">
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Primary Contact"
+                                                        DataMemberBinding="{Binding PrimaryContact.ContactName}">
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Current Status"
+                                                        DataMemberBinding="{Binding CurrentStatus}" />                           
+
+                        </telerik:RadGridView.Columns>
+
+                        <telerik:RadGridView.SortDescriptors>
+                            <telerik:SortDescriptor SortDirection="Descending"
+                                                                Member="CreationDate" />
+                        </telerik:RadGridView.SortDescriptors>
+
+                    </telerik:RadGridView>
+                    <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <telerik:RadButton  Margin="5" Height="25" Width="100"
+                                   VerticalAlignment="Bottom"  Content="Print"
+                                   Click="Print_OnClick" />
+                        <telerik:RadButton Margin="5" Height="25" Width="100"
+                                   VerticalAlignment="Bottom"  Content="Export"
+                                   Click="Export_OnClick" />
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

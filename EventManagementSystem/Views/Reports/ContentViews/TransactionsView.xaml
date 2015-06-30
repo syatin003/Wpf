@@ -1,0 +1,222 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Reports.ContentViews.TransactionsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d"
+             d:DesignHeight="400" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style x:Key="NoSelectedCell" TargetType="{x:Type DataGridCell}">
+            <Setter Property="IsHitTestVisible" Value="False" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="{x:Null}" />
+                    <Setter Property="BorderBrush" Value="{x:Null}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+
+    <telerik:RadBusyIndicator BusyContent="Loading..." IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid>
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Auto"
+                          telerik:StyleManager.Theme="Windows8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Row="0" Margin="5,10,5,5">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Margin" Value="10,5" />
+                            </Style>
+                            <Style TargetType="{x:Type TextBox}">
+                                <Setter Property="Margin" Value="10,5" />
+                            </Style>
+                        </Grid.Resources>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="80" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="110" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Start Date" VerticalAlignment="Center"
+                                   Grid.Column="0" Grid.Row="0" />
+                        <TextBlock Text="End Date" VerticalAlignment="Center"
+                                   Grid.Column="2" Grid.Row="0" />
+                        <telerik:RadDateTimePicker Grid.Column="1" Grid.Row="0" SelectedValue="{Binding StartDate, Mode=TwoWay}" 
+                                                   IsEnabled="{Binding IsBusy,Mode=OneWay,FallbackValue=True,Converter={StaticResource BoolInverterConverter}}"/>
+                        <telerik:RadDateTimePicker Grid.Column="3" Grid.Row="0" SelectedValue="{Binding EndDate, Mode=TwoWay}"
+                                                   IsEnabled="{Binding IsBusy,Mode=OneWay,FallbackValue=True,Converter={StaticResource BoolInverterConverter}}"/>
+                        <telerik:RadButton Content="GO" Grid.Column="4" Grid.Row="0" Margin="30 5" Padding="5"
+                                           IsDefault="True" FontWeight="Bold"
+                                           Command="{Binding GoButtonCommand}"/>
+
+                    </Grid>
+
+                    <telerik:RadGridView Margin="0,10,0,0" Grid.Row="1"
+                                     ItemsSource="{Binding Transactions}"
+                                     AutoGenerateColumns="False"
+                                     CanUserDeleteRows="False"
+                                     CanUserFreezeColumns="False"
+                                     CanUserInsertRows="False"
+                                     CanUserReorderColumns="False"
+                                     CanUserResizeColumns="True"
+                                     CanUserResizeRows="False"
+                                     CanUserSortColumns="True"
+                                     FrozenColumnsSplitterVisibility="Collapsed"
+                                     IsReadOnly="True"
+                                     RowIndicatorVisibility="Collapsed"
+                                     RowDetailsVisibilityMode="VisibleWhenSelected"
+                                     ShowGroupPanel="True"
+                                     ShowColumnFooters="True"
+                                     ShowGroupFooters="False"
+                                     AutoExpandGroups="True" >
+                        <telerik:RadGridView.SortDescriptors>
+                            <telerik:SortDescriptor Member="Date" SortDirection="Ascending"/>
+                            <telerik:SortDescriptor Member="SaleID" SortDirection="Ascending"/>
+                        </telerik:RadGridView.SortDescriptors>
+
+                        <telerik:RadGridView.RowDetailsTemplate>
+                            <DataTemplate>
+                                <DataGrid AutoGenerateColumns="False"
+                                          GridLinesVisibility="None"
+                                          IsReadOnly="True"
+                                          CanUserAddRows="False"
+                                          HeadersVisibility="None"
+                                          BorderThickness="0"
+                                          ItemsSource="{Binding TillTransactionProducts}">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn
+                                            CellStyle="{StaticResource NoSelectedCell}"
+                                            Width="{Binding Source={x:Reference DateColumn}, Path=ActualWidth}" />
+                                        <DataGridTextColumn
+                                            CellStyle="{StaticResource NoSelectedCell}"
+                                            Width="{Binding Source={x:Reference TimeColumn}, Path=ActualWidth}" />
+                                        <DataGridTextColumn
+                                            CellStyle="{StaticResource NoSelectedCell}"
+                                            Width="{Binding Source={x:Reference OperatorIdColumn}, Path=ActualWidth}" />
+                                        <DataGridTextColumn
+                                            CellStyle="{StaticResource NoSelectedCell}"
+                                            Width="{Binding Source={x:Reference TillIdColumn}, Path=ActualWidth}" />
+                                        <DataGridTemplateColumn
+                                            Width="{Binding Source={x:Reference SaleColumn}, Path=ActualWidth}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock
+                                                            Text="{Binding Quantity}" />
+                                                        <TextBlock Text=" x " />
+                                                        <TextBlock
+                                                            Text="{Binding TillProduct.Name}" />
+                                                    </StackPanel>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                        <DataGridTextColumn
+                                            Width="{Binding Source={x:Reference RetailPriceColumn}, Path=ActualWidth}"
+                                            Binding="{Binding SalePrice, StringFormat='\{0:£#,##0.00}'}" />
+
+                                        <DataGridTextColumn
+                                            Width="{Binding Source={x:Reference DiscountColumn}, Path=ActualWidth}"
+                                            Binding="{Binding Discount, StringFormat='\{0:£#,##0.00}'}"/>
+
+                                        <DataGridTextColumn
+                                            Binding="{Binding Value, Mode=OneTime, StringFormat='\{0:£#,##0.00}'}"
+                                            Width="{Binding Source={x:Reference AmountColumn}, Path=ActualWidth}" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </DataTemplate>
+                        </telerik:RadGridView.RowDetailsTemplate>
+
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="Date"
+                                                        x:Name="DateColumn"
+                                                        IsFilterable="True"
+                                                        DataMemberBinding="{Binding Date, StringFormat='{}{0:dd.MM.yyyy}'}" />
+
+                            <telerik:GridViewDataColumn Header="Time"
+                                                        x:Name="TimeColumn"
+                                                        DataMemberBinding="{Binding Date, StringFormat='{}{0:T}'}" />
+
+                            <telerik:GridViewDataColumn Header="Operator ID"
+                                                        x:Name="OperatorIdColumn"
+                                                        DataMemberBinding="{Binding Clerk.Name}" />
+
+                            <telerik:GridViewDataColumn Header="Till ID"
+                                                        x:Name="TillIdColumn"
+                                                        DataMemberBinding="{Binding Till.Identifier}"/>
+
+                            <telerik:GridViewDataColumn Header="Sale Descriptor"
+                                                        x:Name="SaleColumn"
+                                                        UniqueName="SaleColumn"
+                                                        DataMemberBinding="{Binding SaleDescriptor}" />
+
+                            <telerik:GridViewDataColumn Header="Retail Price"
+                                                        x:Name="RetailPriceColumn" />
+
+                            <telerik:GridViewDataColumn Header="Discount"
+                                                        x:Name="DiscountColumn" />
+
+                            <telerik:GridViewDataColumn Header="Amount"
+                                                        x:Name="AmountColumn"
+                                                        DataMemberBinding="{Binding SaleTotal, StringFormat='\{0:£#,##0.00}'}">
+                                <telerik:GridViewDataColumn.AggregateFunctions>
+                                    <telerik:SumFunction SourceField="SaleTotal"
+                                                         ResultFormatString="Total: {0:c}" />
+                                </telerik:GridViewDataColumn.AggregateFunctions>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Payment Type">
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl
+                                            ItemsSource="{Binding TillTransactionFinaliseKeys}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock
+                                                        Text="{Binding FinaliseKey.Name}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Amount Tendered">
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl
+                                            ItemsSource="{Binding TillTransactionFinaliseKeys}">
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock
+                                                        Text="{Binding Value, StringFormat='\{0:£#,##0.00}'}" />
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+
+                            <telerik:GridViewDataColumn Header="Member name" />
+
+                        </telerik:RadGridView.Columns>
+                    </telerik:RadGridView>
+                </Grid>
+
+            </ScrollViewer>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

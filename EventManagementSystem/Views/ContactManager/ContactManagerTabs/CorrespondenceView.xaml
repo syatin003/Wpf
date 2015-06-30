@@ -1,0 +1,115 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.ContactManager.ContactManagerTabs.CorrespondenceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <telerik:RadBusyIndicator BusyContent="{Binding LoadingMessage, Mode=OneWay}" IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid
+            Visibility="{Binding Path=IsBusy, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=True}">
+            <ScrollViewer VerticalScrollBarVisibility="Auto"
+                          HorizontalScrollBarVisibility="Auto"
+                          telerik:StyleManager.Theme="Windows8">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Row="0"
+                          Margin="5,10,5,5">
+                        <Grid.Resources>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Setter Property="Margin" Value="10,5" />
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="From"
+                                   Grid.Column="0" Grid.Row="0" />
+                        <TextBlock Text="To"
+                                   Grid.Column="2" Grid.Row="0" />
+                        <telerik:RadDateTimePicker Grid.Column="1" Grid.Row="0"
+                                                   SelectedValue="{Binding StartDate, Mode=TwoWay}" />
+                        <telerik:RadDateTimePicker Grid.Column="3" Grid.Row="0"
+                                                   SelectedValue="{Binding EndDate, Mode=TwoWay}" />
+                    </Grid>
+                    <telerik:RadGridView Margin="0,10,0,0" Grid.Row="1"
+                                         ItemsSource="{Binding Correspondence}"
+                                         AutoGenerateColumns="False"
+                                         CanUserDeleteRows="False"
+                                         CanUserFreezeColumns="False"
+                                         CanUserInsertRows="False"
+                                         CanUserReorderColumns="False"
+                                         CanUserResizeColumns="True"
+                                         CanUserResizeRows="False"
+                                         CanUserSortColumns="True"
+                                         FrozenColumnsSplitterVisibility="Collapsed"
+                                         IsReadOnly="True"
+                                         RowIndicatorVisibility="Collapsed"
+                                         ShowGroupPanel="True"
+                                         GroupRenderMode="Flat"
+                                         ShowColumnFooters="True"
+                                         ShowGroupFooters="False"
+                                         AutoExpandGroups="True">
+                        <telerik:RadGridView.Resources>
+                            <Style TargetType="telerik:GroupHeaderRow">
+                                <Setter Property="ShowGroupHeaderColumnAggregates" Value="True" />
+                                <Setter Property="ShowHeaderAggregates" Value="False" />
+                            </Style>
+                        </telerik:RadGridView.Resources>
+
+                        <telerik:RadGridView.Columns>
+                            <telerik:GridViewDataColumn Header="Event"
+                                                        ShowColumnWhenGrouped="False"
+                                                        DataMemberBinding="{Binding EventName}" />
+
+                            <telerik:GridViewDataColumn Header="Date"
+                                                        DataMemberBinding="{Binding Date}" DataFormatString="{}{0:dd/MM/yy HH:mm:ss tt}"/>
+
+                            <telerik:GridViewDataColumn Header="Correspondence Type"
+                                                        DataMemberBinding="{Binding CorresponcenceType.Type}" />
+
+                            <telerik:GridViewDataColumn Header="Email Type"
+                                                        DataMemberBinding="{Binding EmailType}" />
+
+                            <telerik:GridViewDataColumn Header="Subject"
+                                                        DataMemberBinding="{Binding Subject}" />
+
+                            <telerik:GridViewDataColumn IsResizable="False"
+                                                Width="SizeToCells">
+                                <telerik:GridViewDataColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <telerik:RadButton Margin="0"
+                                                   Command="{Binding DataContext.OpenEmailCommand,
+                                                                         RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                   CommandParameter="{Binding}"
+                                                   Style="{DynamicResource NoChromeButton}"
+                                                   BorderThickness="0">
+                                            <telerik:RadButton.Content>
+                                                <Image Source="{StaticResource ImageReadMessage26}"
+                                               Width="16" Height="16" />
+                                            </telerik:RadButton.Content>
+                                        </telerik:RadButton>
+                                    </DataTemplate>
+                                </telerik:GridViewDataColumn.CellTemplate>
+                            </telerik:GridViewDataColumn>
+
+                        </telerik:RadGridView.Columns>
+
+                    </telerik:RadGridView>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

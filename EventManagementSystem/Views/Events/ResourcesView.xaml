@@ -1,0 +1,136 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.Events.ResourcesView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   xmlns:models="clr-namespace:EventManagementSystem.Models"
+                   Width="1000"
+                   Height="500"
+                   Header="Resources"
+                   Style="{StaticResource RadWindowStyle}"
+                   BorderThickness="0"
+                   WindowStartupLocation="CenterOwner">
+
+    <telerik:RadWindow.Resources>
+
+        <DataTemplate DataType="{x:Type models:GolfModel}">
+            <Grid>
+                <telerik:RadClock Header="{Binding Name, Mode=OneTime}"
+                                  Margin="5"
+                                  StartTime="{Binding Golf.StartTime, Mode=OneTime}"
+                                  EndTime="{Binding Golf.EndTime, Mode=OneTime}"
+                                  TimeInterval="{Binding Golf.TimeInterval, Mode=OneTime}"
+                                  SelectionChanged="GolfClock_OnSelectionChanged" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type models:RoomModel}">
+            <Grid>
+                <telerik:RadClock Header="{Binding Name, Mode=OneTime}"
+                                  Margin="5"
+                                  SelectionChanged="RoomClock_OnSelectionChanged"
+                                  ItemsSource="{Binding ClockItems}" />
+                <!--StartTime="{Binding Room.StartTime, Mode=OneTime}"
+                                  EndTime="{Binding Room.EndTime, Mode=OneTime}"
+                                  TimeInterval="{Binding Room.TimeInterval, Mode=OneTime}"-->
+
+            </Grid>
+        </DataTemplate>
+
+    </telerik:RadWindow.Resources>
+
+    <Grid>
+        <Grid x:Name="Overlay"
+              Visibility="{Binding IsBusy,Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter},ConverterParameter=False}"
+              Panel.ZIndex="1000">
+            <Grid.Background>
+                <SolidColorBrush Color="White"
+                                 Opacity=".7" />
+            </Grid.Background>
+
+            <TextBlock   HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         FontSize="15"
+                         Foreground="Black">Please Wait . . .</TextBlock>
+            <!--
+              <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"><TextBlock Name="MyWipedText"
+                           Width="20"
+                           FontSize="15"
+                           Foreground="Black"
+                           Text=" . . .">
+
+                    <TextBlock.Triggers>
+                        <EventTrigger RoutedEvent="TextBlock.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="MyWipedText"
+                                                     Storyboard.TargetProperty="(TextBlock.Width)"
+                                                     To="0.0"
+                                                     Duration="0:0:2"
+                                                     AutoReverse="True"
+                                                     RepeatBehavior="Forever" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </TextBlock.Triggers>
+                </TextBlock> </StackPanel>-->
+
+        </Grid>
+
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.Resources>
+                <Style TargetType="ItemsControl">
+                    <Setter Property="ItemsPanel">
+                        <Setter.Value>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Disabled"
+                          telerik:StyleManager.Theme="Windows8"
+                          Grid.Column="0">
+                <StackPanel Orientation="Horizontal">
+
+                    <ItemsControl ItemsSource="{Binding Golfs}"
+                                  x:Name="GolfItemsControl" />
+                    <ItemsControl ItemsSource="{Binding Rooms}"
+                                  x:Name="RoomItemsControl" />
+                </StackPanel>
+            </ScrollViewer>
+
+            <StackPanel Orientation="Vertical"
+                        Grid.Column="1">
+                <TextBlock Margin="5,5,5,10"
+                           Text="{Binding SelectedDate, StringFormat={}{0:ddddd, dd MMMM yyyy}}"
+                           FontFamily="PT-Sans"
+                           FontSize="14"
+                           Foreground="{StaticResource MidnightBlueBrush}"
+                           FontWeight="Bold"
+                           HorizontalAlignment="Center" />
+
+                <telerik:RadCalendar x:Name="BookingsCalendar"
+                                     Margin="5,0,0,5"
+                                     IsEnabled="{Binding IsBusy,Mode=OneWay,FallbackValue=True,Converter={StaticResource BoolInverterConverter}}"
+                                     DisplayDate="{Binding SelectedDate, Mode=OneTime, UpdateSourceTrigger=PropertyChanged}"
+                                     SelectedDate="{Binding SelectedDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <!--DayButtonStyle="{x:Null}"-->
+                </telerik:RadCalendar>
+
+                <telerik:RadButton Content="New Event"
+                                   Margin="5"
+                                   Command="{Binding CreateEventCommand}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</telerik:RadWindow>

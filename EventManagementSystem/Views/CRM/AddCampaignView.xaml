@@ -1,0 +1,76 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.CRM.AddCampaignView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   Header="Add Campaign"
+                   WindowStartupLocation="CenterOwner"
+                   ResizeMode="NoResize" CanClose="False"
+                   Style="{StaticResource RadWindowStyle}"
+                   Height="250" Width="500">
+
+    <telerik:RadBusyIndicator IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Start Date"
+                       Grid.Column="0" Grid.Row="0" />
+            <telerik:RadDateTimePicker Margin="5"
+                                       SelectedDate="{Binding Campaign.StartDate, Mode=TwoWay,StringFormat=g, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+                                       Grid.Column="1" Grid.Row="0" />
+
+            <TextBlock Text="End Date"
+                       Grid.Column="0" Grid.Row="1" />
+            <telerik:RadDateTimePicker Margin="5"
+                                       SelectedDate="{Binding Campaign.EndDate, Mode=TwoWay,StringFormat=g, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+                                       Grid.Column="1" Grid.Row="1" />
+
+            <TextBlock Text="Campaign Type"
+                       Grid.Column="0" Grid.Row="2" />
+            <telerik:RadComboBox Margin="5"
+                                 ItemsSource="{Binding CampaignTypes}"
+                                 SelectedItem="{Binding CampaignType, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                 DisplayMemberPath="Name" VerticalAlignment="Center"
+                                 Grid.Column="1" Grid.Row="2" />
+
+            <TextBlock Text="Name"
+                       Grid.Column="0" Grid.Row="3" />
+            <TextBox
+                Text="{Binding Campaign.Name, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+                AcceptsReturn="True"
+                TextWrapping="Wrap"
+                VerticalScrollBarVisibility="Auto"
+                Margin="5"
+                Grid.Column="1" Grid.Row="3" />
+
+            <TextBlock Text="Active"
+                       Grid.Column="0" Grid.Row="4" />
+            <CheckBox IsChecked="{Binding Campaign.IsActive, UpdateSourceTrigger=PropertyChanged}"
+                      Margin="5"
+                      Grid.Column="1" Grid.Row="4" />
+
+            <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                        Orientation="Horizontal" HorizontalAlignment="Center">
+                <telerik:RadButton Content="Submit"
+                                   IsDefault="True"
+                                   Command="{Binding SubmitCommand}"
+                                   Click="OnSubmitButtonClick" Margin="5" />
+                <telerik:RadButton Content="Cancel"
+                                   IsCancel="True"
+                                   Command="{Binding CancelCommand}"
+                                   Click="OnCancelButtonClick" Margin="5" />
+            </StackPanel>
+        </Grid>
+    </telerik:RadBusyIndicator>
+
+</telerik:RadWindow>

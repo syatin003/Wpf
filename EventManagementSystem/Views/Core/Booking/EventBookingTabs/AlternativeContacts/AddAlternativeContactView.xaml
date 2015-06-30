@@ -1,0 +1,65 @@
+﻿<telerik:RadWindow xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   x:Class="EventManagementSystem.Views.Core.Booking.EventBookingTabs.AlternativeContacts.AddAlternativeContactView"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   WindowStartupLocation="CenterOwner"
+                   Header="Add Alternative Contact"
+                   Height="220" Width="500" ResizeMode="NoResize">
+
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="First Name" Margin="5" VerticalAlignment="Center"
+                       Grid.Column="0" />
+            <TextBox Text="{Binding Contact.FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" 
+                     Margin="5" Padding="4,2"
+                     Height="22" Grid.Column="1" />
+
+            <TextBlock Text="Last Name" Margin="5" VerticalAlignment="Center"
+                       Grid.Column="2" />
+            <TextBox Text="{Binding Contact.LastName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}" 
+                     Margin="5" Padding="4,2"
+                     Height="22" Grid.Column="3" />
+        </Grid>
+
+        <TextBlock Text="Position" Margin="5" VerticalAlignment="Center"
+                   Grid.Column="0" Grid.Row="1" />
+        <TextBox Text="{Binding Contact.Contact.CompanyName}" Margin="5" Padding="4,2"
+                 Grid.Column="1" Grid.Row="1" Height="22" />
+
+        <TextBlock Text="Telephone" Margin="5" VerticalAlignment="Center"
+                   Grid.Column="0" Grid.Row="2" />
+        <TextBox Text="{Binding Contact.Contact.Phone1}" Margin="5" Padding="4,2"
+                 Grid.Column="1" Grid.Row="2" Height="22" />
+
+        <TextBlock Text="Email" Margin="5" VerticalAlignment="Center"
+                   Grid.Column="0" Grid.Row="3" />
+        <TextBox Text="{Binding Contact.Contact.Email}" Margin="5" Padding="4,2"
+                 Grid.Column="1" Grid.Row="3" Height="22" />
+
+        <telerik:RadButton Content="Submit"
+                           Click="OnSubmitButtonClick"
+                           Command="{Binding SubmitCommand}"
+                           Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"
+                           Width="100" Margin="5" />
+
+    </Grid>
+</telerik:RadWindow>

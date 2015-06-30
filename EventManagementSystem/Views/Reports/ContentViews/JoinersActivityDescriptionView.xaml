@@ -1,0 +1,111 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Reports.ContentViews.JoinersActivityDescriptionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <telerik:RadBusyIndicator BusyContent="Loading..."
+                              IsBusy="{Binding IsBusy,FallbackValue=True}">
+        <Grid Visibility="{Binding Path=IsBusy,Converter={StaticResource BooleanToVisibilityConverter},ConverterParameter=True}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0"
+                  Margin="5,10,5,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin"
+                                Value="10,5"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <TextBlock Text="Start Date"
+                           Grid.Column="0"></TextBlock>
+                <telerik:RadDatePicker Grid.Column="1"
+                                       SelectedValue="{Binding StartDate, Mode=TwoWay}"></telerik:RadDatePicker>
+                <TextBlock Text="End Date"
+                           Grid.Column="2"></TextBlock>
+                <telerik:RadDatePicker Grid.Column="3"
+                                       SelectedValue="{Binding EndDate, Mode=TwoWay}"></telerik:RadDatePicker>
+            </Grid>
+
+            <telerik:RadGridView x:Name="JoinersActivityRadGridViewGrid" 
+                                 Grid.Row="1"
+                                 Margin="10,0,10,0"                                 
+                                 GroupRenderMode="Flat"
+                                 RowIndicatorVisibility="Collapsed"
+                                 CanUserFreezeColumns="False"
+                                 AutoGenerateColumns="False"
+                                 IsReadOnly="True"
+                                 ItemsSource="{Binding JoinersActivity}">
+                <telerik:RadGridView.Columns>
+
+                    <telerik:GridViewDataColumn Header="Date sale" DataMemberBinding="{Binding DateSale}" DataFormatString="{}{0:dd/MM/yyyy}" IsVisible="{Binding IncDateSale}"/>
+
+                    <telerik:GridViewDataColumn Header="Member name" DataMemberBinding="{Binding MemberName}" IsVisible="{Binding IncMemberName}"/>
+
+                    <telerik:GridViewDataColumn Header="Membership number" DataMemberBinding="{Binding MembershipNumber}" IsVisible="{Binding IncMembershipNumber}"/>
+
+                    <telerik:GridViewDataColumn Header="Sales person" DataMemberBinding="{Binding SalesPerson}" IsVisible="{Binding IncSalesPerson}"/>
+
+                    <telerik:GridViewDataColumn Header="Category" DataMemberBinding="{Binding CategoryName}" IsVisible="{Binding IncCategoryName}"/>
+
+                    <telerik:GridViewDataColumn Header="Members" DataMemberBinding="{Binding Members}" IsVisible="{Binding IncMembers}"/>
+
+                    <telerik:GridViewDataColumn Header="Charge type" DataMemberBinding="{Binding ChargeType}" IsVisible="{Binding IncChargeType}"/>
+
+                    <telerik:GridViewDataColumn Header="Method of payment" DataMemberBinding="{Binding MethodOfPayment}" IsVisible="{Binding IncMethodOfPayment}"/>
+
+                    <telerik:GridViewDataColumn Header="Start Date" DataMemberBinding="{Binding StartDate}" DataFormatString="{}{0:dd/MM/yyyy}" IsVisible="{Binding IncStartDate}"/>
+
+                    <telerik:GridViewDataColumn Header="Renewal date" DataMemberBinding="{Binding RenewalDate}" DataFormatString="{}{0:dd/MM/yyyy}" IsVisible="{Binding IncRenewalDate}"/>
+
+                    <telerik:GridViewDataColumn Header="Ist payment month" DataMemberBinding="{Binding IstPaymentMonth}" DataFormatString="{}{0:dd/MM/yyyy}" IsVisible="{Binding IncIstPaymentMonth}"/>
+
+                    <telerik:GridViewDataColumn Header="Ist month's payment" DataMemberBinding="{Binding IstMonthPayment,ConverterCulture=en-GB, StringFormat={}{0:C2}}" IsVisible="{Binding IncIstMonthPayment}"/>
+
+                    <telerik:GridViewDataColumn Header="Outgoing month's payment" DataMemberBinding="{Binding OutGoingMonthPayment,ConverterCulture=en-GB, StringFormat={}{0:C2}}" IsVisible="{Binding IncOutGoingMonthPayment}"/>
+
+                    <telerik:GridViewDataColumn Header="Last payment month" DataMemberBinding="{Binding LastPaymentMonth}" DataFormatString="{}{0:dd/MM/yyyy}" IsVisible="{Binding IncLastPaymentMonth}"/>
+
+                    <telerik:GridViewDataColumn Header="Contract period" DataMemberBinding="{Binding ContractPeriod}" IsVisible="{Binding IncContractPeriod}"/>
+
+                    <telerik:GridViewDataColumn Header="Annual fee paid" DataMemberBinding="{Binding AnnualFeePaid,ConverterCulture=en-GB, StringFormat={}{0:C2}}" IsVisible="{Binding IncAnnualFeePaid}"/>
+
+                    <telerik:GridViewDataColumn Header="Joining fee paid" DataMemberBinding="{Binding JoiningFeePaid,ConverterCulture=en-GB, StringFormat={}{0:C2}}" IsVisible="{Binding IncJoiningFeePaid}"/>
+
+                    <telerik:GridViewDataColumn Header="Promo source" DataMemberBinding="{Binding PromoSource}" IsVisible="{Binding IncPromoSource}"/>
+
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <telerik:RadButton  Margin="5"
+                                    Height="25"
+                                    Width="100"
+                                    VerticalAlignment="Bottom"
+                                    Content="Print"
+                                    Click="Print_OnClick" />
+                <telerik:RadButton Margin="5"
+                                   Height="25"
+                                   Width="100"
+                                   VerticalAlignment="Bottom"
+                                   Content="Export"
+                                   Click="Export_OnClick" />
+            </StackPanel>
+        </Grid>
+    </telerik:RadBusyIndicator>
+
+</UserControl>

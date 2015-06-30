@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Core.WorkspaceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+
+    <UserControl.Resources>
+
+        <Style x:Key="RadTileViewItemStyle" TargetType="{x:Type telerik:RadTileViewItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+            <Setter Property="VerticalContentAlignment" Value="Stretch" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="SnapsToDevicePixels" Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type telerik:RadTileViewItem}">
+                        <Grid>
+                            <Border x:Name="outerBorder"
+                                    Margin="{TemplateBinding Padding}"
+                                    Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="2">
+                                <Border x:Name="outerContainer"
+                                        Background="Transparent"
+                                        BorderBrush="White"
+                                        BorderThickness="1">
+                                    <Border x:Name="GripBarElement" Background="Transparent">
+                                        <Grid>
+                                            <Grid Background="Transparent">
+                                                <ContentPresenter x:Name="ContentElement"
+                                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                                  Content="{TemplateBinding Content}"
+                                                                  ContentTemplate="{TemplateBinding ContentTemplate}" />
+                                            </Grid>
+                                            <Rectangle x:Name="DisabledVisual"
+                                                       Fill="#99FFFFFF"
+                                                       RadiusX="4"
+                                                       RadiusY="4"
+                                                       Visibility="Collapsed"/>
+                                        </Grid>
+                                    </Border>
+                                </Border>
+                            </Border>
+                            <Grid x:Name="SelectedItem"
+                                  Margin="-1"
+                                  Visibility="Collapsed">
+                                <Border Margin="{TemplateBinding Padding}"
+                                        BorderBrush="#FFFFC92B"
+                                        BorderThickness="2"
+                                        CornerRadius="2" />
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="SelectedItem" Property="Visibility" Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <DataTemplate x:Key="ContentTemplate">
+            <telerik:RadFluidContentControl ContentChangeMode="Automatic"
+                                            State="Normal">
+
+                <telerik:RadFluidContentControl.LargeContent>
+                    <ContentPresenter Content="{Binding Content}" />
+                </telerik:RadFluidContentControl.LargeContent>
+
+                <Grid HorizontalAlignment="Stretch"
+                      VerticalAlignment="Stretch">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Margin="10,5"
+                           Source="{Binding Image}"
+                           VerticalAlignment="Center"
+                           Width="36"
+                           Height="36" />
+                    <TextBlock Text="{Binding Name}"
+                               Grid.Column="1"
+                               FontSize="14"
+                               FontFamily="PT-Sans"
+                               VerticalAlignment="Center"
+                               Margin="10,5"
+                               Foreground="Black" />
+                </Grid>
+            </telerik:RadFluidContentControl>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Rectangle Fill="DimGray" Panel.ZIndex="1" IsHitTestVisible="False">
+            <Rectangle.Style>
+                <Style TargetType="Rectangle">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=RootTileView, Path=IsEnabled}" Value="True">
+                            <Setter Property="Opacity" Value="0" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding ElementName=RootTileView, Path=IsEnabled}" Value="False">
+                            <Setter Property="Opacity" Value="0.6" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Rectangle.Style>
+        </Rectangle>
+        <telerik:RadTileView x:Name="RootTileView"
+                             PreservePositionWhenMaximized="True"
+                             TileStateChangeTrigger="SingleClick"
+                             MaximizeMode="One"
+                             MinimizedItemsPosition="Bottom"
+                             MinimizedRowHeight="70"
+                             MinimizedColumnWidth="180"
+                             ItemsSource="{Binding Tiles}"
+                             ContentTemplate="{StaticResource ContentTemplate}"
+                             ItemContainerStyle="{StaticResource RadTileViewItemStyle}"
+                             TileStateChanged="RadTileView_OnTileStateChanged" 
+                             Panel.ZIndex="0"
+                             IsHitTestVisible="True"/>
+    </Grid>
+</UserControl>

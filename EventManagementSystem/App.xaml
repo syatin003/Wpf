@@ -1,0 +1,19 @@
+﻿<Application x:Class="EventManagementSystem.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="Views\MainWindow.xaml">
+    
+    <Application.Resources>
+         <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Images.xaml"/>
+                <ResourceDictionary Source="Resources/Converters.xaml"/>
+                <ResourceDictionary Source="Resources/ColorBrushes.xaml"/>
+                <ResourceDictionary Source="Resources/CommonStyles.xaml"/>
+                
+                <ResourceDictionary Source="Resources/Styles/RadWindowStyle.xaml"/>
+                <ResourceDictionary Source="Resources/Styles/RadRibbonWindowStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

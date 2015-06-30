@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="aff66805710d478c8c1f55a888251e95" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="EventManagementSystemModel.Activity" Width="1.5" PointX="10.857177100543481" PointY="10.399674792960134" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.ActivityType" Width="1.5" PointX="7.8498402125434206" PointY="26.728150454688887" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.CalendarNote" Width="1.5" PointX="11.084468464872087" PointY="15.072107903227261" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Campaign" Width="1.5" PointX="4.23450015682471" PointY="7.899875272018777" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.CampaignType" Width="1.5" PointX="9.6052123725438552" PointY="13.41222069291967" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.CCContactsCorrespondence" Width="1.5" PointX="10.00664191041451" PointY="14.147351197035681" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Clerk" Width="1.5" PointX="6.6536043782968086" PointY="8.736834008589776" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Contact" Width="1.5" PointX="2.181715619834939" PointY="9.774346326372747" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.ContactTitle" Width="1.5" PointX="7.9965329673125094" PointY="16.756089456731495" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Corresponcence" Width="1.5" PointX="0.93988688147621546" PointY="17.590288200224883" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.CorresponcenceType" Width="1.5" PointX="11.003836942372768" PointY="29.403528942448798" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.DefaultSettingsForEnquiry" Width="1.5" PointX="2.6306326289803872" PointY="5.4381009365609385" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Document" Width="1.5" PointX="11.418697206032787" PointY="7.8887006379145665" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EmailSetting" Width="1.5" PointX="6.6595634979473255" PointY="3.7201584147848927" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Enquiry" Width="1.5" PointX="2.0120384180974398" PointY="19.654037529441545" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EnquiryNote" Width="1.5" PointX="3.5747570821897856" PointY="7.2291535619782064" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EnquiryReceiveMethod" Width="1.5" PointX="2.4704681441516003" PointY="13.046107000227137" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EnquiryStatus" Width="1.5" PointX="3.098734635440044" PointY="5.0649333619814989" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EnquiryUpdate" Width="1.5" PointX="9.3261090951627619" PointY="14.650454513100188" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventBookedProduct" Width="1.5" PointX="9.1519813542961987" PointY="7.0984492484007262" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventCatering" Width="1.5" PointX="10.417702964701551" PointY="31.138506725029323" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventCharge" Width="1.5" PointX="5.125" PointY="0.75" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventContact" Width="1.5" PointX="11.800505803805081" PointY="26.936401037004032" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventGolf" Width="1.5" PointX="3.6718112955204263" PointY="6.5576055527467307" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventInvoice" Width="1.5" PointX="4.0872368626702755" PointY="29.739458395978183" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventNote" Width="1.5" PointX="0.10893036430186143" PointY="2.6940424156813148" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventNoteType" Width="1.5" PointX="5.5538961894595511" PointY="11.685398062544595" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventOption" Width="1.5" PointX="6.7731413369873259" PointY="31.54894332566715" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventPayment" Width="1.5" PointX="0.5" PointY="15.125" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventRoom" Width="1.5" PointX="10.604359214475545" PointY="21.669881935077665" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Event" Width="1.5" PointX="10.992476965762897" PointY="7.5718420034143339" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventStatus" Width="1.5" PointX="0.95041480890960184" PointY="5.9598621306754005" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventStatusOption" Width="1.5" PointX="1.4548256776550903" PointY="19.45522486579382" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventTypeOption" Width="1.5" PointX="2.8347885547367806" PointY="4.696838008564356" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventType" Width="1.5" PointX="0.17757811778112226" PointY="0.75297495757833821" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventUpdate" Width="1.5" PointX="6.3392707772270178" PointY="6.6736333997331716" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Facility" Width="1.5" PointX="9.1315521919781126" PointY="27.407915768869181" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.FinaliseKey" Width="1.5" PointX="8.17865511038278" PointY="30.205058454631388" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.FixedTotal" Width="1.5" PointX="4.8953655347672136" PointY="4.85316141175719" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.FollowUp" Width="1.5" PointX="2.2387820474052718" PointY="3.5134581790834005" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.FollowUpStatus" Width="1.5" PointX="11.286451443697537" PointY="11.201230441779471" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.GolfHole" Width="1.5" PointX="9.30782254287406" PointY="7.6259773856149877" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Golf" Width="1.5" PointX="7.261333709238718" PointY="6.8386431368247811" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Invoice" Width="1.5" PointX="9.1570363962822761" PointY="26.90251698852634" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MailTemplateCategory" Width="1.5" PointX="10.119148788097849" PointY="8.7143490355062987" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MailTemplate" Width="1.5" PointX="0.63010459236339877" PointY="9.3748179568791841" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MailTemplateType" Width="1.5" PointX="6.8895612279370244" PointY="2.7354016763788658" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.PaymentMethod" Width="1.5" PointX="3.6694415023873757" PointY="20.208699235789805" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.PermissionGroup" Width="1.5" PointX="10.726525212976394" PointY="10.38935871906083" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Permission" Width="1.5" PointX="11.355871421916351" PointY="12.012790611019726" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.ProductDepartment" Width="1.5" PointX="7.2663618341397322" PointY="5.0946587794901141" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.ProductEventType" Width="1.5" PointX="2.281523964498902" PointY="10.146323342875729" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.ProductGroup" Width="1.5" PointX="4.8130261212648016" PointY="25.616847571738457" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.ProductOption" Width="1.5" PointX="3.8787137139023811" PointY="19.402474069689621" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Product" Width="1.5" PointX="16.25" PointY="20.125" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.ProductType" Width="1.5" PointX="6.9354882123579689" PointY="30.531493037255245" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.ProductVATRate" Width="1.5" PointX="3.5717703139277965" PointY="24.764833059518054" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Report" Width="1.5" PointX="8.8397542819565871" PointY="18.112041466921585" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.RoomFacility" Width="1.5" PointX="5.5316182084063152" PointY="26.908462104810617" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Room" Width="1.5" PointX="6.9736145897645567" PointY="29.040892003588795" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TillProduct" Width="1.5" PointX="3.6421654651137838" PointY="23.759192611910027" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TillProductTill" Width="1.5" PointX="11.652261016728478" PointY="7.529904115726195" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Till" Width="1.5" PointX="14.5" PointY="20.75" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TillTabTransaction" Width="1.5" PointX="6.6085269109385685" PointY="1.6010477252309432" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TillTransactionDepartment" Width="1.5" PointX="0.60037170751037627" PointY="2.664949373651738" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TillTransactionDetail" Width="1.5" PointX="2.4640641074925957" PointY="25.957294848727667" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TillTransactionFinaliseKey" Width="1.5" PointX="6.051184983016543" PointY="25.002545070369983" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TillTransactionGroup" Width="1.5" PointX="1.9189374511684" PointY="14.674536771455099" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TillTransactionProduct" Width="1.5" PointX="30" PointY="26.125" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TillTransaction" Width="1.5" PointX="10.685777462406911" PointY="5.0162896537297819" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TransactionKey" Width="1.5" PointX="1.8850747076259342" PointY="7.127744990926117" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.UserDepartment" Width="1.5" PointX="8.3323926759568927" PointY="3.1487858757138185" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.UserGroupPermission" Width="1.5" PointX="11.943786419901898" PointY="25.607330214980678" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.UserGroup" Width="1.5" PointX="4.1860213466854868" PointY="23.673135872778079" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.UserJobType" Width="1.5" PointX="2.0466440050148611" PointY="1.6956051297931025" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.UserPermission" Width="1.5" PointX="8.9223949298832537" PointY="1.2414317881881407" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.User" Width="1.5" PointX="6.3661235507419907" PointY="6.7200457336008759" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Activities_ActivityTypes" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Activities_Enquiries" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Activities_FollowUps" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Activities_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Campaigns_CampaignTypes" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Enquiries_Campaigns" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_CCContactsCorrespondence_Contacts" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_CCContactsCorrespondence_Corresponcences" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTabTransactions_Clerks" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactions_Clerks" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Contacts_ContactTitles" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Corresponcences_Contacts" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Enquiries_Contacts" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventContacts_Contacts" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Events_Contacts" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Corresponcences_CorresponcenceTypes" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Corresponcences_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_DefaultSettingsForEnquiries_EnquiryStatuses" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Users_DefaultSettingsForEnquiries" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Documents_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Enquiries_EnquiryReceiveMethods" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Enquiries_EnquiryStatuses" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Enquiries_EventStatuses" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Enquiries_EventTypes" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Enquiries_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Enquiries_Users1" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EnquiryNotes_Enquiries" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EnquiryUpdates_EnquiryUpdates" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Events_Enquiries" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_FollowUps_Enquiries" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EnquiryNotes_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EnquiryUpdates_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventBookedProducts_EventCharges" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventBookedProducts_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventBookedProducts_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventCaterings_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventCaterings_Rooms" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventCharges_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventCharges_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventContacts_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventGolfs_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventGolfs_GolfHoles" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventGolfs_Golfs" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventInvoices_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventNotes_EventNoteTypes" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventNotes_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventNotes_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventStatusOptions_EventOptions" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventTypeOptions_EventOptions1" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventPayments_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventPayments_PaymentMethods1" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventPayments_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventRooms_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventRooms_Rooms" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Events_EventStatuses" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Events_EventTypes" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventUpdates_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Invoices_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Reports_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventStatusOptions_EventStatuses" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventTypeOptions_EventTypes1" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventTypes_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_ProductEventTypes_EventTypes" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventUpdates_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_RoomFacilities_Facilities" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_FinaliseKeys_Tills" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactionFinaliseKeys_FinaliseKeys" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_FollowUps_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_FollowUps_Users1" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MailTemplates_MailTemplateCategories" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MailTemplates_MailTemplateTypes" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MailTemplates_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Permissions_PermissionGroups" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_UserGroupPermissions_Permissions" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_UserPermissions_Permissions" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_ProductDepartments_Tills" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Products_ProductDepartments" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillProducts_ProductDepartments" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactionDepartments_ProductDepartments" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_ProductEventTypes_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_ProductGroups_Tills" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Products_ProductGroups" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillProducts_ProductGroups" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactionGroups_ProductGroups" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Products_ProductOptions" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Products_Products1" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Products_ProductVATRates" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillProducts_ProductVATRates" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_RoomFacilities_Rooms" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillProducts_Tills" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillProductTills_TillProducts" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactinProducts_TillProducts" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillProductTills_Tills" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTabTransactions_Tills" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactions_Tills" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactionDetails_TillTabTransactions" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactionDepartments_TillTransactions" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactionDetails_TillTransactions" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactionFinaliseKeys_TillTransactions" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactionGroups_TillTransactions" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillTransactinProducts_TillTransactions" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Users_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_UserGroupPermissions_UserGroups" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Users_UserGroups" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Users_UserJobTypes" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_UserPermissions_Users" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.CorrespondenceDocument" Width="1.5" PointX="0.63820756815290425" PointY="6.6512930871226326" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_CorrespondenceDocuments_Corresponcences" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_CorrespondenceDocuments_Documents" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.GolfFollowResource" Width="1.5" PointX="8.73545184579466" PointY="10.477959637752715" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_GolfFollowResources_Golfs" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_GolfFollowResources_Golfs1" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_LinkedEventGolfsID_EventGolfs" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.TillDivision" Width="1.5" PointX="3.243806190436616" PointY="16.775912337366449" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_TillDivisions_Tills" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Tills_TillDivisions" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.SystemSetting" Width="1.5" PointX="0.9294340726590874" PointY="20.929591963500524" />
+        <AssociationConnector Association="EventManagementSystemModel.FK__SystemSet__UserI__41B8C09B" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventTypeTODO" Width="1.5" PointX="11.062299521203293" PointY="20.275861287617992" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventTypeTODOs_EventType" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventTypeTODOs_AddedByUser" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventTypeTODOs_AssignedToUser" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EventReminder" Width="1.5" PointX="4.2940295339999857" PointY="1.4789881117078421" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventReminders_AssignedToUsers" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventReminders_CreatedByUsers" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventReminders_Events" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_EventReminders_EventTypeToDo" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipCategory" Width="1.5" PointX="20.5" PointY="1.125" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipCategoryGroupDefault" Width="1.5" PointX="13.375" PointY="6.125" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipFullPaymentComponent" Width="1.5" PointX="19.625" PointY="19.75" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipGroupAge" Width="1.5" PointX="14.125" PointY="2.25" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipGroup" Width="1.5" PointX="12.5" PointY="17.375" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipGroupStyle" Width="1.5" PointX="8.8327785324457935" PointY="12.101895829710129" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipLinkType" Width="1.5" PointX="14" PointY="15" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipMonthlyPaymentOngoingCost" Width="1.5" PointX="18.25" PointY="25.875" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipMonthlyPaymentUpFrontCost" Width="1.5" PointX="23.875" PointY="11.5" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipToken" Width="1.5" PointX="8.8425727136631362" PointY="17.799945467058542" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipCategories_MembershipGroupAges" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipCategories_MembershipGroups" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipCategories_MembershipGroupStyles" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipFullPaymentComponents1_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipFullPaymentComponents2_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipFullPaymentComponents3_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipFullPaymentComponents4_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipFullPaymentComponents5_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipFullPaymentComponents6_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipFullPaymentComponents7_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipFullPaymentComponents8_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentOngoingCosts1_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentOngoingCosts2_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentOngoingCosts3_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentOngoingCosts4_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentUpFrontCosts1_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentUpFrontCosts2_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentUpFrontCosts3_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentUpFrontCosts4_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentUpFrontCosts5_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentUpFrontCosts6_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentUpFrontCosts7_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentUpFrontCosts8_Products" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipLinkTypes_MembershipCategories" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipLinkTypes_MembershipCategories1" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipCategoryGroupDefaultEPOS" Width="1.5" PointX="21.75" PointY="22.25" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipGroupEPOS" Width="1.5" PointX="1.6416417703226405" PointY="9.021876264839376" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipOptionBox" Width="1.5" PointX="2.0529945204281219" PointY="17.109159447769244" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipOptionBoxReason" Width="1.5" PointX="3.952008997999136" PointY="6.65113272082579" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipGroupEPOS_MembershipGroups" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipOptionBoxReasons_MembershipOptionBoxReasons" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipCategoryGroupDefaults_MembershipCategories" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipFullPaymentComponents_MembershipCategories" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentOngoingCosts_MembershipCategories" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipMonthlyPaymentUpFrontCosts_MembershipCategories" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipCategoryGroupDefaultEPOS_MembershipCategoryGroupDefaults" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.Member" Width="1.5" PointX="3.0903298384930613" PointY="20.819124231496417" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Members_Contacts" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Members_MembershipCategories" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MemberNote" Width="1.5" PointX="0.50442601763849426" PointY="26.044747454135095" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MemberNotes_Members" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MemberNotes_Users" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MemberNotes_Users1" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.MembershipUpdate" Width="1.5" PointX="5.7519032963327614" PointY="22.313369865675163" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipUpdates_Members" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MembershipUpdates_Users" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.EmailHeader" Width="1.5" PointX="10.93052820252745" PointY="30.64036936994659" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_MailTemplates_EmailHeaders" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_Corresponcences_EmailHeaders" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

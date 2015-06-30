@@ -1,0 +1,44 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="TurquoiseBrush" Color="#1abc9c"/>
+    <SolidColorBrush x:Key="GreenSeaBrush" Color="#16a085"/>
+    
+    <SolidColorBrush x:Key="EmeraldBrush" Color="#2ecc71"/>
+    <SolidColorBrush x:Key="NephritisBrush" Color="#27ae60"/>
+    
+    <SolidColorBrush x:Key="PeterRiverBrush" Color="#3498db"/>
+    <SolidColorBrush x:Key="BelizeHoleBrush" Color="#2980b9"/>
+    
+    <SolidColorBrush x:Key="AmethystBrush" Color="#9b59b6"/>
+    <SolidColorBrush x:Key="WisteriaBrush" Color="#8e44ad"/>
+    
+    <SolidColorBrush x:Key="WetAsphaltBrush" Color="#34495e"/>
+    <SolidColorBrush x:Key="MidnightBlueBrush" Color="#2c3e50"/>
+    
+    <SolidColorBrush x:Key="SunFlowerBrush" Color="#f1c40f"/>
+    <SolidColorBrush x:Key="OrangeBrush" Color="#f39c12"/>
+    
+    <SolidColorBrush x:Key="CarrotBrush" Color="#e67e22"/>
+    <SolidColorBrush x:Key="PumpkinBrush" Color="#d35400"/>
+    
+    <SolidColorBrush x:Key="AlizarinBrush" Color="#e74c3c"/>
+    <SolidColorBrush x:Key="PomegranateBrush" Color="#c0392b"/>
+    
+    <SolidColorBrush x:Key="CloudsBrush" Color="#ecf0f1"/>
+    <SolidColorBrush x:Key="SilverBrush" Color="#bdc3c7"/>
+    
+    <SolidColorBrush x:Key="ConcreteBrush" Color="#95a5a6"/>
+    <SolidColorBrush x:Key="AsbestosBrush" Color="#7f8c8d"/>
+    
+    <SolidColorBrush x:Key="RedBackgroundBrush" Color="#ff6666" />
+
+    <!--Theme brushes -->
+    
+    <SolidColorBrush x:Key="LightGrayBrush" Color="#FFEFEFF2" />
+    <SolidColorBrush x:Key="LightGrayBackgroundBrush" Color="#FFFFFFFF" />
+    <SolidColorBrush x:Key="LightGreenBackgroundBrush" Color="#33cccc" />
+    <SolidColorBrush x:Key="DarkGreenBackgroundBrush" Color="#336666" />
+    <SolidColorBrush x:Key="LightGrayPanelBackgroundBrush" Color="#ececec" />
+    <SolidColorBrush x:Key="BlueSaturatedBackgroundBrush" Color="#33ccff" />
+</ResourceDictionary>

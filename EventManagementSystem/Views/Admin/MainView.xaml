@@ -1,0 +1,114 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    x:Class="EventManagementSystem.Views.Admin.MainView">
+
+    <UserControl.Resources>
+        <Style TargetType="{x:Type telerik:RadRibbonButton}">
+            <Setter Property="Size" Value="Large" />
+            <Setter Property="MinWidth" Value="46" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <telerik:RadRibbonView Grid.Row="0"
+                               HelpButtonVisibility="Collapsed"
+                               TitleBarVisibility="Collapsed"
+                               WindowIconVisibility="Collapsed"
+                               UseLayoutRounding="True"
+                               ApplicationButtonVisibility="Collapsed">
+
+            <telerik:RadRibbonView.Resources>
+                <Style TargetType="{x:Type StackPanel}">
+                    <Setter Property="Orientation" Value="Vertical" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                </Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="2" />
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                </Style>
+            </telerik:RadRibbonView.Resources>
+
+            <telerik:RadRibbonTab Header="Home" HeaderVisibility="Collapsed">
+                <telerik:RadRibbonGroup Header="Display">
+                    <telerik:RadRibbonButton Command="{Binding NavigateToResourcesCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageTodoList32}" Width="32" Height="32"/>
+                            <TextBlock Text="Resources" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton Command="{Binding NavigateToUsersCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageUser32}" Width="32" Height="32"/>
+                            <TextBlock Text="Users" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton Command="{Binding NavigateToUserGroupsCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageUserGroups32}" Width="32" Height="32" />
+                            <TextBlock Text="User Groups" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+
+                <telerik:RadRibbonGroup Header="Section">
+                    <telerik:RadRibbonButton Command="{Binding NavigateToEventsCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageEvents32}" Width="32" Height="32"/>
+                            <TextBlock Text="Events" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton Command="{Binding NavigateToProductsCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageProducts32}" Width="32" Height="32"/>
+                            <TextBlock Text="EPOS" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton Command="{Binding NavigateToSettingsCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageOptions32}" Width="32" Height="32" />
+                            <TextBlock Text="Settings" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+
+                    <telerik:RadRibbonButton Command="{Binding NavigateToCRMCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageCrm48}" Width="32" Height="32" />
+                            <TextBlock Text="CRM" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup Header="MemberShip">
+                    <telerik:RadRibbonButton Command="{Binding NavigateToMembersCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageMembers32}" Width="32" Height="32" />
+                            <TextBlock Text="Members" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+        </telerik:RadRibbonView>
+
+        <ContentPresenter Grid.Row="1"
+                          Content="{Binding WindowContent}" />
+    </Grid>
+</UserControl>

@@ -1,0 +1,122 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.CRM.NewEnquiryTabs.FollowUp.AddFollowUpView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   Header="Add Follow-Up"
+                   WindowStartupLocation="CenterOwner"
+                   ResizeMode="NoResize"
+                   CanClose="False"
+                   Style="{StaticResource RadWindowStyle}"
+                   Height="300"
+                   Width="500">
+
+    <telerik:RadBusyIndicator IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Enquiry"
+                       Visibility="{Binding AreEnquiriesVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                       Grid.Column="0"
+                       Grid.Row="0" />
+
+            <Grid Grid.Column="1"
+                  Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <telerik:RadComboBox Margin="5"
+                                     Grid.Column="0"
+                                     Visibility="{Binding AreEnquiriesVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                     ItemsSource="{Binding Enquiries}"
+                                     SelectedItem="{Binding SelectedEnquiry, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                     DisplayMemberPath="EnquiryString"
+                                     VerticalAlignment="Center" />
+
+                <telerik:RadButton Content="Enquiry"
+                                   Command="{Binding OpenEnquiryCommand}"
+                                   Visibility="{Binding AreEnquiriesVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                   Grid.Column="1" />
+
+            </Grid>
+            <TextBlock Text="Taken By"
+                       Grid.Column="0"
+                       Grid.Row="1" />
+            <TextBlock Grid.Column="1"
+                       Grid.Row="1"
+                       Margin="5"
+                       Text="{Binding TakenByUser.InternalOrFirstName}" />
+
+            <TextBlock Text="Assigned To"
+                       Grid.Column="0"
+                       Grid.Row="2" />
+            <telerik:RadComboBox Margin="5"
+                                 ItemsSource="{Binding Users}"
+                                 SelectedItem="{Binding AssignedToUser, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                 DisplayMemberPath="InternalOrFirstName"
+                                 VerticalAlignment="Center"
+                                 Grid.Column="1"
+                                 Grid.Row="2" />
+
+            <TextBlock Text="What to do"
+                       VerticalAlignment="Top"
+                       Grid.Column="0"
+                       Grid.Row="3"
+                       Margin="5" />
+            <TextBox Text="{Binding FollowUp.WhatToDo, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"
+                     Margin="5"
+                     Grid.Column="1"
+                     Grid.Row="3" />
+
+            <TextBlock Text="Date due"
+                       Grid.Column="0"
+                       Grid.Row="4" />
+            <telerik:RadDateTimePicker Margin="5"
+                                       SelectedValue="{Binding FollowUp.DateDue, Mode=TwoWay,StringFormat=g, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+                                       Grid.Column="1"
+                                       Grid.Row="4" />
+
+            <StackPanel Grid.Row="5"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+                <telerik:RadButton Content="Submit"
+                                   IsDefault="True"
+                                   Command="{Binding SubmitCommand}"
+                                   Click="OnSubmitButtonClick"
+                                   Margin="5">
+                    <telerik:RadButton.IsEnabled>
+                        <MultiBinding Converter="{StaticResource EditPermissionToBoolConverter}">
+                            <Binding Path="CanEditEveryoneFollowUps"/>
+                            <Binding Path="CanEditOwnFollowUps" />
+                            <Binding Path="TakenByUser.ID" />
+                            <Binding Path="IsFromCRM" />
+                        </MultiBinding>
+                    </telerik:RadButton.IsEnabled>
+                </telerik:RadButton>
+                <telerik:RadButton Content="Cancel"
+                                   IsCancel="True"
+                                   Command="{Binding CancelCommand}"
+                                   Click="OnCancelButtonClick"
+                                   Margin="5" />
+            </StackPanel>
+        </Grid>
+    </telerik:RadBusyIndicator>
+
+</telerik:RadWindow>

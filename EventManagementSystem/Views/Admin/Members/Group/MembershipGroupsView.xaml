@@ -1,0 +1,247 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Admin.Members.Group.MembershipGroupsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="CategoryGroupDetailsDataTemplate">
+            <Grid Height="250">
+                <telerik:RadTabControl>
+
+                    <telerik:RadTabControl.Resources>
+                        <Style TargetType="{x:Type telerik:RadGridView}">
+                            <Setter Property="GroupRenderMode"
+                                    Value="Flat" />
+                            <Setter Property="CanUserFreezeColumns"
+                                    Value="False" />
+                            <Setter Property="ScrollMode"
+                                    Value="RealTime" />
+                            <Setter Property="GridLinesVisibility"
+                                    Value="None" />
+                            <Setter Property="BorderThickness"
+                                    Value="0" />
+                            <Setter Property="AutoGenerateColumns"
+                                    Value="False" />
+                            <Setter Property="ShowColumnHeaders"
+                                    Value="False" />
+                            <Setter Property="IsReadOnly"
+                                    Value="True" />
+                            <Setter Property="ShowGroupPanel"
+                                    Value="False" />
+                            <Setter Property="CanUserSelect"
+                                    Value="False" />
+                            <Setter Property="RowIndicatorVisibility"
+                                    Value="Collapsed" />
+                            <Setter Property="RowStyle">
+                                <Setter.Value>
+                                    <Style TargetType="telerik:GridViewRow">
+                                        <Setter Property="Margin"
+                                                Value="0" />
+                                        <Setter Property="FontSize"
+                                                Value="12" />
+                                    </Style>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </telerik:RadTabControl.Resources>
+
+                    <telerik:RadTabItem Header="EPOS">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </Grid.Resources>
+
+                            <TextBlock Text="Allowed Club Card" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MembershipGroup.MembershipGroupEPOS.AllowedClubCard,Mode=TwoWay,Converter={StaticResource BooleanToYesNoConverter}}"/>
+
+                            <TextBlock Text="Points Based Membership" Grid.Column="2" Grid.Row="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding MembershipGroup.MembershipGroupEPOS.PointsBasedMembership,Mode=TwoWay,Converter={StaticResource BooleanToYesNoConverter}}"/>
+
+                            <TextBlock Text="Display Message" Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding MembershipGroup.MembershipGroupEPOS.DisplayMessage}" MaxWidth="600" TextWrapping="Wrap"/>
+
+                            <TextBlock Text="Overdraft Limit 1" Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MembershipGroup.MembershipGroupEPOS.OverdraftLimit1}" />
+
+                            <TextBlock Text="Overdraft Limit 2" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding MembershipGroup.MembershipGroupEPOS.OverdraftLimit2}" />
+
+                            <GroupBox Header="Product Discounts" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+                                      Foreground="Black" Margin="0 10 0 10">
+                                <Grid Margin="20 20 0 0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.Resources>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Margin" Value="5"/>
+                                        </Style>
+                                    </Grid.Resources>
+                                    <TextBlock Text="Discount Rate All"  Grid.Row="0" Grid.Column="0" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MembershipGroup.MembershipGroupEPOS.DiscountRateAll, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                    <TextBlock Text="Discount Rate 1"  Grid.Row="0" Grid.Column="2" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding MembershipGroup.MembershipGroupEPOS.DiscountRate1, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                    <TextBlock Text="Discount Rate 2"  Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding MembershipGroup.MembershipGroupEPOS.DiscountRate2, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                    <TextBlock Text="Discount Rate 3"  Grid.Row="1" Grid.Column="2" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding MembershipGroup.MembershipGroupEPOS.DiscountRate3, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                    <TextBlock Text="Discount Rate 4"  Grid.Row="2" Grid.Column="0" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MembershipGroup.MembershipGroupEPOS.DiscountRate4, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                    <TextBlock Text="Discount Rate 5"  Grid.Row="2" Grid.Column="2" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding MembershipGroup.MembershipGroupEPOS.DiscountRate5, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Tokens">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="500"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Group Token 1" Grid.Row="0" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MembershipGroup.Token1}"
+                                       TextWrapping="Wrap"/>
+
+                            <TextBlock  Text="Group Token 2" Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding MembershipGroup.Token2}"
+                                       TextWrapping="Wrap"/>
+
+                            <TextBlock  Text="Group Token 3" Grid.Row="2" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MembershipGroup.Token3}"
+                                       TextWrapping="Wrap"/>
+
+                            <TextBlock Text="Group Token 4" Grid.Row="3" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding MembershipGroup.Token4}"
+                                       TextWrapping="Wrap"/>
+
+                            <TextBlock Text="Group Token 5" Grid.Row="4" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding MembershipGroup.Token5}"
+                                       TextWrapping="Wrap"/>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                </telerik:RadTabControl>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <telerik:RadBusyIndicator BusyContent="Loading..."
+                              IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid>
+            <telerik:RadGridView x:Name="RadGridViewGroups"
+                                 ItemsSource="{Binding MembershipGroups}"
+                                 AutoGenerateColumns="False"
+                                 CanUserDeleteRows="False"
+                                 CanUserFreezeColumns="False"
+                                 CanUserInsertRows="False"
+                                 CanUserReorderColumns="False"
+                                 CanUserResizeColumns="True"
+                                 CanUserResizeRows="False"
+                                 CanUserSortColumns="True"
+                                 FrozenColumnsSplitterVisibility="Collapsed"
+                                 IsReadOnly="True"
+                                 RowIndicatorVisibility="Collapsed"
+                                 ShowGroupPanel="True"
+                                 RowDetailsTemplate="{StaticResource CategoryGroupDetailsDataTemplate}">
+
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewToggleRowDetailsColumn/>
+                    <telerik:GridViewDataColumn Header="Name"
+                                                DataMemberBinding="{Binding Name}" />
+
+                    <telerik:GridViewDataColumn Header="Member On Bank Holidays"
+                                                DataMemberBinding="{Binding MembershipGroup.MemberOnBankHolidays,Converter={StaticResource BooleanToYesNoConverter}}"
+                                                TextAlignment="Center">
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDataColumn Header="Member At Christmas Week"
+                                                DataMemberBinding="{Binding MembershipGroup.MemberAtChristmasWeek,Converter={StaticResource BooleanToYesNoConverter}}"/>
+
+                    <telerik:GridViewDataColumn Header="Days Available"
+                                                DataMemberBinding="{Binding DaysAvailable}" />
+
+                    <telerik:GridViewDataColumn Width="SizeToCells">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton Margin="0"
+                                                   Command="{Binding DataContext.EditMembershipGroupCommand, RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                   CommandParameter="{Binding}"
+                                                   Style="{DynamicResource NoChromeButton}"
+                                                   BorderThickness="0">
+                                    <telerik:RadButton.Content>
+                                        <Image Source="{StaticResource ImageEdit26}"
+                                               Width="16"
+                                               Height="16" />
+                                    </telerik:RadButton.Content>
+                                </telerik:RadButton>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDataColumn Width="SizeToCells">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton Margin="0"
+                                                   Command="{Binding DataContext.DeleteMembershipGroupCommand, RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                   CommandParameter="{Binding}"
+                                                   Style="{DynamicResource NoChromeButton}"
+                                                   BorderThickness="0">
+                                    <telerik:RadButton.Content>
+                                        <Image Source="{StaticResource ImageDelete26}"
+                                               Width="16"
+                                               Height="16" />
+                                    </telerik:RadButton.Content>
+                                </telerik:RadButton>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

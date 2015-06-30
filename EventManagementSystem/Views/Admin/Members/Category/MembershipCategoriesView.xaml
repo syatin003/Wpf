@@ -1,0 +1,621 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Admin.Members.Category.MembershipCategoriesView"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <DataTemplate x:Key="CategoryDetailsDataTemplate">
+            <Grid Height="500">
+                <telerik:RadTabControl>
+                    <telerik:RadTabControl.Resources>
+                        <Style TargetType="{x:Type telerik:RadGridView}">
+                            <Setter Property="GroupRenderMode"
+                                    Value="Flat" />
+                            <Setter Property="CanUserFreezeColumns"
+                                    Value="False" />
+                            <Setter Property="ScrollMode"
+                                    Value="RealTime" />
+                            <Setter Property="GridLinesVisibility"
+                                    Value="None" />
+                            <Setter Property="BorderThickness"
+                                    Value="0" />
+                            <Setter Property="AutoGenerateColumns"
+                                    Value="False" />
+                            <Setter Property="ShowColumnHeaders"
+                                    Value="False" />
+                            <Setter Property="IsReadOnly"
+                                    Value="True" />
+                            <Setter Property="ShowGroupPanel"
+                                    Value="False" />
+                            <Setter Property="CanUserSelect"
+                                    Value="False" />
+                            <Setter Property="RowIndicatorVisibility"
+                                    Value="Collapsed" />
+                            <Setter Property="RowStyle">
+                                <Setter.Value>
+                                    <Style TargetType="telerik:GridViewRow">
+                                        <Setter Property="Margin"
+                                                Value="0" />
+                                        <Setter Property="FontSize"
+                                                Value="12" />
+                                    </Style>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </telerik:RadTabControl.Resources>
+                    <telerik:RadTabItem Header="Group Defaults">
+                        <Grid Margin="15,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Name" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding MembershipCategoryGroupDefault.Name}" Grid.Column="1" Grid.Row="0" />
+
+                            <TextBlock Text="Description" Grid.Column="2" Grid.Row="0" FontWeight="Bold"/>
+                            <TextBlock  Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Description}" Grid.Column="3" Grid.Row="0"
+                                      MaxWidth="400"  TextWrapping="Wrap"/>
+
+                            <TextBlock Text="Member On Bank Holidays" Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MemberOnBankHolidays,Converter={StaticResource BooleanToYesNoConverter}}"
+                                       Grid.Column="1" Grid.Row="1"/>
+
+                            <TextBlock Text="Member At Christmas Week" Grid.Column="2" Grid.Row="1" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MemberAtChristmasWeek,Converter={StaticResource BooleanToYesNoConverter}}"
+                                       Grid.Column="3" Grid.Row="1"/>
+
+                            <TextBlock Text="Days Available" Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding MembershipCategoryGroupDefault.DaysAvailable}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"
+                                       TextWrapping="Wrap"/>
+
+                            <GroupBox Header="Tokens" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+                                      Foreground="Black" Margin="0 5 0 5">
+                                <Grid Margin="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="350"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="350"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.Resources>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Margin" Value="5"/>
+                                        </Style>
+                                    </Grid.Resources>
+                                    <TextBlock Text="Group Token 1"  Grid.Row="0" Grid.Column="0" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Token1}" TextWrapping="Wrap"/>
+
+                                    <TextBlock Text="Group Token 2"  Grid.Row="0" Grid.Column="2" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Token2}" TextWrapping="Wrap"/>
+
+                                    <TextBlock Text="Group Token 3"  Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Token3}" TextWrapping="Wrap"/>
+
+                                    <TextBlock Text="Group Token 4"  Grid.Row="1" Grid.Column="2" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Token4}" TextWrapping="Wrap"/>
+
+                                    <TextBlock Text="Group Token 5"  Grid.Row="2" Grid.Column="0" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3"  Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Token5}" TextWrapping="Wrap"/>
+
+                                </Grid>
+                            </GroupBox>
+
+                            <GroupBox Header="EPOS" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4"
+                                      Foreground="Black" Margin="0 5 0 5">
+                                <Grid Margin="5">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.Resources>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="Margin" Value="5"/>
+                                        </Style>
+                                    </Grid.Resources>
+
+                                    <TextBlock Text="Allowed Club Card" Grid.Column="0" Grid.Row="0" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.AllowedClubCard,
+                                               Mode=TwoWay,Converter={StaticResource BooleanToYesNoConverter}}"/>
+
+                                    <TextBlock Text="Points Based Membership" Grid.Column="2" Grid.Row="0" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.PointsBasedMembership,
+                                        Mode=TwoWay,Converter={StaticResource BooleanToYesNoConverter}}"/>
+
+                                    <TextBlock Text="Display Message" Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DisplayMessage}"
+                                               MaxWidth="600" TextWrapping="Wrap"/>
+
+                                    <TextBlock Text="Overdraft Limit 1" Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.OverdraftLimit1}" />
+
+                                    <TextBlock Text="Overdraft Limit 2" Grid.Column="2" Grid.Row="2" FontWeight="Bold"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.OverdraftLimit2}" />
+
+                                    <GroupBox Header="Product Discounts" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4"
+                                      Foreground="Black" Margin="0 10 0 10">
+                                        <Grid Margin="20 20 0 0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.Resources>
+                                                <Style TargetType="{x:Type TextBlock}">
+                                                    <Setter Property="Margin" Value="5"/>
+                                                </Style>
+                                            </Grid.Resources>
+                                            <TextBlock Text="Discount Rate All"  Grid.Row="0" Grid.Column="0" FontWeight="Bold"/>
+                                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRateAll, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                            <TextBlock Text="Discount Rate 1"  Grid.Row="0" Grid.Column="2" FontWeight="Bold"/>
+                                            <TextBlock Grid.Row="0" Grid.Column="3" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRate1, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                            <TextBlock Text="Discount Rate 2"  Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRate2, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                            <TextBlock Text="Discount Rate 3"  Grid.Row="1" Grid.Column="2" FontWeight="Bold"/>
+                                            <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRate3, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                            <TextBlock Text="Discount Rate 4"  Grid.Row="2" Grid.Column="0" FontWeight="Bold"/>
+                                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRate4, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                            <TextBlock Text="Discount Rate 5"  Grid.Row="2" Grid.Column="2" FontWeight="Bold"/>
+                                            <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRate5, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                                        </Grid>
+                                    </GroupBox>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Full Payment Costs">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Component 1" Grid.Row="0" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MembershipFullPaymentComponent.Product.Name}"/>
+                            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipFullPaymentComponent.Product,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipFullPaymentComponent.Product.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+                            </StackPanel>
+                            <TextBlock  Text="Component 2" Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding MembershipFullPaymentComponent.Product1.Name}"/>
+                            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipFullPaymentComponent.Product1,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipFullPaymentComponent.Product1.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock  Text="Component 3" Grid.Row="2" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding MembershipFullPaymentComponent.Product2.Name}"/>
+                            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipFullPaymentComponent.Product2,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipFullPaymentComponent.Product2.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 4" Grid.Row="3" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding MembershipFullPaymentComponent.Product3.Name}"/>
+                            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal"                                                            
+                                        Visibility="{Binding MembershipFullPaymentComponent.Product3,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipFullPaymentComponent.Product3.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 5" Grid.Row="4" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding MembershipFullPaymentComponent.Product4.Name}"/>
+                            <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipFullPaymentComponent.Product4,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipFullPaymentComponent.Product4.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 6" Grid.Row="5" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding MembershipFullPaymentComponent.Product5.Name}"/>
+                            <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipFullPaymentComponent.Product5,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipFullPaymentComponent.Product5.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 7" Grid.Row="6" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding MembershipFullPaymentComponent.Product6.Name}"/>
+                            <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipFullPaymentComponent.Product6,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipFullPaymentComponent.Product6.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 8" Grid.Row="7" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="7" Text="{Binding MembershipFullPaymentComponent.Product7.Name}"/>
+                            <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipFullPaymentComponent.Product7,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipFullPaymentComponent.Product7.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+                            </StackPanel>
+
+                            <StackPanel Grid.Row="8" Grid.Column="2" Orientation="Horizontal" 
+                                        Visibility="{Binding MembershipFullPaymentComponent.IsAnyFullPaymentComponent, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <TextBlock Text="Total" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipFullPaymentComponent.TotalPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+                            </StackPanel>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Monthly Payment UpFront Costs">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Component 1" Grid.Row="0" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product.Name}"/>
+                            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipMonthlyPaymentUpFrontCost.Product,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+                            </StackPanel>
+                            <TextBlock  Text="Component 2" Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product1.Name}"/>
+                            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipMonthlyPaymentUpFrontCost.Product1,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product1.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock  Text="Component 3" Grid.Row="2" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product2.Name}"/>
+                            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipMonthlyPaymentUpFrontCost.Product2,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product2.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 4" Grid.Row="3" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product3.Name}"/>
+                            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipMonthlyPaymentUpFrontCost.Product3,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product3.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 5" Grid.Row="4" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product4.Name}"/>
+                            <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipMonthlyPaymentUpFrontCost.Product4,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product4.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 6" Grid.Row="5" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="5" Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product5.Name}"/>
+                            <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipMonthlyPaymentUpFrontCost.Product5,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product5.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 7" Grid.Row="6" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="6" Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product6.Name}"/>
+                            <StackPanel Grid.Row="6" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipMonthlyPaymentUpFrontCost.Product6,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product6.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 8" Grid.Row="7" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="7" Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product7.Name}"/>
+                            <StackPanel Grid.Row="7" Grid.Column="2" Orientation="Horizontal"
+                                        Visibility="{Binding MembershipMonthlyPaymentUpFrontCost.Product7,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentUpFrontCost.Product7.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="8" Grid.Column="2" Orientation="Horizontal"  Visibility="{Binding MembershipMonthlyPaymentUpFrontCost.IsAnyUpFrontCostComponent, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <TextBlock Text="Total" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentUpFrontCost.TotalPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+                            </StackPanel>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Monthly Payment Ongoing Costs">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Component 1" Grid.Row="0" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MembershipMonthlyPaymentOngoingCost.Product.Name}"/>
+                            <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal"
+                                         Visibility="{Binding MembershipMonthlyPaymentOngoingCost.Product,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentOngoingCost.Product.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+                            </StackPanel>
+                            <TextBlock  Text="Component 2" Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding MembershipMonthlyPaymentOngoingCost.Product1.Name}"/>
+                            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal"                                       
+                                        Visibility="{Binding MembershipMonthlyPaymentOngoingCost.Product1,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentOngoingCost.Product1.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock  Text="Component 3" Grid.Row="2" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding MembershipMonthlyPaymentOngoingCost.Product2.Name}"/>
+                            <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal"
+                                         Visibility="{Binding MembershipMonthlyPaymentOngoingCost.Product2,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentOngoingCost.Product2.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+
+                            </StackPanel>
+                            <TextBlock Text="Component 4" Grid.Row="3" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding MembershipMonthlyPaymentOngoingCost.Product3.Name}"/>
+                            <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal"
+                                         Visibility="{Binding MembershipMonthlyPaymentOngoingCost.Product3,Converter={StaticResource NullToVisibilityConverter}}">
+                                <TextBlock Text="Price" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentOngoingCost.Product3.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="4" Grid.Column="2" Orientation="Horizontal"  Visibility="{Binding MembershipMonthlyPaymentOngoingCost.IsAnyOngoingCostComponent, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                <TextBlock Text="Total" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding MembershipMonthlyPaymentOngoingCost.TotalPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"/>
+                            </StackPanel>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Playing Rights">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Max Rounds" Grid.Column="0" Grid.Row="0" FontWeight="Bold" Margin="0 0 0 10"/>
+
+                            <TextBlock Text="Per Week" Grid.Column="0" Grid.Row="1" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding MembershipCategory.MaxRoundsPerWeek}" Visibility="{Binding MembershipCategory.MaxRoundsPerWeek,Converter={StaticResource CountToVisibilityConverter}}"/>
+                            <TextBlock  Grid.Row="1" Grid.Column="2" Text="Start Day" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="1" Grid.Column="3" Text="{Binding StartDayForRoundsPerWeek}"/>
+
+                            <TextBlock Text="Per Month" Grid.Column="0" Grid.Row="2" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MembershipCategory.MaxRoundsPerMonth}" Visibility="{Binding MembershipCategory.MaxRoundsPerMonth,Converter={StaticResource CountToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="2" Text="Start Date" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="2" Grid.Column="3" Text="{Binding StartDateForRoundsPerMonth}"/>
+
+                            <TextBlock Text="Per Year" FontWeight="Bold" Grid.Column="0" Grid.Row="3"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding MembershipCategory.MaxRoundsPerYear}" Visibility="{Binding MembershipCategory.MaxRoundsPerYear,Converter={StaticResource CountToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="3" Grid.Column="2" Text="Start Date" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="3" Grid.Column="3" Text="{Binding StartDateForRoundsPerYear}"/>
+
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Tokens">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="500"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Letter Token 1" Grid.Row="0" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding MembershipCategory.Token1}"
+                                TextWrapping="Wrap"/>
+
+                            <TextBlock  Text="Letter Token 2" Grid.Row="1" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding MembershipCategory.Token2}"
+                                        TextWrapping="Wrap"/>
+
+                            <TextBlock  Text="Letter Token 3" Grid.Row="2" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MembershipCategory.Token3}"
+                                        TextWrapping="Wrap"/>
+
+                            <TextBlock Text="Letter Token 4" Grid.Row="3" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding MembershipCategory.Token4}"
+                                         TextWrapping="Wrap"/>
+
+                            <TextBlock Text="Letter Token 5" Grid.Row="4" Grid.Column="0" FontWeight="Bold"/>
+                            <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding MembershipCategory.Token5}"
+                                        TextWrapping="Wrap"/>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                </telerik:RadTabControl>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <telerik:RadBusyIndicator BusyContent="Loading..."
+                              IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid>
+            <telerik:RadGridView x:Name="RadGridViewCategories"
+                                  ItemsSource="{Binding MembershipCategories}"
+                                  Margin="5"
+                                  AutoGenerateColumns="False"
+                                  SelectedItem="{Binding SelectedMembershipCategory}"
+                                  ShowGroupPanel="True"
+                                  CanUserDeleteRows="False"
+                                  CanUserFreezeColumns="False"
+                                  CanUserInsertRows="False"
+                                  CanUserReorderColumns="False"
+                                  CanUserResizeColumns="True"
+                                  CanUserResizeRows="False"
+                                  CanUserSortColumns="True"
+                                  FrozenColumnsSplitterVisibility="Collapsed"
+                                  IsReadOnly="True"
+                                  RowIndicatorVisibility="Collapsed"
+                                  RowDetailsTemplate="{StaticResource CategoryDetailsDataTemplate}">
+
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewToggleRowDetailsColumn/>
+
+                    <telerik:GridViewDataColumn Header="Name"
+                                                DataMemberBinding="{Binding Name}" />
+
+                    <telerik:GridViewDataColumn Header="Current Category"
+                                                DataMemberBinding="{Binding MembershipCategory.CurrentCategory,Converter={StaticResource BooleanToYesNoConverter}}"
+                                                TextAlignment="Center">
+                    </telerik:GridViewDataColumn>
+
+                    <telerik:GridViewDataColumn Header="Style"
+                                                DataMemberBinding="{Binding MembershipGroupStyle.Name}"/>
+
+                    <telerik:GridViewDataColumn Header="Age"
+                                                DataMemberBinding="{Binding MembershipGroupAge.Name}" />
+
+                    <telerik:GridViewDataColumn Header="Group"
+                                                DataMemberBinding="{Binding MembershipGroup.Name}" />
+
+                    <telerik:GridViewDataColumn Header="Type"
+                                                DataMemberBinding="{Binding CategoryType}" />
+
+                    <telerik:GridViewDataColumn Header="Gender"
+                                                DataMemberBinding="{Binding CategoryGender}" />
+
+                        <telerik:GridViewDataColumn Width="SizeToCells">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton Margin="0"
+                                                   Command="{Binding DataContext.EditMembershipCategoryCommand, RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                   CommandParameter="{Binding}"
+                                                   Style="{DynamicResource NoChromeButton}"
+                                                   BorderThickness="0">
+                                    <telerik:RadButton.Content>
+                                        <Image Source="{StaticResource ImageEdit26}"
+                                               Width="16"
+                                               Height="16" />
+                                    </telerik:RadButton.Content>
+                                </telerik:RadButton>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Width="SizeToCells">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton Margin="0"
+                                                   Command="{Binding DataContext.DeleteMembershipCategoryCommand, RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                   CommandParameter="{Binding}"
+                                                   Style="{DynamicResource NoChromeButton}"
+                                                   BorderThickness="0">
+                                    <telerik:RadButton.Content>
+                                        <Image Source="{StaticResource ImageDelete26}"
+                                               Width="16"
+                                               Height="16" />
+                                    </telerik:RadButton.Content>
+                                </telerik:RadButton>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

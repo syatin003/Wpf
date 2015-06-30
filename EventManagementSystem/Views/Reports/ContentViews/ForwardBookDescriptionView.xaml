@@ -1,0 +1,233 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Reports.ContentViews.ForwardBookDescriptionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:pivot="http://schemas.telerik.com/2008/xaml/presentation/pivot"
+             mc:Ignorable="d"
+             d:DesignHeight="400"
+             d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin"
+                    Value="10,5" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Margin"
+                    Value="10,5" />
+        </Style>
+        <Style TargetType="{x:Type telerik:RadRadioButton}">
+            <Setter Property="Margin"
+                    Value="10,5" />
+        </Style>
+        <Style TargetType="{x:Type telerik:RadDateTimePicker}">
+            <Setter Property="Margin"
+                    Value="10,5" />
+        </Style>
+        <Style x:Key="MyGroupRowStyle"
+               TargetType="telerik:GroupHeaderRow">
+            <Setter Property="ShowHeaderAggregates"
+                    Value="False" />
+        </Style>
+
+        <pivot:LocalDataSourceProvider x:Key="EventBookedProductsDataProvider"
+                                       ItemsSource="{Binding EventBookedProducts}">
+            <pivot:LocalDataSourceProvider.RowGroupDescriptions>
+                <pivot:PropertyGroupDescription PropertyName="EventType" />
+                <pivot:PropertyGroupDescription PropertyName="ProductGroupOrDepartment" />
+                <!--<pivot:PropertyGroupDescription PropertyName="ProductDepartment" />-->
+            </pivot:LocalDataSourceProvider.RowGroupDescriptions>
+            <pivot:LocalDataSourceProvider.ColumnGroupDescriptions>
+                <pivot:DateTimeGroupDescription PropertyName="EventDate"
+                                                Step="Month" />
+                <pivot:PropertyGroupDescription PropertyName="EventStatus"
+                                                ShowGroupsWithNoData="False" />
+            </pivot:LocalDataSourceProvider.ColumnGroupDescriptions>
+            <pivot:LocalDataSourceProvider.AggregateDescriptions>
+                <pivot:PropertyAggregateDescription PropertyName="TotalPrice"
+                                                    StringFormat="C"
+                                                    AggregateFunction="Sum" />
+            </pivot:LocalDataSourceProvider.AggregateDescriptions>
+        </pivot:LocalDataSourceProvider>
+        
+    </UserControl.Resources>
+
+    <telerik:RadBusyIndicator BusyContent="Loading..."
+                              IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid Visibility="{Binding Path=IsBusy, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=True}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Start Date"
+                           Grid.Column="0"
+                           Grid.Row="0" />
+                <TextBlock Text="End Date"
+                           Grid.Column="0"
+                           Grid.Row="1" />
+
+                <telerik:RadDateTimePicker Grid.Column="1"
+                                           Grid.Row="0"
+                                           SelectedValue="{Binding StartDate, Mode=TwoWay}" />
+                <telerik:RadDateTimePicker Grid.Column="1"
+                                           Grid.Row="1"
+                                           SelectedValue="{Binding EndDate, Mode=TwoWay}" />
+
+                <StackPanel Grid.Column="2"
+                            Grid.RowSpan="2">
+                    <telerik:RadRadioButton Content="Departments"
+                                            IsChecked="{Binding DepartmentOption}" />
+                    <telerik:RadRadioButton  Content="Groups"
+                                             IsChecked="{Binding GroupOption}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3"
+                            Grid.RowSpan="2">
+                    <telerik:RadRadioButton Content="Inc V.A.T."
+                                            IsChecked="{Binding IncVATOption}" />
+                    <telerik:RadRadioButton Content="Ex V.A.T."
+                                            IsChecked="{Binding ExVATOption}" />
+                </StackPanel>
+
+                <CheckBox Content="Enquiry"
+                          Grid.Column="4"
+                          Grid.Row="0"
+                          IsChecked="{Binding EnquiriesOption}" />
+                <CheckBox Content="Cancelled"
+                          Grid.Column="4"
+                          Grid.Row="1"
+                          IsChecked="{Binding CancelledOption}" />
+                <CheckBox Content="Provisional"
+                          Grid.Column="5"
+                          Grid.Row="0"
+                          IsChecked="{Binding ProvisionalOption}" />
+                <CheckBox Content="Invoiced"
+                          Grid.Column="5"
+                          Grid.Row="1"
+                          IsChecked="{Binding InvoicedOption}" />
+                <CheckBox Content="Confirmed"
+                          Grid.Column="6"
+                          Grid.Row="0"
+                          IsChecked="{Binding ConfirmedOption}" />
+
+                <pivot:RadPivotGrid x:Name="ForwardBookRadPivotGrid"
+                                    Grid.Row="2"
+                                    Grid.Column="0"
+                                    Grid.ColumnSpan="8"
+                                    DataProvider="{StaticResource EventBookedProductsDataProvider}">
+                    <!--<pivot:RadPivotGrid.DataProvider>
+                        <pivot:LocalDataSourceProvider ItemsSource="{Binding EventBookedProducts}">
+                            <pivot:LocalDataSourceProvider.RowGroupDescriptions>
+                                <pivot:PropertyGroupDescription PropertyName="ProductGroup" />
+                                <pivot:PropertyGroupDescription PropertyName="ProductDepartment" />
+                            </pivot:LocalDataSourceProvider.RowGroupDescriptions>
+                            <pivot:LocalDataSourceProvider.ColumnGroupDescriptions>
+                                <pivot:DateTimeGroupDescription PropertyName="EventDate" Step="Month" />
+                                <pivot:PropertyGroupDescription PropertyName="EventStatus" ShowGroupsWithNoData="False" >
+                                    <pivot:PropertyGroupDescription.GroupFilter>
+                                        <pivot:LabelGroupFilter>
+                                            <pivot:LabelGroupFilter.Condition>
+                                                <pivot:ItemsFilterCondition>
+                                                    <pivot:ItemsFilterCondition.DistinctCondition>
+                                                        <pivot:SetCondition Comparison="Includes">
+                                                            <pivot:SetCondition.Items>
+                                                                <system:String>Confirmed</system:String>
+                                                                <system:String>Invoiced</system:String>
+                                                            </pivot:SetCondition.Items>
+                                                        </pivot:SetCondition>
+                                                    </pivot:ItemsFilterCondition.DistinctCondition>
+                                                    <pivot:ItemsFilterCondition.Condition>
+                                                        <pivot:TextCondition Comparison="Contains" Pattern="c" />
+                                                    </pivot:ItemsFilterCondition.Condition>
+                                                </pivot:ItemsFilterCondition>
+                                            </pivot:LabelGroupFilter.Condition>
+                                        </pivot:LabelGroupFilter>
+                                    </pivot:PropertyGroupDescription.GroupFilter>
+                                </pivot:PropertyGroupDescription>
+                            </pivot:LocalDataSourceProvider.ColumnGroupDescriptions>
+                            <pivot:LocalDataSourceProvider.AggregateDescriptions>
+                                <pivot:PropertyAggregateDescription PropertyName="TotalPrice" StringFormat="C" AggregateFunction="Sum" />
+                            </pivot:LocalDataSourceProvider.AggregateDescriptions>
+                        </pivot:LocalDataSourceProvider>
+                    </pivot:RadPivotGrid.DataProvider>-->
+
+                </pivot:RadPivotGrid>
+
+                <!--<pivot:RadPivotFieldList x:Name="FieldList" Grid.Row="0" DataProvider="{StaticResource EventBookedProductsDataProvider}" />-->
+                <!--<telerik:RadGridView x:Name="ForwardBookRadGridView"
+                                         Grid.Row="2"
+                                         Grid.ColumnSpan="8"
+                                         ItemsSource="{Binding ForwardBook}"
+                                         IsReadOnly="True"
+							             CanUserFreezeColumns="False"
+							             GroupRenderMode="Flat" ShowColumnFooters="True" ShowGroupFooters="True"
+                                         GroupRowStyle="{StaticResource MyGroupRowStyle}"
+							             RowIndicatorVisibility="Collapsed"
+							             AutoExpandGroups="True"
+							             AutoGenerateColumns="False"
+                                         ShowGroupPanel="False"
+                                         helpers:ForwardBookGridViewHelper.BindableColumns="{Binding DataContext.ColumnCollection,
+                                                                                                         ElementName=ForwardBookRadGridView}">
+                    <telerik:RadGridView.GroupDescriptors>
+                        <telerik:GroupDescriptor  Member="EventType">
+                           
+                        </telerik:GroupDescriptor>
+                    </telerik:RadGridView.GroupDescriptors>
+                    <telerik:RadGridView.Columns>
+
+                        <telerik:GridViewDataColumn Header="Event Name" DataMemberBinding="{Binding Name}">
+                            <telerik:GridViewDataColumn.AggregateFunctions>
+                                <telerik:CountFunction ResultFormatString="Total orders: {0}" />
+                            </telerik:GridViewDataColumn.AggregateFunctions>
+                        </telerik:GridViewDataColumn>
+
+                        <telerik:GridViewDataColumn Header="Event Type" DataMemberBinding="{Binding EventType.Name}" />
+                        <telerik:GridViewDataColumn Header="Pr"
+											DataMemberBinding="{Binding Price, StringFormat=c}">
+                          
+                        </telerik:GridViewDataColumn>
+
+                        <telerik:GridViewDataColumn Header="Event Status" DataMemberBinding="{Binding EventStatus.Name}" />
+
+                    </telerik:RadGridView.Columns>
+                </telerik:RadGridView>-->
+
+                <telerik:RadButton Grid.Row="3"
+                                   Grid.Column="6"
+                                   Margin="5"
+                                   Height="25"
+                                   Width="100"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Right"
+                                   Content="Print"
+                                   Click="Print_OnClick" />
+                <telerik:RadButton Grid.Row="3"
+                                   Grid.Column="7"
+                                   Margin="5"
+                                   Height="25"
+                                   Width="100"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Right"
+                                   Content="Export"
+                                   Click="Export_OnClick" />
+
+            </Grid>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

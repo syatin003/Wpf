@@ -1,0 +1,333 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Reports.ContentViews.ForwardSynopsisDescriptionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="300">
+    <telerik:RadBusyIndicator BusyContent="Loading..."
+                              IsBusy="{Binding IsBusy,FallbackValue=True}">
+        <Grid Visibility="{Binding Path=IsBusy,Converter={StaticResource BooleanToVisibilityConverter},ConverterParameter=True}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <!--<RowDefinition Height="Auto"></RowDefinition>-->
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0"
+                  Margin="5,10,5,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin"
+                                Value="10,5"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <TextBlock Text="Start Date"
+                           Grid.Column="0"></TextBlock>
+                <telerik:RadDatePicker Grid.Column="1"
+                                       SelectedValue="{Binding StartDate, Mode=TwoWay}"></telerik:RadDatePicker>
+                <TextBlock Text="End Date"
+                           Grid.Column="2"></TextBlock>
+                <telerik:RadDatePicker Grid.Column="3"
+                                       SelectedValue="{Binding EndDate, Mode=TwoWay}"></telerik:RadDatePicker>
+            </Grid>
+            <!--<Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock  Grid.Row="0"
+                            Text="Event Synopsis Report"></TextBlock>
+                <StackPanel Grid.Row="1"
+                            Orientation="Horizontal">
+                    <TextBlock Text="Synopsis for events between "></TextBlock>
+                    <TextBlock Text="{Binding StartDate}"></TextBlock>
+                    <TextBlock Text=" and "></TextBlock>
+                    <TextBlock Text="{Binding EndDate}"></TextBlock>
+                </StackPanel>
+            </Grid>-->
+
+            <telerik:RadGridView Grid.Row="1"
+                                 Margin="10,0,10,0"
+                                 x:Name="ForwardDescriptionGrid"
+                                 BorderThickness="0"
+                                 GroupRenderMode="Flat"
+                                 CanUserFreezeColumns="False"
+                                 ScrollMode="RealTime"
+                                 GridLinesVisibility="None"
+                                 AutoGenerateColumns="False"
+                                 ShowColumnHeaders="False"
+                                 RowIndicatorVisibility="Collapsed"
+                                 IsReadOnly="True"
+                                 ShowGroupPanel="False"
+                                 CanUserSelect="False"
+                                 SelectionUnit="FullRow"
+                                 ItemsSource="{Binding EventsGroups}">
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn MinWidth="800">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border  Grid.Row="0"
+                                             BorderThickness="5"
+                                             BorderBrush="SkyBlue"
+                                             HorizontalAlignment="Stretch"></Border>
+                                    <TextBlock Grid.Row="1"
+                                               Text="{Binding EventDate,StringFormat='{}{0:dddd dd/MM/yy}'}"
+                                               FontSize="14"
+                                               FontWeight="Bold"
+                                               Margin="0,10,0,0"></TextBlock>
+                                    <ItemsControl Grid.Row="2"
+                                                  ItemsSource="{Binding Events}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Margin="0,10"
+                                                        BorderThickness="1"
+                                                        BorderBrush="Black"
+                                                        Background="GhostWhite"
+                                                        HorizontalAlignment="Stretch">
+                                                    <StackPanel Margin="5,2,5,0">
+                                                        <StackPanel Orientation="Horizontal"
+                                                                    Margin="0,0,0,10">
+                                                            <TextBlock FontSize="12"
+                                                                       FontWeight="Bold"
+                                                                       Text="{Binding EventType.Name}"></TextBlock>
+                                                            <TextBlock FontSize="12"
+                                                                       FontWeight="Bold"
+                                                                       Text=" : "></TextBlock>
+                                                            <TextBlock FontSize="12"
+                                                                       FontWeight="Bold"
+                                                                       Text="{Binding Name}"></TextBlock>
+                                                            <TextBlock FontSize="12"
+                                                                       FontWeight="Bold"
+                                                                       Text=" ("></TextBlock>
+                                                            <TextBlock FontSize="12"
+                                                                       FontWeight="Bold"
+                                                                       Text="{Binding PrimaryContact.ContactName}"></TextBlock>
+                                                            <TextBlock FontSize="12"
+                                                                       FontWeight="Bold"
+                                                                       Text=") "></TextBlock>
+                                                            <TextBlock FontSize="12"
+                                                                       FontWeight="Bold"
+                                                                       Text="Num of People : "></TextBlock>
+                                                            <TextBlock FontSize="12"
+                                                                       FontWeight="Bold"
+                                                                       Text="{Binding Places}"></TextBlock>
+                                                        </StackPanel>
+                                                        <TextBlock FontSize="12"
+                                                                   FontWeight="Bold"
+                                                                   Text="Golf Options :"
+                                                                   Margin="0,0,0,10"
+                                                                   FontStyle="Italic"
+                                                                   Visibility="{Binding EventGolfs.Count,Converter={StaticResource CountToVisibilityConverter}}"></TextBlock>
+                                                        <ItemsControl ItemsSource="{Binding EventGolfs}">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel>
+                                                                        <StackPanel Orientation="Horizontal"
+                                                                                    Visibility="{Binding EventBookedProducts.Count,Converter={StaticResource CountToVisibilityConverter}}">
+                                                                            <StackPanel Orientation="Horizontal"
+                                                                                        Margin="0,0,10,10">
+                                                                                <TextBlock Text="To commence at "
+                                                                                           VerticalAlignment="Top"></TextBlock>
+                                                                                <TextBlock Text="{Binding Time, StringFormat={}{0:HH:mm}}"
+                                                                                           VerticalAlignment="Top"></TextBlock>
+                                                                            </StackPanel>
+                                                                            <StackPanel>
+                                                                                <ItemsControl ItemsSource="{Binding EventBookedProducts}"
+                                                                                              Tag="{Binding .}">
+                                                                                    <ItemsControl.ItemTemplate>
+                                                                                        <DataTemplate>
+                                                                                            <StackPanel Orientation="Horizontal"
+                                                                                                        Margin="0,0,0,10">
+                                                                                                <TextBlock Text="{Binding Quantity}"></TextBlock>
+                                                                                                <TextBlock Text=" * "></TextBlock>
+                                                                                                <TextBlock Text="{Binding Product.Name}"></TextBlock>
+                                                                                                <TextBlock Margin="5,0,0,0"
+                                                                                                           Text="{Binding Tag.Golf.Name,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type ItemsControl}}}"></TextBlock>
+                                                                                            </StackPanel>
+                                                                                        </DataTemplate>
+                                                                                    </ItemsControl.ItemTemplate>
+                                                                                </ItemsControl>
+                                                                            </StackPanel>
+                                                                        </StackPanel>
+                                                                        <StackPanel Visibility="{Binding EventGolf.Notes,Converter={StaticResource NullToVisibilityConverter}}"
+                                                                                    Orientation="Horizontal"
+                                                                                    Margin="0,0,0,15">
+                                                                            <TextBlock FontSize="12"
+                                                                                       FontWeight="Bold"
+                                                                                       Text="Notes: "
+                                                                                       FontStyle="Italic"></TextBlock>
+                                                                            <TextBlock Text="{Binding EventGolf.Notes}"
+                                                                                       MaxWidth="500"
+                                                                                       TextWrapping="Wrap"
+                                                                                       TextAlignment="Justify"
+                                                                                       VerticalAlignment="Top"></TextBlock>
+                                                                        </StackPanel>
+                                                                    </StackPanel>
+
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+
+                                                        <TextBlock FontSize="12"
+                                                                   FontWeight="Bold"
+                                                                   Text="Catering Options :"
+                                                                   Margin="0,0,0,10"
+                                                                   FontStyle="Italic"
+                                                                   Visibility="{Binding EventCaterings.Count,Converter={StaticResource CountToVisibilityConverter}}"></TextBlock>
+                                                        <ItemsControl ItemsSource="{Binding EventCaterings}">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel>
+                                                                        <StackPanel Orientation="Horizontal">
+                                                                            <StackPanel Orientation="Horizontal"
+                                                                                        Margin="0,0,10,10">
+                                                                                <TextBlock Text="To be served at "
+                                                                                           VerticalAlignment="Top"></TextBlock>
+                                                                                <TextBlock Text="{Binding Time, StringFormat={}{0:HH:mm}}"
+                                                                                           VerticalAlignment="Top"></TextBlock>
+                                                                            </StackPanel>
+                                                                            <StackPanel>
+                                                                                <ItemsControl ItemsSource="{Binding EventBookedProducts}">
+                                                                                    <ItemsControl.ItemTemplate>
+                                                                                        <DataTemplate>
+                                                                                            <StackPanel Orientation="Horizontal"
+                                                                                                        Margin="0,0,0,10">
+                                                                                                <TextBlock Text="{Binding Quantity}"></TextBlock>
+                                                                                                <TextBlock Text=" * "></TextBlock>
+                                                                                                <TextBlock Text="{Binding Product.Name}"></TextBlock>
+                                                                                            </StackPanel>
+                                                                                        </DataTemplate>
+                                                                                    </ItemsControl.ItemTemplate>
+                                                                                </ItemsControl>
+                                                                            </StackPanel>
+                                                                        </StackPanel>
+                                                                        <StackPanel Visibility="{Binding EventCatering.Notes,Converter={StaticResource NullToVisibilityConverter}}"
+                                                                                    Margin="0,0,0,15"
+                                                                                    Orientation="Horizontal">
+                                                                            <TextBlock FontSize="12"
+                                                                                       FontWeight="Bold"
+                                                                                       Text="Notes: "
+                                                                                       FontStyle="Italic"
+                                                                                       VerticalAlignment="Top"></TextBlock>
+                                                                            <TextBlock Text="{Binding EventCatering.Notes}"
+                                                                                       MaxWidth="500"
+                                                                                       TextWrapping="Wrap"
+                                                                                       TextAlignment="Justify"></TextBlock>
+
+                                                                        </StackPanel>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+
+                                                        <TextBlock FontSize="12"
+                                                                   FontWeight="Bold"
+                                                                   Text="Room Options :"
+                                                                   Margin="0,0,0,10"
+                                                                   FontStyle="Italic"
+                                                                   Visibility="{Binding EventRooms.Count,Converter={StaticResource CountToVisibilityConverter}}"></TextBlock>
+                                                        <ItemsControl ItemsSource="{Binding EventRooms}">
+                                                            <ItemsControl.ItemTemplate>
+                                                                <DataTemplate>
+                                                                    <StackPanel>
+                                                                        <StackPanel Orientation="Horizontal"
+                                                                                    Margin="0,0,0,10">
+                                                                            <TextBlock Text="{Binding Room.Name}"></TextBlock>
+                                                                            <TextBlock Text=" from "></TextBlock>
+                                                                            <TextBlock Text="{Binding StartTime, StringFormat={}{0:HH:mm}}"></TextBlock>
+                                                                            <TextBlock Text=" to "></TextBlock>
+                                                                            <TextBlock Text="{Binding EndTime, StringFormat={}{0:HH:mm}}"></TextBlock>
+                                                                        </StackPanel>
+                                                                        <StackPanel Visibility="{Binding EventRoom.Notes,Converter={StaticResource NullToVisibilityConverter}}"
+                                                                                    Margin="0,0,0,15"
+                                                                                    Orientation="Horizontal">
+                                                                            <TextBlock FontSize="12"
+                                                                                       FontWeight="Bold"
+                                                                                       Text="Notes: "
+                                                                                       FontStyle="Italic"
+                                                                                       VerticalAlignment="Top"></TextBlock>
+                                                                            <TextBlock Text="{Binding EventRoom.Notes}"
+                                                                                       MaxWidth="500"
+                                                                                       TextWrapping="Wrap"
+                                                                                       TextAlignment="Justify"></TextBlock>
+
+                                                                        </StackPanel>
+                                                                    </StackPanel>
+                                                                </DataTemplate>
+                                                            </ItemsControl.ItemTemplate>
+                                                        </ItemsControl>
+                                                        <StackPanel Visibility="{Binding EventNotes.Count,Converter={StaticResource CountToVisibilityConverter}}"
+                                                                    Orientation="Horizontal"
+                                                                    Margin="0,0,0,15">
+                                                            <TextBlock FontSize="12"
+                                                                       FontWeight="Bold"
+                                                                       Text="Event Notes:"
+                                                                       Margin="0,0,0,10"
+                                                                       FontStyle="Italic"
+                                                                       VerticalAlignment="Top"></TextBlock>
+                                                            <ItemsControl ItemsSource="{Binding EventNotes}">
+                                                                <ItemsControl.ItemTemplate>
+                                                                    <DataTemplate>
+                                                                        <TextBlock Text="{Binding Note}"
+                                                                                   Margin="0,0,0,10"
+                                                                                   MaxWidth="500"
+                                                                                   TextWrapping="Wrap"
+                                                                                   TextAlignment="Justify"></TextBlock>
+                                                                    </DataTemplate>
+                                                                </ItemsControl.ItemTemplate>
+                                                            </ItemsControl>
+                                                        </StackPanel>
+                                                    </StackPanel>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Grid>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <telerik:RadButton  Margin="5"
+                                    Height="25"
+                                    Width="100"
+                                    VerticalAlignment="Bottom"
+                                    Content="Print"
+                                    Click="Print_Click" />
+                <!--<telerik:RadButton Margin="5"
+                                   Height="25"
+                                   Width="100"
+                                   VerticalAlignment="Bottom"
+                                   Content="Export"
+                                   Click="Export_OnClick" />-->
+            </StackPanel>
+        </Grid>
+
+    </telerik:RadBusyIndicator>
+
+
+
+</UserControl>

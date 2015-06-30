@@ -1,0 +1,338 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Admin.Resources.RoomView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d">
+    <Grid>
+        <ScrollViewer telerik:StyleManager.Theme="Windows8">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Margin="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="Name" Grid.Column="0" Grid.Row="0" />
+                    <TextBox Text="{Binding Room.Name}"
+                             Grid.Column="1" Grid.Row="0" />
+
+                    <TextBlock Text="Multiple Bookings" Grid.Column="0" Grid.Row="1" />
+                    <StackPanel Orientation="Horizontal"
+                                Grid.Column="1" Grid.Row="1">
+                        <CheckBox x:Name="CbMultipleBooking"
+                                  IsChecked="{Binding Room.Room.MultipleBooking,UpdateSourceTrigger=PropertyChanged}"
+                                  Margin="7,7,0,7" />
+                        <TextBlock Margin="0,7,7,7"
+                                   IsEnabled="{Binding ElementName=CbMultipleBooking, Path=IsChecked}"
+                                   Text="Multiple Bookings" />
+                    </StackPanel>
+
+                    <TextBlock Text="Colour" Grid.Column="0" Grid.Row="2" />
+                    <telerik:RadColorPicker Grid.Column="1" Grid.Row="2"
+                                            Margin="7,5,5,5"
+                                            SelectedColor="{Binding Room.Color, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                            HorizontalAlignment="Left" />
+
+                    <GroupBox Header="Layouts Available"
+                              Padding="5"
+                              Foreground="DimGray"
+                              Margin="5"
+                              Grid.Row="3"
+                              Grid.ColumnSpan="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="Boardroom" Grid.Column="0" Grid.Row="0"
+                                       HorizontalAlignment="Right"
+                                       Margin="7,7,20,7" />
+                            <DockPanel Grid.Column="1" Grid.Row="0">
+                                <CheckBox x:Name="CbBoardroomAllowed"
+                                          IsChecked="{Binding Room.Room.BoardroomAllowed,UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBox Margin="0,7,7,7"
+                                         IsEnabled="{Binding ElementName=CbBoardroomAllowed, Path=IsChecked}"
+                                         Text="{Binding Room.Room.Boardroom,UpdateSourceTrigger=PropertyChanged}" />
+                            </DockPanel>
+
+                            <TextBlock Text="Theatre" Grid.Column="0" Grid.Row="1"
+                                       HorizontalAlignment="Right"
+                                       Margin="7,7,20,7" />
+                            <DockPanel Grid.Column="1" Grid.Row="1">
+                                <CheckBox x:Name="CbTheatreAllowed"
+                                          IsChecked="{Binding Room.Room.TheatreAllowed,UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBox Margin="0,7,7,7"
+                                         IsEnabled="{Binding ElementName=CbTheatreAllowed, Path=IsChecked}"
+                                         Text="{Binding Room.Room.Theatre,UpdateSourceTrigger=PropertyChanged}" />
+                            </DockPanel>
+
+                            <TextBlock Text="Conference" Grid.Column="0" Grid.Row="2"
+                                       HorizontalAlignment="Right"
+                                       Margin="7,7,20,7" />
+                            <DockPanel Grid.Column="1" Grid.Row="2">
+                                <CheckBox x:Name="CbConferenceAllowed"
+                                          IsChecked="{Binding Room.Room.ConferenceAllowed,UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBox Margin="0,7,7,7"
+                                         IsEnabled="{Binding ElementName=CbConferenceAllowed, Path=IsChecked}"
+                                         Text="{Binding Room.Room.Conference,UpdateSourceTrigger=PropertyChanged}" />
+                            </DockPanel>
+
+                            <TextBlock Text="Free Form" Grid.Column="0" Grid.Row="3"
+                                       HorizontalAlignment="Right"
+                                       Margin="7,7,20,7" />
+                            <DockPanel Grid.Column="1" Grid.Row="3">
+                                <CheckBox x:Name="CbFreeFormAllowed"
+                                          IsChecked="{Binding Room.Room.FreeFormAllowed,UpdateSourceTrigger=PropertyChanged}" />
+                                <TextBox Margin="0,7,7,7"
+                                         IsEnabled="{Binding ElementName=CbFreeFormAllowed, Path=IsChecked}"
+                                         Text="{Binding Room.Room.FreeForm,UpdateSourceTrigger=PropertyChanged}" />
+                            </DockPanel>
+                        </Grid>
+                    </GroupBox>
+
+                    <TextBlock Text="Facilities Available" Grid.Column="0" Grid.Row="4" />
+                    <Grid Grid.Column="1" Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <telerik:RadButton Width="70"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center"
+                                           Padding="0"
+                                           Grid.Column="0"
+                                           Command="{Binding EditFacilitiesCommand}">
+                            <telerik:RadButton.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="{StaticResource ImageEdit26}" Width="16" Height="16" />
+                                    <TextBlock Text="Edit"
+                                               VerticalAlignment="Center"
+                                               Margin="2,4" />
+                                </StackPanel>
+                            </telerik:RadButton.Content>
+                        </telerik:RadButton>
+                        <TextBlock Text="{Binding Room.RoomFacilities,UpdateSourceTrigger=PropertyChanged}"
+                                   VerticalAlignment="Center"
+                                   TextWrapping="Wrap"
+                                   Margin="0,8,8,8"
+                                   Grid.Column="1" />
+                    </Grid>
+
+                    <TextBlock Text="Turnaround Needed" Grid.Column="0" Grid.Row="5" />
+                    <TextBox Grid.Column="1" Grid.Row="5"
+                             Text="{Binding Room.Room.TurnaroundNeeded,UpdateSourceTrigger=PropertyChanged}" />
+
+                    <TextBlock Text="Is Enabled" Grid.Column="0" Grid.Row="6" />
+                    <CheckBox IsChecked="{Binding Room.Room.IsEnabled,UpdateSourceTrigger=PropertyChanged}"
+                              Grid.Column="1" Grid.Row="6"
+                              Margin="8,8,0,8" />
+
+                    <TextBlock Text="Start Time" Grid.Column="0" Grid.Row="7" />
+                    <telerik:RadDateTimePicker InputMode="TimePicker"
+                                               x:Name="RoomStartTimePicker"
+                                               Grid.Column="1"
+                                               Grid.Row="7"
+                                               SelectedTime="{Binding Room.Room.StartTime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                    <!--EndTime="{Binding ElementName=RoomEndTimePicker, Path=SelectedTime, Mode=TwoWay}"/>-->
+
+                    <TextBlock Text="End Time" Grid.Column="0" Grid.Row="8" />
+                    <telerik:RadDateTimePicker InputMode="TimePicker"
+                                               x:Name="RoomEndTimePicker"
+                                               Grid.Column="1"
+                                               Grid.Row="8"
+                                               SelectedTime="{Binding Room.Room.EndTime, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                    <!--StartTime="{Binding ElementName=RoomStartTimePicker, Path=SelectedTime, Mode=TwoWay}"/>-->
+
+                    <TextBlock Text="Time Interval" Grid.Column="0" Grid.Row="9" />
+                    <telerik:RadDateTimePicker InputMode="TimePicker"
+                                               Grid.Column="1" Grid.Row="9"
+                                               SelectedTime="{Binding Room.Room.TimeInterval, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                    
+                    <TextBlock Text="Note" Grid.Column="0" Grid.Row="10" />
+                    <TextBox Grid.Column="1" Grid.Row="10" Height="Auto"
+                             TextWrapping="Wrap"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             Text="{Binding Room.Room.RoomNote,UpdateSourceTrigger=PropertyChanged}" />
+                </Grid>
+
+                <!-- Dimensions block -->
+
+                <Grid Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Grid Margin="12 6">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Margin="7,7,7,10" Grid.Row="0"
+                                   Text="Dimensions" />
+
+                        <TextBlock Grid.Column="0" Grid.Row="1"
+                                   Text="Height"
+                                   Margin="30,7,7,7" />
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="1"
+                                    Grid.Row="1">
+                            <TextBox Width="60" Margin="5"
+                                     Text="{Binding Room.Height, StringFormat=N1}" />
+                            <TextBlock Text="m" Margin="5" />
+                            <TextBox Width="60" Margin="5"
+                                     Text="{Binding Room.Height, StringFormat=N1}"
+                                     IsReadOnly="True" />
+                            <TextBlock Text="ft" Margin="5" />
+                        </StackPanel>
+
+                        <TextBlock Grid.Column="0" Grid.Row="2"
+                                   Text="Length"
+                                   Margin="30,7,7,7" />
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="1"
+                                    Grid.Row="2">
+                            <TextBox Width="60" Margin="5"
+                                     Text="{Binding Room.Length, StringFormat=N1}" />
+                            <TextBlock Text="m" Margin="5" />
+                            <TextBox Width="60" Margin="5"
+                                     Text="{Binding Room.Length, StringFormat=N1}"
+                                     IsReadOnly="True" />
+                            <TextBlock Text="ft" Margin="5" />
+                        </StackPanel>
+
+                        <TextBlock Grid.Column="0" Grid.Row="3"
+                                   Text="Width"
+                                   Margin="30,7,7,7" />
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="1"
+                                    Grid.Row="3">
+                            <TextBox Width="60" Margin="5"
+                                     Text="{Binding Room.Width, StringFormat=N1}" />
+                            <TextBlock Text="m" Margin="5" />
+                            <TextBox Width="60" Margin="5"
+                                     Text="{Binding Room.Width, StringFormat=N1}"
+                                     IsReadOnly="True" />
+                            <TextBlock Text="ft" Margin="5" />
+                        </StackPanel>
+
+                        <TextBlock Grid.Column="0" Grid.Row="4"
+                                   Text="Floor Area" />
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="1"
+                                    Grid.Row="4">
+                            <TextBox Width="60" Margin="5"
+                                     Text="{Binding Room.FloorArea, StringFormat=N1, Mode=OneWay}"
+                                     IsReadOnly="True" />
+                            <TextBlock Text="m" Margin="5" />
+                            <TextBox Width="60" Margin="5"
+                                     Text="{Binding Room.FloorAreaFt, StringFormat=N1, Mode=OneWay}"
+                                     IsReadOnly="True" />
+                            <TextBlock Text="ft" Margin="5" />
+                        </StackPanel>
+
+                        <TextBlock Grid.Column="0" Grid.Row="5"
+                                   Text="Total Capacity" />
+                        <StackPanel Orientation="Horizontal"
+                                    Grid.Column="1"
+                                    Grid.Row="5">
+                            <TextBox Width="60" Margin="5"
+                                     Text="{Binding Room.TotalCapacity, StringFormat=N1, Mode=OneWay}"
+                                     IsReadOnly="True" />
+                            <TextBlock Text="m" Margin="5" />
+                            <TextBox Width="60" Margin="5"
+                                     Text="{Binding Room.TotalCapacityFt, StringFormat=N1, Mode=OneWay}"
+                                     IsReadOnly="True" />
+                            <TextBlock Text="ft" Margin="5" />
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Margin="12 6" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Text="Include in Forward Book"
+                                   Grid.Column="0"
+                                   Grid.Row="0" />
+                        <CheckBox IsChecked="{Binding Room.Room.IncludeInForwardBook}"
+                                  Grid.Column="1"
+                                  Grid.Row="0" />
+
+                        <TextBlock Text="Allow on-line Booking"
+                                   Grid.Column="0"
+                                   Grid.Row="1" />
+                        <CheckBox IsChecked="{Binding Room.Room.AllowOnlineBooking}"
+                                  Grid.Column="1"
+                                  Grid.Row="1" />
+
+                        <TextBlock Text="Admin Authorisation"
+                                   Grid.Column="0"
+                                   Grid.Row="2" />
+                        <CheckBox IsChecked="{Binding Room.Room.AdminAuthorisation}"
+                                  Grid.Column="1"
+                                  Grid.Row="2" />
+                    </Grid>
+                </Grid>
+
+                <telerik:RadButton Grid.Column="2"
+                                   VerticalAlignment="Bottom"
+                                   HorizontalAlignment="Right"
+                                   Margin="20"
+                                   Command="{Binding SaveCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="{StaticResource ImageSave26}" Margin="3"
+                               Width="16" Height="16" />
+                        <TextBlock Text="Save changes"
+                                   Margin="3" VerticalAlignment="Center" />
+                    </StackPanel>
+                </telerik:RadButton>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

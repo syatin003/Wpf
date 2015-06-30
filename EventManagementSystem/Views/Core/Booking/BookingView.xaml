@@ -1,0 +1,48 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.Core.Booking.BookingView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" 
+                   mc:Ignorable="d"
+                   Header="New Booking"
+                   Width="745" Height="700" CanClose="False"
+                   BorderThickness="0"
+                   Style="{StaticResource RadWindowStyle}"
+                   WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <UniformGrid Grid.Row="0"
+                     Columns="5"
+                     HorizontalAlignment="Stretch">
+            <UniformGrid.Resources>
+                <Style TargetType="{x:Type telerik:RadButton}">
+                    <Setter Property="Margin" Value="10,10,10,0" />
+                </Style>
+            </UniformGrid.Resources>
+
+            <telerik:RadButton Content="Tee"
+                               Command="{Binding SwitchToTeeBookingCommand}" />
+
+            <telerik:RadButton Content="Group"
+                               Command="{Binding SwitchToGroupBookingCommand}" />
+
+            <telerik:RadButton Content="Event"
+                               Command="{Binding SwitchToEventBookingCommand}" />
+
+            <telerik:RadButton Content="Competition"
+                               Command="{Binding SwitchToCompetitionBookingCommand}" />
+
+            <telerik:RadButton Content="Match"
+                               Command="{Binding SwitchToMatchBookingCommand}" />
+        </UniformGrid>
+
+        <ContentPresenter Content="{Binding Content}"
+                          Grid.Row="1"
+                          Margin="10,10,10,5" />
+    </Grid>
+</telerik:RadWindow>

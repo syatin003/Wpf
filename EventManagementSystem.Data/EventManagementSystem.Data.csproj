@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4848BC2A-42F5-44FD-B44E-B695914A0833}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EventManagementSystem.Data</RootNamespace>
+    <AssemblyName>EventManagementSystem.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NuGet Packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NuGet Packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\NuGet Packages\Unity.3.0.1304.0\lib\Net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Extensions\ObjectContextExtensions.cs" />
+    <Compile Include="Model\EntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Repositories\ActivitiesRepository.cs" />
+    <Compile Include="Repositories\ActivityTypesRepository.cs" />
+    <Compile Include="Repositories\CalendarNotesRepository.cs" />
+    <Compile Include="Repositories\CCContactsCorrespondenceRepository.cs" />
+    <Compile Include="Repositories\EmailHeadersRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEmailHeadersRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipUpdatesRepository.cs" />
+    <Compile Include="Repositories\MembershipUpdatesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMemberNotesRepository.cs" />
+    <Compile Include="Repositories\MemberNotesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembersRepository.cs" />
+    <Compile Include="Repositories\MembershipCategoryGroupDefaultEPOSRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipCategoryGroupDefaultEPOSRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipGroupEPOSRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipOptionBoxReasonsRepository.cs" />
+    <Compile Include="Repositories\MembershipGroupEPOSRepository.cs" />
+    <Compile Include="Repositories\MembershipOptionBoxReasonsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipLinkTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipOptionBoxesRepository.cs" />
+    <Compile Include="Repositories\MembershipLinkTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipTokensRepository.cs" />
+    <Compile Include="Repositories\MembershipMonthlyPaymentUpFrontCostsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipMonthlyPaymentUpFrontCostsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipMonthlyPaymentOngoingCostsRepository.cs" />
+    <Compile Include="Repositories\MembershipMonthlyPaymentOngoingCostsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipFullPaymentCostsRepository.cs" />
+    <Compile Include="Repositories\MembershipFullPaymentCostsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipCategoryGroupDefaultsRepository.cs" />
+    <Compile Include="Repositories\MembershipCategoryGroupDefaultsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipCategoriesRepository.cs" />
+    <Compile Include="Repositories\MembershipCategoriesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipGroupsRepository.cs" />
+    <Compile Include="Repositories\MembershipGroupsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipGroupAgesRepository.cs" />
+    <Compile Include="Repositories\MembershipGroupAgesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMembershipGroupStylesRepository.cs" />
+    <Compile Include="Repositories\MembershipGroupStylesRepository.cs" />
+    <Compile Include="Repositories\EventRemindersRepository.cs" />
+    <Compile Include="Repositories\EventTypeTODOsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventRemindersRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventTypeTODOsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISystemSettingsRepository.cs" />
+    <Compile Include="Repositories\MembershipOptionBoxesRepository.cs" />
+    <Compile Include="Repositories\MembershipTokensRepository.cs" />
+    <Compile Include="Repositories\MembersRepository.cs" />
+    <Compile Include="Repositories\SystemSettingsRepository.cs" />
+    <Compile Include="Repositories\CorrespondenceDocumentsRepository.cs" />
+    <Compile Include="Repositories\DocumentsRepository.cs" />
+    <Compile Include="Repositories\Base\EntitiesRepository.cs" />
+    <Compile Include="Repositories\Base\IDataRepository.cs" />
+    <Compile Include="Repositories\Base\IRepository.cs" />
+    <Compile Include="Repositories\CampaignsRepository.cs" />
+    <Compile Include="Repositories\CampaignTypesRepository.cs" />
+    <Compile Include="Repositories\ClerksRepository.cs" />
+    <Compile Include="Repositories\ContactsRepository.cs" />
+    <Compile Include="Repositories\ContactTitlesRepository.cs" />
+    <Compile Include="Repositories\CorresponcenceTypesRepository.cs" />
+    <Compile Include="Repositories\DefaultSettingsForEnquiriesRepository.cs" />
+    <Compile Include="Repositories\EnquiriesRepository.cs" />
+    <Compile Include="Repositories\EnquiryNotesRepository.cs" />
+    <Compile Include="Repositories\EnquiryReceiveMethodsRepository.cs" />
+    <Compile Include="Repositories\EnquiryStatusesRepository.cs" />
+    <Compile Include="Repositories\EnquiryUpdatesRepository.cs" />
+    <Compile Include="Repositories\EventBookedProductsRepository.cs" />
+    <Compile Include="Repositories\EventCateringsRepository.cs" />
+    <Compile Include="Repositories\EventChargesRepository.cs" />
+    <Compile Include="Repositories\EventContactsRepository.cs" />
+    <Compile Include="Repositories\EventInvoicesRepository.cs" />
+    <Compile Include="Repositories\EventNotesRepository.cs" />
+    <Compile Include="Repositories\EventNoteTypesRepository.cs" />
+    <Compile Include="Repositories\EventOptionsRepository.cs" />
+    <Compile Include="Repositories\EventPaymentsRepository.cs" />
+    <Compile Include="Repositories\EventRoomsRepository.cs" />
+    <Compile Include="Repositories\EventsRepository.cs" />
+    <Compile Include="Repositories\EventStatusesRepository.cs" />
+    <Compile Include="Repositories\EventStatusOptionsRepository.cs" />
+    <Compile Include="Repositories\EventTypeOptionsRepository.cs" />
+    <Compile Include="Repositories\EventTypesRepository.cs" />
+    <Compile Include="Repositories\EventUpdatesRepository.cs" />
+    <Compile Include="Repositories\FacilitiesRepository.cs" />
+    <Compile Include="Repositories\FinaliseKeysRepository.cs" />
+    <Compile Include="Repositories\FixedTotalsRepository.cs" />
+    <Compile Include="Repositories\FollowUpsRepository.cs" />
+    <Compile Include="Repositories\FollowUpStatusesRepository.cs" />
+    <Compile Include="Repositories\GolfFollowResourceRepository.cs" />
+    <Compile Include="Repositories\GolfHolesRepository.cs" />
+    <Compile Include="Repositories\GolfsRepository.cs" />
+    <Compile Include="Repositories\EventGolfsRepository.cs" />
+    <Compile Include="Repositories\EmailSettingsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IActivitiesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IActivityTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICalendarNotesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICampaignsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICampaignTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICCContactsCorrespondenceRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IClerksRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IContactsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IContactTitlesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICorresponcenceTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICorrespondenceDocumentsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IDefaultSettingsForEnquiriesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEmailSettingsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEnquiriesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEnquiryNotesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEnquiryReceiveMethodsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEnquiryStatusesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEnquiryUpdatesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventBookedProductsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventCateringsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventChargesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventContactsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventGolfsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventInvoicesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventNotesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventNoteTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventOptionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventPaymentsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventRoomsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventStatusesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventStatusOptionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventTypeOptionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IEventUpdatesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IFacilitiesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IFinaliseKeysRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IFixedTotalsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IFollowUpsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IFollowUpStatusesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IGolfFollowResourcesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IGolfHolesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IGolfsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICorresponcencesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IInvoicesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMailTemplateCategoriesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMailTemplatesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IDocumentsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMailTemplateTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IPaymentMethodsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IPermissionGroupsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IPermissionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IProductDepartmentsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IProductEventTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IProductGroupsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IProductOptionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IProductsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IProductTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IProductVATRatesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IReportsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRoomFacilitiesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRoomsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITillDivisionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITillProductsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITillsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITillTransactionDepartmentsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITillTransactionFinaliseKeysRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITillTransactionGroupsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITillTransactionProductsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITillTransactionDetailsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITillTransactionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ITransactionKeysRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserDepartmentsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserGroupPermissionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserGroupsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserJobTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUserPermissionsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
+    <Compile Include="Repositories\CorresponcencesRepository.cs" />
+    <Compile Include="Repositories\InvoicesRepository.cs" />
+    <Compile Include="Repositories\MailTemplateCategoriesRepository.cs" />
+    <Compile Include="Repositories\MailTemplatesRepository.cs" />
+    <Compile Include="Repositories\MailTemplateTypesRepository.cs" />
+    <Compile Include="Repositories\PaymentMethodsRepository.cs" />
+    <Compile Include="Repositories\PermissionGroupsRepository.cs" />
+    <Compile Include="Repositories\PermissionsRepository.cs" />
+    <Compile Include="Repositories\ProductDepartmentsRepository.cs" />
+    <Compile Include="Repositories\ProductEventTypesRepository.cs" />
+    <Compile Include="Repositories\ProductGroupsRepository.cs" />
+    <Compile Include="Repositories\ProductOptionsRepository.cs" />
+    <Compile Include="Repositories\ProductsRepository.cs" />
+    <Compile Include="Repositories\ProductTypesRepository.cs" />
+    <Compile Include="Repositories\ProductVATRatesRepository.cs" />
+    <Compile Include="Repositories\ReportsRepository.cs" />
+    <Compile Include="Repositories\RoomFacilitiesRepository.cs" />
+    <Compile Include="Repositories\RoomsRepository.cs" />
+    <Compile Include="Repositories\TillDivisionsRepository.cs" />
+    <Compile Include="Repositories\TillProductsRepository.cs" />
+    <Compile Include="Repositories\TillsRepository.cs" />
+    <Compile Include="Repositories\TillTransactionDepartmentsRepository.cs" />
+    <Compile Include="Repositories\TillTransactionFinaliseKeysRepository.cs" />
+    <Compile Include="Repositories\TillTransactionGroupRepository.cs" />
+    <Compile Include="Repositories\TillTransactionProductsRepository.cs" />
+    <Compile Include="Repositories\TillTransactionDetailsRepository.cs" />
+    <Compile Include="Repositories\TillTransactionsRepository.cs" />
+    <Compile Include="Repositories\TransactionKeysRepository.cs" />
+    <Compile Include="Repositories\UserDepartmentsRepository.cs" />
+    <Compile Include="Repositories\UserGroupPermissionsRepository.cs" />
+    <Compile Include="Repositories\UserGroupsRepository.cs" />
+    <Compile Include="Repositories\UserJobTypesRepository.cs" />
+    <Compile Include="Repositories\UserPermissionsRepository.cs" />
+    <Compile Include="Repositories\UsersRepository.cs" />
+    <Compile Include="UnitOfWork\AdminDataUnit.cs" />
+    <Compile Include="UnitOfWork\Base\DataUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\Base\EntitiesUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\Base\IDataUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\Base\IUnitOfWork.cs" />
+    <Compile Include="UnitOfWork\ContactsDataUnit.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IMembershipDataUnit.cs" />
+    <Compile Include="UnitOfWork\MembershipDataUnit.cs" />
+    <Compile Include="UnitOfWork\PermissionsDataUnit.cs" />
+    <Compile Include="UnitOfWork\CrmDataUnit.cs" />
+    <Compile Include="UnitOfWork\DataUnitLocator.cs" />
+    <Compile Include="UnitOfWork\EventDataUnit.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IPermissionsDataUnit.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IAdminDataUnit.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IContactsDataUnit.cs" />
+    <Compile Include="UnitOfWork\Interfaces\ICrmDataUnit.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IDataUnitLocator.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IEventDataUnit.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IReportsDataUnit.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IWebEnquiryDataUnit.cs" />
+    <Compile Include="UnitOfWork\Interfaces\IWorkspaceDataUnit.cs" />
+    <Compile Include="UnitOfWork\ReportsDataUnit.cs" />
+    <Compile Include="UnitOfWork\WebEnquiryDataUnit.cs" />
+    <Compile Include="UnitOfWork\WorkspaceDataUnit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Model\EntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\EntityModel.edmx.diagram">
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\EventManagementSystem.Core\EventManagementSystem.Core.csproj">
+      <Project>{F100C575-B32B-40E7-AA35-65920069EC8B}</Project>
+      <Name>EventManagementSystem.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

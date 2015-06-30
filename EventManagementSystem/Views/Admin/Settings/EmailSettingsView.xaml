@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Admin.Settings.EmailSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Margin="10" DataContext="{Binding EmailServerSettings}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition MaxWidth="200" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Server" Grid.Column="0" Grid.Row="0" />
+            <TextBlock Text="Enable SSL" Grid.Column="0" Grid.Row="1" />
+            <TextBlock Text="Username" Grid.Column="0" Grid.Row="2" />
+            <TextBlock Text="Password" Grid.Column="0" Grid.Row="3" />
+            <TextBlock Text="Port" Grid.Column="0" Grid.Row="4" />
+
+            <TextBox Text="{Binding Server, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" />
+            <CheckBox IsChecked="{Binding EnableSsl, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" />
+            <TextBox Text="{Binding Username, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="2" />
+            <TextBox Text="{Binding Password, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" />
+            <TextBox Text="{Binding Port, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="4" />
+        </Grid>
+
+        <telerik:RadButton Grid.Column="1"
+                           VerticalAlignment="Bottom"
+                           HorizontalAlignment="Right"
+                           Command="{Binding SaveChangesCommand}"
+                           Margin="20">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="{StaticResource ImageSave26}" Margin="3"
+                       Width="16" Height="16" />
+                <TextBlock Text="Save changes"
+                           Margin="3" VerticalAlignment="Center" />
+            </StackPanel>
+        </telerik:RadButton>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,114 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--Gray 26px images-->
+    <ImageSource x:Key="ImageDelete26">/Resources/Icons/Gray/delete_sign-25.png</ImageSource>
+    <ImageSource x:Key="ImageEdit26">/Resources/Icons/Gray/edit-26.png</ImageSource>
+    <ImageSource x:Key="ImagePlus26">/Resources/Icons/Gray/plus2_math-26.png</ImageSource>
+    <ImageSource x:Key="ImageMinus26">/Resources/Icons/Gray/minus2_math-26.png</ImageSource>
+    <ImageSource x:Key="ImageSave26">/Resources/Icons/Gray/save-26.png</ImageSource>
+    <ImageSource x:Key="ImageExit26">/Resources/Icons/Gray/exit-26.png</ImageSource>
+    <ImageSource x:Key="ImageAttach26">/Resources/Icons/Gray/attach-26.png</ImageSource>
+    <ImageSource x:Key="ImageUnlock26">/Resources/Icons/Gray/unlock-25.png</ImageSource>
+    <ImageSource x:Key="ImageTills26">/Resources/Icons/Gray/tills-26.png</ImageSource>
+    <ImageSource x:Key="ImageHistory26">/Resources/Icons/Gray/historical-26.png</ImageSource>
+    <ImageSource x:Key="ImageCategoryGroup26">/Resources/Icons/Gray/cat-26.png</ImageSource>
+    <ImageSource x:Key="ImageAge26">/Resources/Icons/Gray/age-26.png</ImageSource>
+    <ImageSource x:Key="ImageGroups26">/Resources/Icons/Gray/groups-26.png</ImageSource>
+    <ImageSource x:Key="ImageCategory26">/Resources/Icons/Gray/categorize-26.png</ImageSource>
+    <ImageSource x:Key="ImageToken26">/Resources/Icons/Gray/informatics-26.png</ImageSource>
+    <ImageSource x:Key="ImageLink26">/Resources/Icons/Gray/link-26.png</ImageSource>
+    <ImageSource x:Key="ImageStar26">/Resources/Icons/Gray/outline_star-26.png</ImageSource>
+
+
+    <!--Gray 32px images-->
+    <ImageSource x:Key="ImageRefresh32">/Resources/Icons/Gray/sinchronize-32.png</ImageSource>
+    <ImageSource x:Key="ImageAddItem32">/Resources/Icons/Gray/add_property-32.png</ImageSource>
+    <ImageSource x:Key="ImageTodoList32">/Resources/Icons/Gray/todo_list-32.png</ImageSource>
+    <ImageSource x:Key="ImageAddEnquiry32">/Resources/Icons/Gray/View_Details-32.png</ImageSource>
+    <ImageSource x:Key="ImageResources32">/Resources/Icons/Gray/living_room-32.png</ImageSource>
+    <ImageSource x:Key="ImageStatusLetter32">/Resources/Icons/Gray/S-32.png</ImageSource>
+    <ImageSource x:Key="ImageTypeLetter32">/Resources/Icons/Gray/T-32.png</ImageSource>
+    <ImageSource x:Key="ImageCalendarToday32">/Resources/Icons/Gray/calendar-32_today.png</ImageSource>
+    <ImageSource x:Key="ImageCalendarWeek32">/Resources/Icons/Gray/calendar-32_week.png</ImageSource>
+    <ImageSource x:Key="ImageCalendarMonth32">/Resources/Icons/Gray/calendar-32_month.png</ImageSource>
+    <ImageSource x:Key="ImageCalendarFuture32">/Resources/Icons/Gray/calendar-32_future.png</ImageSource>
+    <ImageSource x:Key="ImageUserGroups32">/Resources/Icons/Gray/groups-32.png</ImageSource>
+    <ImageSource x:Key="ImageUser32">/Resources/Icons/Gray/user-32.png</ImageSource>
+    <ImageSource x:Key="ImageEvents32">/Resources/Icons/Gray/overtime-32.png</ImageSource>
+    <ImageSource x:Key="ImageProducts32">/Resources/Icons/Gray/shopping_basket-32.png</ImageSource>
+    <ImageSource x:Key="ImageTills32">/Resources/Icons/Gray/tills-32.png</ImageSource>
+    <ImageSource x:Key="ImageOptions32">/Resources/Icons/Gray/administrative_tools-32.png</ImageSource>
+    <ImageSource x:Key="ImageAddUser32">/Resources/Icons/Gray/add_user-32.png</ImageSource>
+    <ImageSource x:Key="ImagePlus32">/Resources/Icons/Gray/plus2_math-32.png</ImageSource>
+    <ImageSource x:Key="ImageHot32">/Resources/Icons/Gray/gas-32.png</ImageSource>
+    <ImageSource x:Key="ImageCoffee32">/Resources/Icons/Gray/cup-32.png</ImageSource>
+    <ImageSource x:Key="ImageEditFile32">/Resources/Icons/Gray/edit_file-32.png</ImageSource>
+    <ImageSource x:Key="ImageCopy32">/Resources/Icons/Gray/copy-32.png</ImageSource>
+    <ImageSource x:Key="ImageBill32">/Resources/Icons/Gray/bill-32.png</ImageSource>
+    <ImageSource x:Key="ImageInfo32">/Resources/Icons/Gray/info-32.png</ImageSource>
+    <ImageSource x:Key="ImageReports32">/Resources/Icons/Gray/system_task-32.png</ImageSource>
+    <ImageSource x:Key="ImageMembers32">/Resources/Icons/Gray/group-32.png</ImageSource>
+
+
+    <!--Gray 48px images-->
+    <ImageSource x:Key="ImageAdmins48">/Resources/Icons/Gray/conference-48.png</ImageSource>
+    <ImageSource x:Key="ImageEvents48">/Resources/Icons/Gray/calendar-48.png</ImageSource>
+    <ImageSource x:Key="ImageReports48">/Resources/Icons/Gray/system_task-48.png</ImageSource>
+    <ImageSource x:Key="ImageContacts48">/Resources/Icons/Gray/group-48.png</ImageSource>
+    <ImageSource x:Key="ImageMembers48">/Resources/Icons/Gray/group-48.png</ImageSource>
+    <ImageSource x:Key="ImageCrm48">/Resources/Icons/Gray/online_support-48.png</ImageSource>
+
+    <!--Gray 128px images-->
+    <ImageSource x:Key="ImageLock128">/Resources/Icons/Gray/lock-128.png</ImageSource>
+
+    <!--26px images-->
+    <ImageSource x:Key="ImageAddUser26">/EventManagementSystem;component/Resources/Icons/add_user-26.png</ImageSource>
+    <ImageSource x:Key="ImageUser26">/EventManagementSystem;component/Resources/Icons/user-26.png</ImageSource>
+    <ImageSource x:Key="ImageSofa26">/EventManagementSystem;component/Resources/Icons/sofa-26.png</ImageSource>
+    <ImageSource x:Key="ImagePoint26">/EventManagementSystem;component/Resources/Icons/air_force-26.png</ImageSource>
+
+    <ImageSource x:Key="ImageGolfBall26">/EventManagementSystem;component/Resources/Icons/Golf-Tee-Ball-icon.png</ImageSource>
+    <ImageSource x:Key="ImageOk26">/EventManagementSystem;component/Resources/Icons/checkmark-26.png</ImageSource>
+    <ImageSource x:Key="ImageUserGroup26">/EventManagementSystem;component/Resources/Icons/group-26.png</ImageSource>
+    <ImageSource x:Key="ImageCalendar26">/EventManagementSystem;component/Resources/Icons/calendar-26.png</ImageSource>
+    <ImageSource x:Key="ImageSolutions26">/EventManagementSystem;component/Resources/Icons/solutions-26.png</ImageSource>
+    <ImageSource x:Key="ImageList26">/EventManagementSystem;component/Resources/Icons/list-26.png</ImageSource>
+    <ImageSource x:Key="ImageBox26">/EventManagementSystem;component/Resources/Icons/box-26.png</ImageSource>
+
+    <ImageSource x:Key="ImageSearch26">/EventManagementSystem;component/Resources/Icons/search-26.png</ImageSource>
+    <ImageSource x:Key="ImageHome26">/EventManagementSystem;component/Resources/Icons/home-26.png</ImageSource>
+    <ImageSource x:Key="ImageIphone26">/EventManagementSystem;component/Resources/Icons/iphone-26.png</ImageSource>
+    <ImageSource x:Key="ImageReadMessage26">/EventManagementSystem;component/Resources/Icons/read_message-26.png</ImageSource>
+    <ImageSource x:Key="ImageKeyWhite26">/EventManagementSystem;component/Resources/Icons/key-26White.png</ImageSource>
+    <ImageSource x:Key="ImageRestaurant26">/EventManagementSystem;component/Resources/Icons/restaurant-26.png</ImageSource>
+    <ImageSource x:Key="ImageDiploma26">/EventManagementSystem;component/Resources/Icons/diploma1-26.png</ImageSource>
+    <ImageSource x:Key="ImageBanknotes26">/EventManagementSystem;component/Resources/Icons/banknotes-26.png</ImageSource>
+    <ImageSource x:Key="ImageBill26">/EventManagementSystem;component/Resources/Icons/bill-26.png</ImageSource>
+    <ImageSource x:Key="ImageInfo26">/EventManagementSystem;component/Resources/Icons/info-26.png</ImageSource>
+    <ImageSource x:Key="ImagePackage26">/EventManagementSystem;component/Resources/Icons/package-26.png</ImageSource>
+    <ImageSource x:Key="ImageAddFile26">/EventManagementSystem;component/Resources/Icons/add_file-26.png</ImageSource>
+    <ImageSource x:Key="ImageAddLink26">/EventManagementSystem;component/Resources/Icons/add_link-26.png</ImageSource>
+    <ImageSource x:Key="ImageForward26">/EventManagementSystem;component/Resources/Icons/forward-26.png</ImageSource>
+    <ImageSource x:Key="ImageMessage26">/EventManagementSystem;component/Resources/Icons/message-26.png</ImageSource>
+    <ImageSource x:Key="ImageMember26">/EventManagementSystem;component/Resources/Icons/group-26.png</ImageSource>
+
+    <!--32px images-->
+    <ImageSource x:Key="ImagePolice32">/EventManagementSystem;component/Resources/Icons/police-32.png</ImageSource>
+    <ImageSource x:Key="ImageForward32">/EventManagementSystem;component/Resources/Icons/forward-32.png</ImageSource>
+    <ImageSource x:Key="ImageAddFile32">/EventManagementSystem;component/Resources/Icons/add_file-32.png</ImageSource>
+    <ImageSource x:Key="ImageAddTable32">/EventManagementSystem;component/Resources/Icons/add_table-32.png</ImageSource>
+
+    <!-- 48px images -->
+    <ImageSource x:Key="ImageCheckBook48">/EventManagementSystem;component/Resources/Icons/check_book-48.png</ImageSource>
+    <ImageSource x:Key="ImageConference48">/EventManagementSystem;component/Resources/Icons/conference-48.png</ImageSource>
+    <ImageSource x:Key="ImageGlobe48">/EventManagementSystem;component/Resources/Icons/globe-48.png</ImageSource>
+    <ImageSource x:Key="ImageUserGroup48">/EventManagementSystem;component/Resources/Icons/group-48.png</ImageSource>
+    <ImageSource x:Key="ImageKey48">/EventManagementSystem;component/Resources/Icons/key-48.png</ImageSource>
+    <ImageSource x:Key="ImageCheckedUser48">/EventManagementSystem;component/Resources/Icons/checked_user-48.png</ImageSource>
+    <ImageSource x:Key="ImageCopy48">/EventManagementSystem;component/Resources/Icons/copy-48.png</ImageSource>
+    <ImageSource x:Key="ImageNewPost48">/EventManagementSystem;component/Resources/Icons/new_post-48.png</ImageSource>
+    <ImageSource x:Key="ImageMessage48">/EventManagementSystem;component/Resources/Icons/message-48.png</ImageSource>
+    <ImageSource x:Key="ImageUserWhite48">/EventManagementSystem;component/Resources/Icons/user_white48.png</ImageSource>
+</ResourceDictionary>

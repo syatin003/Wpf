@@ -1,0 +1,46 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.Core.Booking.EventBookingTabs.Reminders.SnoozeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        ResizeMode="NoResize" 
+        CanClose="False"
+        Header="Snooze" Height="150" Width="200">
+    <telerik:RadWindow.Resources>
+        <x:Array Type="system:String" x:Key="SnoozeArray">
+            <system:String>5 mins</system:String>
+            <system:String>10 mins</system:String>
+            <system:String>30 mins</system:String>
+            <system:String>1 Hour</system:String>
+            <system:String>2 Hours</system:String>
+            <system:String>1 Day</system:String>
+            <system:String>7 Days</system:String>
+        </x:Array>
+    </telerik:RadWindow.Resources>
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Snooze" VerticalAlignment="Center" Grid.Column="0"/>
+        <telerik:RadComboBox Grid.Row="0" Grid.Column="1" Margin="10,0" Height="20" ItemsSource="{StaticResource SnoozeArray}"
+                             SelectedItem="{Binding SnoozeTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                        Orientation="Horizontal" HorizontalAlignment="Center">
+            <telerik:RadButton Content="OK" 
+                                Width="45"
+                                   IsDefault="True"
+                                   Command="{Binding OKCommand}"
+                                   Click="OnOKButtonClick" Margin="5"/>
+            <telerik:RadButton Content="Cancel" 
+                               Width="45"
+                                   IsCancel="True"
+                                   Command="{Binding CancelCommand}"
+                                   Click="OnCancelButtonClick" Margin="5" />
+        </StackPanel>
+    </Grid>
+</telerik:RadWindow>

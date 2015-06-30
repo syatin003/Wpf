@@ -1,0 +1,42 @@
+﻿body {
+    margin: 30px 20px 20px 50px;
+}
+
+input {
+    margin: 5px;
+    width: 200px;
+}
+
+    input[type="checkbox"] {
+        margin: 3px 3px 3px 4px;
+        width: auto;
+
+    }
+
+label {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px;
+}
+
+select {
+    width: 200px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.dropdown {
+    width: 200px;
+    display: inline-block;
+}
+
+.validate {
+    color: red;
+}
+
+.textArea {
+    width: 200px;
+    height: 100px;
+    margin: 5px;
+}

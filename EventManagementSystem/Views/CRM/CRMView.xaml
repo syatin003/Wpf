@@ -1,0 +1,420 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.CRM.CRMView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:converters="clr-namespace:EventManagementSystem.Converters"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <converters:DateDueToColorConverter x:Key="DateDueToColorConverter" />
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <telerik:RadRibbonView Grid.Row="0"
+                               HelpButtonVisibility="Collapsed"
+                               TitleBarVisibility="Collapsed"
+                               UseLayoutRounding="True"
+                               WindowIconVisibility="Collapsed"
+                               ApplicationButtonVisibility="Collapsed">
+            <telerik:RadRibbonTab Header="Home"
+                                  HeaderVisibility="Collapsed">
+                <telerik:RadRibbonGroup>
+                    <telerik:RadRibbonButton Command="{Binding RefreshCRMCommand}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageRefresh32}"
+                                   Width="32"
+                                   Height="32" />
+                            <TextBlock Text="Refresh" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup>
+                    <telerik:RadRibbonButton Command="{Binding AddEnquiryCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImagePlus32}"
+                                   Width="32"
+                                   Height="32" />
+                            <TextBlock Text="Add Enquiry" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton Command="{Binding AddActivityCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImagePlus32}"
+                                   Width="32"
+                                   Height="32" />
+                            <TextBlock Text="Add Activity" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton Command="{Binding AddFollowUpCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImagePlus32}"
+                                   Width="32"
+                                   Height="32" />
+                            <TextBlock Text="Add Follow Up" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton Command="{Binding AddCampaignCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImagePlus32}"
+                                   Width="32"
+                                   Height="32" />
+                            <TextBlock Text="Add Campaign" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup>
+                    <telerik:RadRibbonButton Command="{Binding AddToDoCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImagePlus32}"
+                                   Width="32"
+                                   Height="32" />
+                            <TextBlock Text="Add TO DO" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup>
+                    <telerik:RadRibbonButton>
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageHot32}"
+                                   Width="32"
+                                   Height="32" />
+                            <CheckBox Content="Active only"
+                                      IsChecked="{Binding ActiveOnly}" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton Command="{Binding AllEnquiriesCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageAddEnquiry32}" />
+                            <TextBlock Text="All Enquiries" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton Command="{Binding MyEnquiriesCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageAddEnquiry32}" />
+                            <TextBlock Text="My Enquiries" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton Command="{Binding AllActivitiesCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageCoffee32}" />
+                            <TextBlock Text="All Activities" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton Command="{Binding MyActivitiesCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageCoffee32}" />
+                            <TextBlock Text="My Activities" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton Command="{Binding AllFollowUpsCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageEvents32}" />
+                            <TextBlock Text="All Follow-Ups" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                    <telerik:RadRibbonButton Command="{Binding MyFollowUpsCommand}"
+                                             Visibility="{Binding RelativeSource={RelativeSource Self}, Path=IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageEvents32}" />
+                            <TextBlock Text="My Follow-Ups" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
+            </telerik:RadRibbonTab>
+        </telerik:RadRibbonView>
+
+        <telerik:RadBusyIndicator BusyContent="Loading..."
+                                  IsBusy="{Binding IsBusy, FallbackValue=True}"
+                                  Grid.Row="1">
+            <telerik:RadDocking Background="{StaticResource LightGrayBrush}"
+                                AllowUnsafeMode="True"
+                                HasDocumentHost="False">
+                <telerik:RadSplitContainer>
+                    <telerik:RadSplitContainer Orientation="Vertical"
+                                               InitialPosition="DockedLeft">
+                        <telerik:RadPaneGroup>
+                            <telerik:RadPane Header="Enquiries"
+                                             CanUserClose="False">
+                                <telerik:RadGridView x:Name="EnquiriesGridView"
+                                                     CanUserDeleteRows="False"
+                                                     CanUserFreezeColumns="True"
+                                                     CanUserInsertRows="False"
+                                                     CanUserReorderColumns="False"
+                                                     CanUserResizeColumns="True"
+                                                     CanUserResizeRows="False"
+                                                     CanUserSortColumns="True"
+                                                     IsReadOnly="True"
+                                                     RowIndicatorVisibility="Collapsed"
+                                                     ItemsSource="{Binding Enquiries}"
+                                                     SelectedItem="{Binding SelectedEnquiry}"
+                                                     AutoGenerateColumns="False"
+                                                     ShowGroupPanel="True"
+                                                     ColumnWidth="Auto"
+                                                     FrozenColumnCount="4">
+                                    <telerik:RadGridView.InputBindings>
+                                        <MouseBinding MouseAction="LeftDoubleClick"
+                                                      Command="{Binding EditEnquiryCommand, Mode=OneTime}" />
+                                    </telerik:RadGridView.InputBindings>
+
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn Header="Enquiry Date"
+                                                                    DataMemberBinding="{Binding CreationDate, StringFormat='{}{0:dd/MM/yy}'}"
+                                                                    FilterMemberPath="Date"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Event Type"
+                                                                    DataMemberBinding="{Binding EventType.Name}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Enquiry Status"
+                                                                    DataMemberBinding="{Binding EnquiryStatus.Status}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Assignee"
+                                                                    DataMemberBinding="{Binding AssignedToUser.InternalOrFirstName}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Contact Name"
+                                                                    DataMemberBinding="{Binding PrimaryContact.ContactName}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Event Name"
+                                                                    DataMemberBinding="{Binding Name}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Event Date"
+                                                                    DataMemberBinding="{Binding Date}"
+                                                                    DataFormatString="{}{0:dd/MM/yy}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Date of Last Activity"
+                                                                    DataMemberBinding="{Binding LastActivity.Date}"
+                                                                    DataFormatString="{}{0:dd/MM/yy}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Last Activity"
+                                                                    DataMemberBinding="{Binding LastActivity.Details}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Date of Next Follow Up"
+                                                                    DataMemberBinding="{Binding NextFollowUp.DateDue}"
+                                                                    DataFormatString="{}{0:dd/MM/yy}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Next Follow Up"
+                                                                    DataMemberBinding="{Binding NextFollowUp.WhatToDo}"
+                                                                    Width="Auto" />
+
+                                    </telerik:RadGridView.Columns>
+
+                                    <telerik:RadGridView.SortDescriptors>
+                                        <telerik:SortDescriptor SortDirection="Descending"
+                                                                Member="CreationDate" />
+                                    </telerik:RadGridView.SortDescriptors>
+
+                                </telerik:RadGridView>
+                            </telerik:RadPane>
+                        </telerik:RadPaneGroup>
+                        <telerik:RadPaneGroup>
+                            <telerik:RadPane Header="Activities"
+                                             CanUserClose="False">
+                                <telerik:RadGridView x:Name="ActivitiesRadGridView"
+                                                     CanUserDeleteRows="False"
+                                                     CanUserFreezeColumns="True"
+                                                     CanUserInsertRows="False"
+                                                     CanUserReorderColumns="False"
+                                                     CanUserResizeColumns="True"
+                                                     CanUserResizeRows="False"
+                                                     CanUserSortColumns="True"
+                                                     IsReadOnly="True"
+                                                     RowIndicatorVisibility="Collapsed"
+                                                     ItemsSource="{Binding Activities}"
+                                                     SelectedItem="{Binding SelectedActivity}"
+                                                     AutoGenerateColumns="False"
+                                                     ShowGroupPanel="True"
+                                                     ColumnWidth="Auto">
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn Header="Date"
+                                                                    DataMemberBinding="{Binding Date, StringFormat='{}{0:dd/MM/yy}'}"
+                                                                    FilterMemberPath="DateOnly"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Time"
+                                                                    DataMemberBinding="{Binding Date}"
+                                                                    DataFormatString="{}{0:t}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Assignee"
+                                                                    DataMemberBinding="{Binding Assignee.InternalOrFirstName}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Enquiry Name"
+                                                                    DataMemberBinding="{Binding EnquiryName}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Activity"
+                                                                    DataMemberBinding="{Binding Details}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Length of time"
+                                                                    DataMemberBinding="{Binding Length}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Follow Up booked"
+                                                                    DataMemberBinding="{Binding HasFollowUp}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="What follow up"
+                                                                    DataMemberBinding="{Binding FollowUp.WhatToDo}"
+                                                                    Width="Auto" />
+
+                                    </telerik:RadGridView.Columns>
+
+                                    <telerik:RadGridView.SortDescriptors>
+                                        <telerik:SortDescriptor SortDirection="Descending"
+                                                                Member="Date" />
+                                    </telerik:RadGridView.SortDescriptors>
+
+                                </telerik:RadGridView>
+                            </telerik:RadPane>
+                        </telerik:RadPaneGroup>
+                    </telerik:RadSplitContainer>
+                    <telerik:RadSplitContainer Orientation="Vertical"
+                                               InitialPosition="DockedRight">
+                        <telerik:RadPaneGroup>
+                            <telerik:RadPane Header="Follow Ups"
+                                             CanUserClose="False">
+                                <telerik:RadGridView x:Name="FollowUpsRadGridView"
+                                                     CanUserDeleteRows="False"
+                                                     CanUserFreezeColumns="True"
+                                                     CanUserInsertRows="False"
+                                                     CanUserReorderColumns="False"
+                                                     CanUserResizeColumns="True"
+                                                     CanUserResizeRows="False"
+                                                     CanUserSortColumns="True"
+                                                     IsReadOnly="True"
+                                                     RowIndicatorVisibility="Collapsed"
+                                                     ItemsSource="{Binding FollowUps}"
+                                                     SelectedItem="{Binding SelectedFollowUp}"
+                                                     AutoGenerateColumns="False"
+                                                     ShowGroupPanel="True"
+                                                     ColumnWidth="Auto">
+                                    <telerik:RadGridView.RowStyle>
+                                        <Style TargetType="telerik:GridViewRow">
+                                            <Setter Property="Margin"
+                                                    Value="0,2" />
+                                            <Setter Property="Foreground"
+                                                    Value="{Binding DateDue, Converter={StaticResource DateDueToColorConverter},ConverterParameter=CRM }" />
+                                        </Style>
+                                    </telerik:RadGridView.RowStyle>
+
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn Header="Date"
+                                                                    DataMemberBinding="{Binding DateDue, StringFormat='{}{0:dd/MM/yy}'}"
+                                                                    FilterMemberPath="DateOnly"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Time"
+                                                                    DataMemberBinding="{Binding DateDue, StringFormat=t}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Assignee"
+                                                                    DataMemberBinding="{Binding AssignedToUser.InternalOrFirstName}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Follow Up"
+                                                                    DataMemberBinding="{Binding WhatToDo}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Enquiry Name"
+                                                                    DataMemberBinding="{Binding EnquiryName}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Enquiry Event Name"
+                                                                    DataMemberBinding="{Binding FollowUp.Enquiry.Name}"
+                                                                    Width="Auto" />
+
+                                    </telerik:RadGridView.Columns>
+
+                                    <telerik:RadGridView.SortDescriptors>
+                                        <telerik:SortDescriptor SortDirection="Ascending"
+                                                                Member="Priority" />
+                                        <telerik:SortDescriptor SortDirection="Descending"
+                                                                Member="DateDue" />
+                                    </telerik:RadGridView.SortDescriptors>
+
+                                </telerik:RadGridView>
+                            </telerik:RadPane>
+                        </telerik:RadPaneGroup>
+                        <telerik:RadPaneGroup>
+                            <telerik:RadPane Header="Campaigns"
+                                             CanUserClose="False">
+                                <telerik:RadGridView x:Name="CampaignsRadGridView"
+                                                     CanUserDeleteRows="False"
+                                                     CanUserFreezeColumns="True"
+                                                     CanUserInsertRows="False"
+                                                     CanUserReorderColumns="False"
+                                                     CanUserResizeColumns="True"
+                                                     CanUserResizeRows="False"
+                                                     CanUserSortColumns="True"
+                                                     IsReadOnly="True"
+                                                     RowIndicatorVisibility="Collapsed"
+                                                     ItemsSource="{Binding Campaigns}"
+                                                     SelectedItem="{Binding SelectedCampaign}"
+                                                     AutoGenerateColumns="False"
+                                                     ShowGroupPanel="True"
+                                                     ColumnWidth="Auto">
+                                    <telerik:RadGridView.Columns>
+                                        <telerik:GridViewDataColumn Header="Start Date"
+                                                                    DataMemberBinding="{Binding StartDate, StringFormat='{}{0:dd/MM/yy}'}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="End Date"
+                                                                    SortingState="Descending"
+                                                                    DataMemberBinding="{Binding EndDate, StringFormat='{}{0:dd/MM/yy}'}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Campaign Name"
+                                                                    DataMemberBinding="{Binding Name}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Campaign Type"
+                                                                    DataMemberBinding="{Binding CampaignType.Name}"
+                                                                    Width="Auto" />
+
+                                        <telerik:GridViewDataColumn Header="Active"
+                                                                    DataMemberBinding="{Binding IsActive}"
+                                                                    Width="Auto" />
+
+                                    </telerik:RadGridView.Columns>
+                                    <telerik:RadGridView.SortDescriptors>
+                                        <telerik:SortDescriptor Member="EndDate"
+                                                                SortDirection="Descending" />
+                                    </telerik:RadGridView.SortDescriptors>
+                                </telerik:RadGridView>
+                            </telerik:RadPane>
+                        </telerik:RadPaneGroup>
+                    </telerik:RadSplitContainer>
+                </telerik:RadSplitContainer>
+            </telerik:RadDocking>
+        </telerik:RadBusyIndicator>
+    </Grid>
+</UserControl>

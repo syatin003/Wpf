@@ -1,0 +1,100 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.Core.Booking.EventBookingTabs.Reminders.ReminderPopUpView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   WindowStartupLocation="CenterOwner"
+                   ResizeMode="NoResize"
+                   Header="Event Reminder"
+                   Height="300"
+                   Width="500">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Event"
+                   Visibility="{Binding AreEventsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                   Grid.Column="0"
+                   Grid.Row="0" />
+        <TextBlock Grid.Column="1"
+                   Grid.Row="0"
+                   Visibility="{Binding AreEventsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                   Text="{Binding EventReminder.EventName}"></TextBlock>
+
+        <telerik:RadButton HorizontalAlignment="Right"
+                           Content="Event"
+                           Command="{Binding OpenEventCommand}"
+                           Visibility="{Binding AreEventsVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                           Grid.Row="0"
+                           Grid.Column="1" />
+
+        <TextBlock Text="Created By"
+                   Grid.Column="0"
+                   Grid.Row="1" />
+
+        <TextBlock  Grid.Column="1"
+                    Grid.Row="1"
+                    Margin="5"
+                    Text="{Binding EventReminder.CreatedByUser.InternalOrFirstName}" />
+
+
+        <TextBlock Text="Assigned To"
+                   Grid.Column="0"
+                   Grid.Row="2" />
+        <TextBlock   Grid.Column="1"
+                     Grid.Row="2"
+                     Margin="5"
+                     Text="{Binding EventReminder.AssignedToUser.InternalOrFirstName}"></TextBlock>
+
+
+        <TextBlock Text="What to do"
+                   VerticalAlignment="Top"
+                   Grid.Column="0"
+                   Grid.Row="3"
+                   Margin="5" />
+        <TextBox Text="{Binding EventReminder.WhatToDo, UpdateSourceTrigger=PropertyChanged}"
+                 AcceptsReturn="True"
+                 TextWrapping="Wrap"
+                 VerticalScrollBarVisibility="Auto"
+                 Margin="5"
+                 Grid.Column="1"
+                 Grid.Row="3" />
+
+        <TextBlock Text="Date due"
+                   Grid.Column="0"
+                   Grid.Row="4" />
+        <telerik:RadDateTimePicker Margin="5"
+                                   SelectedValue="{Binding EventReminder.DateDue, Mode=TwoWay,StringFormat=g, UpdateSourceTrigger=PropertyChanged, NotifyOnValidationError=True, ValidatesOnDataErrors=True}"
+                                   Grid.Column="1"
+                                   Grid.Row="4" />
+
+        <StackPanel Grid.Row="5"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <telerik:RadButton  Content="Complete"
+                                IsDefault="True"
+                                Command="{Binding CompleteEventReminderCommand}"
+                                Margin="5" />
+            <telerik:RadButton  Content="Delete"
+                                Click="OnDeleteButtonClick"
+                                Command="{Binding DeleteEventReminderCommand}"
+                                Margin="5" />
+            <telerik:RadButton  Content="Snooze"
+                                IsCancel="True"
+                                Click="OnSnoozeButtonClick"
+                                Command="{Binding SnoozeCommand}"
+                                Margin="5" />
+        </StackPanel>
+    </Grid>
+</telerik:RadWindow>

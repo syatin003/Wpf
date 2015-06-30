@@ -1,0 +1,830 @@
+﻿<telerik:RadWindow x:Class="EventManagementSystem.Views.Admin.Members.Category.AddMembershipCategoryView"
+                   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                   xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+                   mc:Ignorable="d"
+                   d:DesignHeight="700" d:DesignWidth="500"
+                   ResizeMode="NoResize"
+                   WindowStartupLocation="CenterOwner"             
+                   Style="{StaticResource RadWindowStyle}"
+                   Header=" Add Category"
+                   Width="720"
+                   Height="740">
+    <telerik:RadWindow.Icon>
+        <Image Source="{StaticResource ImageCategory26}"
+               Height="16"
+               Width="16" />
+    </telerik:RadWindow.Icon>
+
+    <telerik:RadBusyIndicator IsBusy="{Binding IsBusy, FallbackValue=True}">
+
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.Resources>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Margin" Value="5"></Setter>
+                    </Style>
+                    <Style TargetType="{x:Type telerik:RadComboBox}">
+                        <Setter Property="Margin" Value="5"></Setter>
+                    </Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5 0 5 0"></Setter>
+                        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                    </Style>
+                </Grid.Resources>
+
+                <TextBlock Text="Name" Grid.Column="0"  Grid.Row="0" />
+                <TextBox Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" 
+                    Text="{Binding MembershipCategory.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+
+                <TextBlock Text="Description" Grid.Column="0" Grid.Row="1" />
+                <TextBox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" 
+                     Height="40" Text="{Binding MembershipCategory.MembershipCategory.Description, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+
+
+
+                <TextBlock Text="Style" Grid.Column="0" Grid.Row="2" />
+                <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="2"
+                                         ItemsSource="{Binding MembershipGroupStyles}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipGroupStyle, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name" />
+                <TextBlock Text="Age" Grid.Column="2" Grid.Row="2" />
+                <telerik:RadComboBox Grid.Column="3"
+                                         Grid.Row="2"
+                                         ItemsSource="{Binding MembershipGroupAges}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipGroupAge, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name" />
+                <TextBlock Text="Group" Grid.Column="0" Grid.Row="3" />
+                <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="3"
+                                         ItemsSource="{Binding MembershipGroups}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipGroup, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name" />
+                <TextBlock Text="Type" Grid.Column="2" Grid.Row="3" />
+                <telerik:RadComboBox Grid.Column="3"
+                                         Grid.Row="3"
+                                         ItemsSource="{Binding CategoryTypes}"
+                                         SelectedItem="{Binding MembershipCategory.CategoryType, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Current Category" Grid.Column="0" Grid.Row="4" />
+                <CheckBox Grid.Column="1" Grid.Row="4"
+                      Margin="5"
+                      IsChecked="{Binding MembershipCategory.MembershipCategory.CurrentCategory, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBlock Text="Gender" Grid.Column="2" Grid.Row="4" />
+
+                <Grid Grid.Column="3" Grid.Row="4" Margin="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton GroupName="Gender" Grid.Column="0"  IsChecked="{Binding MembershipCategory.IsMale,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Content="Male"/>
+                    <RadioButton GroupName="Gender" Grid.Column="1" IsChecked="{Binding MembershipCategory.IsFemale,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Content="Female"/>
+                    <RadioButton GroupName="Gender" Grid.Column="2" IsChecked="{Binding MembershipCategory.IsBoth,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Content="Both"/>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="10">
+                <telerik:RadTabControl>
+                    <telerik:RadTabItem Header="Group Defaults">
+                        <telerik:RadTabControl Margin="5">
+                            <telerik:RadTabItem Header="Group">
+                                <Grid>
+                                    <Grid x:Name="Overlay" Visibility="{Binding MembershipCategory.MembershipGroup,Converter={StaticResource NullToVisibilityConverter},ConverterParameter=Invert}"
+              Panel.ZIndex="1000">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="143*"/>
+                                            <ColumnDefinition Width="529*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.Background>
+                                            <SolidColorBrush Color="White"
+                                 Opacity=".7" />
+                                        </Grid.Background>
+                                    </Grid>
+
+                                    <Grid Margin="10" IsEnabled="{Binding MembershipCategory.MembershipGroup,Converter={StaticResource NullToBooleanConverter}}">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.Resources>
+                                            <Style TargetType="{x:Type telerik:RadNumericUpDown}">
+                                                <Setter Property="Margin" Value="3"/>
+                                                <Setter Property="MinHeight" Value="3"/>
+                                            </Style>
+                                            <Style TargetType="{x:Type TextBox}">
+                                                <Setter Property="Margin" Value="3"></Setter>
+                                            </Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Margin" Value="3"/>
+                                                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                                            </Style>
+                                        </Grid.Resources>
+
+                                        <TextBlock Text="Name" Grid.Column="0" Grid.Row="0"/>
+                                        <TextBox Text="{Binding MembershipCategory.MembershipCategoryGroupDefault.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True, NotifyOnValidationError=True}"
+                                 Grid.Column="1" Grid.Row="0" />
+
+                                        <TextBlock Text="Description" Grid.Column="0" Grid.Row="1" />
+                                        <TextBox Height="40" Text="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Description, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"                 
+                     Grid.Column="1" Grid.Row="1" />
+
+                                        <TextBlock Text="Member On Bank Holidays" Grid.Column="0" Grid.Row="2"/>
+                                        <StackPanel Grid.Column="1" Grid.Row="2" Margin="2" Orientation="Horizontal">
+                                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MemberOnBankHolidays, UpdateSourceTrigger=PropertyChanged}"/>
+                                            <TextBlock Text="Member At Christmas Week" Margin="50 0 10 0"/>
+                                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MemberAtChristmasWeek, UpdateSourceTrigger=PropertyChanged}"/>
+                                        </StackPanel>
+
+                                        <GroupBox Header="Days Available"
+                                          Foreground="DimGray"
+                                          Grid.Row="3"
+                                          Grid.Column="0" Margin="0 5 10 0">
+                                            <StackPanel HorizontalAlignment="Center" Margin="5">
+                                                <CheckBox Margin="5 10 0 5" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.IsMonAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Monday"/>
+                                                <CheckBox Margin="5 10 0 5" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.IsTuesAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Tuesday"/>
+                                                <CheckBox Margin="5 10 0 5" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.IsWedAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Wednesday"/>
+                                                <CheckBox Margin="5 10 0 5" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.IsThursAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                      Content="Thursday"/>
+                                                <CheckBox  Margin="5 10 0 5" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.IsFriAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Friday"/>
+                                                <CheckBox Margin="5 10 0 5" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.IsSatAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Saturday"/>
+                                                <CheckBox Margin="5 10 0 5" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.IsSunAvailable, UpdateSourceTrigger=PropertyChanged}"
+                                  Content="Sunday"/>
+                                            </StackPanel>
+                                        </GroupBox>
+                                        <GroupBox Header="Tokens"
+                                          Foreground="DimGray"
+                                          Grid.Row="3"
+                                          Grid.Column="1" Margin="0 5 0 0">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="160"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <TextBlock Text="Group Token 1" Margin="0 0 10 0" Grid.Row="0" Grid.Column="0" TextAlignment="Right"/>
+                                                <TextBox Height="40" Grid.Row="0" Grid.Column="1" Text="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Token1, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+
+                                                <TextBlock  Text="Group Token 2" Margin="0 0 10 0" Grid.Row="1" Grid.Column="0" TextAlignment="Right"/>
+                                                <TextBox Height="40" Grid.Row="1" Grid.Column="1" Text="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Token2, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+
+                                                <TextBlock  Text="Group Token 3" Margin="0 0 10 0" Grid.Row="2" Grid.Column="0" TextAlignment="Right"/>
+                                                <TextBox Height="40" Grid.Row="2" Grid.Column="1" Text="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Token3, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+
+                                                <TextBlock Text="Group Token 4" Margin="0 0 10 0" Grid.Row="3" Grid.Column="0" TextAlignment="Right"/>
+                                                <TextBox Height="40" Grid.Row="3" Grid.Column="1" Text="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Token4, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+
+                                                <TextBlock Text="Group Token 5" Margin="0 0 10 0" Grid.Row="4" Grid.Column="0" TextAlignment="Right"/>
+                                                <TextBox Height="40" Grid.Row="4" Grid.Column="1" Text="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.Token5, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+                                            </Grid>
+                                        </GroupBox>
+                                    </Grid>
+
+                                </Grid>
+                            </telerik:RadTabItem>
+
+                            <telerik:RadTabItem Header="Group EPOS">
+                                <Grid>
+                                    <Grid x:Name="OverlayEPOS" Visibility="{Binding MembershipCategory.MembershipGroup,Converter={StaticResource NullToVisibilityConverter},ConverterParameter=Invert}"
+              Panel.ZIndex="1000">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="143*"/>
+                                            <ColumnDefinition Width="529*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.Background>
+                                            <SolidColorBrush Color="White"
+                                 Opacity=".7" />
+                                        </Grid.Background>
+                                    </Grid>
+
+                                    <Grid Margin="10">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.Resources>
+                                            <Style TargetType="{x:Type telerik:RadNumericUpDown}">
+                                                <Setter Property="Margin" Value="5"/>
+                                                <Setter Property="Padding" Value="0"/>
+                                                <Setter Property="MaxHeight" Value="25"/>
+                                            </Style>
+                                            <Style TargetType="{x:Type TextBox}">
+                                                <Setter Property="Margin" Value="5"></Setter>
+                                            </Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Margin" Value="5"/>
+                                            </Style>
+                                        </Grid.Resources>
+
+                                        <TextBlock Text="Allowed Club Card" Grid.Column="0" Grid.Row="0"/>
+                                        <CheckBox Grid.Row="0" Grid.Column="1" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.AllowedClubCard, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                        <TextBlock Text="Points Based Membership" Grid.Column="2" Grid.Row="0"/>
+                                        <CheckBox Grid.Row="0" Grid.Column="3" IsChecked="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.PointsBasedMembership, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                        <TextBlock Text="Display Message" Grid.Row="1" Grid.Column="0"/>
+                                        <TextBox Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="3" MaxLength="64" TextWrapping="Wrap" MaxLines="2"
+                                     Text="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DisplayMessage, UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True, NotifyOnValidationError=True}"/>
+
+                                        <TextBlock Text="Overdraft Limit 1" Grid.Column="0" Grid.Row="2" />
+                                        <telerik:RadNumericUpDown Grid.Row="2" Grid.Column="1" IsInteger="True" Minimum="0"
+                                      Value="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.OverdraftLimit1, UpdateSourceTrigger=PropertyChanged}" />
+
+                                        <TextBlock Text="Overdraft Limit 2" Grid.Column="2" Grid.Row="2"/>
+                                        <telerik:RadNumericUpDown Grid.Row="2" Grid.Column="3" IsInteger="True" Minimum="0"
+                                      Value="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.OverdraftLimit2, UpdateSourceTrigger=PropertyChanged}" />
+
+                                        <GroupBox Header="Product Discounts" Margin="0 10 0 0"
+                                          Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+                                            <Grid Margin="20 20 0 0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid.Resources>
+                                                    <Style TargetType="{x:Type telerik:RadNumericUpDown}">
+                                                        <Setter Property="Margin" Value="5"/>
+                                                        <Setter Property="Padding" Value="0"/>
+                                                        <Setter Property="MaxHeight" Value="25"/>
+                                                    </Style>
+                                                    <Style TargetType="{x:Type TextBlock}">
+                                                        <Setter Property="Margin" Value="5"/>
+                                                    </Style>
+                                                </Grid.Resources>
+                                                <TextBlock Text="Discount Rate All"  Grid.Row="0" Grid.Column="0"/>
+                                                <telerik:RadNumericUpDown Grid.Row="0" Grid.Column="1" Minimum="0" Value="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRateAll, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                                <TextBlock Text="Discount Rate 1"  Grid.Row="0" Grid.Column="2"/>
+                                                <telerik:RadNumericUpDown Grid.Row="0" Grid.Column="3" Minimum="0" Value="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRate1, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                                <TextBlock Text="Discount Rate 2"  Grid.Row="1" Grid.Column="0"/>
+                                                <telerik:RadNumericUpDown Grid.Row="1" Grid.Column="1" Minimum="0" Value="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRate2, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                                <TextBlock Text="Discount Rate 3"  Grid.Row="1" Grid.Column="2"/>
+                                                <telerik:RadNumericUpDown Grid.Row="1" Grid.Column="3" Minimum="0" Value="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRate3, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                                <TextBlock Text="Discount Rate 4"  Grid.Row="2" Grid.Column="0"/>
+                                                <telerik:RadNumericUpDown Grid.Row="2" Grid.Column="1" Minimum="0" Value="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRate4, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                                <TextBlock Text="Discount Rate 5"  Grid.Row="2" Grid.Column="2"/>
+                                                <telerik:RadNumericUpDown Grid.Row="2" Grid.Column="3" Minimum="0" Value="{Binding MembershipCategory.MembershipCategoryGroupDefault.MembershipCategoryGroupDefault.MembershipCategoryGroupDefaultEPOS.DiscountRate5, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                            </Grid>
+                                        </GroupBox>
+                                    </Grid>
+                                </Grid>
+                            </telerik:RadTabItem>
+
+                        </telerik:RadTabControl>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Full Payment Costs">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="400"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="5 5 10 5"/>
+                                </Style>
+                            </Grid.Resources>
+
+                            <TextBlock Text="Component 1" Grid.Row="0" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="0"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipFullPaymentComponent.Product, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="0" Grid.Column="2" TextAlignment="Right" Text="Price" Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product,Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="0" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipFullPaymentComponent.Product.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                           Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product,Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock  Text="Component 2" Grid.Row="1" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="1"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipFullPaymentComponent.Product1, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Text="Price" Grid.Row="1" Grid.Column="2" TextAlignment="Right" Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product1,Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock  Grid.Row="1" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipFullPaymentComponent.Product1.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                         Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product1,Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock  Text="Component 3" Grid.Row="2" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="2"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipFullPaymentComponent.Product2, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Text="Price" Grid.Row="2" Grid.Column="2" TextAlignment="Right" Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product2,Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="3" TextAlignment="Right"  Text="{Binding MembershipCategory.MembershipFullPaymentComponent.Product2.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                           Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product2,Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 4" Grid.Row="3" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="3"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipFullPaymentComponent.Product3, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="3" Grid.Column="2" TextAlignment="Right" Text="Price"
+                                            Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product3, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="3" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipFullPaymentComponent.Product3.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                              Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product3, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 5" Grid.Row="4" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="4"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipFullPaymentComponent.Product4, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="4" Grid.Column="2" Text="Price" TextAlignment="Right"
+                                           Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product4, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="4" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipFullPaymentComponent.Product4.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                           Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product4, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 6" Grid.Row="5" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="5"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipFullPaymentComponent.Product5, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="5" Grid.Column="2" Text="Price" TextAlignment="Right"
+                                           Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product5, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="5" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipFullPaymentComponent.Product5.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                           Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product5, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 7" Grid.Row="6" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="6"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipFullPaymentComponent.Product6, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="6" Grid.Column="2" Text="Price" TextAlignment="Right"
+                                            Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product6, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="6" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipFullPaymentComponent.Product6.GrossPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                            Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product6, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 8" Grid.Row="7" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="7"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipFullPaymentComponent.Product7, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="7" Grid.Column="2" Text="Price" TextAlignment="Right"
+                                           Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product7, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="7" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipFullPaymentComponent.Product7.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                           Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.Product7, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Grid.Row="8" Grid.Column="2" TextAlignment="Right" Text="Total" FontWeight="Bold"
+                                       Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.IsAnyFullPaymentComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="8" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipFullPaymentComponent.TotalPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                       Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.IsAnyFullPaymentComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                            <TextBlock Grid.Row="9" Grid.Column="2" TextAlignment="Right" Text="Total Points" FontWeight="Bold"
+                                       Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.IsAnyFullPaymentComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="9" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipFullPaymentComponent.TotalPoints, StringFormat={}{0:0.00}}"
+                                       Visibility="{Binding MembershipCategory.MembershipFullPaymentComponent.IsAnyFullPaymentComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Upfront Costs">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="400"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="5 5 10 5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Component 1" Grid.Row="0" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="0"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="0" Grid.Column="2" TextAlignment="Right" Text="Price" Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="0" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                           Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock  Text="Component 2" Grid.Row="1" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="1"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product1, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="1" Grid.Column="2" TextAlignment="Right" Text="Price"  Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product1, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product1.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                            Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product1, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock  Text="Component 3" Grid.Row="2" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="2"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                        SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product2, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+
+                            <TextBlock Grid.Row="2" Grid.Column="2" Text="Price" TextAlignment="Right"
+                                            Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product2, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="2" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product2.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                            Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product2, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 4" Grid.Row="3" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="3"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product3, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="3" Grid.Column="2" Text="Price" TextAlignment="Right"
+                                           Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product3, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="3" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product3.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                       Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product3, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+
+                            <TextBlock Text="Component 5" Grid.Row="4" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="4"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                        SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product4, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="4" Grid.Column="2" Text="Price" TextAlignment="Right" Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product4, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="4" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product4.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                           Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product4, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 6" Grid.Row="5" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="5"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                          SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product5, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="5" Grid.Column="2" Text="Price" TextAlignment="Right" Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product5, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="5" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product5.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                           Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product5, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 7" Grid.Row="6" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="6"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                          SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product6, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="6" Grid.Column="2" Text="Price" TextAlignment="Right" Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product6, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="6" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product6.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                           Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product6, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 8" Grid.Row="7" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="7"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product7, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Grid.Row="7" Grid.Column="2" Text="Price" TextAlignment="Right" Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product7, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="7" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product7.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                           Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.Product7, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Grid.Row="8" Grid.Column="2" TextAlignment="Right" Text="Total" FontWeight="Bold"
+                                       Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.IsAnyUpFrontCostComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="8" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.TotalPrice, ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                       Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.IsAnyUpFrontCostComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                            <TextBlock Grid.Row="9" Grid.Column="2" TextAlignment="Right" Text="Total Points" FontWeight="Bold"
+                                       Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.IsAnyUpFrontCostComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            <TextBlock Grid.Row="9" Grid.Column="3" TextAlignment="Right" Text="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.TotalPoints,StringFormat={}{0:0.00}}"
+                                       Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentUpFrontCost.IsAnyUpFrontCostComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Ongoing Costs">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="400"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Margin" Value="5 5 10 5"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Component 1" Grid.Row="0" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="0"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                         SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Text="Price" TextAlignment="Right" Grid.Row="0" Grid.Column="2" Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock TextAlignment="Right"  Grid.Row="0" Grid.Column="3" Text="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                            Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock  Text="Component 2" Grid.Row="1" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="1"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                          SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product1, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Text="Price" TextAlignment="Right" Grid.Row="1" Grid.Column="2" Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product1, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock TextAlignment="Right"  Grid.Row="1" Grid.Column="3" Text="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product1.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                            Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product1, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 3" Grid.Row="2" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="2"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                          SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product2, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Text="Price" TextAlignment="Right" Grid.Row="2" Grid.Column="2" Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product2, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock TextAlignment="Right"  Grid.Row="2" Grid.Column="3" Text="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product2.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                            Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product2, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Component 4" Grid.Row="3" Grid.Column="0"/>
+                            <telerik:RadComboBox Grid.Column="1"
+                                         Grid.Row="3"
+                                         ItemsSource="{Binding MembershipComponents}"
+                                          SelectedItem="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product3, Mode=TwoWay, NotifyOnValidationError=True, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         DisplayMemberPath="Name"
+                                         VerticalAlignment="Center" />
+                            <TextBlock Text="Price" TextAlignment="Right" Grid.Row="3" Grid.Column="2" Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product3, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+                            <TextBlock TextAlignment="Right"  Grid.Row="3" Grid.Column="3" Text="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product3.GrossPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                            Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.Product3, Mode=TwoWay, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Total" TextAlignment="Right" Grid.Row="4" Grid.Column="2" FontWeight="Bold"
+                                       Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.IsAnyOngoingCostComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            <TextBlock TextAlignment="Right" Grid.Row="4" Grid.Column="3" Text="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.TotalPrice,ConverterCulture=en-GB, StringFormat={}{0:C2}}"
+                                       Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.IsAnyOngoingCostComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                            <TextBlock Text="Total Points" TextAlignment="Right" Grid.Row="5" Grid.Column="2" FontWeight="Bold"
+                                       Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.IsAnyOngoingCostComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                            <TextBlock TextAlignment="Right" Grid.Row="5" Grid.Column="3" Text="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.TotalPoints,StringFormat={}{0:0.00}}"
+                                       Visibility="{Binding MembershipCategory.MembershipMonthlyPaymentOngoingCost.IsAnyOngoingCostComponent, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Playing Rights">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type telerik:RadNumericUpDown}">
+                                    <Setter Property="Margin" Value="5 5 20 5"/>
+                                    <Setter Property="Height" Value="30"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Max Rounds" Grid.Column="0" Grid.Row="0" FontWeight="Bold" Margin="0 0 0 10"/>
+
+                            <TextBlock Text="Per Week" Grid.Column="0" Grid.Row="1" />
+
+                            <telerik:RadNumericUpDown Grid.Row="1" Grid.Column="1" IsInteger="True" Minimum="0" 
+                                      Value="{Binding MembershipCategory.MembershipCategory.MaxRoundsPerWeek, UpdateSourceTrigger=PropertyChanged}" />
+                            <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="5 5 0 5"
+                                    Visibility="{Binding MembershipCategory.MembershipCategory.MaxRoundsPerWeek,Converter={StaticResource CountToVisibilityConverter}}">
+                                <TextBlock  Text="Start Day" Margin="0 0 5 0"/>
+                                <StackPanel>
+                                    <RadioButton IsChecked="{Binding MembershipCategory.IsStartDaySunday, UpdateSourceTrigger=PropertyChanged}" Content="Sunday"/>
+                                    <RadioButton IsChecked="{Binding MembershipCategory.IsStartDayMonday, UpdateSourceTrigger=PropertyChanged}" Content="Monday"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Text="Per Month" Grid.Column="0" Grid.Row="3" />
+
+                            <telerik:RadNumericUpDown Grid.Row="3" Grid.Column="1" IsInteger="True" Minimum="0" 
+                                      Value="{Binding MembershipCategory.MembershipCategory.MaxRoundsPerMonth, UpdateSourceTrigger=PropertyChanged}" />
+                            <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Margin="5 5 0 5"
+                                    Visibility="{Binding MembershipCategory.MembershipCategory.MaxRoundsPerMonth,Converter={StaticResource CountToVisibilityConverter}}">
+                                <TextBlock  Text="Start Date" Margin="0 0 5 0"/>
+                                <StackPanel>
+                                    <RadioButton IsChecked="{Binding MembershipCategory.StartDatePerMonthCalendar, UpdateSourceTrigger=PropertyChanged}" Content="Calendar"/>
+                                    <RadioButton IsChecked="{Binding MembershipCategory.StartDatePerMonthMembership, UpdateSourceTrigger=PropertyChanged}" Content="Membership"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Text="Per Year" Grid.Column="0" Grid.Row="5" />
+
+                            <telerik:RadNumericUpDown Grid.Row="5" Grid.Column="1" IsInteger="True" Minimum="0" 
+                                      Value="{Binding MembershipCategory.MembershipCategory.MaxRoundsPerYear, UpdateSourceTrigger=PropertyChanged}" />
+                            <StackPanel Grid.Row="6" Grid.Column="1" Orientation="Horizontal" Margin="5 5 0 5"
+                                    Visibility="{Binding MembershipCategory.MembershipCategory.MaxRoundsPerYear,Converter={StaticResource CountToVisibilityConverter}}">
+                                <TextBlock  Text="Start Date" Margin="0 0 5 0"/>
+                                <StackPanel>
+                                    <RadioButton IsChecked="{Binding MembershipCategory.StartDatePerYearCalendar, UpdateSourceTrigger=PropertyChanged}" Content="Calendar"/>
+                                    <RadioButton IsChecked="{Binding MembershipCategory.StartDatePerYearMembership, UpdateSourceTrigger=PropertyChanged}" Content="Membership"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                    <telerik:RadTabItem Header="Tokens">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.Resources>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Margin" Value="5"/>
+                                    <Setter Property="VerticalAlignment" Value="Center"/>
+                                </Style>
+                            </Grid.Resources>
+                            <TextBlock Text="Letter Token 1" Margin="0 0 10 0" Grid.Row="0" Grid.Column="0"/>
+                            <TextBox Height="50" Grid.Row="0" Grid.Column="1" Text="{Binding MembershipCategory.MembershipCategory.Token1, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+
+                            <TextBlock  Text="Letter Token 2" Margin="0 0 10 0" Grid.Row="1" Grid.Column="0"/>
+                            <TextBox Height="50" Grid.Row="1" Grid.Column="1" Text="{Binding MembershipCategory.MembershipCategory.Token2, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+
+                            <TextBlock  Text="Letter Token 3" Margin="0 0 10 0" Grid.Row="2" Grid.Column="0"/>
+                            <TextBox Height="50" Grid.Row="2" Grid.Column="1" Text="{Binding MembershipCategory.MembershipCategory.Token3, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+
+                            <TextBlock Text="Letter Token 4" Margin="0 0 10 0" Grid.Row="3" Grid.Column="0"/>
+                            <TextBox Height="50" Grid.Row="3" Grid.Column="1" Text="{Binding MembershipCategory.MembershipCategory.Token4, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+
+                            <TextBlock Text="Letter Token 5" Margin="0 0 10 0" Grid.Row="4" Grid.Column="0"/>
+                            <TextBox Height="50" Grid.Row="4" Grid.Column="1" Text="{Binding MembershipCategory.MembershipCategory.Token5, UpdateSourceTrigger=PropertyChanged}"
+                     AcceptsReturn="True"
+                     TextWrapping="Wrap"
+                     VerticalScrollBarVisibility="Auto"/>
+                        </Grid>
+                    </telerik:RadTabItem>
+
+                </telerik:RadTabControl>
+            </Grid>
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="2"
+                        Grid.Row="2">
+                <telerik:RadButton Content="Ok"
+                                       Width="80" 
+                                       Command="{Binding SaveCommand}"
+                                       Click="OkButton_OnClick"/>
+                <telerik:RadButton Content="Cancel"
+                                       IsCancel="True"
+                                       Width="80" />
+            </StackPanel>
+
+        </Grid>
+    </telerik:RadBusyIndicator>
+</telerik:RadWindow>

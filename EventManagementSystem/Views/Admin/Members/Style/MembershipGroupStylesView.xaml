@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Admin.Members.Style.MembershipGroupStylesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <telerik:RadBusyIndicator BusyContent="Loading..."
+                              IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid>
+            <telerik:RadGridView x:Name="RadGridViewGroupStyle"
+                                 ItemsSource="{Binding MembershipGroupStyles}"
+                                 AutoGenerateColumns="False"
+                                 CanUserDeleteRows="False"
+                                 CanUserFreezeColumns="False"
+                                 CanUserInsertRows="False"
+                                 CanUserReorderColumns="False"
+                                 CanUserResizeColumns="True"
+                                 CanUserResizeRows="False"
+                                 CanUserSortColumns="True"
+                                 FrozenColumnsSplitterVisibility="Collapsed"
+                                 IsReadOnly="True"
+                                 RowIndicatorVisibility="Collapsed"
+                                 ShowGroupPanel="True">
+
+                <telerik:RadGridView.Columns>
+                    <telerik:GridViewDataColumn Header="Name"
+                                                DataMemberBinding="{Binding Name}"/>
+
+                    <telerik:GridViewDataColumn Header="Classified As Member"
+                                                DataMemberBinding="{Binding MembershipGroupStyle.ClassifiedAsMember,Converter={StaticResource BooleanToYesNoConverter}}"/>
+
+                    <telerik:GridViewDataColumn Header="Sync With Website"
+                                                DataMemberBinding="{Binding MembershipGroupStyle.SyncWithWebSite,Converter={StaticResource BooleanToYesNoConverter}}"/>
+
+                    <telerik:GridViewDataColumn Header="Sync With Handicap Member"
+                                                DataMemberBinding="{Binding MembershipGroupStyle.SyncWithHandicapMaster,Converter={StaticResource BooleanToYesNoConverter}}"/>
+
+                    <telerik:GridViewDataColumn Header="Allow Booking"
+                                                DataMemberBinding="{Binding MembershipGroupStyle.AllowBooking,Converter={StaticResource BooleanToYesNoConverter}}"/>
+
+                    <telerik:GridViewDataColumn Header="Allowed Club card"
+                                                DataMemberBinding="{Binding MembershipGroupStyle.AllowedClubCard,Converter={StaticResource BooleanToYesNoConverter}}"/>
+                    
+                    <telerik:GridViewDataColumn Width="SizeToCells">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton Margin="0"
+                                                   Command="{Binding DataContext.EditMembershipGroupStyleCommand, RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                   CommandParameter="{Binding}"
+                                                   Style="{DynamicResource NoChromeButton}"
+                                                   BorderThickness="0">
+                                    <telerik:RadButton.Content>
+                                        <Image Source="{StaticResource ImageEdit26}"
+                                               Width="16"
+                                               Height="16" />
+                                    </telerik:RadButton.Content>
+                                </telerik:RadButton>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+                    <telerik:GridViewDataColumn Width="SizeToCells">
+                        <telerik:GridViewDataColumn.CellTemplate>
+                            <DataTemplate>
+                                <telerik:RadButton Margin="0"
+                                                   Command="{Binding DataContext.DeleteMembershipGroupStyleCommand, RelativeSource={RelativeSource AncestorType={x:Type telerik:RadGridView}}}"
+                                                   CommandParameter="{Binding}"
+                                                   Style="{DynamicResource NoChromeButton}"
+                                                   BorderThickness="0">
+                                    <telerik:RadButton.Content>
+                                        <Image Source="{StaticResource ImageDelete26}"
+                                               Width="16"
+                                               Height="16" />
+                                    </telerik:RadButton.Content>
+                                </telerik:RadButton>
+                            </DataTemplate>
+                        </telerik:GridViewDataColumn.CellTemplate>
+                    </telerik:GridViewDataColumn>
+                </telerik:RadGridView.Columns>
+            </telerik:RadGridView>
+        </Grid>
+    </telerik:RadBusyIndicator>
+</UserControl>

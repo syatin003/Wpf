@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converters="clr-namespace:EventManagementSystem.Converters"
+                    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation">
+
+    <converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter" />
+    <converters:EditPermissionToVisibilityConverter x:Key="EditPermissionToVisibilityConverter" />
+    <converters:TotalPriceAndShowInInvoiceConverter x:Key="TotalPriceAndShowInInvoiceConverter" />
+    <converters:EditPermissionToBoolConverter x:Key="EditPermissionToBoolConverter" />
+    <converters:BoolInverterConverter x:Key="BoolInverterConverter" />
+    <converters:MetersToFeetConverter x:Key="MetersToFeetConverter" />
+    <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+    <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converters:InvalidDateToEmptyStringConverter x:Key="InvalidDateToEmptyStringConverter" />
+    <converters:ValueToSignedValueConverter x:Key="ValueToSignedValueConverter" />
+    <converters:BooleanToYesNoConverter x:Key="BooleanToYesNoConverter" />
+    <telerik:InvertedBooleanToVisibilityConverter x:Key="InvertedBooleanToVisibilityConverter" />
+    <telerik:NullToBooleanConverter x:Key="NullToBooleanConverter" />
+</ResourceDictionary>

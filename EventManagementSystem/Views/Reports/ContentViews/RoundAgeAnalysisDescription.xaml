@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="EventManagementSystem.Views.Reports.ContentViews.RoundAgeAnalysisDescription"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+             xmlns:pivot="http://schemas.telerik.com/2008/xaml/presentation/pivot"
+             mc:Ignorable="d"
+             d:DesignHeight="300"
+             d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin"
+                    Value="10,5" />
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="Margin"
+                    Value="10,5" />
+        </Style>
+        <Style TargetType="{x:Type telerik:RadRadioButton}">
+            <Setter Property="Margin"
+                    Value="10,5" />
+        </Style>
+        <Style TargetType="{x:Type telerik:RadDatePicker}">
+            <Setter Property="Margin"
+                    Value="10,5" />
+        </Style>
+        <Style x:Key="MyGroupRowStyle"
+               TargetType="telerik:GroupHeaderRow">
+            <Setter Property="ShowHeaderAggregates"
+                    Value="True" />
+        </Style>
+
+        <pivot:LocalDataSourceProvider x:Key="EventsDataProvider"
+                                       ItemsSource="{Binding Events}"
+                                       AggregatesPosition="Columns"
+                                       Culture="en-GB">
+            <pivot:LocalDataSourceProvider.RowGroupDescriptions>
+                <pivot:PropertyGroupDescription  PropertyName="EventTypeName" />
+                <pivot:PropertyGroupDescription PropertyName="EventStatusName" />
+            </pivot:LocalDataSourceProvider.RowGroupDescriptions>
+            <pivot:LocalDataSourceProvider.ColumnGroupDescriptions>
+                <pivot:DateTimeGroupDescription PropertyName="Date"
+                                                Step="Month" />
+            </pivot:LocalDataSourceProvider.ColumnGroupDescriptions>
+            <pivot:LocalDataSourceProvider.AggregateDescriptions>
+                <pivot:PropertyAggregateDescription PropertyName="EventTypeName"
+                                                    StringFormat="#"
+                                                    AggregateFunction="Count"
+                                                    CustomName="Qty" />
+                <pivot:PropertyAggregateDescription PropertyName="Places"
+                                                    StringFormat="#"
+                                                    AggregateFunction="Sum"
+                                                    CustomName="Number" />
+                <pivot:PropertyAggregateDescription PropertyName="Places"
+                                                    StringFormat="#"
+                                                    AggregateFunction="Average"
+                                                    CustomName="Average" />
+                <pivot:PropertyAggregateDescription PropertyName="EventPrice"
+                                                    StringFormat="C"
+                                                    AggregateFunction="Sum"
+                                                    CustomName="Total Cost" />
+                <pivot:PropertyAggregateDescription PropertyName="EventPrice"
+                                                    StringFormat="C"
+                                                    AggregateFunction="Average"
+                                                    CustomName="Average Price" />
+                <pivot:PropertyAggregateDescription PropertyName="EventPricePerPerson"
+                                                    StringFormat="C"
+                                                    AggregateFunction="Average"
+                                                    CustomName="Ind Average" />
+            </pivot:LocalDataSourceProvider.AggregateDescriptions>
+        </pivot:LocalDataSourceProvider>
+    </UserControl.Resources>
+
+    <telerik:RadBusyIndicator BusyContent="Loading..."
+                              IsBusy="{Binding IsBusy, FallbackValue=True}">
+        <Grid Visibility="{Binding Path=IsBusy, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=True}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal"
+                            Margin="5,5,5,5">
+                    <TextBlock Text="Start Date" />
+
+                    <telerik:RadDatePicker SelectedValue="{Binding StartDate, Mode=TwoWay}" />
+                    <TextBlock Text="End Date" />
+                    <telerik:RadDatePicker SelectedValue="{Binding EndDate, Mode=TwoWay}" />
+
+                    <RadioButton GroupName="Options"
+                                 Content="Golf Only"
+                                 IsChecked="{Binding GolfOnlyOption}" />
+                    <RadioButton GroupName="Options"
+                                 Content="Catering Only"
+                                 IsChecked="{Binding CateringOnlyOption}" />
+                    <RadioButton GroupName="Options"
+                                 Content="Both"
+                                 IsChecked="{Binding BothGolfandCateringOption}" />
+                </StackPanel>
+                <pivot:RadPivotGrid x:Name="RoundAgeAnalysisPivotGrid"
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="6"
+                                    DataProvider="{StaticResource EventsDataProvider}"
+                                    HorizontalLayout="Tabular"
+                                    VerticalLayout="Tabular">
+                </pivot:RadPivotGrid>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Grid.Row="2">
+                    <telerik:RadButton Margin="5"
+                                       Height="25"
+                                       Width="100"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Right"
+                                       Content="Print"
+                                       Click="Print_OnClick" />
+                    <telerik:RadButton Margin="5"
+                                       Height="25"
+                                       Width="100"
+                                       VerticalAlignment="Bottom"
+                                       HorizontalAlignment="Right"
+                                       Content="Export"
+                                       Click="Export_OnClick" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </telerik:RadBusyIndicator>
+
+</UserControl>

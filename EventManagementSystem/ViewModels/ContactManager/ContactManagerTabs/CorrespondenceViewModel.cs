@@ -22,13 +22,14 @@ namespace EventManagementSystem.ViewModels.ContactManager.ContactManagerTabs
         private ContactModel _contactModel;
         private List<CorrespondenceModel> _allCorrespondence;
         private ObservableCollection<CorrespondenceModel> _correspondence;
-        private List<CCContactsCorrespondence> _ccContactsCorrespondence; 
+        private List<CCContactsCorrespondence> _ccContactsCorrespondence;
         private DateTime _startDate;
         private DateTime _endDate;
         private List<EventModel> _events;
         private List<EnquiryModel> _enquiries;
         private string _loadingMessage;
-
+        private string view;
+       
         #endregion
 
         #region Properties
@@ -52,7 +53,7 @@ namespace EventManagementSystem.ViewModels.ContactManager.ContactManagerTabs
             }
             set
             {
-                if(_startDate == value) return;
+                if (_startDate == value) return;
                 _startDate = value;
                 RaisePropertyChanged(() => StartDate);
                 UpdateCorrespondenceCollection();
@@ -86,7 +87,7 @@ namespace EventManagementSystem.ViewModels.ContactManager.ContactManagerTabs
                 RaisePropertyChanged(() => IsBusy);
             }
         }
-       
+
         public ContactModel ContactModel
         {
             get { return _contactModel; }
@@ -97,6 +98,7 @@ namespace EventManagementSystem.ViewModels.ContactManager.ContactManagerTabs
                 RaisePropertyChanged(() => ContactModel);
             }
         }
+ 
 
         public ObservableCollection<CorrespondenceModel> Correspondence
         {
@@ -115,14 +117,14 @@ namespace EventManagementSystem.ViewModels.ContactManager.ContactManagerTabs
 
         #region Constructors
 
-        public CorrespondenceViewModel(ContactModel model)
+        public CorrespondenceViewModel(ContactModel model,string sample)
         {
             var dataUnitLocator = ContainerAccessor.Instance.GetContainer().Resolve<IDataUnitLocator>();
             _contactsDataUnit = dataUnitLocator.ResolveDataUnit<IContactsDataUnit>();
-
+            this.view = sample;
             _contactModel = model;
 
-            _startDate =  DateTime.Today.AddDays(-1);
+            _startDate = DateTime.Today.AddDays(-1);
             _endDate = DateTime.Today.AddDays(1);
 
             OpenEmailCommand = new RelayCommand<CorrespondenceModel>(OpenEmailCommandExecute);
@@ -163,15 +165,41 @@ namespace EventManagementSystem.ViewModels.ContactManager.ContactManagerTabs
         }
 
         private void UpdateCorrespondenceCollection()
-        {
-            Correspondence = new ObservableCollection<CorrespondenceModel>(
-                _allCorrespondence.Where(x => x.Date.Date >= StartDate.Date && x.Date.Date <= EndDate.Date && 
-                                              ( x.Correspondence.ContactToID == _contactModel.Contact.ID
-                                              || _ccContactsCorrespondence.Where(c => c.ContactID == _contactModel.Contact.ID).Select(c => c.CorrespondenceID).Contains(x.Correspondence.ID))
-                                              ));
-    
+        
+         {
+            //Correspondence = new ObservableCollection<CorrespondenceModel>(
+            //    _allCorrespondence.Where(x => x.Date.Date >= StartDate.Date && x.Date.Date <= EndDate.Date && 
+            //                                  ( x.Correspondence.ContactToID == _contactModel.Contact.ID
+            //                                  || _ccContactsCorrespondence.Where(c => c.ContactID == _contactModel.Contact.ID).Select(c => c.CorrespondenceID).Contains(x.Correspondence.ID))
+            //                                  ));
+             //Correspondence = new ObservableCollection<CorrespondenceModel>(
+             //        _allCorrespondence.Where(x => x.Date.Date >= StartDate.Date && x.Date.Date <= EndDate.Date &&
+             //                                      (x.Correspondence.ContactToID == _contactModel.Contact.ID
+             //            //|| (x.Correspondence.OwnerID == _contactModel.Contact.ID && x.Correspondence.CorresponcenceType.Type == "Member")
+             //                                      || (x.Correspondence.OwnerID == _contactModel.Contact.ID && x.Correspondence.CorresponcenceType.Type == "Contact")
+             //                                      || _ccContactsCorrespondence.Where(c => c.ContactID == _contactModel.Contact.ID).Select(c => c.CorrespondenceID).Contains(x.Correspondence.ID))
+             //                                      ));
+
+             if (view == "Contact")
+             {
+                 Correspondence = new ObservableCollection<CorrespondenceModel>(
+                     _allCorrespondence.Where(x => x.Date.Date >= StartDate.Date && x.Date.Date <= EndDate.Date &&
+                                                   (x.Correspondence.ContactToID == _contactModel.Contact.ID
+                                                   || (x.Correspondence.OwnerID == _contactModel.Contact.ID && x.Correspondence.CorresponcenceType.Type == "Contact")
+                                                   || _ccContactsCorrespondence.Where(c => c.ContactID == _contactModel.Contact.ID).Select(c => c.CorrespondenceID).Contains(x.Correspondence.ID))
+                                                   ));
+             }
+             else if(view == "Member")
+             {
+                 Correspondence = new ObservableCollection<CorrespondenceModel>(
+                        _allCorrespondence.Where(x => x.Date.Date >= StartDate.Date && x.Date.Date <= EndDate.Date &&
+                                                      (x.Correspondence.ContactToID == _contactModel.Contact.ID
+                                                   || (x.Correspondence.OwnerID == _contactModel.Contact.ID && x.Correspondence.CorresponcenceType.Type == "Member")
+                                                   || _ccContactsCorrespondence.Where(c => c.ContactID == _contactModel.Contact.ID).Select(c => c.CorrespondenceID).Contains(x.Correspondence.ID))
+                                                      ));
+             }
+            
             SetEventOrEnquiryName();
-  
         }
 
         private void SetEventOrEnquiryName()
@@ -184,7 +212,7 @@ namespace EventManagementSystem.ViewModels.ContactManager.ContactManagerTabs
                     if (firstOrDefault != null)
                         correspondence.EventName = firstOrDefault.Name;
                 }
-                else if(correspondence.Correspondence.OwnerType == "Enquiry")
+                else if (correspondence.Correspondence.OwnerType == "Enquiry")
                 {
                     var firstOrDefault = _enquiries.FirstOrDefault(x => x.Enquiry.ID == correspondence.Correspondence.OwnerID);
                     if (firstOrDefault != null)

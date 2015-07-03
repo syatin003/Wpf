@@ -227,7 +227,7 @@ namespace EventManagementSystem.ViewModels.Admin.Settings
                 Image = new ImageInline
                 {
                     UriSource = new Uri(dialog.FileName, UriKind.Absolute),
-                    Width = 580,
+                    Width = 300,
                     Height = 150,
                 };
                 RaisePropertyChanged("InsertImage");

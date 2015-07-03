@@ -45,7 +45,6 @@ namespace EventManagementSystem.ViewModels.Membership
         private int _selectedTab;
         private bool _isAllMembersChecked;
         private bool _includeInEmailPropertyChanged;
-        private CorrespondenceModel _correspondence;
 
         #endregion
 
@@ -171,7 +170,7 @@ namespace EventManagementSystem.ViewModels.Membership
                 if (CanViewContactDetails)
                     ContactDetailsContent = new ContactDetailsView(member.Contact, true, member);
                 if (CanViewCorrespondence)
-                    CorrespondenceContent = new CorrespondenceView(member.Contact);
+                    CorrespondenceContent = new CorrespondenceView(member.Contact,"Member");
                 if (CanViewActivity)
                     ActivityContent = new ActivityView(member.Contact);
                 if (CanViewAccounts)
@@ -370,23 +369,25 @@ namespace EventManagementSystem.ViewModels.Membership
             {
                 string confirmText = "None of the selected members having valid email!";
 
-                RadWindow.Alert(confirmText);
+                RadWindow.Alert(new DialogParameters
+                  {
+                      Owner = Application.Current.MainWindow,
+                      Content = confirmText
+                  });
 
                 RaisePropertyChanged("EnableParentWindow");
 
                 return;
             }
-            var sendEmailView = new SendEmailView(memberHavingValidEmail, _correspondence);
+
+            var membersIncludeInEmail = new ObservableCollection<MemberModel>(Members.Where(member => member.IncludeInEmail));
+            var sendEmailView = new SendEmailView(membersIncludeInEmail);
             sendEmailView.ShowDialog();
             RaisePropertyChanged("EnableParentWindow");
 
             if (sendEmailView.DialogResult != null && sendEmailView.DialogResult == true)
             {
-                //    if (!sendEmailView.ViewModel.IsExistingMember)
-                //        _allMembers.Add(sendEmailView.ViewModel.Member);
-                //    Members = new ObservableCollection<MemberModel>(_allMembers.OrderBy(x => x.Contact.LastName));
-                //    SelectedMember = sendEmailView.ViewModel.IsExistingMember ? Members.FirstOrDefault(member => member.Member == addMemberView.ViewModel.Member.Member) : addMemberView.ViewModel.Member;
-                //    RaisePropertyChanged("ScrollToSelectedItem");
+
             }
         }
 

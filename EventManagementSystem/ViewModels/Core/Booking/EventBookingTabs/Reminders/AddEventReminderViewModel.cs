@@ -328,7 +328,7 @@ namespace EventManagementSystem.ViewModels.Core.Booking.EventBookingTabs.Reminde
                     Message = msg,
                 });
 
-                await EmailService.SendEmail(email);
+                await EmailService.SendEmail(email, null, null);
                 if (AreEventsVisible)
                 {
                     _originalEvent = SelectedEvent.Clone();

@@ -283,6 +283,57 @@ namespace EventManagementSystem.Services
             return String.Format("#{0}", rgbCode);
         }
 
+        public static async Task<bool> SendEmail(CorrespondenceModel correspondence, string mainTemplate = null)
+        {
+            try
+            {
+                var settings = PrepareSettings();
+
+                if (settings.HasErrors)
+                {
+                    PopupService.ShowMessage("Please check your SMTP settings in Admin module", MessageType.Failed);
+                    return false;
+                }
+
+                using (var smtpClient = new SmtpClient(settings.Server))
+                {
+                    smtpClient.Port = 587;
+                    smtpClient.EnableSsl = settings.EnableSsl;
+                    smtpClient.UseDefaultCredentials = false;
+                    smtpClient.Credentials = new NetworkCredential(settings.Username, settings.Password);
+
+                    using (var message = new MailMessage())
+                    {
+
+                        message.From = new MailAddress(correspondence.FromAddress);
+                        message.IsBodyHtml = true;
+                        message.Subject = correspondence.Subject;
+                        message.SubjectEncoding = Encoding.UTF8;
+
+                        if (mainTemplate != null)
+                        {
+                            ApplyMainTemplate(correspondence.Message, mainTemplate, message, correspondence.Correspondence.EmailHeader);
+                        }
+                        else
+                        {
+                            message.Body = correspondence.Message;
+                        }
+                        message.BodyEncoding = Encoding.UTF8;
+                        message.To.Add(correspondence.ToAddress);
+
+                        await smtpClient.SendMailAsync(message);
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                //PopupService.ShowMessage(ex.Message, MessageType.Failed);
+                return false;
+            }
+        }
+
         #endregion
     }
 }

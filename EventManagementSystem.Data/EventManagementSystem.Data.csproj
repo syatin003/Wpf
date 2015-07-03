@@ -71,7 +71,9 @@
     <Compile Include="Repositories\ActivityTypesRepository.cs" />
     <Compile Include="Repositories\CalendarNotesRepository.cs" />
     <Compile Include="Repositories\CCContactsCorrespondenceRepository.cs" />
+    <Compile Include="Repositories\ContactUpdatesRepository.cs" />
     <Compile Include="Repositories\EmailHeadersRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IContactUpdatesRepository.cs" />
     <Compile Include="Repositories\Interfaces\IEmailHeadersRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMembershipUpdatesRepository.cs" />
     <Compile Include="Repositories\MembershipUpdatesRepository.cs" />

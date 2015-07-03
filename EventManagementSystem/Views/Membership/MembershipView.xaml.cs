@@ -53,6 +53,5 @@ namespace EventManagementSystem.Views.Membership
             if (_viewModel.SelectedTab == 0)
                 _viewModel.LoadData();
         }
-
     }
 }

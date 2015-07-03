@@ -246,6 +246,7 @@
     <Compile Include="Helpers\CheckedListItem.cs" />
     <Compile Include="Helpers\DisabledScheduleViewDragDropBehavior.cs" />
     <Compile Include="Helpers\ForwardBookGridViewHelper.cs" />
+    <Compile Include="Models\ContactUpdateModel.cs" />
     <Compile Include="Models\EmailHeaderModel.cs" />
     <Compile Include="Models\JoinerLeaverModel.cs" />
     <Compile Include="Models\JoinerActivityModel.cs" />
@@ -393,6 +394,8 @@
     <Compile Include="ViewModels\ContactManager\ContactManagerTabs\CorrespondenceViewModel.cs" />
     <Compile Include="ViewModels\ContactManager\ContactManagerTabs\EmailViewModel.cs" />
     <Compile Include="ViewModels\ContactManager\ContactManagerTabs\EventDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ContactManager\SendEmailPreViewModel.cs" />
+    <Compile Include="ViewModels\ContactManager\SendEmailViewModel.cs" />
     <Compile Include="ViewModels\Core\Booking\BookingViewModel.cs" />
     <Compile Include="ViewModels\Core\Booking\Common\ProposePrimaryContactViewModel.cs" />
     <Compile Include="ViewModels\Core\Booking\CompetitionBookingViewModel.cs" />
@@ -510,6 +513,12 @@
     </Compile>
     <Compile Include="Views\Admin\Settings\EmailHeadersView.xaml.cs">
       <DependentUpon>EmailHeadersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactManager\SendEmailPreView.xaml.cs">
+      <DependentUpon>SendEmailPreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ContactManager\SendEmailView.xaml.cs">
+      <DependentUpon>SendEmailView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Events\UpdatesHistoryView.xaml.cs">
       <DependentUpon>UpdatesHistoryView.xaml</DependentUpon>
@@ -1073,6 +1082,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Admin\Settings\EmailHeadersView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactManager\SendEmailPreView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ContactManager\SendEmailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

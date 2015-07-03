@@ -62,5 +62,34 @@ namespace EventManagementSystem.Data.Repositories
         {
             _objectContext.Refresh(RefreshMode.StoreWins, _objectContext.Corresponcences);
         }
+
+        public void RevertChanges(bool isSaveOnClientRecord)
+        {
+            _objectContext.DetectChanges();
+
+            IEnumerable<object> ModifiedandDeletedcollection = _objectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Modified | EntityState.Deleted).Select(x => x.Entity).ToList();
+            _objectContext.Refresh(RefreshMode.StoreWins, ModifiedandDeletedcollection);
+
+
+            IEnumerable<object> AddedCollection = _objectContext.ObjectStateManager.GetObjectStateEntries(EntityState.Added).Select(x => x.Entity).ToList();
+
+           // AddedCollection.ForEach(addedEntity => _objectContext.Detach(addedEntity));
+   
+            foreach(var addedEntity in AddedCollection)
+            {
+               if(addedEntity.GetType().Name == "Corresponcence")
+               {
+                   Corresponcence entity = (Corresponcence)addedEntity;
+                   if(entity.OwnerID == Guid.Empty)
+                   {
+                     _objectContext.Detach(addedEntity);
+                   }
+                   else if (!isSaveOnClientRecord)
+                   {
+                       _objectContext.Detach(addedEntity);
+                   }
+               }
+            }
+        }
     }
 }

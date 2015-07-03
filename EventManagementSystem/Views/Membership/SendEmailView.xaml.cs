@@ -19,10 +19,7 @@ namespace EventManagementSystem.Views.Membership
         {
             InitializeComponent();
             DataContext = _viewModel = new SendEmailViewModel(members, correspondence);
-
             _viewModel.PropertyChanged += ViewModelOnPropertyChanged;
-
-            Owner = Application.Current.MainWindow;
 
             Loaded += OnSendEmailViewLoaded;
             Owner = Application.Current.MainWindow;
@@ -35,7 +32,6 @@ namespace EventManagementSystem.Views.Membership
 
         private void ViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
-
             if (args.PropertyName == "EnableParentWindow")
             {
                 IsEnabled = true;
@@ -55,10 +51,5 @@ namespace EventManagementSystem.Views.Membership
             DialogResult = false;
             Close();
         }
-
-        //private void PreviewButtonClick(object sender, RoutedEventArgs e)
-        //{
-        //    _viewModel.IsPreviewButtonClick = true;
-        //}
     }
 }

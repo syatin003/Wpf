@@ -14,10 +14,11 @@ namespace EventManagementSystem.Views.ContactManager.ContactManagerTabs
     {
         private readonly CorrespondenceViewModel _viewModel;
 
-        public CorrespondenceView(ContactModel model)
+
+        public CorrespondenceView(ContactModel model,string sample)
         {
             InitializeComponent();
-            DataContext = _viewModel = new CorrespondenceViewModel(model);
+            DataContext = _viewModel = new CorrespondenceViewModel(model,sample);
 
             _viewModel.PropertyChanged += ViewModelOnPropertyChanged;
 

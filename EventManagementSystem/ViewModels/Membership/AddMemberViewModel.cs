@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using EventManagementSystem.Core.Commands;
 using EventManagementSystem.Core.Unity;
-using EventManagementSystem.Core.ViewModels;
+using ViewModelBase = EventManagementSystem.Core.ViewModels.ViewModelBase;
 using EventManagementSystem.Data.Model;
 using EventManagementSystem.Data.UnitOfWork.Interfaces;
 using EventManagementSystem.Enums.Membership;
@@ -15,6 +15,9 @@ using EventManagementSystem.Views.Core.Contacts;
 using Microsoft.Practices.Unity;
 using EventManagementSystem.Services;
 using EventManagementSystem.Core.Serialization;
+using EventManagementSystem.Properties;
+using Telerik.Windows.Controls;
+using System.Windows;
 
 namespace EventManagementSystem.ViewModels.Membership
 {
@@ -268,6 +271,19 @@ namespace EventManagementSystem.ViewModels.Membership
 
             Member.MembershipUpdates = new ObservableCollection<MembershipUpdate>(Member.MembershipUpdates.OrderByDescending(x => x.Date));
             await _membershipDataUnit.SaveChanges();
+
+            if (!_isEditMode)
+            {
+                string confirmText = Resources.MESSAGE_NEW_MEMBER_ADDED_WITH_REFRERENCE_NUMBER;
+
+                RaisePropertyChanged("DisableParentWindow");
+
+                RadWindow.Alert(confirmText + ' ' + Member.Member.MemberReference + '.');
+
+                RaisePropertyChanged("EnableParentWindow");
+            }
+
+            RaisePropertyChanged("CloseDialog");
         }
 
         public async Task ShowReleventContact()
@@ -345,11 +361,26 @@ namespace EventManagementSystem.ViewModels.Membership
             if (!_isEditMode)
             {
                 Member.Member.MemberReference = string.Concat(ClubCodeSetting.Value, CurrentMemberNumberSetting.Value);
-                CurrentMemberNumberSetting.Value = Convert.ToString(Convert.ToInt32(CurrentMemberNumberSetting.Value) + 1);
+                 CurrentMemberNumberSetting.Value = FormatMemberNumber(CurrentMemberNumberSetting.Value);  // Formar the Current Member setting.
                 _membershipDataUnit.MembersRepository.Add(Member.Member);
             }
             ProcessUpdates();
-            RaisePropertyChanged("CloseDialog");
+        }
+
+        /// <summary>
+        /// Returns the incremented member number
+        /// </summary>
+        /// <param name="currentMemberNumber">Current member number setting value</param>
+        /// <returns>Formatted incremented member number</returns>
+        private string FormatMemberNumber(string CurrentMemberNumber)
+        {
+            string IncrementedNumber = Convert.ToString(Convert.ToInt32(CurrentMemberNumber) + 1);
+
+            for (int i = IncrementedNumber.Length; i < CurrentMemberNumber.Length; i++)
+            {
+                IncrementedNumber = "0" + IncrementedNumber;
+            }
+            return IncrementedNumber;
         }
 
         #endregion

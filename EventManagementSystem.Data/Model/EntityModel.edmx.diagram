@@ -268,6 +268,9 @@
         <EntityTypeShape EntityType="EventManagementSystemModel.EmailHeader" Width="1.5" PointX="10.93052820252745" PointY="30.64036936994659" />
         <AssociationConnector Association="EventManagementSystemModel.FK_MailTemplates_EmailHeaders" />
         <AssociationConnector Association="EventManagementSystemModel.FK_Corresponcences_EmailHeaders" />
+        <EntityTypeShape EntityType="EventManagementSystemModel.ContactUpdate" Width="1.5" PointX="16.125" PointY="10" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_ContactUpdates_Contacts" />
+        <AssociationConnector Association="EventManagementSystemModel.FK_ContactUpdates_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

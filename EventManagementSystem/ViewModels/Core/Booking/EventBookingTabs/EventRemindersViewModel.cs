@@ -216,7 +216,7 @@ namespace EventManagementSystem.ViewModels.ViewModels.Core.Booking.EventBookingT
                             Message = msg,
                         });
 
-                        await EmailService.SendEmail(email);
+                        await EmailService.SendEmail(email, null, null);
                     });
             }
         }

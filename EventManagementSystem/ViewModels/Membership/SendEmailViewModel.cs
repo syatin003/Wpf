@@ -1,4 +1,4 @@
-﻿using EventManagementSystem.Core.ViewModels;
+﻿using ViewModelBase = EventManagementSystem.Core.ViewModels.ViewModelBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +13,14 @@ using Microsoft.Practices.Unity;
 using EventManagementSystem.Core.Commands;
 using EventManagementSystem.Services;
 using EventManagementSystem.Properties;
-using System.Text.RegularExpressions;
 using System.IO;
 using System.ComponentModel;
 using Microsoft.Practices.ObjectBuilder2;
 using EventManagementSystem.Views.Membership;
+using System.Text.RegularExpressions;
+using Telerik.Windows.Controls;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace EventManagementSystem.ViewModels.Membership
 {
@@ -36,8 +39,9 @@ namespace EventManagementSystem.ViewModels.Membership
         private CorresponcenceType _corresponcenceType;
         private bool _isResend;
         private ObservableCollection<MemberModel> _members;
+        private ObservableCollection<MemberModel> _membersHavingValidEmail;
+        private ObservableCollection<MemberModel> _membersHavingInvalidEmail;
         private String _message;
-        
 
         #endregion
 
@@ -97,8 +101,6 @@ namespace EventManagementSystem.ViewModels.Membership
                 Message = _selectedMailTemplate.MailTemplate.Template;
                 RaisePropertyChanged(() => SelectedMailTemplate);
                 Correspondence.Subject = _selectedMailTemplate.Name;
-               
-                //ParseMailMessage(member);
             }
         }
 
@@ -112,6 +114,28 @@ namespace EventManagementSystem.ViewModels.Membership
             }
         }
 
+        public ObservableCollection<MemberModel> MembersHavingValidEmail
+        {
+            get { return _membersHavingValidEmail; }
+            set
+            {
+                if (_membersHavingValidEmail == value) return;
+                _membersHavingValidEmail = value;
+                RaisePropertyChanged(() => MembersHavingValidEmail);
+            }
+        }
+
+        public ObservableCollection<MemberModel> MembersHavingInvalidEmail
+        {
+            get { return _membersHavingInvalidEmail; }
+            set
+            {
+                if (_membersHavingInvalidEmail == value) return;
+                _membersHavingInvalidEmail = value;
+                RaisePropertyChanged(() => MembersHavingInvalidEmail);
+            }
+        }
+
         public ObservableCollection<MemberModel> Members
         {
             get { return _members; }
@@ -122,6 +146,7 @@ namespace EventManagementSystem.ViewModels.Membership
                 RaisePropertyChanged(() => Members);
             }
         }
+
 
         public String Message
         {
@@ -145,6 +170,17 @@ namespace EventManagementSystem.ViewModels.Membership
         public SendEmailViewModel(ObservableCollection<MemberModel> members, CorrespondenceModel correspondence)
         {
             Members = members;
+
+            string pattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
+                                + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
+                                + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
+
+            var regex = new Regex(pattern, RegexOptions.IgnoreCase);
+
+            MembersHavingValidEmail = new ObservableCollection<MemberModel>(members.Where(member => !string.IsNullOrWhiteSpace(member.Contact.Email) && regex.IsMatch(member.Contact.Email)));
+
+            MembersHavingInvalidEmail = new ObservableCollection<MemberModel>(members.Where(member => string.IsNullOrWhiteSpace(member.Contact.Email) || !regex.IsMatch(member.Contact.Email)));
+
             var dataUnitLocator = ContainerAccessor.Instance.GetContainer().Resolve<IDataUnitLocator>();
             _membershipDataUnit = dataUnitLocator.ResolveDataUnit<IMembershipDataUnit>();
 
@@ -206,7 +242,6 @@ namespace EventManagementSystem.ViewModels.Membership
                 else
                     EmailHeaders = new ObservableCollection<EmailHeader>(_allEmailHeaders.Where(x => x.IsEnabled));
             }
-           
         }
 
         private CorrespondenceModel GetCorrespondence()
@@ -216,12 +251,11 @@ namespace EventManagementSystem.ViewModels.Membership
             {
                 ID = Guid.NewGuid(),
                 Date = DateTime.Now,
-                //OwnerID = member.Member.ID,
                 OwnerType = "Membership",
                 EmailType = "Email",
                 Message = "",
                 FromAddress = AccessService.Current.User.EmailAddress,
-                ToAddress = Members.Select(member => member.Contact.Email).FirstOrDefault(),
+                ToAddress = MembersHavingValidEmail.Select(member => member.Contact.Email).FirstOrDefault(),
                 UserID = AccessService.Current.User.ID
             });
 
@@ -234,8 +268,7 @@ namespace EventManagementSystem.ViewModels.Membership
             {
                 ID = Guid.NewGuid(),
                 Date = DateTime.Now,
-                //OwnerID = _member.Member.ID,
-                OwnerType = "Membership", // TODO: Remove
+                OwnerType = "Membership",
                 EmailType = "Email",
                 UserID = AccessService.Current.User.ID
             })
@@ -253,7 +286,7 @@ namespace EventManagementSystem.ViewModels.Membership
 
         private void AddCorrespondenceOnMembersRecord()
         {
-            foreach (var memberContact in Members)
+            foreach (var memberContact in MembersHavingValidEmail)
             {
                 _membershipDataUnit.CorresponcencesRepository.Add(GetCorrespondenceByMember(memberContact));
             }
@@ -314,40 +347,39 @@ namespace EventManagementSystem.ViewModels.Membership
 
         private void PreviewCommandExecuted()
         {
-            //RaisePropertyChanged("DisableParentWindow");
-            //string message = "";
-            //if (_selectedMailTemplate != null)
-            //    message = ParseMailMessage(Members.FirstOrDefault());
-            //else
-            //    message = Message;
-            //var window = new SendEmailPreView(Correspondence, message, MainEmailTemplate.MailTemplate.Template);
-            //window.ShowDialog();
+            RaisePropertyChanged("DisableParentWindow");
+            string message = "";
+            if (_selectedMailTemplate != null)
+                message = ParseMailMessage(MembersHavingValidEmail.FirstOrDefault());
+            else
+                message = Message;
+            var window = new SendEmailPreView(Correspondence, message, MainEmailTemplate.MailTemplate.Template);
+            window.ShowDialog();
 
-            //RaisePropertyChanged("EnableParentWindow");
+            RaisePropertyChanged("EnableParentWindow");
         }
 
         private bool PreviewCommandCanExecute()
         {
-            //return !Correspondence.HasErrors;
-            return false;
+            return !Correspondence.HasErrors;
         }
 
         private async void SubmitCommandExecuted()
         {
             IsBusy = true;
-
             if (!_isResend)
             {
                 Correspondence.CorresponcenceType = _corresponcenceType;
             }
-            if (Correspondence.SaveOnClientsRecord)
-                AddCorrespondenceOnMembersRecord();
+             //   if (Correspondence.SaveOnClientsRecord)
+            //    AddCorrespondenceOnMembersRecord();
+          
+            var membersEmailNotSent = new List<MemberModel>();
 
-            foreach (var member in Members)
+            foreach (var member in MembersHavingValidEmail)
             {
                 var newMemberCorrespondence = new CorrespondenceModel(GetCorrespondenceByMember(member));
-                bool success = await EmailService.SendEmail(newMemberCorrespondence, null, MainEmailTemplate.MailTemplate.Template);
-
+                bool success = await EmailService.SendEmail(newMemberCorrespondence, MainEmailTemplate.MailTemplate.Template);
                 if (success)
                 {
                     // add entry into update log
@@ -365,13 +397,45 @@ namespace EventManagementSystem.ViewModels.Membership
                         Field = "Email",
                         Action = Convert.ToInt32(UpdateAction.Added)
                     };
+                    // If false don't save Correspondence.
+                    // Make ItemId = null;
+                    if (!Correspondence.SaveOnClientsRecord)
+                    {
+                        update.ItemId = null;
+                    }
                     _membershipDataUnit.MembershipUpdatesRepository.Add(update);
                 }
+                else
+                {
+                    membersEmailNotSent.Add(member);
+                }
             }
-
-            await _membershipDataUnit.SaveChanges();
+            _membershipDataUnit.CorresponcencesRepository.RevertChanges(Correspondence.SaveOnClientsRecord);
+           await _membershipDataUnit.SaveChanges();
 
             IsBusy = false;
+
+            string confirmText = Members.Count + " members selected";
+
+            confirmText = MembersHavingInvalidEmail.Count > 0 ?
+                (confirmText + ", " + MembersHavingInvalidEmail.Count + " have no email addresses") : confirmText;
+
+            confirmText = MembersHavingValidEmail.Except(membersEmailNotSent).Count() > 0 ? (confirmText + ", " + MembersHavingValidEmail.Except(membersEmailNotSent).Count() + " sent successfully") :
+
+          confirmText = membersEmailNotSent.Count > 0 ? (confirmText + ", " + membersEmailNotSent.Count + " not sent due to error having following names :- " +
+          
+          string.Join("\n", membersEmailNotSent.Select(x => x.Contact.FirstName).ToArray())) : confirmText;
+
+            RaisePropertyChanged("DisableParentWindow");
+
+            RadWindow.Alert(new DialogParameters
+                {
+                    Owner = Application.Current.MainWindow,
+                    Content = new TextBlock() { Text = confirmText, TextWrapping = TextWrapping.Wrap, Width = 300 }
+                });
+
+            RaisePropertyChanged("EnableParentWindow");
+
             RaisePropertyChanged("CloseDialog");
         }
 

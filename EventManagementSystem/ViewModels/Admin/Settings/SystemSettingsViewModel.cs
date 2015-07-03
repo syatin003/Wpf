@@ -372,8 +372,10 @@ namespace EventManagementSystem.ViewModels.Admin.Settings
                             Int32 memberNumber;
                             if (Int32.TryParse(CurrentMemberNumber, out memberNumber))
                             {
-                                if (memberNumber.ToString().Length > 5)
+                                if (CurrentMemberNumber.Length > 5)
                                     Error = "Current member number can be upto 5 numbers";
+                                else if (CurrentMemberNumber.Length < 4)
+                                    Error = "Current member number must be 4 digit long";
                             }
                             else
                             {

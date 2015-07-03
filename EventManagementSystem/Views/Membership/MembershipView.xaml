@@ -129,7 +129,8 @@
                                                 <RowDefinition Height="Auto"/>
                                                 <RowDefinition Height="*"/>
                                             </Grid.RowDefinitions>
-                                            <CheckBox Grid.Row="0" IsChecked="{Binding IsAllMembersChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Content="Select All"/>
+                                            <CheckBox Grid.Row="0" Margin="10,5,5,5"
+                                                      IsChecked="{Binding IsAllMembersChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Content="Select All"/>
 
                                             <telerik:RadGridView x:Name="MembersRadGridView"
                                                                  Grid.Row="1"

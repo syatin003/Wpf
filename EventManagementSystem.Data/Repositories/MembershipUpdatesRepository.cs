@@ -1,14 +1,14 @@
-﻿using System;
+﻿using EventManagementSystem.Data.Model;
+using EventManagementSystem.Data.Repositories.Base;
+using EventManagementSystem.Data.Repositories.Interfaces;
+using Microsoft.Practices.ObjectBuilder2;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using EventManagementSystem.Data.Model;
-using EventManagementSystem.Data.Repositories.Base;
-using EventManagementSystem.Data.Repositories.Interfaces;
-using Microsoft.Practices.ObjectBuilder2;
 
 namespace EventManagementSystem.Data.Repositories
 {
@@ -73,5 +73,7 @@ namespace EventManagementSystem.Data.Repositories
         {
             _objectContext.Refresh(RefreshMode.StoreWins, _objectContext.MembershipUpdates);
         }
+
+        
     }
 }

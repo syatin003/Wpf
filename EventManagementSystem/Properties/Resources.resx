@@ -342,4 +342,7 @@
   <data name="PERMISSION_MEMBER_UPDATE_DETAILS_TAB_ALLOWED" xml:space="preserve">
     <value>M_X_MEMBER_UPDATE_DETAILS_TAB_ALLOWED</value>
   </data>
+  <data name="MESSAGE_NEW_MEMBER_ADDED_WITH_REFRERENCE_NUMBER" xml:space="preserve">
+    <value>New member added with Reference </value>
+  </data>
 </root>

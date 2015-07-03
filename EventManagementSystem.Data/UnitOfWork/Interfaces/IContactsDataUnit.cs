@@ -16,5 +16,10 @@ namespace EventManagementSystem.Data.UnitOfWork.Interfaces
         IEventUpdatesRepository EventUpdatesRepository { get; }
         IInvoicesRepository InvoicesRepository { get; }
         IEventPaymentsRepository EventPaymentsRepository { get; }
+
+        IMailTemplatesRepository MailTemplatesRepository { get; }
+        IEmailHeadersRepository EmailHeadersRepository { get; }
+        IContactUpdatesRepository ContactUpdatesRepository { get; }
+
     }
 }

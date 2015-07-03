@@ -22,7 +22,12 @@ namespace EventManagementSystem.Data.UnitOfWork
             RegisterRepository<Invoice, InvoicesRepository>();
             RegisterRepository<EventPayment, EventPaymentsRepository>();
             RegisterRepository<CCContactsCorrespondence, CCContactsCorrespondenceRepository>();
-        }
+
+            RegisterRepository<MailTemplate, MailTemplatesRepository>();
+            RegisterRepository<EmailHeader, EmailHeadersRepository>();
+            RegisterRepository<ContactUpdate, ContactUpdatesRepository>();
+
+         }
 
         public IEventPaymentsRepository EventPaymentsRepository
         {
@@ -77,6 +82,23 @@ namespace EventManagementSystem.Data.UnitOfWork
         public ICCContactsCorrespondenceRepository CCContactsCorrespondenceRepository
         {
             get { return (ICCContactsCorrespondenceRepository) GetRepository<CCContactsCorrespondence>(); }
+        }
+
+
+        public IMailTemplatesRepository MailTemplatesRepository
+        {
+            get { return (IMailTemplatesRepository)GetRepository<MailTemplate>(); }
+        }
+
+        public IEmailHeadersRepository EmailHeadersRepository
+        {
+            get { return (IEmailHeadersRepository)GetRepository<EmailHeader>(); }
+        }
+
+
+        public IContactUpdatesRepository ContactUpdatesRepository
+        {
+            get { return (IContactUpdatesRepository)GetRepository<ContactUpdate>(); }
         }
     }
 }

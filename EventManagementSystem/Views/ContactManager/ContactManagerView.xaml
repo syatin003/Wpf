@@ -31,6 +31,14 @@
                         </StackPanel>
                     </telerik:RadRibbonButton>
                 </telerik:RadRibbonGroup>
+                <telerik:RadRibbonGroup>
+                    <telerik:RadRibbonButton Command="{Binding SendEmailCommand}">
+                        <StackPanel Margin="0 4">
+                            <Image Source="{StaticResource ImageForward32}" Width="32" Height="32"/>
+                            <TextBlock Text="Send Email" />
+                        </StackPanel>
+                    </telerik:RadRibbonButton>
+                </telerik:RadRibbonGroup>
             </telerik:RadRibbonTab>
         </telerik:RadRibbonView>
 
@@ -89,10 +97,17 @@
                                            telerik:DockingPanel.InitialSize="210,150"
                                            InitialPosition="DockedLeft">
                         <telerik:RadPaneGroup>
-                            <telerik:RadPane Header="Contact List"                                         
-                                         CanUserClose="False">
-                                <telerik:RadGridView   
-                                    x:Name="ContactsRadGridView"
+                            <telerik:RadPane CanUserClose="False">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <CheckBox Grid.Row="0" Margin="10,5,5,5"
+                                                      IsChecked="{Binding IsAllContactsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Content="Select All"/>
+
+                                    <telerik:RadGridView x:Name="ContactsRadGridView"
+                                  Grid.Row="1"
                                  CanUserDeleteRows="False"
                                  CanUserFreezeColumns="False"
                                  CanUserInsertRows="False"
@@ -107,9 +122,22 @@
                                  AutoGenerateColumns="False"
                                  ShowGroupPanel="True"
                                  ColumnWidth="Auto"
-                                 FrozenColumnCount="2">
+                                 FrozenColumnCount="3">
                                     <telerik:RadGridView.Columns>
-                                        <telerik:GridViewDataColumn Header="Last Name"
+                                            <telerik:GridViewDataColumn Width="Auto">
+                                                <!--<telerik:GridViewDataColumn.Header>
+                                                                <CheckBox IsChecked="{Binding IsAllContactsChecked,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" />
+                                                           </telerik:GridViewDataColumn.Header>-->
+                                                <!--<telerik:GridViewDataColumn.Header>
+                                                            <CheckBox IsChecked="{Binding DataContext.IsAllContactsChecked, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type UserControl}}}"/>
+                                                        </telerik:GridViewDataColumn.Header>-->
+                                                <telerik:GridViewDataColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <CheckBox IsChecked="{Binding IncludeInEmail,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                                                    </DataTemplate>
+                                                </telerik:GridViewDataColumn.CellTemplate>
+                                            </telerik:GridViewDataColumn>
+                                            <telerik:GridViewDataColumn Header="Last Name"
                                                 DataMemberBinding="{Binding LastName}"
                                                                     Width="Auto"/>
 
@@ -139,6 +167,7 @@
                                        
                                     </telerik:RadGridView.Columns>
                                 </telerik:RadGridView>
+                                </Grid>
                             </telerik:RadPane>
                         </telerik:RadPaneGroup>
                     </telerik:RadSplitContainer>

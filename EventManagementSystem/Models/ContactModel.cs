@@ -18,7 +18,7 @@ namespace EventManagementSystem.Models
         private bool _isMale;
         private bool _isFemale;
         private Boolean _isDirty;
-
+        private bool _includeInEmail;
         #endregion
 
         #region Properties
@@ -332,6 +332,19 @@ namespace EventManagementSystem.Models
                 return "No";
             }
 
+        }
+        public bool IncludeInEmail
+        {
+            get
+            {
+                return _includeInEmail;
+            }
+            set
+            {
+                if (_includeInEmail == value) return;
+                _includeInEmail = value;
+                RaisePropertyChanged(() => IncludeInEmail);
+            }
         }
         #endregion
 

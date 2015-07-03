@@ -187,6 +187,15 @@ namespace EventManagementSystem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New member added with Reference .
+        /// </summary>
+        internal static string MESSAGE_NEW_MEMBER_ADDED_WITH_REFRERENCE_NUMBER {
+            get {
+                return ResourceManager.GetString("MESSAGE_NEW_MEMBER_ADDED_WITH_REFRERENCE_NUMBER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No Reminder is Available..
         /// </summary>
         internal static string MESSAGE_NO_REMINDER_AVAILABLE {

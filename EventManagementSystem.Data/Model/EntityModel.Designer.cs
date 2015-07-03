@@ -181,50 +181,52 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("EventManagementSystemModel", "FK_MembershipUpdates_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EventManagementSystem.Data.Model.User), "MembershipUpdate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EventManagementSystem.Data.Model.MembershipUpdate), true)]
 [assembly: EdmRelationshipAttribute("EventManagementSystemModel", "FK_MailTemplates_EmailHeaders", "EmailHeader", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EventManagementSystem.Data.Model.EmailHeader), "MailTemplate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EventManagementSystem.Data.Model.MailTemplate), true)]
 [assembly: EdmRelationshipAttribute("EventManagementSystemModel", "FK_Corresponcences_EmailHeaders", "EmailHeader", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(EventManagementSystem.Data.Model.EmailHeader), "Corresponcence", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EventManagementSystem.Data.Model.Corresponcence), true)]
+[assembly: EdmRelationshipAttribute("EventManagementSystemModel", "FK_ContactUpdates_Contacts", "Contact", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EventManagementSystem.Data.Model.Contact), "ContactUpdate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EventManagementSystem.Data.Model.ContactUpdate), true)]
+[assembly: EdmRelationshipAttribute("EventManagementSystemModel", "FK_ContactUpdates_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(EventManagementSystem.Data.Model.User), "ContactUpdate", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(EventManagementSystem.Data.Model.ContactUpdate), true)]
 
 #endregion
 
 namespace EventManagementSystem.Data.Model
 {
     #region Contexts
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
     public partial class EmsEntities : ObjectContext
     {
         #region Constructors
-
+    
         /// <summary>
         /// Initializes a new EmsEntities object using the connection string found in the 'EmsEntities' section of the application configuration file.
         /// </summary>
-        public EmsEntities()
-            : base("name=EmsEntities", "EmsEntities")
+        public EmsEntities() : base("name=EmsEntities", "EmsEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = false;
             OnContextCreated();
         }
-
+    
         /// <summary>
         /// Initialize a new EmsEntities object.
         /// </summary>
-        public EmsEntities(string connectionString)
-            : base(connectionString, "EmsEntities")
+        public EmsEntities(string connectionString) : base(connectionString, "EmsEntities")
         {
             this.ContextOptions.LazyLoadingEnabled = false;
             OnContextCreated();
         }
-
+    
+       
+    
         #endregion
-
+    
         #region Partial Methods
-
+    
         partial void OnContextCreated();
-
+    
         #endregion
-
+    
         #region ObjectSet Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -240,7 +242,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Activity> _Activities;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -256,7 +258,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<ActivityType> _ActivityTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -272,7 +274,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<CalendarNote> _CalendarNotes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -288,7 +290,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Campaign> _Campaigns;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -304,7 +306,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<CampaignType> _CampaignTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -320,7 +322,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<CCContactsCorrespondence> _CCContactsCorrespondences;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -336,7 +338,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Clerk> _Clerks;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -352,7 +354,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Contact> _Contacts;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -368,7 +370,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<ContactTitle> _ContactTitles;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -384,7 +386,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Corresponcence> _Corresponcences;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -400,7 +402,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<CorresponcenceType> _CorresponcenceTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -416,7 +418,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<DefaultSettingsForEnquiry> _DefaultSettingsForEnquiries;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -432,7 +434,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Document> _Documents;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -448,7 +450,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EmailSetting> _EmailSettings;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -464,7 +466,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Enquiry> _Enquiries;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -480,7 +482,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EnquiryNote> _EnquiryNotes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -496,7 +498,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EnquiryReceiveMethod> _EnquiryReceiveMethods;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -512,7 +514,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EnquiryStatus> _EnquiryStatuses;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -528,7 +530,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EnquiryUpdate> _EnquiryUpdates;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -544,7 +546,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventBookedProduct> _EventBookedProducts;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -560,7 +562,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventCatering> _EventCaterings;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -576,7 +578,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventCharge> _EventCharges;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -592,7 +594,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventContact> _EventContacts;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -608,7 +610,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventGolf> _EventGolfs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -624,7 +626,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventInvoice> _EventInvoices;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -640,7 +642,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventNote> _EventNotes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -656,7 +658,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventNoteType> _EventNoteTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -672,7 +674,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventOption> _EventOptions;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -688,7 +690,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventPayment> _EventPayments;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -704,7 +706,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventRoom> _EventRooms;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -720,7 +722,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Event> _Events;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -736,7 +738,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventStatus> _EventStatuses;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -752,7 +754,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventStatusOption> _EventStatusOptions;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -768,7 +770,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventTypeOption> _EventTypeOptions;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -784,7 +786,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventType> _EventTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -800,7 +802,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventUpdate> _EventUpdates;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -816,7 +818,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Facility> _Facilities;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -832,7 +834,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<FinaliseKey> _FinaliseKeys;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -848,7 +850,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<FixedTotal> _FixedTotals;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -864,7 +866,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<FollowUp> _FollowUps;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -880,7 +882,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<FollowUpStatus> _FollowUpStatuses;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -896,7 +898,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<GolfHole> _GolfHoles;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -912,7 +914,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Golf> _Golfs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -928,7 +930,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Invoice> _Invoices;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -944,7 +946,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MailTemplateCategory> _MailTemplateCategories;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -960,7 +962,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MailTemplate> _MailTemplates;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -976,7 +978,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MailTemplateType> _MailTemplateTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -992,7 +994,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<PaymentMethod> _PaymentMethods;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1008,7 +1010,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<PermissionGroup> _PermissionGroups;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1024,7 +1026,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Permission> _Permissions;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1040,7 +1042,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<ProductDepartment> _ProductDepartments;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1056,7 +1058,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<ProductEventType> _ProductEventTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1072,7 +1074,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<ProductGroup> _ProductGroups;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1088,7 +1090,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<ProductOption> _ProductOptions;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1104,7 +1106,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Product> _Products;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1120,7 +1122,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<ProductType> _ProductTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1136,7 +1138,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<ProductVATRate> _ProductVATRates;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1152,7 +1154,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Report> _Reports;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1168,7 +1170,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<RoomFacility> _RoomFacilities;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1184,7 +1186,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Room> _Rooms;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1200,7 +1202,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TillProduct> _TillProducts;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1216,7 +1218,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TillProductTill> _TillProductTills;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1232,7 +1234,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Till> _Tills;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1248,7 +1250,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TillTabTransaction> _TillTabTransactions;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1264,7 +1266,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TillTransactionDepartment> _TillTransactionDepartments;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1280,7 +1282,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TillTransactionDetail> _TillTransactionDetails;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1296,7 +1298,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TillTransactionFinaliseKey> _TillTransactionFinaliseKeys;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1312,7 +1314,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TillTransactionGroup> _TillTransactionGroups;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1328,7 +1330,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TillTransactionProduct> _TillTransactionProducts;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1344,7 +1346,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TillTransaction> _TillTransactions;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1360,7 +1362,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TransactionKey> _TransactionKeys;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1376,7 +1378,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<UserDepartment> _UserDepartments;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1392,7 +1394,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<UserGroupPermission> _UserGroupPermissions;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1408,7 +1410,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<UserGroup> _UserGroups;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1424,7 +1426,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<UserJobType> _UserJobTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1440,7 +1442,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<UserPermission> _UserPermissions;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1456,7 +1458,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<User> _Users;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1472,7 +1474,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<CorrespondenceDocument> _CorrespondenceDocuments;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1488,7 +1490,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<GolfFollowResource> _GolfFollowResources;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1504,7 +1506,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<TillDivision> _TillDivisions;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1520,7 +1522,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<SystemSetting> _SystemSettings;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1536,7 +1538,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventTypeTODO> _EventTypeTODOs;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1552,7 +1554,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EventReminder> _EventReminders;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1568,7 +1570,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipCategory> _MembershipCategories;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1584,7 +1586,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipCategoryGroupDefault> _MembershipCategoryGroupDefaults;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1600,7 +1602,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipFullPaymentComponent> _MembershipFullPaymentComponents;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1616,7 +1618,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipGroupAge> _MembershipGroupAges;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1632,7 +1634,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipGroup> _MembershipGroups;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1648,7 +1650,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipGroupStyle> _MembershipGroupStyles;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1664,7 +1666,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipLinkType> _MembershipLinkTypes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1680,7 +1682,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipMonthlyPaymentOngoingCost> _MembershipMonthlyPaymentOngoingCosts;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1696,7 +1698,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipMonthlyPaymentUpFrontCost> _MembershipMonthlyPaymentUpFrontCosts;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1712,7 +1714,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipToken> _MembershipTokens;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1728,7 +1730,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipCategoryGroupDefaultEPOS> _MembershipCategoryGroupDefaultEPOS;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1744,7 +1746,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipGroupEPOS> _MembershipGroupEPOS;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1760,7 +1762,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipOptionBox> _MembershipOptionBoxes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1776,7 +1778,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipOptionBoxReason> _MembershipOptionBoxReasons;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1792,7 +1794,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<Member> _Members;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1808,7 +1810,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MemberNote> _MemberNotes;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1824,7 +1826,7 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<MembershipUpdate> _MembershipUpdates;
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -1840,11 +1842,27 @@ namespace EventManagementSystem.Data.Model
             }
         }
         private ObjectSet<EmailHeader> _EmailHeaders;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<ContactUpdate> ContactUpdates
+        {
+            get
+            {
+                if ((_ContactUpdates == null))
+                {
+                    _ContactUpdates = base.CreateObjectSet<ContactUpdate>("ContactUpdates");
+                }
+                return _ContactUpdates;
+            }
+        }
+        private ObjectSet<ContactUpdate> _ContactUpdates;
 
         #endregion
 
         #region AddTo Methods
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Activities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1852,7 +1870,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Activities", activity);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the ActivityTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1860,7 +1878,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("ActivityTypes", activityType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the CalendarNotes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1868,7 +1886,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("CalendarNotes", calendarNote);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Campaigns EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1876,7 +1894,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Campaigns", campaign);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the CampaignTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1884,7 +1902,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("CampaignTypes", campaignType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the CCContactsCorrespondences EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1892,7 +1910,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("CCContactsCorrespondences", cCContactsCorrespondence);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Clerks EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1900,7 +1918,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Clerks", clerk);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Contacts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1908,7 +1926,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Contacts", contact);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the ContactTitles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1916,7 +1934,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("ContactTitles", contactTitle);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Corresponcences EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1924,7 +1942,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Corresponcences", corresponcence);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the CorresponcenceTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1932,7 +1950,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("CorresponcenceTypes", corresponcenceType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the DefaultSettingsForEnquiries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1940,7 +1958,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("DefaultSettingsForEnquiries", defaultSettingsForEnquiry);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Documents EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1948,7 +1966,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Documents", document);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EmailSettings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1956,7 +1974,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EmailSettings", emailSetting);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Enquiries EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1964,7 +1982,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Enquiries", enquiry);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EnquiryNotes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1972,7 +1990,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EnquiryNotes", enquiryNote);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EnquiryReceiveMethods EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1980,7 +1998,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EnquiryReceiveMethods", enquiryReceiveMethod);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EnquiryStatuses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1988,7 +2006,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EnquiryStatuses", enquiryStatus);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EnquiryUpdates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -1996,7 +2014,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EnquiryUpdates", enquiryUpdate);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventBookedProducts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2004,7 +2022,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventBookedProducts", eventBookedProduct);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventCaterings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2012,7 +2030,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventCaterings", eventCatering);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventCharges EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2020,7 +2038,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventCharges", eventCharge);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventContacts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2028,7 +2046,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventContacts", eventContact);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventGolfs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2036,7 +2054,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventGolfs", eventGolf);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventInvoices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2044,7 +2062,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventInvoices", eventInvoice);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventNotes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2052,7 +2070,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventNotes", eventNote);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventNoteTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2060,7 +2078,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventNoteTypes", eventNoteType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventOptions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2068,7 +2086,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventOptions", eventOption);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventPayments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2076,7 +2094,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventPayments", eventPayment);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventRooms EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2084,7 +2102,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventRooms", eventRoom);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Events EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2092,7 +2110,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Events", @event);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventStatuses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2100,7 +2118,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventStatuses", eventStatus);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventStatusOptions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2108,7 +2126,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventStatusOptions", eventStatusOption);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventTypeOptions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2116,7 +2134,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventTypeOptions", eventTypeOption);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2124,7 +2142,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventTypes", eventType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventUpdates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2132,7 +2150,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventUpdates", eventUpdate);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Facilities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2140,7 +2158,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Facilities", facility);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the FinaliseKeys EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2148,7 +2166,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("FinaliseKeys", finaliseKey);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the FixedTotals EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2156,7 +2174,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("FixedTotals", fixedTotal);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the FollowUps EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2164,7 +2182,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("FollowUps", followUp);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the FollowUpStatuses EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2172,7 +2190,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("FollowUpStatuses", followUpStatus);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the GolfHoles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2180,7 +2198,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("GolfHoles", golfHole);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Golfs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2188,7 +2206,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Golfs", golf);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Invoices EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2196,7 +2214,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Invoices", invoice);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MailTemplateCategories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2204,7 +2222,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MailTemplateCategories", mailTemplateCategory);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MailTemplates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2212,7 +2230,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MailTemplates", mailTemplate);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MailTemplateTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2220,7 +2238,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MailTemplateTypes", mailTemplateType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the PaymentMethods EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2228,7 +2246,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("PaymentMethods", paymentMethod);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the PermissionGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2236,7 +2254,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("PermissionGroups", permissionGroup);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Permissions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2244,7 +2262,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Permissions", permission);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the ProductDepartments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2252,7 +2270,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("ProductDepartments", productDepartment);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the ProductEventTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2260,7 +2278,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("ProductEventTypes", productEventType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the ProductGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2268,7 +2286,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("ProductGroups", productGroup);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the ProductOptions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2276,7 +2294,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("ProductOptions", productOption);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Products EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2284,7 +2302,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Products", product);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the ProductTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2292,7 +2310,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("ProductTypes", productType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the ProductVATRates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2300,7 +2318,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("ProductVATRates", productVATRate);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Reports EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2308,7 +2326,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Reports", report);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the RoomFacilities EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2316,7 +2334,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("RoomFacilities", roomFacility);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Rooms EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2324,7 +2342,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Rooms", room);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TillProducts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2332,7 +2350,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TillProducts", tillProduct);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TillProductTills EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2340,7 +2358,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TillProductTills", tillProductTill);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Tills EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2348,7 +2366,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Tills", till);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TillTabTransactions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2356,7 +2374,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TillTabTransactions", tillTabTransaction);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TillTransactionDepartments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2364,7 +2382,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TillTransactionDepartments", tillTransactionDepartment);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TillTransactionDetails EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2372,7 +2390,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TillTransactionDetails", tillTransactionDetail);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TillTransactionFinaliseKeys EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2380,7 +2398,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TillTransactionFinaliseKeys", tillTransactionFinaliseKey);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TillTransactionGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2388,7 +2406,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TillTransactionGroups", tillTransactionGroup);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TillTransactionProducts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2396,7 +2414,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TillTransactionProducts", tillTransactionProduct);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TillTransactions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2404,7 +2422,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TillTransactions", tillTransaction);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TransactionKeys EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2412,7 +2430,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TransactionKeys", transactionKey);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the UserDepartments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2420,7 +2438,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("UserDepartments", userDepartment);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the UserGroupPermissions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2428,7 +2446,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("UserGroupPermissions", userGroupPermission);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the UserGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2436,7 +2454,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("UserGroups", userGroup);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the UserJobTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2444,7 +2462,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("UserJobTypes", userJobType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the UserPermissions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2452,7 +2470,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("UserPermissions", userPermission);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2460,7 +2478,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Users", user);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the CorrespondenceDocuments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2468,7 +2486,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("CorrespondenceDocuments", correspondenceDocument);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the GolfFollowResources EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2476,7 +2494,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("GolfFollowResources", golfFollowResource);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the TillDivisions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2484,7 +2502,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("TillDivisions", tillDivision);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the SystemSettings EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2492,7 +2510,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("SystemSettings", systemSetting);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventTypeTODOs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2500,7 +2518,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventTypeTODOs", eventTypeTODO);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EventReminders EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2508,7 +2526,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("EventReminders", eventReminder);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipCategories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2516,7 +2534,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipCategories", membershipCategory);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipCategoryGroupDefaults EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2524,7 +2542,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipCategoryGroupDefaults", membershipCategoryGroupDefault);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipFullPaymentComponents EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2532,7 +2550,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipFullPaymentComponents", membershipFullPaymentComponent);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipGroupAges EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2540,7 +2558,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipGroupAges", membershipGroupAge);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2548,7 +2566,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipGroups", membershipGroup);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipGroupStyles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2556,7 +2574,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipGroupStyles", membershipGroupStyle);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipLinkTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2564,7 +2582,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipLinkTypes", membershipLinkType);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipMonthlyPaymentOngoingCosts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2572,7 +2590,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipMonthlyPaymentOngoingCosts", membershipMonthlyPaymentOngoingCost);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipMonthlyPaymentUpFrontCosts EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2580,7 +2598,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipMonthlyPaymentUpFrontCosts", membershipMonthlyPaymentUpFrontCost);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipTokens EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2588,7 +2606,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipTokens", membershipToken);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipCategoryGroupDefaultEPOS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2596,7 +2614,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipCategoryGroupDefaultEPOS", membershipCategoryGroupDefaultEPOS);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipGroupEPOS EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2604,7 +2622,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipGroupEPOS", membershipGroupEPOS);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipOptionBoxes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2612,7 +2630,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipOptionBoxes", membershipOptionBox);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipOptionBoxReasons EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2620,7 +2638,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipOptionBoxReasons", membershipOptionBoxReason);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the Members EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2628,7 +2646,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("Members", member);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MemberNotes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2636,7 +2654,7 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MemberNotes", memberNote);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the MembershipUpdates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
@@ -2644,13 +2662,21 @@ namespace EventManagementSystem.Data.Model
         {
             base.AddObject("MembershipUpdates", membershipUpdate);
         }
-
+    
         /// <summary>
         /// Deprecated Method for adding a new object to the EmailHeaders EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToEmailHeaders(EmailHeader emailHeader)
         {
             base.AddObject("EmailHeaders", emailHeader);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the ContactUpdates EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToContactUpdates(ContactUpdate contactUpdate)
+        {
+            base.AddObject("ContactUpdates", contactUpdate);
         }
 
         #endregion
@@ -2660,17 +2686,17 @@ namespace EventManagementSystem.Data.Model
     #endregion
 
     #region Entities
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Activity")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Activity")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Activity : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Activity object.
         /// </summary>
@@ -2699,11 +2725,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -2726,11 +2752,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EnquiryID
         {
@@ -2750,11 +2776,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EnquiryID;
         partial void OnEnquiryIDChanging(global::System.Guid value);
         partial void OnEnquiryIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ActivityTypeID
         {
@@ -2774,11 +2800,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ActivityTypeID;
         partial void OnActivityTypeIDChanging(global::System.Guid value);
         partial void OnActivityTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Direction
         {
@@ -2798,11 +2824,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Direction;
         partial void OnDirectionChanging(global::System.String value);
         partial void OnDirectionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Details
         {
@@ -2822,11 +2848,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Details;
         partial void OnDetailsChanging(global::System.String value);
         partial void OnDetailsChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Length
         {
@@ -2846,11 +2872,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Length;
         partial void OnLengthChanging(global::System.String value);
         partial void OnLengthChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> FollowUpID
         {
@@ -2870,11 +2896,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _FollowUpID;
         partial void OnFollowUpIDChanging(Nullable<global::System.Guid> value);
         partial void OnFollowUpIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -2894,11 +2920,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid AssigneeID
         {
@@ -2918,11 +2944,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _AssigneeID;
         partial void OnAssigneeIDChanging(global::System.Guid value);
         partial void OnAssigneeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastEditDate
         {
@@ -2946,7 +2972,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -2984,7 +3010,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3022,7 +3048,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3060,7 +3086,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3102,17 +3128,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "ActivityType")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="ActivityType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class ActivityType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new ActivityType object.
         /// </summary>
@@ -3129,11 +3155,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -3156,11 +3182,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -3184,7 +3210,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3210,17 +3236,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "CalendarNote")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="CalendarNote")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class CalendarNote : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new CalendarNote object.
         /// </summary>
@@ -3243,11 +3269,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -3270,11 +3296,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -3294,11 +3320,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime StartTime
         {
@@ -3318,11 +3344,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _StartTime;
         partial void OnStartTimeChanging(global::System.DateTime value);
         partial void OnStartTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime EndTime
         {
@@ -3342,11 +3368,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _EndTime;
         partial void OnEndTimeChanging(global::System.DateTime value);
         partial void OnEndTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Color
         {
@@ -3370,17 +3396,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Campaign")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Campaign")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Campaign : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Campaign object.
         /// </summary>
@@ -3405,11 +3431,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -3432,11 +3458,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime StartDate
         {
@@ -3456,11 +3482,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _StartDate;
         partial void OnStartDateChanging(global::System.DateTime value);
         partial void OnStartDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime EndDate
         {
@@ -3480,11 +3506,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _EndDate;
         partial void OnEndDateChanging(global::System.DateTime value);
         partial void OnEndDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid CampaignTypeID
         {
@@ -3504,11 +3530,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _CampaignTypeID;
         partial void OnCampaignTypeIDChanging(global::System.Guid value);
         partial void OnCampaignTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsActive
         {
@@ -3528,11 +3554,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsActive;
         partial void OnIsActiveChanging(global::System.Boolean value);
         partial void OnIsActiveChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -3552,11 +3578,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastEditDate
         {
@@ -3580,7 +3606,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3618,7 +3644,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3644,17 +3670,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "CampaignType")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="CampaignType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class CampaignType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new CampaignType object.
         /// </summary>
@@ -3671,11 +3697,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -3698,11 +3724,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -3726,7 +3752,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3752,17 +3778,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "CCContactsCorrespondence")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="CCContactsCorrespondence")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class CCContactsCorrespondence : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new CCContactsCorrespondence object.
         /// </summary>
@@ -3781,11 +3807,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -3808,11 +3834,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid CorrespondenceID
         {
@@ -3832,11 +3858,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _CorrespondenceID;
         partial void OnCorrespondenceIDChanging(global::System.Guid value);
         partial void OnCorrespondenceIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ContactID
         {
@@ -3860,7 +3886,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3898,7 +3924,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -3940,17 +3966,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Clerk")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Clerk")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Clerk : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Clerk object.
         /// </summary>
@@ -3969,11 +3995,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -3996,11 +4022,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Record
         {
@@ -4020,11 +4046,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Record;
         partial void OnRecordChanging(global::System.Int32 value);
         partial void OnRecordChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -4044,11 +4070,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TillID
         {
@@ -4072,7 +4098,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4094,7 +4120,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4120,17 +4146,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Contact")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Contact")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Contact : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Contact object.
         /// </summary>
@@ -4151,11 +4177,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -4178,11 +4204,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Title
         {
@@ -4202,11 +4228,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Title;
         partial void OnTitleChanging(Nullable<global::System.Guid> value);
         partial void OnTitleChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String FirstName
         {
@@ -4226,11 +4252,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _FirstName;
         partial void OnFirstNameChanging(global::System.String value);
         partial void OnFirstNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String LastName
         {
@@ -4250,11 +4276,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _LastName;
         partial void OnLastNameChanging(global::System.String value);
         partial void OnLastNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Address1
         {
@@ -4274,11 +4300,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Address1;
         partial void OnAddress1Changing(global::System.String value);
         partial void OnAddress1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Address2
         {
@@ -4298,11 +4324,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Address2;
         partial void OnAddress2Changing(global::System.String value);
         partial void OnAddress2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Address3
         {
@@ -4322,11 +4348,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Address3;
         partial void OnAddress3Changing(global::System.String value);
         partial void OnAddress3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String CompanyName
         {
@@ -4346,11 +4372,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _CompanyName;
         partial void OnCompanyNameChanging(global::System.String value);
         partial void OnCompanyNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String City
         {
@@ -4370,11 +4396,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _City;
         partial void OnCityChanging(global::System.String value);
         partial void OnCityChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Country
         {
@@ -4394,11 +4420,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Country;
         partial void OnCountryChanging(global::System.String value);
         partial void OnCountryChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String PostCode
         {
@@ -4418,11 +4444,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _PostCode;
         partial void OnPostCodeChanging(global::System.String value);
         partial void OnPostCodeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Email
         {
@@ -4442,11 +4468,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Email;
         partial void OnEmailChanging(global::System.String value);
         partial void OnEmailChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Phone1
         {
@@ -4466,11 +4492,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Phone1;
         partial void OnPhone1Changing(global::System.String value);
         partial void OnPhone1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Phone2
         {
@@ -4490,11 +4516,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Phone2;
         partial void OnPhone2Changing(global::System.String value);
         partial void OnPhone2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Gender
         {
@@ -4518,7 +4544,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4540,7 +4566,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4578,7 +4604,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4600,7 +4626,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4622,7 +4648,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4644,7 +4670,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4666,7 +4692,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4704,21 +4730,43 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EventManagementSystemModel", "FK_ContactUpdates_Contacts", "ContactUpdate")]
+        public EntityCollection<ContactUpdate> ContactUpdates
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ContactUpdate>("EventManagementSystemModel.FK_ContactUpdates_Contacts", "ContactUpdate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ContactUpdate>("EventManagementSystemModel.FK_ContactUpdates_Contacts", "ContactUpdate", value);
+                }
+            }
+        }
 
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "ContactTitle")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="ContactTitle")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class ContactTitle : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new ContactTitle object.
         /// </summary>
@@ -4735,11 +4783,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -4762,11 +4810,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Title
         {
@@ -4790,7 +4838,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -4816,17 +4864,401 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Corresponcence")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="ContactUpdate")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
+    public partial class ContactUpdate : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new ContactUpdate object.
+        /// </summary>
+        /// <param name="id">Initial value of the ID property.</param>
+        /// <param name="contactID">Initial value of the ContactID property.</param>
+        /// <param name="userID">Initial value of the UserID property.</param>
+        /// <param name="message">Initial value of the Message property.</param>
+        /// <param name="date">Initial value of the Date property.</param>
+        public static ContactUpdate CreateContactUpdate(global::System.Guid id, global::System.Guid contactID, global::System.Guid userID, global::System.String message, global::System.DateTime date)
+        {
+            ContactUpdate contactUpdate = new ContactUpdate();
+            contactUpdate.ID = id;
+            contactUpdate.ContactID = contactID;
+            contactUpdate.UserID = userID;
+            contactUpdate.Message = message;
+            contactUpdate.Date = date;
+            return contactUpdate;
+        }
+
+        #endregion
+
+        #region Simple Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ID
+        {
+            get
+            {
+                return _ID;
+            }
+            set
+            {
+                if (_ID != value)
+                {
+                    OnIDChanging(value);
+                    ReportPropertyChanging("ID");
+                    _ID = StructuralObject.SetValidValue(value, "ID");
+                    ReportPropertyChanged("ID");
+                    OnIDChanged();
+                }
+            }
+        }
+        private global::System.Guid _ID;
+        partial void OnIDChanging(global::System.Guid value);
+        partial void OnIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid ContactID
+        {
+            get
+            {
+                return _ContactID;
+            }
+            set
+            {
+                OnContactIDChanging(value);
+                ReportPropertyChanging("ContactID");
+                _ContactID = StructuralObject.SetValidValue(value, "ContactID");
+                ReportPropertyChanged("ContactID");
+                OnContactIDChanged();
+            }
+        }
+        private global::System.Guid _ContactID;
+        partial void OnContactIDChanging(global::System.Guid value);
+        partial void OnContactIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Guid UserID
+        {
+            get
+            {
+                return _UserID;
+            }
+            set
+            {
+                OnUserIDChanging(value);
+                ReportPropertyChanging("UserID");
+                _UserID = StructuralObject.SetValidValue(value, "UserID");
+                ReportPropertyChanged("UserID");
+                OnUserIDChanged();
+            }
+        }
+        private global::System.Guid _UserID;
+        partial void OnUserIDChanging(global::System.Guid value);
+        partial void OnUserIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Message
+        {
+            get
+            {
+                return _Message;
+            }
+            set
+            {
+                OnMessageChanging(value);
+                ReportPropertyChanging("Message");
+                _Message = StructuralObject.SetValidValue(value, false, "Message");
+                ReportPropertyChanged("Message");
+                OnMessageChanged();
+            }
+        }
+        private global::System.String _Message;
+        partial void OnMessageChanging(global::System.String value);
+        partial void OnMessageChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Date
+        {
+            get
+            {
+                return _Date;
+            }
+            set
+            {
+                OnDateChanging(value);
+                ReportPropertyChanging("Date");
+                _Date = StructuralObject.SetValidValue(value, "Date");
+                ReportPropertyChanged("Date");
+                OnDateChanged();
+            }
+        }
+        private global::System.DateTime _Date;
+        partial void OnDateChanging(global::System.DateTime value);
+        partial void OnDateChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String OldValue
+        {
+            get
+            {
+                return _OldValue;
+            }
+            set
+            {
+                OnOldValueChanging(value);
+                ReportPropertyChanging("OldValue");
+                _OldValue = StructuralObject.SetValidValue(value, true, "OldValue");
+                ReportPropertyChanged("OldValue");
+                OnOldValueChanged();
+            }
+        }
+        private global::System.String _OldValue;
+        partial void OnOldValueChanging(global::System.String value);
+        partial void OnOldValueChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NewValue
+        {
+            get
+            {
+                return _NewValue;
+            }
+            set
+            {
+                OnNewValueChanging(value);
+                ReportPropertyChanging("NewValue");
+                _NewValue = StructuralObject.SetValidValue(value, true, "NewValue");
+                ReportPropertyChanged("NewValue");
+                OnNewValueChanged();
+            }
+        }
+        private global::System.String _NewValue;
+        partial void OnNewValueChanging(global::System.String value);
+        partial void OnNewValueChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Guid> ItemId
+        {
+            get
+            {
+                return _ItemId;
+            }
+            set
+            {
+                OnItemIdChanging(value);
+                ReportPropertyChanging("ItemId");
+                _ItemId = StructuralObject.SetValidValue(value, "ItemId");
+                ReportPropertyChanged("ItemId");
+                OnItemIdChanged();
+            }
+        }
+        private Nullable<global::System.Guid> _ItemId;
+        partial void OnItemIdChanging(Nullable<global::System.Guid> value);
+        partial void OnItemIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ItemType
+        {
+            get
+            {
+                return _ItemType;
+            }
+            set
+            {
+                OnItemTypeChanging(value);
+                ReportPropertyChanging("ItemType");
+                _ItemType = StructuralObject.SetValidValue(value, true, "ItemType");
+                ReportPropertyChanged("ItemType");
+                OnItemTypeChanged();
+            }
+        }
+        private global::System.String _ItemType;
+        partial void OnItemTypeChanging(global::System.String value);
+        partial void OnItemTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Field
+        {
+            get
+            {
+                return _Field;
+            }
+            set
+            {
+                OnFieldChanging(value);
+                ReportPropertyChanging("Field");
+                _Field = StructuralObject.SetValidValue(value, true, "Field");
+                ReportPropertyChanged("Field");
+                OnFieldChanged();
+            }
+        }
+        private global::System.String _Field;
+        partial void OnFieldChanging(global::System.String value);
+        partial void OnFieldChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Action
+        {
+            get
+            {
+                return _Action;
+            }
+            set
+            {
+                OnActionChanging(value);
+                ReportPropertyChanging("Action");
+                _Action = StructuralObject.SetValidValue(value, "Action");
+                ReportPropertyChanged("Action");
+                OnActionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Action;
+        partial void OnActionChanging(Nullable<global::System.Int32> value);
+        partial void OnActionChanged();
+
+        #endregion
+
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EventManagementSystemModel", "FK_ContactUpdates_Contacts", "Contact")]
+        public Contact Contact
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contact>("EventManagementSystemModel.FK_ContactUpdates_Contacts", "Contact").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contact>("EventManagementSystemModel.FK_ContactUpdates_Contacts", "Contact").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Contact> ContactReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Contact>("EventManagementSystemModel.FK_ContactUpdates_Contacts", "Contact");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Contact>("EventManagementSystemModel.FK_ContactUpdates_Contacts", "Contact", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EventManagementSystemModel", "FK_ContactUpdates_Users", "User")]
+        public User User
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EventManagementSystemModel.FK_ContactUpdates_Users", "User").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EventManagementSystemModel.FK_ContactUpdates_Users", "User").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<User> UserReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<User>("EventManagementSystemModel.FK_ContactUpdates_Users", "User");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<User>("EventManagementSystemModel.FK_ContactUpdates_Users", "User", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Corresponcence")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
     public partial class Corresponcence : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Corresponcence object.
         /// </summary>
@@ -4861,11 +5293,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -4888,11 +5320,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid OwnerID
         {
@@ -4912,11 +5344,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _OwnerID;
         partial void OnOwnerIDChanging(global::System.Guid value);
         partial void OnOwnerIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String OwnerType
         {
@@ -4936,11 +5368,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _OwnerType;
         partial void OnOwnerTypeChanging(global::System.String value);
         partial void OnOwnerTypeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid CorresponcenceTypeID
         {
@@ -4960,11 +5392,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _CorresponcenceTypeID;
         partial void OnCorresponcenceTypeIDChanging(global::System.Guid value);
         partial void OnCorresponcenceTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String EmailType
         {
@@ -4984,11 +5416,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _EmailType;
         partial void OnEmailTypeChanging(global::System.String value);
         partial void OnEmailTypeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String FromAddress
         {
@@ -5008,11 +5440,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _FromAddress;
         partial void OnFromAddressChanging(global::System.String value);
         partial void OnFromAddressChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ToAddress
         {
@@ -5032,11 +5464,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _ToAddress;
         partial void OnToAddressChanging(global::System.String value);
         partial void OnToAddressChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String CCAddress
         {
@@ -5056,11 +5488,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _CCAddress;
         partial void OnCCAddressChanging(global::System.String value);
         partial void OnCCAddressChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Message
         {
@@ -5080,11 +5512,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Message;
         partial void OnMessageChanging(global::System.String value);
         partial void OnMessageChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Subject
         {
@@ -5104,11 +5536,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Subject;
         partial void OnSubjectChanging(global::System.String value);
         partial void OnSubjectChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -5128,11 +5560,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserID
         {
@@ -5152,11 +5584,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _UserID;
         partial void OnUserIDChanging(global::System.Guid value);
         partial void OnUserIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> ContactToID
         {
@@ -5176,11 +5608,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _ContactToID;
         partial void OnContactToIDChanging(Nullable<global::System.Guid> value);
         partial void OnContactToIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> EmailHeaderID
         {
@@ -5204,7 +5636,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5226,7 +5658,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5264,7 +5696,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5302,7 +5734,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5340,7 +5772,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5362,7 +5794,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5404,17 +5836,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "CorresponcenceType")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="CorresponcenceType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class CorresponcenceType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new CorresponcenceType object.
         /// </summary>
@@ -5431,11 +5863,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -5458,11 +5890,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Type
         {
@@ -5486,7 +5918,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5512,17 +5944,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "CorrespondenceDocument")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="CorrespondenceDocument")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class CorrespondenceDocument : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new CorrespondenceDocument object.
         /// </summary>
@@ -5541,11 +5973,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -5568,11 +6000,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid CorrespondenceID
         {
@@ -5592,11 +6024,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _CorrespondenceID;
         partial void OnCorrespondenceIDChanging(global::System.Guid value);
         partial void OnCorrespondenceIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid DocumentID
         {
@@ -5620,7 +6052,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5658,7 +6090,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5700,17 +6132,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "DefaultSettingsForEnquiry")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="DefaultSettingsForEnquiry")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class DefaultSettingsForEnquiry : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new DefaultSettingsForEnquiry object.
         /// </summary>
@@ -5729,11 +6161,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -5756,11 +6188,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EnquiryStatusID
         {
@@ -5780,11 +6212,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EnquiryStatusID;
         partial void OnEnquiryStatusIDChanging(global::System.Guid value);
         partial void OnEnquiryStatusIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserID
         {
@@ -5804,11 +6236,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _UserID;
         partial void OnUserIDChanging(global::System.Guid value);
         partial void OnUserIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String FromAddress
         {
@@ -5832,7 +6264,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5870,7 +6302,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -5912,17 +6344,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Document")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Document")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Document : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Document object.
         /// </summary>
@@ -5943,11 +6375,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -5970,11 +6402,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -5994,11 +6426,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsEnabled
         {
@@ -6018,11 +6450,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsEnabled;
         partial void OnIsEnabledChanging(global::System.Boolean value);
         partial void OnIsEnabledChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsCommon
         {
@@ -6042,11 +6474,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsCommon;
         partial void OnIsCommonChanging(global::System.Boolean value);
         partial void OnIsCommonChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Path
         {
@@ -6066,11 +6498,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Path;
         partial void OnPathChanging(global::System.String value);
         partial void OnPathChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> EventID
         {
@@ -6094,7 +6526,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -6132,7 +6564,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -6158,17 +6590,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EmailHeader")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EmailHeader")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EmailHeader : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EmailHeader object.
         /// </summary>
@@ -6189,11 +6621,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -6216,11 +6648,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -6240,11 +6672,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsEnabled
         {
@@ -6264,11 +6696,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsEnabled;
         partial void OnIsEnabledChanging(global::System.Boolean value);
         partial void OnIsEnabledChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Content
         {
@@ -6288,11 +6720,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Content;
         partial void OnContentChanging(global::System.String value);
         partial void OnContentChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ImageName
         {
@@ -6312,11 +6744,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _ImageName;
         partial void OnImageNameChanging(global::System.String value);
         partial void OnImageNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastUpdatedDate
         {
@@ -6340,7 +6772,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -6362,7 +6794,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -6388,17 +6820,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EmailSetting")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EmailSetting")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EmailSetting : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EmailSetting object.
         /// </summary>
@@ -6423,11 +6855,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -6450,11 +6882,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Server
         {
@@ -6474,11 +6906,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Server;
         partial void OnServerChanging(global::System.String value);
         partial void OnServerChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean EnableSSL
         {
@@ -6498,11 +6930,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _EnableSSL;
         partial void OnEnableSSLChanging(global::System.Boolean value);
         partial void OnEnableSSLChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Username
         {
@@ -6522,11 +6954,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Username;
         partial void OnUsernameChanging(global::System.String value);
         partial void OnUsernameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Password
         {
@@ -6546,11 +6978,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Password;
         partial void OnPasswordChanging(global::System.String value);
         partial void OnPasswordChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Port
         {
@@ -6574,17 +7006,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Enquiry")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Enquiry")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Enquiry : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Enquiry object.
         /// </summary>
@@ -6617,11 +7049,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -6644,11 +7076,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -6668,11 +7100,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> Date
         {
@@ -6692,11 +7124,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _Date;
         partial void OnDateChanging(Nullable<global::System.DateTime> value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> Places
         {
@@ -6716,11 +7148,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _Places;
         partial void OnPlacesChanging(Nullable<global::System.Int32> value);
         partial void OnPlacesChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> ContactID
         {
@@ -6740,11 +7172,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _ContactID;
         partial void OnContactIDChanging(Nullable<global::System.Guid> value);
         partial void OnContactIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventTypeID
         {
@@ -6764,11 +7196,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventTypeID;
         partial void OnEventTypeIDChanging(global::System.Guid value);
         partial void OnEventTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventStatusID
         {
@@ -6788,11 +7220,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventStatusID;
         partial void OnEventStatusIDChanging(global::System.Guid value);
         partial void OnEventStatusIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TakenByID
         {
@@ -6812,11 +7244,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TakenByID;
         partial void OnTakenByIDChanging(global::System.Guid value);
         partial void OnTakenByIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid AssignedToID
         {
@@ -6836,11 +7268,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _AssignedToID;
         partial void OnAssignedToIDChanging(global::System.Guid value);
         partial void OnAssignedToIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ReceivedMethodID
         {
@@ -6860,11 +7292,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ReceivedMethodID;
         partial void OnReceivedMethodIDChanging(global::System.Guid value);
         partial void OnReceivedMethodIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Value
         {
@@ -6884,11 +7316,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Double _Value;
         partial void OnValueChanging(global::System.Double value);
         partial void OnValueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EnquiryStatusID
         {
@@ -6908,11 +7340,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EnquiryStatusID;
         partial void OnEnquiryStatusIDChanging(global::System.Guid value);
         partial void OnEnquiryStatusIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Likelihood
         {
@@ -6932,11 +7364,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Likelihood;
         partial void OnLikelihoodChanging(global::System.Int32 value);
         partial void OnLikelihoodChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> CampaignID
         {
@@ -6956,11 +7388,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _CampaignID;
         partial void OnCampaignIDChanging(Nullable<global::System.Guid> value);
         partial void OnCampaignIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreationDate
         {
@@ -6980,11 +7412,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _CreationDate;
         partial void OnCreationDateChanging(global::System.DateTime value);
         partial void OnCreationDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastEditDate
         {
@@ -7004,11 +7436,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _LastEditDate;
         partial void OnLastEditDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLastEditDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> LockedUserID
         {
@@ -7032,7 +7464,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7054,7 +7486,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7092,7 +7524,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7130,7 +7562,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7168,7 +7600,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7206,7 +7638,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7244,7 +7676,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7282,7 +7714,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7320,7 +7752,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7358,7 +7790,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7380,7 +7812,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7402,7 +7834,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7424,7 +7856,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7450,17 +7882,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EnquiryNote")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EnquiryNote")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EnquiryNote : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EnquiryNote object.
         /// </summary>
@@ -7483,11 +7915,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -7510,11 +7942,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EnquiryID
         {
@@ -7534,11 +7966,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EnquiryID;
         partial void OnEnquiryIDChanging(global::System.Guid value);
         partial void OnEnquiryIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -7558,11 +7990,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Note
         {
@@ -7582,11 +8014,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Note;
         partial void OnNoteChanging(global::System.String value);
         partial void OnNoteChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserID
         {
@@ -7610,7 +8042,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7648,7 +8080,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7690,17 +8122,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EnquiryReceiveMethod")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EnquiryReceiveMethod")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EnquiryReceiveMethod : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EnquiryReceiveMethod object.
         /// </summary>
@@ -7717,11 +8149,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -7744,11 +8176,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ReceiveMethod
         {
@@ -7772,7 +8204,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7798,17 +8230,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EnquiryStatus")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EnquiryStatus")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EnquiryStatus : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EnquiryStatus object.
         /// </summary>
@@ -7829,11 +8261,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -7856,11 +8288,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Status
         {
@@ -7880,11 +8312,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Status;
         partial void OnStatusChanging(global::System.String value);
         partial void OnStatusChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsEnabled
         {
@@ -7904,11 +8336,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsEnabled;
         partial void OnIsEnabledChanging(global::System.Boolean value);
         partial void OnIsEnabledChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean DefinedAsActive
         {
@@ -7932,7 +8364,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7954,7 +8386,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -7980,17 +8412,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EnquiryUpdate")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EnquiryUpdate")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EnquiryUpdate : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EnquiryUpdate object.
         /// </summary>
@@ -8013,11 +8445,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -8040,11 +8472,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EnquiryID
         {
@@ -8064,11 +8496,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EnquiryID;
         partial void OnEnquiryIDChanging(global::System.Guid value);
         partial void OnEnquiryIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserID
         {
@@ -8088,11 +8520,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _UserID;
         partial void OnUserIDChanging(global::System.Guid value);
         partial void OnUserIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Message
         {
@@ -8112,11 +8544,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Message;
         partial void OnMessageChanging(global::System.String value);
         partial void OnMessageChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -8140,7 +8572,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8178,7 +8610,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8220,17 +8652,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Event")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Event")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Event : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Event object.
         /// </summary>
@@ -8267,11 +8699,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -8294,11 +8726,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -8318,11 +8750,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -8342,11 +8774,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Places
         {
@@ -8366,11 +8798,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Places;
         partial void OnPlacesChanging(global::System.Int32 value);
         partial void OnPlacesChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> ContactID
         {
@@ -8390,11 +8822,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _ContactID;
         partial void OnContactIDChanging(Nullable<global::System.Guid> value);
         partial void OnContactIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventTypeID
         {
@@ -8414,11 +8846,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventTypeID;
         partial void OnEventTypeIDChanging(global::System.Guid value);
         partial void OnEventTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventStatusID
         {
@@ -8438,11 +8870,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventStatusID;
         partial void OnEventStatusIDChanging(global::System.Guid value);
         partial void OnEventStatusIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreationDate
         {
@@ -8462,11 +8894,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _CreationDate;
         partial void OnCreationDateChanging(global::System.DateTime value);
         partial void OnCreationDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastEditDate
         {
@@ -8486,11 +8918,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _LastEditDate;
         partial void OnLastEditDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLastEditDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean MembersOnly
         {
@@ -8510,11 +8942,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _MembersOnly;
         partial void OnMembersOnlyChanging(global::System.Boolean value);
         partial void OnMembersOnlyChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean ShowInForwardBook
         {
@@ -8534,11 +8966,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _ShowInForwardBook;
         partial void OnShowInForwardBookChanging(global::System.Boolean value);
         partial void OnShowInForwardBookChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean ShowOnCalendar
         {
@@ -8558,11 +8990,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _ShowOnCalendar;
         partial void OnShowOnCalendarChanging(global::System.Boolean value);
         partial void OnShowOnCalendarChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean UsedAsTemplate
         {
@@ -8582,11 +9014,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _UsedAsTemplate;
         partial void OnUsedAsTemplateChanging(global::System.Boolean value);
         partial void OnUsedAsTemplateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsDeleted
         {
@@ -8606,11 +9038,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsDeleted;
         partial void OnIsDeletedChanging(global::System.Boolean value);
         partial void OnIsDeletedChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String InvoiceAddress
         {
@@ -8630,11 +9062,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _InvoiceAddress;
         partial void OnInvoiceAddressChanging(global::System.String value);
         partial void OnInvoiceAddressChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> InvoiceNumber
         {
@@ -8654,11 +9086,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _InvoiceNumber;
         partial void OnInvoiceNumberChanging(Nullable<global::System.Int32> value);
         partial void OnInvoiceNumberChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastFunctionSheetPrint
         {
@@ -8678,11 +9110,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _LastFunctionSheetPrint;
         partial void OnLastFunctionSheetPrintChanging(Nullable<global::System.DateTime> value);
         partial void OnLastFunctionSheetPrintChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> EnquiryID
         {
@@ -8702,11 +9134,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _EnquiryID;
         partial void OnEnquiryIDChanging(Nullable<global::System.Guid> value);
         partial void OnEnquiryIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> StartTime
         {
@@ -8726,11 +9158,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _StartTime;
         partial void OnStartTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnStartTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> EndTime
         {
@@ -8750,11 +9182,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _EndTime;
         partial void OnEndTimeChanging(Nullable<global::System.DateTime> value);
         partial void OnEndTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> LockedUserID
         {
@@ -8778,7 +9210,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8816,7 +9248,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8838,7 +9270,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8876,7 +9308,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8898,7 +9330,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8920,7 +9352,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8942,7 +9374,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8964,7 +9396,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -8986,7 +9418,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9008,7 +9440,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9030,7 +9462,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9052,7 +9484,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9074,7 +9506,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9112,7 +9544,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9150,7 +9582,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9172,7 +9604,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9194,7 +9626,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9216,7 +9648,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9242,17 +9674,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventBookedProduct")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventBookedProduct")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventBookedProduct : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventBookedProduct object.
         /// </summary>
@@ -9277,11 +9709,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -9304,11 +9736,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -9328,11 +9760,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ProductID
         {
@@ -9352,11 +9784,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ProductID;
         partial void OnProductIDChanging(global::System.Guid value);
         partial void OnProductIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventBookingItemID
         {
@@ -9376,11 +9808,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventBookingItemID;
         partial void OnEventBookingItemIDChanging(global::System.Guid value);
         partial void OnEventBookingItemIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Quantity
         {
@@ -9400,11 +9832,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Quantity;
         partial void OnQuantityChanging(global::System.Int32 value);
         partial void OnQuantityChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Price
         {
@@ -9428,7 +9860,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9466,7 +9898,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9504,7 +9936,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9546,17 +9978,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventCatering")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventCatering")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventCatering : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventCatering object.
         /// </summary>
@@ -9589,11 +10021,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -9616,11 +10048,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -9640,11 +10072,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Time
         {
@@ -9664,11 +10096,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Time;
         partial void OnTimeChanging(global::System.DateTime value);
         partial void OnTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid RoomID
         {
@@ -9688,11 +10120,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _RoomID;
         partial void OnRoomIDChanging(global::System.Guid value);
         partial void OnRoomIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime StartTime
         {
@@ -9712,11 +10144,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _StartTime;
         partial void OnStartTimeChanging(global::System.DateTime value);
         partial void OnStartTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime EndTime
         {
@@ -9736,11 +10168,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _EndTime;
         partial void OnEndTimeChanging(global::System.DateTime value);
         partial void OnEndTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Notes
         {
@@ -9760,11 +10192,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Notes;
         partial void OnNotesChanging(global::System.String value);
         partial void OnNotesChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean ShowInInvoice
         {
@@ -9784,11 +10216,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _ShowInInvoice;
         partial void OnShowInInvoiceChanging(global::System.Boolean value);
         partial void OnShowInInvoiceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IncludeInForwardBook
         {
@@ -9808,11 +10240,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IncludeInForwardBook;
         partial void OnIncludeInForwardBookChanging(global::System.Boolean value);
         partial void OnIncludeInForwardBookChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IncludeInCorrespondence
         {
@@ -9832,11 +10264,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IncludeInCorrespondence;
         partial void OnIncludeInCorrespondenceChanging(global::System.Boolean value);
         partial void OnIncludeInCorrespondenceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsSpecial
         {
@@ -9860,7 +10292,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9898,7 +10330,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -9940,17 +10372,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventCharge")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventCharge")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventCharge : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventCharge object.
         /// </summary>
@@ -9977,11 +10409,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -10004,11 +10436,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -10028,11 +10460,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ProductID
         {
@@ -10052,11 +10484,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ProductID;
         partial void OnProductIDChanging(global::System.Guid value);
         partial void OnProductIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Quantity
         {
@@ -10076,11 +10508,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Quantity;
         partial void OnQuantityChanging(global::System.Int32 value);
         partial void OnQuantityChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Price
         {
@@ -10100,11 +10532,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Double _Price;
         partial void OnPriceChanging(global::System.Double value);
         partial void OnPriceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Notes
         {
@@ -10124,11 +10556,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Notes;
         partial void OnNotesChanging(global::System.String value);
         partial void OnNotesChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsCommited
         {
@@ -10148,11 +10580,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsCommited;
         partial void OnIsCommitedChanging(global::System.Boolean value);
         partial void OnIsCommitedChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean ShowInInvoice
         {
@@ -10176,7 +10608,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10214,7 +10646,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10252,7 +10684,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10294,17 +10726,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventContact")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventContact")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventContact : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventContact object.
         /// </summary>
@@ -10323,11 +10755,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -10350,11 +10782,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -10374,11 +10806,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ContactID
         {
@@ -10402,7 +10834,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10440,7 +10872,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10482,17 +10914,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventGolf")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventGolf")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventGolf : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventGolf object.
         /// </summary>
@@ -10525,11 +10957,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -10552,11 +10984,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -10576,11 +11008,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Time
         {
@@ -10600,11 +11032,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Time;
         partial void OnTimeChanging(global::System.DateTime value);
         partial void OnTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TeeID
         {
@@ -10624,11 +11056,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TeeID;
         partial void OnTeeIDChanging(global::System.Guid value);
         partial void OnTeeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid HoleID
         {
@@ -10648,11 +11080,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _HoleID;
         partial void OnHoleIDChanging(global::System.Guid value);
         partial void OnHoleIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Slots
         {
@@ -10672,11 +11104,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Slots;
         partial void OnSlotsChanging(global::System.Int32 value);
         partial void OnSlotsChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Notes
         {
@@ -10696,11 +11128,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Notes;
         partial void OnNotesChanging(global::System.String value);
         partial void OnNotesChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean ShowInInvoice
         {
@@ -10720,11 +11152,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _ShowInInvoice;
         partial void OnShowInInvoiceChanging(global::System.Boolean value);
         partial void OnShowInInvoiceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IncludeInForwardBook
         {
@@ -10744,11 +11176,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IncludeInForwardBook;
         partial void OnIncludeInForwardBookChanging(global::System.Boolean value);
         partial void OnIncludeInForwardBookChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IncludeInCorrespondence
         {
@@ -10768,11 +11200,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IncludeInCorrespondence;
         partial void OnIncludeInCorrespondenceChanging(global::System.Boolean value);
         partial void OnIncludeInCorrespondenceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> LinkedEventGolfId
         {
@@ -10792,11 +11224,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _LinkedEventGolfId;
         partial void OnLinkedEventGolfIdChanging(Nullable<global::System.Guid> value);
         partial void OnLinkedEventGolfIdChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsLinked
         {
@@ -10820,7 +11252,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10858,7 +11290,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10896,7 +11328,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10934,7 +11366,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10956,7 +11388,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -10998,17 +11430,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventInvoice")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventInvoice")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventInvoice : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventInvoice object.
         /// </summary>
@@ -11031,11 +11463,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -11058,11 +11490,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -11082,11 +11514,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Notes
         {
@@ -11106,11 +11538,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Notes;
         partial void OnNotesChanging(global::System.String value);
         partial void OnNotesChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean ShowInInvoice
         {
@@ -11130,11 +11562,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _ShowInInvoice;
         partial void OnShowInInvoiceChanging(global::System.Boolean value);
         partial void OnShowInInvoiceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IncludeInForwardBook
         {
@@ -11154,11 +11586,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IncludeInForwardBook;
         partial void OnIncludeInForwardBookChanging(global::System.Boolean value);
         partial void OnIncludeInForwardBookChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IncludeInCorrespondence
         {
@@ -11182,7 +11614,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11224,17 +11656,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventNote")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventNote")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventNote : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventNote object.
         /// </summary>
@@ -11259,11 +11691,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -11286,11 +11718,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -11310,11 +11742,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventNoteTypeID
         {
@@ -11334,11 +11766,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventNoteTypeID;
         partial void OnEventNoteTypeIDChanging(global::System.Guid value);
         partial void OnEventNoteTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -11358,11 +11790,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Note
         {
@@ -11382,11 +11814,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Note;
         partial void OnNoteChanging(global::System.String value);
         partial void OnNoteChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserID
         {
@@ -11410,7 +11842,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11448,7 +11880,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11486,7 +11918,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11528,17 +11960,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventNoteType")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventNoteType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventNoteType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventNoteType object.
         /// </summary>
@@ -11555,11 +11987,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -11582,11 +12014,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Type
         {
@@ -11610,7 +12042,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11636,17 +12068,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventOption")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventOption")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventOption : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventOption object.
         /// </summary>
@@ -11665,11 +12097,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -11692,11 +12124,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -11716,11 +12148,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -11744,7 +12176,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11766,7 +12198,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -11792,17 +12224,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventPayment")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventPayment")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventPayment : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventPayment object.
         /// </summary>
@@ -11831,11 +12263,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -11858,11 +12290,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -11882,11 +12314,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -11906,11 +12338,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Amount
         {
@@ -11930,11 +12362,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Double _Amount;
         partial void OnAmountChanging(global::System.Double value);
         partial void OnAmountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TakenByID
         {
@@ -11954,11 +12386,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TakenByID;
         partial void OnTakenByIDChanging(global::System.Guid value);
         partial void OnTakenByIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid MethodID
         {
@@ -11978,11 +12410,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _MethodID;
         partial void OnMethodIDChanging(global::System.Guid value);
         partial void OnMethodIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String CameFrom
         {
@@ -12002,11 +12434,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _CameFrom;
         partial void OnCameFromChanging(global::System.String value);
         partial void OnCameFromChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsDeposit
         {
@@ -12026,11 +12458,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsDeposit;
         partial void OnIsDepositChanging(global::System.Boolean value);
         partial void OnIsDepositChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Notes
         {
@@ -12054,7 +12486,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -12092,7 +12524,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -12130,7 +12562,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -12172,17 +12604,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventReminder")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventReminder")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventReminder : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventReminder object.
         /// </summary>
@@ -12207,11 +12639,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -12234,11 +12666,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> EventID
         {
@@ -12258,11 +12690,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _EventID;
         partial void OnEventIDChanging(Nullable<global::System.Guid> value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid CreatedByUserID
         {
@@ -12282,11 +12714,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _CreatedByUserID;
         partial void OnCreatedByUserIDChanging(global::System.Guid value);
         partial void OnCreatedByUserIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid AssignedToUserID
         {
@@ -12306,11 +12738,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _AssignedToUserID;
         partial void OnAssignedToUserIDChanging(global::System.Guid value);
         partial void OnAssignedToUserIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String WhatToDo
         {
@@ -12330,11 +12762,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _WhatToDo;
         partial void OnWhatToDoChanging(global::System.String value);
         partial void OnWhatToDoChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime DateDue
         {
@@ -12354,11 +12786,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _DateDue;
         partial void OnDateDueChanging(global::System.DateTime value);
         partial void OnDateDueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastEditDate
         {
@@ -12378,11 +12810,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _LastEditDate;
         partial void OnLastEditDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLastEditDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> EventTypeToDoID
         {
@@ -12402,11 +12834,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _EventTypeToDoID;
         partial void OnEventTypeToDoIDChanging(Nullable<global::System.Guid> value);
         partial void OnEventTypeToDoIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Status
         {
@@ -12430,7 +12862,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -12468,7 +12900,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -12506,7 +12938,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -12544,7 +12976,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -12586,17 +13018,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventRoom")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventRoom")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventRoom : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventRoom object.
         /// </summary>
@@ -12625,11 +13057,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -12652,11 +13084,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -12676,11 +13108,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid RoomID
         {
@@ -12700,11 +13132,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _RoomID;
         partial void OnRoomIDChanging(global::System.Guid value);
         partial void OnRoomIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime StartTime
         {
@@ -12724,11 +13156,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _StartTime;
         partial void OnStartTimeChanging(global::System.DateTime value);
         partial void OnStartTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime EndTime
         {
@@ -12748,11 +13180,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _EndTime;
         partial void OnEndTimeChanging(global::System.DateTime value);
         partial void OnEndTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Notes
         {
@@ -12772,11 +13204,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Notes;
         partial void OnNotesChanging(global::System.String value);
         partial void OnNotesChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean ShowInInvoice
         {
@@ -12796,11 +13228,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _ShowInInvoice;
         partial void OnShowInInvoiceChanging(global::System.Boolean value);
         partial void OnShowInInvoiceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IncludeInForwardBook
         {
@@ -12820,11 +13252,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IncludeInForwardBook;
         partial void OnIncludeInForwardBookChanging(global::System.Boolean value);
         partial void OnIncludeInForwardBookChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IncludeInCorrespondence
         {
@@ -12848,7 +13280,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -12886,7 +13318,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -12928,17 +13360,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventStatus")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventStatus")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventStatus : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventStatus object.
         /// </summary>
@@ -12961,11 +13393,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -12988,11 +13420,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -13012,11 +13444,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String PreferredName
         {
@@ -13036,11 +13468,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _PreferredName;
         partial void OnPreferredNameChanging(global::System.String value);
         partial void OnPreferredNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -13060,11 +13492,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Colour
         {
@@ -13084,11 +13516,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Colour;
         partial void OnColourChanging(global::System.String value);
         partial void OnColourChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token1
         {
@@ -13108,11 +13540,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token1;
         partial void OnToken1Changing(global::System.String value);
         partial void OnToken1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token2
         {
@@ -13132,11 +13564,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token2;
         partial void OnToken2Changing(global::System.String value);
         partial void OnToken2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token3
         {
@@ -13156,11 +13588,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token3;
         partial void OnToken3Changing(global::System.String value);
         partial void OnToken3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token4
         {
@@ -13180,11 +13612,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token4;
         partial void OnToken4Changing(global::System.String value);
         partial void OnToken4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token5
         {
@@ -13204,11 +13636,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token5;
         partial void OnToken5Changing(global::System.String value);
         partial void OnToken5Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsEnabled
         {
@@ -13232,7 +13664,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -13254,7 +13686,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -13276,7 +13708,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -13302,17 +13734,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventStatusOption")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventStatusOption")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventStatusOption : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventStatusOption object.
         /// </summary>
@@ -13331,11 +13763,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -13358,11 +13790,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventStatusID
         {
@@ -13382,11 +13814,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventStatusID;
         partial void OnEventStatusIDChanging(global::System.Guid value);
         partial void OnEventStatusIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventOptionID
         {
@@ -13410,7 +13842,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -13448,7 +13880,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -13490,17 +13922,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventType")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventType object.
         /// </summary>
@@ -13529,11 +13961,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -13556,11 +13988,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -13580,11 +14012,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String PreferredName
         {
@@ -13604,11 +14036,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _PreferredName;
         partial void OnPreferredNameChanging(global::System.String value);
         partial void OnPreferredNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Abbreviation
         {
@@ -13628,11 +14060,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Abbreviation;
         partial void OnAbbreviationChanging(global::System.String value);
         partial void OnAbbreviationChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -13652,11 +14084,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Colour
         {
@@ -13676,11 +14108,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Colour;
         partial void OnColourChanging(global::System.String value);
         partial void OnColourChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token1
         {
@@ -13700,11 +14132,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token1;
         partial void OnToken1Changing(global::System.String value);
         partial void OnToken1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token2
         {
@@ -13724,11 +14156,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token2;
         partial void OnToken2Changing(global::System.String value);
         partial void OnToken2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token3
         {
@@ -13748,11 +14180,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token3;
         partial void OnToken3Changing(global::System.String value);
         partial void OnToken3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token4
         {
@@ -13772,11 +14204,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token4;
         partial void OnToken4Changing(global::System.String value);
         partial void OnToken4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token5
         {
@@ -13796,11 +14228,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token5;
         partial void OnToken5Changing(global::System.String value);
         partial void OnToken5Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsEnabled
         {
@@ -13820,11 +14252,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsEnabled;
         partial void OnIsEnabledChanging(global::System.Boolean value);
         partial void OnIsEnabledChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AllowToBeBooked
         {
@@ -13844,11 +14276,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AllowToBeBooked;
         partial void OnAllowToBeBookedChanging(global::System.Boolean value);
         partial void OnAllowToBeBookedChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AllowEnquiry
         {
@@ -13868,11 +14300,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AllowEnquiry;
         partial void OnAllowEnquiryChanging(global::System.Boolean value);
         partial void OnAllowEnquiryChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> DefaultUserID
         {
@@ -13896,7 +14328,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -13918,7 +14350,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -13940,7 +14372,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -13962,7 +14394,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -14000,7 +14432,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -14022,7 +14454,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -14048,17 +14480,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventTypeOption")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventTypeOption")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventTypeOption : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventTypeOption object.
         /// </summary>
@@ -14077,11 +14509,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -14104,11 +14536,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventTypeID
         {
@@ -14128,11 +14560,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventTypeID;
         partial void OnEventTypeIDChanging(global::System.Guid value);
         partial void OnEventTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventOptionID
         {
@@ -14156,7 +14588,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -14194,7 +14626,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -14236,17 +14668,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventTypeTODO")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventTypeTODO")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventTypeTODO : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventTypeTODO object.
         /// </summary>
@@ -14275,11 +14707,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -14302,11 +14734,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventTypeID
         {
@@ -14326,11 +14758,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventTypeID;
         partial void OnEventTypeIDChanging(global::System.Guid value);
         partial void OnEventTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid AddedByUserID
         {
@@ -14350,11 +14782,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _AddedByUserID;
         partial void OnAddedByUserIDChanging(global::System.Guid value);
         partial void OnAddedByUserIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String WhatToDo
         {
@@ -14374,11 +14806,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _WhatToDo;
         partial void OnWhatToDoChanging(global::System.String value);
         partial void OnWhatToDoChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 NumberOfDays
         {
@@ -14398,11 +14830,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _NumberOfDays;
         partial void OnNumberOfDaysChanging(global::System.Int32 value);
         partial void OnNumberOfDaysChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 RelatedDateType
         {
@@ -14422,11 +14854,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _RelatedDateType;
         partial void OnRelatedDateTypeChanging(global::System.Int32 value);
         partial void OnRelatedDateTypeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastEditDate
         {
@@ -14446,11 +14878,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _LastEditDate;
         partial void OnLastEditDateChanging(Nullable<global::System.DateTime> value);
         partial void OnLastEditDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreatedDate
         {
@@ -14470,11 +14902,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _CreatedDate;
         partial void OnCreatedDateChanging(global::System.DateTime value);
         partial void OnCreatedDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid AssignedToUserID
         {
@@ -14498,7 +14930,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -14536,7 +14968,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -14574,7 +15006,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -14612,7 +15044,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -14638,17 +15070,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "EventUpdate")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="EventUpdate")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class EventUpdate : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new EventUpdate object.
         /// </summary>
@@ -14671,11 +15103,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -14698,11 +15130,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -14722,11 +15154,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserID
         {
@@ -14746,11 +15178,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _UserID;
         partial void OnUserIDChanging(global::System.Guid value);
         partial void OnUserIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Message
         {
@@ -14770,11 +15202,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Message;
         partial void OnMessageChanging(global::System.String value);
         partial void OnMessageChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -14794,11 +15226,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String OldValue
         {
@@ -14818,11 +15250,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _OldValue;
         partial void OnOldValueChanging(global::System.String value);
         partial void OnOldValueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NewValue
         {
@@ -14842,11 +15274,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _NewValue;
         partial void OnNewValueChanging(global::System.String value);
         partial void OnNewValueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> ItemId
         {
@@ -14866,11 +15298,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _ItemId;
         partial void OnItemIdChanging(Nullable<global::System.Guid> value);
         partial void OnItemIdChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String ItemType
         {
@@ -14890,11 +15322,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _ItemType;
         partial void OnItemTypeChanging(global::System.String value);
         partial void OnItemTypeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Field
         {
@@ -14914,11 +15346,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Field;
         partial void OnFieldChanging(global::System.String value);
         partial void OnFieldChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<UpdateAction> Action
         {
@@ -14942,7 +15374,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -14980,7 +15412,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -15022,17 +15454,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Facility")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Facility")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Facility : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Facility object.
         /// </summary>
@@ -15049,11 +15481,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -15076,11 +15508,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -15104,7 +15536,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -15130,17 +15562,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "FinaliseKey")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="FinaliseKey")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class FinaliseKey : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new FinaliseKey object.
         /// </summary>
@@ -15159,11 +15591,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -15186,11 +15618,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Record
         {
@@ -15210,11 +15642,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Record;
         partial void OnRecordChanging(global::System.Int32 value);
         partial void OnRecordChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -15234,11 +15666,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> TillID
         {
@@ -15262,7 +15694,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -15300,7 +15732,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -15326,17 +15758,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "FixedTotal")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="FixedTotal")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class FixedTotal : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new FixedTotal object.
         /// </summary>
@@ -15353,11 +15785,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -15380,11 +15812,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Record
         {
@@ -15404,11 +15836,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Record;
         partial void OnRecordChanging(global::System.Int32 value);
         partial void OnRecordChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -15432,17 +15864,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "FollowUp")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="FollowUp")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class FollowUp : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new FollowUp object.
         /// </summary>
@@ -15465,11 +15897,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -15492,11 +15924,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> EnquiryID
         {
@@ -15516,11 +15948,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _EnquiryID;
         partial void OnEnquiryIDChanging(Nullable<global::System.Guid> value);
         partial void OnEnquiryIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TakenByID
         {
@@ -15540,11 +15972,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TakenByID;
         partial void OnTakenByIDChanging(global::System.Guid value);
         partial void OnTakenByIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserDueToDoID
         {
@@ -15564,11 +15996,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _UserDueToDoID;
         partial void OnUserDueToDoIDChanging(global::System.Guid value);
         partial void OnUserDueToDoIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String WhatToDo
         {
@@ -15588,11 +16020,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _WhatToDo;
         partial void OnWhatToDoChanging(global::System.String value);
         partial void OnWhatToDoChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime DateDue
         {
@@ -15612,11 +16044,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _DateDue;
         partial void OnDateDueChanging(global::System.DateTime value);
         partial void OnDateDueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> LastEditDate
         {
@@ -15640,7 +16072,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -15662,7 +16094,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -15700,7 +16132,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -15738,7 +16170,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -15780,17 +16212,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "FollowUpStatus")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="FollowUpStatus")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class FollowUpStatus : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new FollowUpStatus object.
         /// </summary>
@@ -15815,11 +16247,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -15842,11 +16274,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Status
         {
@@ -15866,11 +16298,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Status;
         partial void OnStatusChanging(global::System.String value);
         partial void OnStatusChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 NumberOfDays
         {
@@ -15890,11 +16322,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _NumberOfDays;
         partial void OnNumberOfDaysChanging(global::System.Int32 value);
         partial void OnNumberOfDaysChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Color
         {
@@ -15914,11 +16346,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Color;
         partial void OnColorChanging(global::System.String value);
         partial void OnColorChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Priority
         {
@@ -15938,11 +16370,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Priority;
         partial void OnPriorityChanging(global::System.Int32 value);
         partial void OnPriorityChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 StatusType
         {
@@ -15966,17 +16398,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Golf")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Golf")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Golf : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Golf object.
         /// </summary>
@@ -16021,11 +16453,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -16048,11 +16480,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -16072,11 +16504,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -16096,11 +16528,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Color
         {
@@ -16120,11 +16552,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Color;
         partial void OnColorChanging(global::System.String value);
         partial void OnColorChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Places
         {
@@ -16144,11 +16576,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Places;
         partial void OnPlacesChanging(global::System.String value);
         partial void OnPlacesChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean HasNineHoles
         {
@@ -16168,11 +16600,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _HasNineHoles;
         partial void OnHasNineHolesChanging(global::System.Boolean value);
         partial void OnHasNineHolesChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean HasEighteenHoles
         {
@@ -16192,11 +16624,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _HasEighteenHoles;
         partial void OnHasEighteenHolesChanging(global::System.Boolean value);
         partial void OnHasEighteenHolesChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan TurnTime
         {
@@ -16216,11 +16648,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.TimeSpan _TurnTime;
         partial void OnTurnTimeChanging(global::System.TimeSpan value);
         partial void OnTurnTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> TurnDefault
         {
@@ -16240,11 +16672,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _TurnDefault;
         partial void OnTurnDefaultChanging(Nullable<global::System.Guid> value);
         partial void OnTurnDefaultChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsBuggiesAvailable
         {
@@ -16264,11 +16696,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsBuggiesAvailable;
         partial void OnIsBuggiesAvailableChanging(global::System.Boolean value);
         partial void OnIsBuggiesAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan NineHolesTime
         {
@@ -16288,11 +16720,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.TimeSpan _NineHolesTime;
         partial void OnNineHolesTimeChanging(global::System.TimeSpan value);
         partial void OnNineHolesTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan EighteenHolesTime
         {
@@ -16312,11 +16744,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.TimeSpan _EighteenHolesTime;
         partial void OnEighteenHolesTimeChanging(global::System.TimeSpan value);
         partial void OnEighteenHolesTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsEnabled
         {
@@ -16336,11 +16768,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsEnabled;
         partial void OnIsEnabledChanging(global::System.Boolean value);
         partial void OnIsEnabledChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IncludeInForwardBook
         {
@@ -16360,11 +16792,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IncludeInForwardBook;
         partial void OnIncludeInForwardBookChanging(global::System.Boolean value);
         partial void OnIncludeInForwardBookChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AllowOnlineBooking
         {
@@ -16384,11 +16816,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AllowOnlineBooking;
         partial void OnAllowOnlineBookingChanging(global::System.Boolean value);
         partial void OnAllowOnlineBookingChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AdminAuthorisation
         {
@@ -16408,11 +16840,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AdminAuthorisation;
         partial void OnAdminAuthorisationChanging(global::System.Boolean value);
         partial void OnAdminAuthorisationChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan StartTime
         {
@@ -16432,11 +16864,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.TimeSpan _StartTime;
         partial void OnStartTimeChanging(global::System.TimeSpan value);
         partial void OnStartTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan EndTime
         {
@@ -16456,11 +16888,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.TimeSpan _EndTime;
         partial void OnEndTimeChanging(global::System.TimeSpan value);
         partial void OnEndTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan TimeInterval
         {
@@ -16484,7 +16916,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -16506,7 +16938,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -16528,7 +16960,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -16554,17 +16986,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "GolfFollowResource")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="GolfFollowResource")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class GolfFollowResource : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new GolfFollowResource object.
         /// </summary>
@@ -16583,11 +17015,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -16610,11 +17042,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid GolfID
         {
@@ -16634,11 +17066,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _GolfID;
         partial void OnGolfIDChanging(global::System.Guid value);
         partial void OnGolfIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid FollowResourceID
         {
@@ -16662,7 +17094,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -16700,7 +17132,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -16742,17 +17174,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "GolfHole")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="GolfHole")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class GolfHole : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new GolfHole object.
         /// </summary>
@@ -16769,11 +17201,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -16796,11 +17228,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Hole
         {
@@ -16824,7 +17256,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -16850,17 +17282,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Invoice")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Invoice")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Invoice : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Invoice object.
         /// </summary>
@@ -16889,11 +17321,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -16916,11 +17348,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -16940,11 +17372,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Amount
         {
@@ -16964,11 +17396,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Double _Amount;
         partial void OnAmountChanging(global::System.Double value);
         partial void OnAmountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime InvoiceDate
         {
@@ -16988,11 +17420,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _InvoiceDate;
         partial void OnInvoiceDateChanging(global::System.DateTime value);
         partial void OnInvoiceDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 InvoiceNumber
         {
@@ -17012,11 +17444,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _InvoiceNumber;
         partial void OnInvoiceNumberChanging(global::System.Int32 value);
         partial void OnInvoiceNumberChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String InvoiceAddress
         {
@@ -17036,11 +17468,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _InvoiceAddress;
         partial void OnInvoiceAddressChanging(global::System.String value);
         partial void OnInvoiceAddressChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime PaymentDue
         {
@@ -17060,11 +17492,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _PaymentDue;
         partial void OnPaymentDueChanging(global::System.DateTime value);
         partial void OnPaymentDueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String CameFrom
         {
@@ -17084,11 +17516,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _CameFrom;
         partial void OnCameFromChanging(global::System.String value);
         partial void OnCameFromChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Notes
         {
@@ -17112,7 +17544,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -17154,17 +17586,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MailTemplate")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MailTemplate")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MailTemplate : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MailTemplate object.
         /// </summary>
@@ -17193,11 +17625,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -17220,11 +17652,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -17244,11 +17676,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Template
         {
@@ -17268,11 +17700,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Template;
         partial void OnTemplateChanging(global::System.String value);
         partial void OnTemplateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid CategoryID
         {
@@ -17292,11 +17724,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _CategoryID;
         partial void OnCategoryIDChanging(global::System.Guid value);
         partial void OnCategoryIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TypeID
         {
@@ -17316,11 +17748,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TypeID;
         partial void OnTypeIDChanging(global::System.Guid value);
         partial void OnTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime LastUpdatedDate
         {
@@ -17340,11 +17772,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _LastUpdatedDate;
         partial void OnLastUpdatedDateChanging(global::System.DateTime value);
         partial void OnLastUpdatedDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid WhoByID
         {
@@ -17364,11 +17796,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _WhoByID;
         partial void OnWhoByIDChanging(global::System.Guid value);
         partial void OnWhoByIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsEnabled
         {
@@ -17388,11 +17820,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsEnabled;
         partial void OnIsEnabledChanging(global::System.Boolean value);
         partial void OnIsEnabledChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> EmailHeaderID
         {
@@ -17416,7 +17848,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -17454,7 +17886,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -17492,7 +17924,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -17530,7 +17962,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -17572,17 +18004,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MailTemplateCategory")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MailTemplateCategory")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MailTemplateCategory : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MailTemplateCategory object.
         /// </summary>
@@ -17599,11 +18031,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -17626,11 +18058,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -17654,7 +18086,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -17680,17 +18112,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MailTemplateType")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MailTemplateType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MailTemplateType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MailTemplateType object.
         /// </summary>
@@ -17707,11 +18139,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -17734,11 +18166,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -17762,7 +18194,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -17788,17 +18220,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Member")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Member")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Member : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Member object.
         /// </summary>
@@ -17807,7 +18239,8 @@ namespace EventManagementSystem.Data.Model
         /// <param name="startDate">Initial value of the StartDate property.</param>
         /// <param name="renewalDate">Initial value of the RenewalDate property.</param>
         /// <param name="status">Initial value of the Status property.</param>
-        public static Member CreateMember(global::System.Guid id, global::System.Guid categoryID, global::System.DateTime startDate, global::System.DateTime renewalDate, global::System.Int32 status)
+        /// <param name="memberReference">Initial value of the MemberReference property.</param>
+        public static Member CreateMember(global::System.Guid id, global::System.Guid categoryID, global::System.DateTime startDate, global::System.DateTime renewalDate, global::System.Int32 status, global::System.String memberReference)
         {
             Member member = new Member();
             member.ID = id;
@@ -17815,17 +18248,18 @@ namespace EventManagementSystem.Data.Model
             member.StartDate = startDate;
             member.RenewalDate = renewalDate;
             member.Status = status;
+            member.MemberReference = memberReference;
             return member;
         }
 
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -17848,11 +18282,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid CategoryID
         {
@@ -17872,11 +18306,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _CategoryID;
         partial void OnCategoryIDChanging(global::System.Guid value);
         partial void OnCategoryIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime StartDate
         {
@@ -17896,11 +18330,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _StartDate;
         partial void OnStartDateChanging(global::System.DateTime value);
         partial void OnStartDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime RenewalDate
         {
@@ -17920,11 +18354,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _RenewalDate;
         partial void OnRenewalDateChanging(global::System.DateTime value);
         partial void OnRenewalDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Status
         {
@@ -17944,11 +18378,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Status;
         partial void OnStatusChanging(global::System.Int32 value);
         partial void OnStatusChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> EndDate
         {
@@ -17968,11 +18402,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _EndDate;
         partial void OnEndDateChanging(Nullable<global::System.DateTime> value);
         partial void OnEndDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> ResignDate
         {
@@ -17992,11 +18426,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _ResignDate;
         partial void OnResignDateChanging(Nullable<global::System.DateTime> value);
         partial void OnResignDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String MemberReference
         {
@@ -18008,7 +18442,7 @@ namespace EventManagementSystem.Data.Model
             {
                 OnMemberReferenceChanging(value);
                 ReportPropertyChanging("MemberReference");
-                _MemberReference = StructuralObject.SetValidValue(value, true, "MemberReference");
+                _MemberReference = StructuralObject.SetValidValue(value, false, "MemberReference");
                 ReportPropertyChanged("MemberReference");
                 OnMemberReferenceChanged();
             }
@@ -18020,7 +18454,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -18058,7 +18492,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -18096,7 +18530,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -18118,7 +18552,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -18144,17 +18578,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MemberNote")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MemberNote")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MemberNote : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MemberNote object.
         /// </summary>
@@ -18177,11 +18611,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -18204,11 +18638,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid MemberID
         {
@@ -18228,11 +18662,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _MemberID;
         partial void OnMemberIDChanging(global::System.Guid value);
         partial void OnMemberIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CreationDate
         {
@@ -18252,11 +18686,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _CreationDate;
         partial void OnCreationDateChanging(global::System.DateTime value);
         partial void OnCreationDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Note
         {
@@ -18276,11 +18710,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Note;
         partial void OnNoteChanging(global::System.String value);
         partial void OnNoteChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid AddedByID
         {
@@ -18300,11 +18734,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _AddedByID;
         partial void OnAddedByIDChanging(global::System.Guid value);
         partial void OnAddedByIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.DateTime> EditedDate
         {
@@ -18324,11 +18758,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.DateTime> _EditedDate;
         partial void OnEditedDateChanging(Nullable<global::System.DateTime> value);
         partial void OnEditedDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> EditedByID
         {
@@ -18352,7 +18786,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -18390,7 +18824,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -18428,7 +18862,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -18470,17 +18904,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipCategory")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipCategory")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipCategory : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipCategory object.
         /// </summary>
@@ -18515,11 +18949,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -18542,11 +18976,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -18566,11 +19000,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -18590,11 +19024,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean CurrentCategory
         {
@@ -18614,11 +19048,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _CurrentCategory;
         partial void OnCurrentCategoryChanging(global::System.Boolean value);
         partial void OnCurrentCategoryChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid MembershipGroupStyleID
         {
@@ -18638,11 +19072,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _MembershipGroupStyleID;
         partial void OnMembershipGroupStyleIDChanging(global::System.Guid value);
         partial void OnMembershipGroupStyleIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid MembershipGroupAgeID
         {
@@ -18662,11 +19096,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _MembershipGroupAgeID;
         partial void OnMembershipGroupAgeIDChanging(global::System.Guid value);
         partial void OnMembershipGroupAgeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid MembershipGroupID
         {
@@ -18686,11 +19120,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _MembershipGroupID;
         partial void OnMembershipGroupIDChanging(global::System.Guid value);
         partial void OnMembershipGroupIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 CategoryType
         {
@@ -18710,11 +19144,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _CategoryType;
         partial void OnCategoryTypeChanging(global::System.Int32 value);
         partial void OnCategoryTypeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Gender
         {
@@ -18734,11 +19168,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Gender;
         partial void OnGenderChanging(global::System.Int32 value);
         partial void OnGenderChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaxRoundsPerWeek
         {
@@ -18758,11 +19192,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _MaxRoundsPerWeek;
         partial void OnMaxRoundsPerWeekChanging(global::System.Int32 value);
         partial void OnMaxRoundsPerWeekChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> StartDay
         {
@@ -18782,11 +19216,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _StartDay;
         partial void OnStartDayChanging(Nullable<global::System.Int32> value);
         partial void OnStartDayChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaxRoundsPerMonth
         {
@@ -18806,11 +19240,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _MaxRoundsPerMonth;
         partial void OnMaxRoundsPerMonthChanging(global::System.Int32 value);
         partial void OnMaxRoundsPerMonthChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> StartDateForMonth
         {
@@ -18830,11 +19264,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _StartDateForMonth;
         partial void OnStartDateForMonthChanging(Nullable<global::System.Int32> value);
         partial void OnStartDateForMonthChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaxRoundsPerYear
         {
@@ -18854,11 +19288,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _MaxRoundsPerYear;
         partial void OnMaxRoundsPerYearChanging(global::System.Int32 value);
         partial void OnMaxRoundsPerYearChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> StartDateForYear
         {
@@ -18878,11 +19312,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _StartDateForYear;
         partial void OnStartDateForYearChanging(Nullable<global::System.Int32> value);
         partial void OnStartDateForYearChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token1
         {
@@ -18902,11 +19336,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token1;
         partial void OnToken1Changing(global::System.String value);
         partial void OnToken1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token2
         {
@@ -18926,11 +19360,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token2;
         partial void OnToken2Changing(global::System.String value);
         partial void OnToken2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token3
         {
@@ -18950,11 +19384,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token3;
         partial void OnToken3Changing(global::System.String value);
         partial void OnToken3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token4
         {
@@ -18974,11 +19408,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token4;
         partial void OnToken4Changing(global::System.String value);
         partial void OnToken4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token5
         {
@@ -19002,7 +19436,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19040,7 +19474,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19078,7 +19512,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19116,7 +19550,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19138,7 +19572,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19160,7 +19594,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19198,7 +19632,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19236,7 +19670,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19274,7 +19708,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19312,7 +19746,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19338,17 +19772,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipCategoryGroupDefault")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipCategoryGroupDefault")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipCategoryGroupDefault : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipCategoryGroupDefault object.
         /// </summary>
@@ -19383,11 +19817,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -19410,11 +19844,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -19434,11 +19868,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -19458,11 +19892,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsMonAvailable
         {
@@ -19482,11 +19916,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsMonAvailable;
         partial void OnIsMonAvailableChanging(global::System.Boolean value);
         partial void OnIsMonAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsTuesAvailable
         {
@@ -19506,11 +19940,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsTuesAvailable;
         partial void OnIsTuesAvailableChanging(global::System.Boolean value);
         partial void OnIsTuesAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsWedAvailable
         {
@@ -19530,11 +19964,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsWedAvailable;
         partial void OnIsWedAvailableChanging(global::System.Boolean value);
         partial void OnIsWedAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsThursAvailable
         {
@@ -19554,11 +19988,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsThursAvailable;
         partial void OnIsThursAvailableChanging(global::System.Boolean value);
         partial void OnIsThursAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsFriAvailable
         {
@@ -19578,11 +20012,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsFriAvailable;
         partial void OnIsFriAvailableChanging(global::System.Boolean value);
         partial void OnIsFriAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsSatAvailable
         {
@@ -19602,11 +20036,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsSatAvailable;
         partial void OnIsSatAvailableChanging(global::System.Boolean value);
         partial void OnIsSatAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsSunAvailable
         {
@@ -19626,11 +20060,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsSunAvailable;
         partial void OnIsSunAvailableChanging(global::System.Boolean value);
         partial void OnIsSunAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean MemberOnBankHolidays
         {
@@ -19650,11 +20084,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _MemberOnBankHolidays;
         partial void OnMemberOnBankHolidaysChanging(global::System.Boolean value);
         partial void OnMemberOnBankHolidaysChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean MemberAtChristmasWeek
         {
@@ -19674,11 +20108,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _MemberAtChristmasWeek;
         partial void OnMemberAtChristmasWeekChanging(global::System.Boolean value);
         partial void OnMemberAtChristmasWeekChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token1
         {
@@ -19698,11 +20132,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token1;
         partial void OnToken1Changing(global::System.String value);
         partial void OnToken1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token2
         {
@@ -19722,11 +20156,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token2;
         partial void OnToken2Changing(global::System.String value);
         partial void OnToken2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token3
         {
@@ -19746,11 +20180,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token3;
         partial void OnToken3Changing(global::System.String value);
         partial void OnToken3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token4
         {
@@ -19770,11 +20204,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token4;
         partial void OnToken4Changing(global::System.String value);
         partial void OnToken4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token5
         {
@@ -19798,7 +20232,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19836,7 +20270,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -19878,17 +20312,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipCategoryGroupDefaultEPOS")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipCategoryGroupDefaultEPOS")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipCategoryGroupDefaultEPOS : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipCategoryGroupDefaultEPOS object.
         /// </summary>
@@ -19907,11 +20341,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AllowedClubCard
         {
@@ -19931,11 +20365,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AllowedClubCard;
         partial void OnAllowedClubCardChanging(global::System.Boolean value);
         partial void OnAllowedClubCardChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> OverdraftLimit1
         {
@@ -19955,11 +20389,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _OverdraftLimit1;
         partial void OnOverdraftLimit1Changing(Nullable<global::System.Int32> value);
         partial void OnOverdraftLimit1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> OverdraftLimit2
         {
@@ -19979,11 +20413,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _OverdraftLimit2;
         partial void OnOverdraftLimit2Changing(Nullable<global::System.Int32> value);
         partial void OnOverdraftLimit2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRateAll
         {
@@ -20003,11 +20437,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRateAll;
         partial void OnDiscountRateAllChanging(Nullable<global::System.Double> value);
         partial void OnDiscountRateAllChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRate1
         {
@@ -20027,11 +20461,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRate1;
         partial void OnDiscountRate1Changing(Nullable<global::System.Double> value);
         partial void OnDiscountRate1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRate2
         {
@@ -20051,11 +20485,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRate2;
         partial void OnDiscountRate2Changing(Nullable<global::System.Double> value);
         partial void OnDiscountRate2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRate3
         {
@@ -20075,11 +20509,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRate3;
         partial void OnDiscountRate3Changing(Nullable<global::System.Double> value);
         partial void OnDiscountRate3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRate4
         {
@@ -20099,11 +20533,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRate4;
         partial void OnDiscountRate4Changing(Nullable<global::System.Double> value);
         partial void OnDiscountRate4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRate5
         {
@@ -20123,11 +20557,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRate5;
         partial void OnDiscountRate5Changing(Nullable<global::System.Double> value);
         partial void OnDiscountRate5Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String DisplayMessage
         {
@@ -20147,11 +20581,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _DisplayMessage;
         partial void OnDisplayMessageChanging(global::System.String value);
         partial void OnDisplayMessageChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -20174,11 +20608,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean PointsBasedMembership
         {
@@ -20202,7 +20636,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20244,17 +20678,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipFullPaymentComponent")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipFullPaymentComponent")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipFullPaymentComponent : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipFullPaymentComponent object.
         /// </summary>
@@ -20269,11 +20703,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -20296,11 +20730,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component1
         {
@@ -20320,11 +20754,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component1;
         partial void OnComponent1Changing(Nullable<global::System.Guid> value);
         partial void OnComponent1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component2
         {
@@ -20344,11 +20778,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component2;
         partial void OnComponent2Changing(Nullable<global::System.Guid> value);
         partial void OnComponent2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component3
         {
@@ -20368,11 +20802,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component3;
         partial void OnComponent3Changing(Nullable<global::System.Guid> value);
         partial void OnComponent3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component4
         {
@@ -20392,11 +20826,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component4;
         partial void OnComponent4Changing(Nullable<global::System.Guid> value);
         partial void OnComponent4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component5
         {
@@ -20416,11 +20850,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component5;
         partial void OnComponent5Changing(Nullable<global::System.Guid> value);
         partial void OnComponent5Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component6
         {
@@ -20440,11 +20874,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component6;
         partial void OnComponent6Changing(Nullable<global::System.Guid> value);
         partial void OnComponent6Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component7
         {
@@ -20464,11 +20898,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component7;
         partial void OnComponent7Changing(Nullable<global::System.Guid> value);
         partial void OnComponent7Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component8
         {
@@ -20492,7 +20926,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20530,7 +20964,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20568,7 +21002,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20606,7 +21040,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20644,7 +21078,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20682,7 +21116,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20720,7 +21154,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20758,7 +21192,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20796,7 +21230,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -20838,17 +21272,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipGroup")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipGroup")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipGroup : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipGroup object.
         /// </summary>
@@ -20883,11 +21317,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -20910,11 +21344,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -20934,11 +21368,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -20958,11 +21392,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean MemberOnBankHolidays
         {
@@ -20982,11 +21416,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _MemberOnBankHolidays;
         partial void OnMemberOnBankHolidaysChanging(global::System.Boolean value);
         partial void OnMemberOnBankHolidaysChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean MemberAtChristmasWeek
         {
@@ -21006,11 +21440,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _MemberAtChristmasWeek;
         partial void OnMemberAtChristmasWeekChanging(global::System.Boolean value);
         partial void OnMemberAtChristmasWeekChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token1
         {
@@ -21030,11 +21464,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token1;
         partial void OnToken1Changing(global::System.String value);
         partial void OnToken1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token2
         {
@@ -21054,11 +21488,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token2;
         partial void OnToken2Changing(global::System.String value);
         partial void OnToken2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token3
         {
@@ -21078,11 +21512,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token3;
         partial void OnToken3Changing(global::System.String value);
         partial void OnToken3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token4
         {
@@ -21102,11 +21536,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token4;
         partial void OnToken4Changing(global::System.String value);
         partial void OnToken4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token5
         {
@@ -21126,11 +21560,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token5;
         partial void OnToken5Changing(global::System.String value);
         partial void OnToken5Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsMonAvailable
         {
@@ -21150,11 +21584,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsMonAvailable;
         partial void OnIsMonAvailableChanging(global::System.Boolean value);
         partial void OnIsMonAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsTuesAvailable
         {
@@ -21174,11 +21608,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsTuesAvailable;
         partial void OnIsTuesAvailableChanging(global::System.Boolean value);
         partial void OnIsTuesAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsWedAvailable
         {
@@ -21198,11 +21632,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsWedAvailable;
         partial void OnIsWedAvailableChanging(global::System.Boolean value);
         partial void OnIsWedAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsThursAvailable
         {
@@ -21222,11 +21656,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsThursAvailable;
         partial void OnIsThursAvailableChanging(global::System.Boolean value);
         partial void OnIsThursAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsFriAvailable
         {
@@ -21246,11 +21680,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsFriAvailable;
         partial void OnIsFriAvailableChanging(global::System.Boolean value);
         partial void OnIsFriAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsSatAvailable
         {
@@ -21270,11 +21704,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsSatAvailable;
         partial void OnIsSatAvailableChanging(global::System.Boolean value);
         partial void OnIsSatAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsSunAvailable
         {
@@ -21298,7 +21732,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -21320,7 +21754,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -21362,17 +21796,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipGroupAge")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipGroupAge")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipGroupAge : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipGroupAge object.
         /// </summary>
@@ -21397,11 +21831,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -21424,11 +21858,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -21448,11 +21882,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -21472,11 +21906,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime CalculationDate
         {
@@ -21496,11 +21930,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _CalculationDate;
         partial void OnCalculationDateChanging(global::System.DateTime value);
         partial void OnCalculationDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MinAge
         {
@@ -21520,11 +21954,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _MinAge;
         partial void OnMinAgeChanging(global::System.Int32 value);
         partial void OnMinAgeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MaxAge
         {
@@ -21544,11 +21978,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _MaxAge;
         partial void OnMaxAgeChanging(global::System.Int32 value);
         partial void OnMaxAgeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 MinMembershipYears
         {
@@ -21568,11 +22002,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _MinMembershipYears;
         partial void OnMinMembershipYearsChanging(global::System.Int32 value);
         partial void OnMinMembershipYearsChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token1
         {
@@ -21592,11 +22026,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token1;
         partial void OnToken1Changing(global::System.String value);
         partial void OnToken1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token2
         {
@@ -21616,11 +22050,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token2;
         partial void OnToken2Changing(global::System.String value);
         partial void OnToken2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token3
         {
@@ -21640,11 +22074,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token3;
         partial void OnToken3Changing(global::System.String value);
         partial void OnToken3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token4
         {
@@ -21664,11 +22098,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token4;
         partial void OnToken4Changing(global::System.String value);
         partial void OnToken4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token5
         {
@@ -21692,7 +22126,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -21718,17 +22152,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipGroupEPOS")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipGroupEPOS")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipGroupEPOS : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipGroupEPOS object.
         /// </summary>
@@ -21747,11 +22181,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid MembershipGroupID
         {
@@ -21774,11 +22208,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _MembershipGroupID;
         partial void OnMembershipGroupIDChanging(global::System.Guid value);
         partial void OnMembershipGroupIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AllowedClubCard
         {
@@ -21798,11 +22232,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AllowedClubCard;
         partial void OnAllowedClubCardChanging(global::System.Boolean value);
         partial void OnAllowedClubCardChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> OverdraftLimit1
         {
@@ -21822,11 +22256,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _OverdraftLimit1;
         partial void OnOverdraftLimit1Changing(Nullable<global::System.Int32> value);
         partial void OnOverdraftLimit1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> OverdraftLimit2
         {
@@ -21846,11 +22280,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _OverdraftLimit2;
         partial void OnOverdraftLimit2Changing(Nullable<global::System.Int32> value);
         partial void OnOverdraftLimit2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRateAll
         {
@@ -21870,11 +22304,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRateAll;
         partial void OnDiscountRateAllChanging(Nullable<global::System.Double> value);
         partial void OnDiscountRateAllChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRate1
         {
@@ -21894,11 +22328,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRate1;
         partial void OnDiscountRate1Changing(Nullable<global::System.Double> value);
         partial void OnDiscountRate1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRate2
         {
@@ -21918,11 +22352,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRate2;
         partial void OnDiscountRate2Changing(Nullable<global::System.Double> value);
         partial void OnDiscountRate2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRate3
         {
@@ -21942,11 +22376,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRate3;
         partial void OnDiscountRate3Changing(Nullable<global::System.Double> value);
         partial void OnDiscountRate3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRate4
         {
@@ -21966,11 +22400,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRate4;
         partial void OnDiscountRate4Changing(Nullable<global::System.Double> value);
         partial void OnDiscountRate4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> DiscountRate5
         {
@@ -21990,11 +22424,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _DiscountRate5;
         partial void OnDiscountRate5Changing(Nullable<global::System.Double> value);
         partial void OnDiscountRate5Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String DisplayMessage
         {
@@ -22014,11 +22448,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _DisplayMessage;
         partial void OnDisplayMessageChanging(global::System.String value);
         partial void OnDisplayMessageChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean PointsBasedMembership
         {
@@ -22042,7 +22476,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -22084,17 +22518,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipGroupStyle")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipGroupStyle")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipGroupStyle : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipGroupStyle object.
         /// </summary>
@@ -22121,11 +22555,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -22148,11 +22582,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -22172,11 +22606,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -22196,11 +22630,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean ClassifiedAsMember
         {
@@ -22220,11 +22654,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _ClassifiedAsMember;
         partial void OnClassifiedAsMemberChanging(global::System.Boolean value);
         partial void OnClassifiedAsMemberChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean SyncWithWebSite
         {
@@ -22244,11 +22678,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _SyncWithWebSite;
         partial void OnSyncWithWebSiteChanging(global::System.Boolean value);
         partial void OnSyncWithWebSiteChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean SyncWithHandicapMaster
         {
@@ -22268,11 +22702,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _SyncWithHandicapMaster;
         partial void OnSyncWithHandicapMasterChanging(global::System.Boolean value);
         partial void OnSyncWithHandicapMasterChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AllowBooking
         {
@@ -22292,11 +22726,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AllowBooking;
         partial void OnAllowBookingChanging(global::System.Boolean value);
         partial void OnAllowBookingChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AllowedClubCard
         {
@@ -22316,11 +22750,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AllowedClubCard;
         partial void OnAllowedClubCardChanging(global::System.Boolean value);
         partial void OnAllowedClubCardChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token1
         {
@@ -22340,11 +22774,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token1;
         partial void OnToken1Changing(global::System.String value);
         partial void OnToken1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token2
         {
@@ -22364,11 +22798,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token2;
         partial void OnToken2Changing(global::System.String value);
         partial void OnToken2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token3
         {
@@ -22388,11 +22822,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token3;
         partial void OnToken3Changing(global::System.String value);
         partial void OnToken3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token4
         {
@@ -22412,11 +22846,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Token4;
         partial void OnToken4Changing(global::System.String value);
         partial void OnToken4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Token5
         {
@@ -22440,7 +22874,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -22466,17 +22900,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipLinkType")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipLinkType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipLinkType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipLinkType object.
         /// </summary>
@@ -22503,11 +22937,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -22530,11 +22964,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -22554,11 +22988,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean UseJointClubCardAccountBar
         {
@@ -22578,11 +23012,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _UseJointClubCardAccountBar;
         partial void OnUseJointClubCardAccountBarChanging(global::System.Boolean value);
         partial void OnUseJointClubCardAccountBarChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean UseJointClubCardAccountProShop
         {
@@ -22602,11 +23036,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _UseJointClubCardAccountProShop;
         partial void OnUseJointClubCardAccountProShopChanging(global::System.Boolean value);
         partial void OnUseJointClubCardAccountProShopChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean UseSingleMembershipAccount
         {
@@ -22626,11 +23060,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _UseSingleMembershipAccount;
         partial void OnUseSingleMembershipAccountChanging(global::System.Boolean value);
         partial void OnUseSingleMembershipAccountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean RenewTogether
         {
@@ -22650,11 +23084,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _RenewTogether;
         partial void OnRenewTogetherChanging(global::System.Boolean value);
         partial void OnRenewTogetherChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AutoRenew
         {
@@ -22674,11 +23108,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AutoRenew;
         partial void OnAutoRenewChanging(global::System.Boolean value);
         partial void OnAutoRenewChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> AutoRenewCategoryID
         {
@@ -22698,11 +23132,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _AutoRenewCategoryID;
         partial void OnAutoRenewCategoryIDChanging(Nullable<global::System.Guid> value);
         partial void OnAutoRenewCategoryIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AutoResign
         {
@@ -22722,11 +23156,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AutoResign;
         partial void OnAutoResignChanging(global::System.Boolean value);
         partial void OnAutoResignChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> AutoResignCategoryID
         {
@@ -22750,7 +23184,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -22788,7 +23222,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -22830,17 +23264,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipMonthlyPaymentOngoingCost")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipMonthlyPaymentOngoingCost")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipMonthlyPaymentOngoingCost : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipMonthlyPaymentOngoingCost object.
         /// </summary>
@@ -22855,11 +23289,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -22882,11 +23316,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component1
         {
@@ -22906,11 +23340,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component1;
         partial void OnComponent1Changing(Nullable<global::System.Guid> value);
         partial void OnComponent1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component2
         {
@@ -22930,11 +23364,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component2;
         partial void OnComponent2Changing(Nullable<global::System.Guid> value);
         partial void OnComponent2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component3
         {
@@ -22954,11 +23388,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component3;
         partial void OnComponent3Changing(Nullable<global::System.Guid> value);
         partial void OnComponent3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component4
         {
@@ -22982,7 +23416,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23020,7 +23454,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23058,7 +23492,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23096,7 +23530,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23134,7 +23568,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23176,17 +23610,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipMonthlyPaymentUpFrontCost")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipMonthlyPaymentUpFrontCost")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipMonthlyPaymentUpFrontCost : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipMonthlyPaymentUpFrontCost object.
         /// </summary>
@@ -23201,11 +23635,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -23228,11 +23662,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component1
         {
@@ -23252,11 +23686,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component1;
         partial void OnComponent1Changing(Nullable<global::System.Guid> value);
         partial void OnComponent1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component2
         {
@@ -23276,11 +23710,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component2;
         partial void OnComponent2Changing(Nullable<global::System.Guid> value);
         partial void OnComponent2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component3
         {
@@ -23300,11 +23734,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component3;
         partial void OnComponent3Changing(Nullable<global::System.Guid> value);
         partial void OnComponent3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component4
         {
@@ -23324,11 +23758,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component4;
         partial void OnComponent4Changing(Nullable<global::System.Guid> value);
         partial void OnComponent4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component5
         {
@@ -23348,11 +23782,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component5;
         partial void OnComponent5Changing(Nullable<global::System.Guid> value);
         partial void OnComponent5Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component6
         {
@@ -23372,11 +23806,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component6;
         partial void OnComponent6Changing(Nullable<global::System.Guid> value);
         partial void OnComponent6Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component7
         {
@@ -23396,11 +23830,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _Component7;
         partial void OnComponent7Changing(Nullable<global::System.Guid> value);
         partial void OnComponent7Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> Component8
         {
@@ -23424,7 +23858,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23462,7 +23896,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23500,7 +23934,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23538,7 +23972,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23576,7 +24010,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23614,7 +24048,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23652,7 +24086,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23690,7 +24124,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23728,7 +24162,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23770,17 +24204,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipOptionBox")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipOptionBox")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipOptionBox : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipOptionBox object.
         /// </summary>
@@ -23797,11 +24231,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -23824,11 +24258,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -23852,7 +24286,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -23878,17 +24312,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipOptionBoxReason")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipOptionBoxReason")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipOptionBoxReason : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipOptionBoxReason object.
         /// </summary>
@@ -23907,11 +24341,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -23934,11 +24368,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Reason
         {
@@ -23958,11 +24392,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Reason;
         partial void OnReasonChanging(global::System.String value);
         partial void OnReasonChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid OptionBoxID
         {
@@ -23986,7 +24420,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -24028,17 +24462,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipToken")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipToken")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipToken : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipToken object.
         /// </summary>
@@ -24055,11 +24489,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -24082,11 +24516,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -24110,17 +24544,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "MembershipUpdate")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="MembershipUpdate")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class MembershipUpdate : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new MembershipUpdate object.
         /// </summary>
@@ -24143,11 +24577,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -24170,11 +24604,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid MemberID
         {
@@ -24194,11 +24628,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _MemberID;
         partial void OnMemberIDChanging(global::System.Guid value);
         partial void OnMemberIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserID
         {
@@ -24218,11 +24652,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _UserID;
         partial void OnUserIDChanging(global::System.Guid value);
         partial void OnUserIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Message
         {
@@ -24242,11 +24676,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Message;
         partial void OnMessageChanging(global::System.String value);
         partial void OnMessageChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -24266,11 +24700,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String OldValue
         {
@@ -24290,11 +24724,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _OldValue;
         partial void OnOldValueChanging(global::System.String value);
         partial void OnOldValueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NewValue
         {
@@ -24314,11 +24748,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _NewValue;
         partial void OnNewValueChanging(global::System.String value);
         partial void OnNewValueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> ItemId
         {
@@ -24338,11 +24772,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _ItemId;
         partial void OnItemIdChanging(Nullable<global::System.Guid> value);
         partial void OnItemIdChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String ItemType
         {
@@ -24362,11 +24796,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _ItemType;
         partial void OnItemTypeChanging(global::System.String value);
         partial void OnItemTypeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Field
         {
@@ -24386,11 +24820,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Field;
         partial void OnFieldChanging(global::System.String value);
         partial void OnFieldChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> Action
         {
@@ -24414,7 +24848,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -24452,7 +24886,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -24494,17 +24928,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "PaymentMethod")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="PaymentMethod")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class PaymentMethod : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new PaymentMethod object.
         /// </summary>
@@ -24521,11 +24955,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -24548,11 +24982,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Method
         {
@@ -24576,7 +25010,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -24602,17 +25036,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Permission")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Permission")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Permission : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Permission object.
         /// </summary>
@@ -24633,11 +25067,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -24660,11 +25094,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -24684,11 +25118,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -24708,11 +25142,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid PermissionGroupID
         {
@@ -24736,7 +25170,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -24774,7 +25208,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -24796,7 +25230,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -24822,17 +25256,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "PermissionGroup")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="PermissionGroup")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class PermissionGroup : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new PermissionGroup object.
         /// </summary>
@@ -24849,11 +25283,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -24876,11 +25310,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String GroupName
         {
@@ -24904,7 +25338,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -24930,17 +25364,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Product")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Product")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Product : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Product object.
         /// </summary>
@@ -24969,11 +25403,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -24996,11 +25430,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TypeID
         {
@@ -25020,11 +25454,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TypeID;
         partial void OnTypeIDChanging(global::System.Guid value);
         partial void OnTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -25044,11 +25478,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -25068,11 +25502,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Single GrossPrice
         {
@@ -25092,11 +25526,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Single _GrossPrice;
         partial void OnGrossPriceChanging(global::System.Single value);
         partial void OnGrossPriceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid VATRateID
         {
@@ -25116,11 +25550,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _VATRateID;
         partial void OnVATRateIDChanging(global::System.Guid value);
         partial void OnVATRateIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ProductGroupID
         {
@@ -25140,11 +25574,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ProductGroupID;
         partial void OnProductGroupIDChanging(global::System.Guid value);
         partial void OnProductGroupIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid DepartmentID
         {
@@ -25164,11 +25598,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _DepartmentID;
         partial void OnDepartmentIDChanging(global::System.Guid value);
         partial void OnDepartmentIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> ProductOptionID
         {
@@ -25188,11 +25622,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _ProductOptionID;
         partial void OnProductOptionIDChanging(Nullable<global::System.Guid> value);
         partial void OnProductOptionIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean isAvailable
         {
@@ -25212,11 +25646,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _isAvailable;
         partial void OnisAvailableChanging(global::System.Boolean value);
         partial void OnisAvailableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> PluID
         {
@@ -25236,11 +25670,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _PluID;
         partial void OnPluIDChanging(Nullable<global::System.Int32> value);
         partial void OnPluIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> IsPartPayment
         {
@@ -25260,11 +25694,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Boolean> _IsPartPayment;
         partial void OnIsPartPaymentChanging(Nullable<global::System.Boolean> value);
         partial void OnIsPartPaymentChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> IsAutoRenewable
         {
@@ -25284,11 +25718,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Boolean> _IsAutoRenewable;
         partial void OnIsAutoRenewableChanging(Nullable<global::System.Boolean> value);
         partial void OnIsAutoRenewableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> IsDiscountable
         {
@@ -25308,11 +25742,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Boolean> _IsDiscountable;
         partial void OnIsDiscountableChanging(Nullable<global::System.Boolean> value);
         partial void OnIsDiscountableChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> IsAllowAd
         {
@@ -25332,11 +25766,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Boolean> _IsAllowAd;
         partial void OnIsAllowAdChanging(Nullable<global::System.Boolean> value);
         partial void OnIsAllowAdChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Boolean> ComponentType
         {
@@ -25356,11 +25790,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Boolean> _ComponentType;
         partial void OnComponentTypeChanging(Nullable<global::System.Boolean> value);
         partial void OnComponentTypeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> EarlyPaymentDiscount
         {
@@ -25380,11 +25814,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _EarlyPaymentDiscount;
         partial void OnEarlyPaymentDiscountChanging(Nullable<global::System.Double> value);
         partial void OnEarlyPaymentDiscountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> PointsReceived
         {
@@ -25408,7 +25842,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25430,7 +25864,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25452,7 +25886,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25490,7 +25924,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25512,7 +25946,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25550,7 +25984,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25588,7 +26022,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25626,7 +26060,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25664,7 +26098,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25686,7 +26120,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25708,7 +26142,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25730,7 +26164,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25752,7 +26186,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25774,7 +26208,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25796,7 +26230,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25818,7 +26252,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25840,7 +26274,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25862,7 +26296,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25884,7 +26318,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25906,7 +26340,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25928,7 +26362,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25950,7 +26384,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25972,7 +26406,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -25994,7 +26428,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26016,7 +26450,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26038,7 +26472,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26060,7 +26494,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26082,7 +26516,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26108,17 +26542,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "ProductDepartment")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="ProductDepartment")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class ProductDepartment : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new ProductDepartment object.
         /// </summary>
@@ -26139,11 +26573,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -26166,11 +26600,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Department
         {
@@ -26190,11 +26624,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Department;
         partial void OnDepartmentChanging(global::System.String value);
         partial void OnDepartmentChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Record
         {
@@ -26214,11 +26648,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Record;
         partial void OnRecordChanging(global::System.Int32 value);
         partial void OnRecordChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TillID
         {
@@ -26238,11 +26672,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TillID;
         partial void OnTillIDChanging(global::System.Guid value);
         partial void OnTillIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NominalCode
         {
@@ -26266,7 +26700,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26304,7 +26738,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26326,7 +26760,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26348,7 +26782,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26374,17 +26808,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "ProductEventType")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="ProductEventType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class ProductEventType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new ProductEventType object.
         /// </summary>
@@ -26403,11 +26837,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -26430,11 +26864,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ProductID
         {
@@ -26454,11 +26888,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ProductID;
         partial void OnProductIDChanging(global::System.Guid value);
         partial void OnProductIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventTypeID
         {
@@ -26482,7 +26916,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26520,7 +26954,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26562,17 +26996,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "ProductGroup")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="ProductGroup")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class ProductGroup : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new ProductGroup object.
         /// </summary>
@@ -26593,11 +27027,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -26620,11 +27054,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String GroupName
         {
@@ -26644,11 +27078,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _GroupName;
         partial void OnGroupNameChanging(global::System.String value);
         partial void OnGroupNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Record
         {
@@ -26668,11 +27102,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Record;
         partial void OnRecordChanging(global::System.Int32 value);
         partial void OnRecordChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TillID
         {
@@ -26692,11 +27126,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TillID;
         partial void OnTillIDChanging(global::System.Guid value);
         partial void OnTillIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String NominalCode
         {
@@ -26720,7 +27154,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26758,7 +27192,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26780,7 +27214,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26802,7 +27236,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26828,17 +27262,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "ProductOption")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="ProductOption")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class ProductOption : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new ProductOption object.
         /// </summary>
@@ -26855,11 +27289,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -26882,11 +27316,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String OptionName
         {
@@ -26910,7 +27344,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -26936,17 +27370,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "ProductType")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="ProductType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class ProductType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new ProductType object.
         /// </summary>
@@ -26963,11 +27397,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -26990,11 +27424,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Type
         {
@@ -27018,7 +27452,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -27044,17 +27478,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "ProductVATRate")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="ProductVATRate")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class ProductVATRate : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new ProductVATRate object.
         /// </summary>
@@ -27073,11 +27507,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -27100,11 +27534,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Rate
         {
@@ -27124,11 +27558,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Double _Rate;
         partial void OnRateChanging(global::System.Double value);
         partial void OnRateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Record
         {
@@ -27152,7 +27586,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -27174,7 +27608,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -27200,17 +27634,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Report")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Report")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Report : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Report object.
         /// </summary>
@@ -27233,11 +27667,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -27260,11 +27694,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid EventID
         {
@@ -27284,11 +27718,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _EventID;
         partial void OnEventIDChanging(global::System.Guid value);
         partial void OnEventIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -27308,11 +27742,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -27332,11 +27766,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Path
         {
@@ -27360,7 +27794,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -27402,17 +27836,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Room")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Room")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Room : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Room object.
         /// </summary>
@@ -27461,11 +27895,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -27488,11 +27922,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -27512,11 +27946,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean MultipleBooking
         {
@@ -27536,11 +27970,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _MultipleBooking;
         partial void OnMultipleBookingChanging(global::System.Boolean value);
         partial void OnMultipleBookingChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Single Height
         {
@@ -27560,11 +27994,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Single _Height;
         partial void OnHeightChanging(global::System.Single value);
         partial void OnHeightChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Single Width
         {
@@ -27584,11 +28018,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Single _Width;
         partial void OnWidthChanging(global::System.Single value);
         partial void OnWidthChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Single Length
         {
@@ -27608,11 +28042,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Single _Length;
         partial void OnLengthChanging(global::System.Single value);
         partial void OnLengthChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Boardroom
         {
@@ -27632,11 +28066,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Boardroom;
         partial void OnBoardroomChanging(global::System.String value);
         partial void OnBoardroomChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Theatre
         {
@@ -27656,11 +28090,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Theatre;
         partial void OnTheatreChanging(global::System.String value);
         partial void OnTheatreChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Conference
         {
@@ -27680,11 +28114,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Conference;
         partial void OnConferenceChanging(global::System.String value);
         partial void OnConferenceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String FreeForm
         {
@@ -27704,11 +28138,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _FreeForm;
         partial void OnFreeFormChanging(global::System.String value);
         partial void OnFreeFormChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String TurnaroundNeeded
         {
@@ -27728,11 +28162,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _TurnaroundNeeded;
         partial void OnTurnaroundNeededChanging(global::System.String value);
         partial void OnTurnaroundNeededChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String RoomNote
         {
@@ -27752,11 +28186,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _RoomNote;
         partial void OnRoomNoteChanging(global::System.String value);
         partial void OnRoomNoteChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean BoardroomAllowed
         {
@@ -27776,11 +28210,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _BoardroomAllowed;
         partial void OnBoardroomAllowedChanging(global::System.Boolean value);
         partial void OnBoardroomAllowedChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean TheatreAllowed
         {
@@ -27800,11 +28234,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _TheatreAllowed;
         partial void OnTheatreAllowedChanging(global::System.Boolean value);
         partial void OnTheatreAllowedChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean ConferenceAllowed
         {
@@ -27824,11 +28258,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _ConferenceAllowed;
         partial void OnConferenceAllowedChanging(global::System.Boolean value);
         partial void OnConferenceAllowedChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean FreeFormAllowed
         {
@@ -27848,11 +28282,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _FreeFormAllowed;
         partial void OnFreeFormAllowedChanging(global::System.Boolean value);
         partial void OnFreeFormAllowedChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IncludeInForwardBook
         {
@@ -27872,11 +28306,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IncludeInForwardBook;
         partial void OnIncludeInForwardBookChanging(global::System.Boolean value);
         partial void OnIncludeInForwardBookChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AllowOnlineBooking
         {
@@ -27896,11 +28330,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AllowOnlineBooking;
         partial void OnAllowOnlineBookingChanging(global::System.Boolean value);
         partial void OnAllowOnlineBookingChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean AdminAuthorisation
         {
@@ -27920,11 +28354,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _AdminAuthorisation;
         partial void OnAdminAuthorisationChanging(global::System.Boolean value);
         partial void OnAdminAuthorisationChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsEnabled
         {
@@ -27944,11 +28378,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsEnabled;
         partial void OnIsEnabledChanging(global::System.Boolean value);
         partial void OnIsEnabledChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Color
         {
@@ -27968,11 +28402,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Color;
         partial void OnColorChanging(global::System.String value);
         partial void OnColorChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan StartTime
         {
@@ -27992,11 +28426,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.TimeSpan _StartTime;
         partial void OnStartTimeChanging(global::System.TimeSpan value);
         partial void OnStartTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan EndTime
         {
@@ -28016,11 +28450,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.TimeSpan _EndTime;
         partial void OnEndTimeChanging(global::System.TimeSpan value);
         partial void OnEndTimeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.TimeSpan TimeInterval
         {
@@ -28044,7 +28478,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28066,7 +28500,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28088,7 +28522,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28114,17 +28548,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "RoomFacility")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="RoomFacility")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class RoomFacility : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new RoomFacility object.
         /// </summary>
@@ -28143,11 +28577,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -28170,11 +28604,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid FacilityID
         {
@@ -28194,11 +28628,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _FacilityID;
         partial void OnFacilityIDChanging(global::System.Guid value);
         partial void OnFacilityIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid RoomID
         {
@@ -28222,7 +28656,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28260,7 +28694,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28302,17 +28736,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "SystemSetting")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="SystemSetting")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class SystemSetting : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new SystemSetting object.
         /// </summary>
@@ -28333,11 +28767,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -28360,11 +28794,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> UserID
         {
@@ -28384,11 +28818,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _UserID;
         partial void OnUserIDChanging(Nullable<global::System.Guid> value);
         partial void OnUserIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsGlobal
         {
@@ -28408,11 +28842,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsGlobal;
         partial void OnIsGlobalChanging(global::System.Boolean value);
         partial void OnIsGlobalChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -28432,11 +28866,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Value
         {
@@ -28460,7 +28894,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28502,17 +28936,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "Till")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="Till")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class Till : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new Till object.
         /// </summary>
@@ -28535,11 +28969,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -28562,11 +28996,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String IPAddress
         {
@@ -28586,11 +29020,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _IPAddress;
         partial void OnIPAddressChanging(global::System.String value);
         partial void OnIPAddressChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean Enabled
         {
@@ -28610,11 +29044,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _Enabled;
         partial void OnEnabledChanging(global::System.Boolean value);
         partial void OnEnabledChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Identifier
         {
@@ -28634,11 +29068,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Identifier;
         partial void OnIdentifierChanging(global::System.Int32 value);
         partial void OnIdentifierChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -28658,11 +29092,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> DivisionID
         {
@@ -28682,11 +29116,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _DivisionID;
         partial void OnDivisionIDChanging(Nullable<global::System.Guid> value);
         partial void OnDivisionIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> Port
         {
@@ -28710,7 +29144,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28732,7 +29166,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28754,7 +29188,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28776,7 +29210,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28798,7 +29232,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28820,7 +29254,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28842,7 +29276,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28864,7 +29298,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28886,7 +29320,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -28928,17 +29362,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TillDivision")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TillDivision")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TillDivision : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TillDivision object.
         /// </summary>
@@ -28955,11 +29389,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -28982,11 +29416,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -29006,11 +29440,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> MasterTillID
         {
@@ -29034,7 +29468,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -29072,7 +29506,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -29098,17 +29532,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TillProduct")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TillProduct")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TillProduct : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TillProduct object.
         /// </summary>
@@ -29135,11 +29569,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -29162,11 +29596,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -29186,11 +29620,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid DepartmentID
         {
@@ -29210,11 +29644,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _DepartmentID;
         partial void OnDepartmentIDChanging(global::System.Guid value);
         partial void OnDepartmentIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid GroupID
         {
@@ -29234,11 +29668,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _GroupID;
         partial void OnGroupIDChanging(global::System.Guid value);
         partial void OnGroupIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TaxRateID
         {
@@ -29258,11 +29692,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TaxRateID;
         partial void OnTaxRateIDChanging(global::System.Guid value);
         partial void OnTaxRateIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Record
         {
@@ -29282,11 +29716,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Record;
         partial void OnRecordChanging(global::System.Int32 value);
         partial void OnRecordChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> Quantity1
         {
@@ -29306,11 +29740,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _Quantity1;
         partial void OnQuantity1Changing(Nullable<global::System.Double> value);
         partial void OnQuantity1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> Quantity2
         {
@@ -29330,11 +29764,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _Quantity2;
         partial void OnQuantity2Changing(Nullable<global::System.Double> value);
         partial void OnQuantity2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Double> Quantity3
         {
@@ -29354,11 +29788,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Double> _Quantity3;
         partial void OnQuantity3Changing(Nullable<global::System.Double> value);
         partial void OnQuantity3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price1L1
         {
@@ -29378,11 +29812,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price1L1;
         partial void OnPrice1L1Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice1L1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price1L2
         {
@@ -29402,11 +29836,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price1L2;
         partial void OnPrice1L2Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice1L2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price1L3
         {
@@ -29426,11 +29860,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price1L3;
         partial void OnPrice1L3Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice1L3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price1L4
         {
@@ -29450,11 +29884,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price1L4;
         partial void OnPrice1L4Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice1L4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price2L1
         {
@@ -29474,11 +29908,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price2L1;
         partial void OnPrice2L1Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice2L1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price2L2
         {
@@ -29498,11 +29932,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price2L2;
         partial void OnPrice2L2Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice2L2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price2L3
         {
@@ -29522,11 +29956,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price2L3;
         partial void OnPrice2L3Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice2L3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price2L4
         {
@@ -29546,11 +29980,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price2L4;
         partial void OnPrice2L4Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice2L4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price3L1
         {
@@ -29570,11 +30004,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price3L1;
         partial void OnPrice3L1Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice3L1Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price3L2
         {
@@ -29594,11 +30028,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price3L2;
         partial void OnPrice3L2Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice3L2Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price3L3
         {
@@ -29618,11 +30052,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price3L3;
         partial void OnPrice3L3Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice3L3Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Price3L4
         {
@@ -29642,11 +30076,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Price3L4;
         partial void OnPrice3L4Changing(Nullable<global::System.Decimal> value);
         partial void OnPrice3L4Changed();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TillID
         {
@@ -29670,7 +30104,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -29708,7 +30142,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -29746,7 +30180,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -29784,7 +30218,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -29822,7 +30256,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -29844,7 +30278,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -29870,17 +30304,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TillProductTill")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TillProductTill")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TillProductTill : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TillProductTill object.
         /// </summary>
@@ -29899,11 +30333,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -29926,11 +30360,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TillID
         {
@@ -29950,11 +30384,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TillID;
         partial void OnTillIDChanging(global::System.Guid value);
         partial void OnTillIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TillProductID
         {
@@ -29978,7 +30412,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -30016,7 +30450,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -30058,17 +30492,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TillTabTransaction")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TillTabTransaction")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TillTabTransaction : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TillTabTransaction object.
         /// </summary>
@@ -30099,11 +30533,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -30126,11 +30560,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -30150,11 +30584,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String SaleID
         {
@@ -30174,11 +30608,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _SaleID;
         partial void OnSaleIDChanging(global::System.String value);
         partial void OnSaleIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ClerkID
         {
@@ -30198,11 +30632,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ClerkID;
         partial void OnClerkIDChanging(global::System.Guid value);
         partial void OnClerkIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Mode
         {
@@ -30222,11 +30656,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Mode;
         partial void OnModeChanging(global::System.Int32 value);
         partial void OnModeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 ConsecNumber
         {
@@ -30246,11 +30680,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _ConsecNumber;
         partial void OnConsecNumberChanging(global::System.Int32 value);
         partial void OnConsecNumberChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Status
         {
@@ -30270,11 +30704,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Status;
         partial void OnStatusChanging(global::System.Int32 value);
         partial void OnStatusChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> ItemCount
         {
@@ -30294,11 +30728,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _ItemCount;
         partial void OnItemCountChanging(Nullable<global::System.Int32> value);
         partial void OnItemCountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Single> SaleTotal
         {
@@ -30318,11 +30752,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Single> _SaleTotal;
         partial void OnSaleTotalChanging(Nullable<global::System.Single> value);
         partial void OnSaleTotalChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Single> TaxableAmount
         {
@@ -30342,11 +30776,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Single> _TaxableAmount;
         partial void OnTaxableAmountChanging(Nullable<global::System.Single> value);
         partial void OnTaxableAmountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Single> SaleTaxableAmount
         {
@@ -30366,11 +30800,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Single> _SaleTaxableAmount;
         partial void OnSaleTaxableAmountChanging(Nullable<global::System.Single> value);
         partial void OnSaleTaxableAmountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Single> NetTotal
         {
@@ -30390,11 +30824,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Single> _NetTotal;
         partial void OnNetTotalChanging(Nullable<global::System.Single> value);
         partial void OnNetTotalChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> OrderNumber
         {
@@ -30414,11 +30848,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _OrderNumber;
         partial void OnOrderNumberChanging(Nullable<global::System.Int32> value);
         partial void OnOrderNumberChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Check
         {
@@ -30438,11 +30872,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Check;
         partial void OnCheckChanging(global::System.String value);
         partial void OnCheckChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String SaleDescriptor
         {
@@ -30462,11 +30896,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _SaleDescriptor;
         partial void OnSaleDescriptorChanging(global::System.String value);
         partial void OnSaleDescriptorChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TillID
         {
@@ -30490,7 +30924,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -30528,7 +30962,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -30566,7 +31000,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -30592,17 +31026,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TillTransaction")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TillTransaction")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TillTransaction : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TillTransaction object.
         /// </summary>
@@ -30631,11 +31065,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -30658,11 +31092,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.DateTime Date
         {
@@ -30682,11 +31116,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.DateTime _Date;
         partial void OnDateChanging(global::System.DateTime value);
         partial void OnDateChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String SaleID
         {
@@ -30706,11 +31140,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _SaleID;
         partial void OnSaleIDChanging(global::System.String value);
         partial void OnSaleIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ClerkID
         {
@@ -30730,11 +31164,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ClerkID;
         partial void OnClerkIDChanging(global::System.Guid value);
         partial void OnClerkIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Mode
         {
@@ -30754,11 +31188,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Mode;
         partial void OnModeChanging(global::System.Int32 value);
         partial void OnModeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Status
         {
@@ -30778,11 +31212,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Status;
         partial void OnStatusChanging(global::System.Int32 value);
         partial void OnStatusChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> ItemCount
         {
@@ -30802,11 +31236,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _ItemCount;
         partial void OnItemCountChanging(Nullable<global::System.Int32> value);
         partial void OnItemCountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Single> SaleTotal
         {
@@ -30826,11 +31260,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Single> _SaleTotal;
         partial void OnSaleTotalChanging(Nullable<global::System.Single> value);
         partial void OnSaleTotalChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Single> TaxableAmount
         {
@@ -30850,11 +31284,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Single> _TaxableAmount;
         partial void OnTaxableAmountChanging(Nullable<global::System.Single> value);
         partial void OnTaxableAmountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Single> SaleTaxableAmount
         {
@@ -30874,11 +31308,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Single> _SaleTaxableAmount;
         partial void OnSaleTaxableAmountChanging(Nullable<global::System.Single> value);
         partial void OnSaleTaxableAmountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Single> NetTotal
         {
@@ -30898,11 +31332,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Single> _NetTotal;
         partial void OnNetTotalChanging(Nullable<global::System.Single> value);
         partial void OnNetTotalChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> OrderNumber
         {
@@ -30922,11 +31356,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _OrderNumber;
         partial void OnOrderNumberChanging(Nullable<global::System.Int32> value);
         partial void OnOrderNumberChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Check
         {
@@ -30946,11 +31380,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Check;
         partial void OnCheckChanging(global::System.String value);
         partial void OnCheckChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String SaleDescriptor
         {
@@ -30970,11 +31404,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _SaleDescriptor;
         partial void OnSaleDescriptorChanging(global::System.String value);
         partial void OnSaleDescriptorChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TillID
         {
@@ -30998,7 +31432,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31036,7 +31470,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31074,7 +31508,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31096,7 +31530,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31118,7 +31552,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31140,7 +31574,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31162,7 +31596,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31188,17 +31622,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TillTransactionDepartment")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TillTransactionDepartment")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TillTransactionDepartment : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TillTransactionDepartment object.
         /// </summary>
@@ -31221,11 +31655,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -31248,11 +31682,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TransactionID
         {
@@ -31272,11 +31706,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TransactionID;
         partial void OnTransactionIDChanging(global::System.Guid value);
         partial void OnTransactionIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid DepartmentID
         {
@@ -31296,11 +31730,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _DepartmentID;
         partial void OnDepartmentIDChanging(global::System.Guid value);
         partial void OnDepartmentIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Decimal Value
         {
@@ -31320,11 +31754,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Decimal _Value;
         partial void OnValueChanging(global::System.Decimal value);
         partial void OnValueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Quantity
         {
@@ -31348,7 +31782,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31386,7 +31820,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31428,17 +31862,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TillTransactionDetail")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TillTransactionDetail")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TillTransactionDetail : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TillTransactionDetail object.
         /// </summary>
@@ -31461,11 +31895,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -31488,11 +31922,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TransactionID
         {
@@ -31512,11 +31946,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TransactionID;
         partial void OnTransactionIDChanging(global::System.Guid value);
         partial void OnTransactionIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String SaleID
         {
@@ -31536,11 +31970,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _SaleID;
         partial void OnSaleIDChanging(global::System.String value);
         partial void OnSaleIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Quantity
         {
@@ -31560,11 +31994,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Double _Quantity;
         partial void OnQuantityChanging(global::System.Double value);
         partial void OnQuantityChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Value
         {
@@ -31584,11 +32018,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Value;
         partial void OnValueChanging(Nullable<global::System.Decimal> value);
         partial void OnValueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 PriceLevel
         {
@@ -31608,11 +32042,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _PriceLevel;
         partial void OnPriceLevelChanging(global::System.Int32 value);
         partial void OnPriceLevelChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> File
         {
@@ -31632,11 +32066,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _File;
         partial void OnFileChanging(Nullable<global::System.Int32> value);
         partial void OnFileChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> ItemRecord
         {
@@ -31656,11 +32090,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Int32> _ItemRecord;
         partial void OnItemRecordChanging(Nullable<global::System.Int32> value);
         partial void OnItemRecordChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Guid> TabTransactionID
         {
@@ -31680,11 +32114,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Guid> _TabTransactionID;
         partial void OnTabTransactionIDChanging(Nullable<global::System.Guid> value);
         partial void OnTabTransactionIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Int32> Status
         {
@@ -31708,7 +32142,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31746,7 +32180,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -31788,17 +32222,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TillTransactionFinaliseKey")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TillTransactionFinaliseKey")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TillTransactionFinaliseKey : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TillTransactionFinaliseKey object.
         /// </summary>
@@ -31823,11 +32257,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -31850,11 +32284,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TransactionID
         {
@@ -31874,11 +32308,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TransactionID;
         partial void OnTransactionIDChanging(global::System.Guid value);
         partial void OnTransactionIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid FinaliseKeyID
         {
@@ -31898,11 +32332,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _FinaliseKeyID;
         partial void OnFinaliseKeyIDChanging(global::System.Guid value);
         partial void OnFinaliseKeyIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Decimal Value
         {
@@ -31922,11 +32356,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Decimal _Value;
         partial void OnValueChanging(global::System.Decimal value);
         partial void OnValueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Quantity
         {
@@ -31946,11 +32380,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Double _Quantity;
         partial void OnQuantityChanging(global::System.Double value);
         partial void OnQuantityChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 PriceLevel
         {
@@ -31974,7 +32408,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -32012,7 +32446,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -32054,17 +32488,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TillTransactionGroup")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TillTransactionGroup")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TillTransactionGroup : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TillTransactionGroup object.
         /// </summary>
@@ -32089,11 +32523,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -32116,11 +32550,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TransactionID
         {
@@ -32140,11 +32574,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TransactionID;
         partial void OnTransactionIDChanging(global::System.Guid value);
         partial void OnTransactionIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid GroupID
         {
@@ -32164,11 +32598,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _GroupID;
         partial void OnGroupIDChanging(global::System.Guid value);
         partial void OnGroupIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Decimal Value
         {
@@ -32188,11 +32622,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Decimal _Value;
         partial void OnValueChanging(global::System.Decimal value);
         partial void OnValueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Quantity
         {
@@ -32212,11 +32646,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Double _Quantity;
         partial void OnQuantityChanging(global::System.Double value);
         partial void OnQuantityChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 PriceLevel
         {
@@ -32240,7 +32674,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -32278,7 +32712,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -32320,17 +32754,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TillTransactionProduct")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TillTransactionProduct")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TillTransactionProduct : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TillTransactionProduct object.
         /// </summary>
@@ -32355,11 +32789,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -32382,11 +32816,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TransactionID
         {
@@ -32406,11 +32840,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TransactionID;
         partial void OnTransactionIDChanging(global::System.Guid value);
         partial void OnTransactionIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid TillProductID
         {
@@ -32430,11 +32864,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _TillProductID;
         partial void OnTillProductIDChanging(global::System.Guid value);
         partial void OnTillProductIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Decimal Value
         {
@@ -32454,11 +32888,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Decimal _Value;
         partial void OnValueChanging(global::System.Decimal value);
         partial void OnValueChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Double Quantity
         {
@@ -32478,11 +32912,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Double _Quantity;
         partial void OnQuantityChanging(global::System.Double value);
         partial void OnQuantityChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 PriceLevel
         {
@@ -32502,11 +32936,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _PriceLevel;
         partial void OnPriceLevelChanging(global::System.Int32 value);
         partial void OnPriceLevelChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> SalePrice
         {
@@ -32526,11 +32960,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _SalePrice;
         partial void OnSalePriceChanging(Nullable<global::System.Decimal> value);
         partial void OnSalePriceChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Discount
         {
@@ -32550,11 +32984,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Discount;
         partial void OnDiscountChanging(Nullable<global::System.Decimal> value);
         partial void OnDiscountChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Cash
         {
@@ -32574,11 +33008,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Cash;
         partial void OnCashChanging(Nullable<global::System.Decimal> value);
         partial void OnCashChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> CreditCard
         {
@@ -32598,11 +33032,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _CreditCard;
         partial void OnCreditCardChanging(Nullable<global::System.Decimal> value);
         partial void OnCreditCardChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Cheque
         {
@@ -32622,11 +33056,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Cheque;
         partial void OnChequeChanging(Nullable<global::System.Decimal> value);
         partial void OnChequeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Voucher
         {
@@ -32646,11 +33080,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Voucher;
         partial void OnVoucherChanging(Nullable<global::System.Decimal> value);
         partial void OnVoucherChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> ClubCard
         {
@@ -32670,11 +33104,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _ClubCard;
         partial void OnClubCardChanging(Nullable<global::System.Decimal> value);
         partial void OnClubCardChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Events
         {
@@ -32694,11 +33128,11 @@ namespace EventManagementSystem.Data.Model
         private Nullable<global::System.Decimal> _Events;
         partial void OnEventsChanging(Nullable<global::System.Decimal> value);
         partial void OnEventsChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public Nullable<global::System.Decimal> Other
         {
@@ -32722,7 +33156,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -32760,7 +33194,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -32802,17 +33236,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "TransactionKey")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="TransactionKey")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class TransactionKey : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new TransactionKey object.
         /// </summary>
@@ -32831,11 +33265,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -32858,11 +33292,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Int32 Record
         {
@@ -32882,11 +33316,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Int32 _Record;
         partial void OnRecordChanging(global::System.Int32 value);
         partial void OnRecordChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -32910,17 +33344,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "User")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="User")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class User : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new User object.
         /// </summary>
@@ -32963,11 +33397,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -32990,11 +33424,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String FirstName
         {
@@ -33014,11 +33448,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _FirstName;
         partial void OnFirstNameChanging(global::System.String value);
         partial void OnFirstNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String LastName
         {
@@ -33038,11 +33472,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _LastName;
         partial void OnLastNameChanging(global::System.String value);
         partial void OnLastNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String UserName
         {
@@ -33062,11 +33496,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _UserName;
         partial void OnUserNameChanging(global::System.String value);
         partial void OnUserNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String PasswordHash
         {
@@ -33086,11 +33520,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _PasswordHash;
         partial void OnPasswordHashChanging(global::System.String value);
         partial void OnPasswordHashChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String PasswordSalt
         {
@@ -33110,11 +33544,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _PasswordSalt;
         partial void OnPasswordSaltChanging(global::System.String value);
         partial void OnPasswordSaltChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsEnabled
         {
@@ -33134,11 +33568,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsEnabled;
         partial void OnIsEnabledChanging(global::System.Boolean value);
         partial void OnIsEnabledChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String ShortCode
         {
@@ -33158,11 +33592,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _ShortCode;
         partial void OnShortCodeChanging(global::System.String value);
         partial void OnShortCodeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserGroupID
         {
@@ -33182,11 +33616,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _UserGroupID;
         partial void OnUserGroupIDChanging(global::System.Guid value);
         partial void OnUserGroupIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String EmailAddress
         {
@@ -33206,11 +33640,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _EmailAddress;
         partial void OnEmailAddressChanging(global::System.String value);
         partial void OnEmailAddressChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String IdNumber
         {
@@ -33230,11 +33664,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _IdNumber;
         partial void OnIdNumberChanging(global::System.String value);
         partial void OnIdNumberChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String AuthCode
         {
@@ -33254,11 +33688,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _AuthCode;
         partial void OnAuthCodeChanging(global::System.String value);
         partial void OnAuthCodeChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Colour
         {
@@ -33278,11 +33712,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Colour;
         partial void OnColourChanging(global::System.String value);
         partial void OnColourChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid DepartmentID
         {
@@ -33302,11 +33736,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _DepartmentID;
         partial void OnDepartmentIDChanging(global::System.Guid value);
         partial void OnDepartmentIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid JobTypeID
         {
@@ -33326,11 +33760,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _JobTypeID;
         partial void OnJobTypeIDChanging(global::System.Guid value);
         partial void OnJobTypeIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String InternalName
         {
@@ -33350,11 +33784,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _InternalName;
         partial void OnInternalNameChanging(global::System.String value);
         partial void OnInternalNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String EmailSignature
         {
@@ -33378,7 +33812,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33400,7 +33834,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33422,7 +33856,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33444,7 +33878,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33466,7 +33900,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33488,7 +33922,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33510,7 +33944,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33532,7 +33966,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33554,7 +33988,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33576,7 +34010,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33598,7 +34032,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33620,7 +34054,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33642,7 +34076,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33664,7 +34098,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33686,7 +34120,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33724,7 +34158,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33762,7 +34196,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33800,7 +34234,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33822,7 +34256,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33844,7 +34278,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33866,7 +34300,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33888,7 +34322,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33910,7 +34344,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33932,7 +34366,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33954,7 +34388,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33976,7 +34410,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -33998,21 +34432,43 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("EventManagementSystemModel", "FK_ContactUpdates_Users", "ContactUpdate")]
+        public EntityCollection<ContactUpdate> ContactUpdates
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<ContactUpdate>("EventManagementSystemModel.FK_ContactUpdates_Users", "ContactUpdate");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<ContactUpdate>("EventManagementSystemModel.FK_ContactUpdates_Users", "ContactUpdate", value);
+                }
+            }
+        }
 
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "UserDepartment")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="UserDepartment")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class UserDepartment : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new UserDepartment object.
         /// </summary>
@@ -34029,11 +34485,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -34056,11 +34512,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Department
         {
@@ -34084,7 +34540,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -34110,17 +34566,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "UserGroup")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="UserGroup")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class UserGroup : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new UserGroup object.
         /// </summary>
@@ -34143,11 +34599,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -34170,11 +34626,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Name
         {
@@ -34194,11 +34650,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
         public global::System.String Description
         {
@@ -34218,11 +34674,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Description;
         partial void OnDescriptionChanging(global::System.String value);
         partial void OnDescriptionChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Boolean IsAdmin
         {
@@ -34242,11 +34698,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Boolean _IsAdmin;
         partial void OnIsAdminChanging(global::System.Boolean value);
         partial void OnIsAdminChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Colour
         {
@@ -34266,11 +34722,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.String _Colour;
         partial void OnColourChanging(global::System.String value);
         partial void OnColourChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String AuthCode
         {
@@ -34294,7 +34750,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -34316,7 +34772,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -34342,17 +34798,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "UserGroupPermission")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="UserGroupPermission")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class UserGroupPermission : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new UserGroupPermission object.
         /// </summary>
@@ -34371,11 +34827,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -34398,11 +34854,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid GroupID
         {
@@ -34422,11 +34878,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _GroupID;
         partial void OnGroupIDChanging(global::System.Guid value);
         partial void OnGroupIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid PermissionID
         {
@@ -34450,7 +34906,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -34488,7 +34944,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -34530,17 +34986,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "UserJobType")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="UserJobType")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class UserJobType : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new UserJobType object.
         /// </summary>
@@ -34557,11 +35013,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -34584,11 +35040,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String Type
         {
@@ -34612,7 +35068,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -34638,17 +35094,17 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
     }
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEntityTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "UserPermission")]
+    [EdmEntityTypeAttribute(NamespaceName="EventManagementSystemModel", Name="UserPermission")]
     [Serializable()]
-    [DataContractAttribute(IsReference = true)]
+    [DataContractAttribute(IsReference=true)]
     public partial class UserPermission : EntityObject
     {
         #region Factory Method
-
+    
         /// <summary>
         /// Create a new UserPermission object.
         /// </summary>
@@ -34667,11 +35123,11 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Simple Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = true, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid ID
         {
@@ -34694,11 +35150,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _ID;
         partial void OnIDChanging(global::System.Guid value);
         partial void OnIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid UserID
         {
@@ -34718,11 +35174,11 @@ namespace EventManagementSystem.Data.Model
         private global::System.Guid _UserID;
         partial void OnUserIDChanging(global::System.Guid value);
         partial void OnUserIDChanged();
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty = false, IsNullable = false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.Guid PermissionID
         {
@@ -34746,7 +35202,7 @@ namespace EventManagementSystem.Data.Model
         #endregion
 
         #region Navigation Properties
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -34784,7 +35240,7 @@ namespace EventManagementSystem.Data.Model
                 }
             }
         }
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
@@ -34830,11 +35286,11 @@ namespace EventManagementSystem.Data.Model
     #endregion
 
     #region Enums
-
+    
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
-    [EdmEnumTypeAttribute(NamespaceName = "EventManagementSystemModel", Name = "UpdateAction")]
+    [EdmEnumTypeAttribute(NamespaceName="EventManagementSystemModel", Name="UpdateAction")]
     [DataContractAttribute()]
     public enum UpdateAction : int
     {
@@ -34843,13 +35299,13 @@ namespace EventManagementSystem.Data.Model
         /// </summary>
         [EnumMemberAttribute()]
         Added = 0,
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
         [EnumMemberAttribute()]
         Edited = 1,
-
+    
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>

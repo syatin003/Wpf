@@ -15,5 +15,6 @@ namespace EventManagementSystem.Data.Repositories.Interfaces
         void Delete(Corresponcence entity);
         void Delete(IEnumerable<Corresponcence> entities);
         void Refresh();
+        void RevertChanges(bool isSaveOnClientRecord);
     }
 }

@@ -7,8 +7,11 @@ using System.Net.Mail;
 using System.Net.Mime;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Navigation;
 using Telerik.Windows.Controls;
+using Telerik.Windows.Controls.Navigation;
 
 namespace EventManagementSystem.Views.Membership
 {
@@ -17,40 +20,20 @@ namespace EventManagementSystem.Views.Membership
     /// </summary>
     public partial class SendEmailPreView : RadWindow
     {
-        //private readonly SendEmailPreViewModel _viewModel;
+        private readonly SendEmailPreViewModel _viewModel;
 
-        public SendEmailPreView(CorrespondenceModel correspondence, string mainTemplate = null)
+        public SendEmailPreView(CorrespondenceModel correspondence, string message, string mainTemplate = null)
         {
             InitializeComponent();
-            //DataContext = _viewModel = new SendEmailPreViewModel(correspondence);
-
+            DataContext = _viewModel = new SendEmailPreViewModel(correspondence, message, mainTemplate);
+            RadWindowInteropHelper.SetAllowTransparency(this, false);
+            Loaded += SendEmailPreView_Loaded;
             Owner = Application.Current.MainWindow;
-            if (mainTemplate != null)
-            {
-                String messageBody = mainTemplate;
-                messageBody = messageBody
-                    .Replace("{#EmailHeader}", correspondence.Correspondence.EmailHeader != null && correspondence.Correspondence.EmailHeader.Content != null ? correspondence.Correspondence.EmailHeader.Content : string.Empty)
-                    .Replace("{#EmailFooter}", Properties.Settings.Default.CRMEmailFooter)
-                    .Replace("{#TemplateColor}", HexColorCodeFromRGB(Properties.Settings.Default.CRMEmailTemplateColor))
-                    //.Replace("{#TemplateColor}", Properties.Settings.Default.CRMEmailTemplateColor != String.Empty ? Properties.Settings.Default.CRMEmailTemplateColor : "#550055")
-                    .Replace("{#Date}", String.Format("{0:dddd dd MMMM}", DateTime.Now))
-                    .Replace("{#InternalTemplate}", correspondence.Message)
-                    .Replace("{#HeaderImage}", "cid:headerImage")
-                    .Replace("{#FooterImage}", "cid:footerImage");
-                webBrowserEmailPreView.NavigateToString(messageBody);
-            }
-
-            else
-                webBrowserEmailPreView.NavigateToString(correspondence.Message);
         }
 
-        private string HexColorCodeFromRGB(string rgbCode)
+        private void SendEmailPreView_Loaded(object sender, RoutedEventArgs e)
         {
-            if (rgbCode == string.Empty)
-                rgbCode = Colors.Purple.ToString();
-            rgbCode = rgbCode.Substring(3);
-            return String.Format("#{0}", rgbCode);
+           _browser.NavigateToString(_viewModel.Message);
         }
-
     }
 }

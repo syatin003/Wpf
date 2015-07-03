@@ -347,7 +347,7 @@ namespace EventManagementSystem.ViewModels.CRM.NewEnquiryTabs.FollowUp
                         Message = msg,
                     });
 
-                    await EmailService.SendEmail(email);
+                    await EmailService.SendEmail(email,null,null);
                     if (AreEnquiriesVisible)
                     {
                         _originalEnquiry = SelectedEnquiry.Clone();
